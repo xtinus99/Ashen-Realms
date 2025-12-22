@@ -115,175 +115,111 @@ body {
     opacity: 0.4;
 }
 
-/* === SMOKE EFFECT === */
+/* === SMOKE EFFECT (Static, no animation for performance) === */
 .bg-smoke {
     position: absolute;
     inset: 0;
-    overflow: hidden;
-    opacity: 0.4;
-}
-
-.bg-smoke::before,
-.bg-smoke::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
     background:
-        radial-gradient(ellipse 40% 30% at 20% 50%, rgba(58, 58, 69, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse 35% 25% at 60% 30%, rgba(82, 82, 94, 0.2) 0%, transparent 50%),
-        radial-gradient(ellipse 45% 35% at 80% 70%, rgba(38, 38, 46, 0.25) 0%, transparent 50%);
-    animation: smoke-drift 40s ease-in-out infinite;
+        radial-gradient(ellipse 80% 60% at 10% 20%, rgba(80, 80, 95, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 50% at 85% 50%, rgba(100, 100, 115, 0.35) 0%, transparent 45%),
+        radial-gradient(ellipse 90% 70% at 50% 90%, rgba(60, 60, 75, 0.45) 0%, transparent 40%),
+        radial-gradient(ellipse 50% 40% at 30% 60%, rgba(70, 70, 85, 0.3) 0%, transparent 50%);
+    opacity: 1;
 }
 
-.bg-smoke::after {
-    animation: smoke-drift-reverse 35s ease-in-out infinite;
-    opacity: 0.6;
-}
-
-@keyframes smoke-drift {
-    0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
-    25% { transform: translate(-5%, -15%) rotate(2deg); }
-    50% { transform: translate(-15%, -5%) rotate(-1deg); }
-    75% { transform: translate(-8%, -12%) rotate(1deg); }
-}
-
-@keyframes smoke-drift-reverse {
-    0%, 100% { transform: translate(-5%, -5%) rotate(0deg); }
-    33% { transform: translate(-12%, -8%) rotate(-2deg); }
-    66% { transform: translate(-3%, -12%) rotate(1deg); }
-}
-
-/* === BONE & ROT BORDER EFFECTS === */
+/* === BONE & ROT BORDER EFFECTS (Static) === */
 .bg-bones {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    overflow: hidden;
 }
 
-/* Left edge bones */
+/* Left edge - bone texture */
 .bg-bones::before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 80px;
+    width: 120px;
     background:
-        linear-gradient(90deg, rgba(8, 8, 10, 0.95) 0%, transparent 100%),
-        repeating-linear-gradient(
-            180deg,
+        linear-gradient(90deg,
+            rgba(200, 190, 167, 0.15) 0%,
+            rgba(180, 170, 147, 0.1) 20%,
+            rgba(160, 150, 127, 0.05) 50%,
+            transparent 100%),
+        repeating-linear-gradient(180deg,
             transparent 0px,
-            transparent 60px,
-            rgba(200, 190, 167, 0.03) 60px,
-            rgba(200, 190, 167, 0.05) 62px,
-            rgba(200, 190, 167, 0.03) 64px,
-            transparent 64px,
-            transparent 80px
-        ),
-        repeating-linear-gradient(
-            170deg,
-            transparent 0px,
-            transparent 100px,
-            rgba(139, 30, 63, 0.04) 100px,
-            rgba(139, 30, 63, 0.06) 103px,
-            transparent 106px
-        );
-    mask-image: linear-gradient(90deg, black 0%, transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, black 0%, transparent 100%);
+            rgba(200, 190, 167, 0.03) 2px,
+            transparent 4px,
+            transparent 20px);
+    border-right: 2px solid rgba(200, 190, 167, 0.1);
 }
 
-/* Right edge rot/decay */
+/* Right edge - rot/decay texture */
 .bg-bones::after {
     content: '';
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 100px;
+    width: 150px;
     background:
-        linear-gradient(270deg, rgba(8, 8, 10, 0.95) 0%, transparent 100%),
-        repeating-linear-gradient(
-            175deg,
+        linear-gradient(270deg,
+            rgba(70, 100, 50, 0.2) 0%,
+            rgba(90, 120, 60, 0.12) 15%,
+            rgba(139, 30, 63, 0.08) 40%,
+            transparent 100%),
+        repeating-linear-gradient(180deg,
             transparent 0px,
-            transparent 40px,
-            rgba(70, 90, 50, 0.04) 40px,
-            rgba(70, 90, 50, 0.06) 42px,
-            transparent 44px
-        ),
-        repeating-linear-gradient(
-            185deg,
-            transparent 0px,
-            transparent 70px,
-            rgba(139, 30, 63, 0.03) 70px,
-            rgba(100, 60, 40, 0.05) 73px,
-            transparent 76px
-        );
-    mask-image: linear-gradient(270deg, black 0%, transparent 100%);
-    -webkit-mask-image: linear-gradient(270deg, black 0%, transparent 100%);
+            rgba(70, 100, 50, 0.04) 3px,
+            transparent 6px,
+            transparent 30px);
+    border-left: 2px solid rgba(70, 100, 50, 0.15);
 }
 
-/* Bottom edge decay */
+/* Bottom edge decay - creeping rot */
 .bg-rot-bottom {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 120px;
+    height: 180px;
     background:
-        linear-gradient(0deg, rgba(8, 8, 10, 0.98) 0%, transparent 100%),
-        repeating-linear-gradient(
-            90deg,
+        linear-gradient(0deg,
+            rgba(50, 70, 40, 0.3) 0%,
+            rgba(70, 90, 50, 0.2) 20%,
+            rgba(139, 30, 63, 0.1) 50%,
+            transparent 100%),
+        repeating-linear-gradient(90deg,
             transparent 0px,
-            transparent 30px,
-            rgba(70, 90, 50, 0.03) 30px,
-            rgba(50, 70, 40, 0.04) 32px,
-            transparent 34px
-        ),
-        repeating-linear-gradient(
-            85deg,
-            transparent 0px,
-            transparent 50px,
-            rgba(200, 190, 167, 0.02) 50px,
-            rgba(200, 190, 167, 0.03) 52px,
-            transparent 54px
-        );
-    mask-image: linear-gradient(0deg, black 0%, transparent 100%);
-    -webkit-mask-image: linear-gradient(0deg, black 0%, transparent 100%);
+            rgba(50, 70, 40, 0.05) 2px,
+            transparent 4px,
+            transparent 40px);
+    border-top: 2px solid rgba(70, 100, 50, 0.12);
 }
 
-/* Floating particles */
+/* Static dust/ash particles */
 .bg-particles {
     position: absolute;
     inset: 0;
-    overflow: hidden;
-}
-
-.bg-particles::before {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(200, 190, 167, 0.15);
-    border-radius: 50%;
-    top: 20%;
-    left: 15%;
-    box-shadow:
-        calc(20vw) calc(30vh) 0 rgba(200, 190, 167, 0.1),
-        calc(45vw) calc(15vh) 0 rgba(200, 190, 167, 0.08),
-        calc(70vw) calc(45vh) 0 rgba(200, 190, 167, 0.12),
-        calc(85vw) calc(25vh) 0 rgba(139, 30, 63, 0.1),
-        calc(30vw) calc(60vh) 0 rgba(200, 190, 167, 0.06),
-        calc(60vw) calc(75vh) 0 rgba(139, 30, 63, 0.08),
-        calc(10vw) calc(80vh) 0 rgba(200, 190, 167, 0.1),
-        calc(90vw) calc(65vh) 0 rgba(200, 190, 167, 0.07);
-    animation: particle-float 20s ease-in-out infinite;
-}
-
-@keyframes particle-float {
-    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-    50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+    background-image:
+        radial-gradient(2px 2px at 20vw 30vh, rgba(200, 190, 167, 0.5), transparent),
+        radial-gradient(3px 3px at 45vw 15vh, rgba(200, 190, 167, 0.4), transparent),
+        radial-gradient(2px 2px at 70vw 45vh, rgba(200, 190, 167, 0.55), transparent),
+        radial-gradient(3px 3px at 85vw 25vh, rgba(139, 30, 63, 0.45), transparent),
+        radial-gradient(2px 2px at 30vw 60vh, rgba(200, 190, 167, 0.35), transparent),
+        radial-gradient(2px 2px at 60vw 75vh, rgba(139, 30, 63, 0.4), transparent),
+        radial-gradient(3px 3px at 10vw 80vh, rgba(200, 190, 167, 0.5), transparent),
+        radial-gradient(2px 2px at 90vw 65vh, rgba(200, 190, 167, 0.35), transparent),
+        radial-gradient(2px 2px at 55vw 40vh, rgba(200, 190, 167, 0.3), transparent),
+        radial-gradient(3px 3px at 25vw 85vh, rgba(139, 30, 63, 0.35), transparent),
+        radial-gradient(2px 2px at 15vw 50vh, rgba(200, 190, 167, 0.4), transparent),
+        radial-gradient(2px 2px at 75vw 20vh, rgba(200, 190, 167, 0.45), transparent),
+        radial-gradient(3px 3px at 40vw 70vh, rgba(70, 100, 50, 0.35), transparent),
+        radial-gradient(2px 2px at 65vw 55vh, rgba(200, 190, 167, 0.3), transparent),
+        radial-gradient(2px 2px at 5vw 35vh, rgba(139, 30, 63, 0.3), transparent),
+        radial-gradient(3px 3px at 95vw 85vh, rgba(70, 100, 50, 0.4), transparent);
 }
 
 /* === LAYOUT === */
