@@ -15,7 +15,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupKeyboardShortcuts();
     setupLogoClick();
     lucide.createIcons();
-    showWelcome();
+
+    // Check for URL hash to restore state
+    if (!restoreFromHash()) {
+        showWelcome();
+    }
+
+    // Listen for back/forward navigation
+    window.addEventListener('hashchange', () => {
+        restoreFromHash();
+    });
 });
 
 function setupLogoClick() {
@@ -28,6 +37,42 @@ function setupLogoClick() {
             document.getElementById('sidebar').classList.remove('open');
         });
     }
+}
+
+// ===== URL HASH PERSISTENCE =====
+function updateHash(category = null, itemId = null) {
+    if (category && itemId) {
+        window.location.hash = `${encodeURIComponent(category)}/${encodeURIComponent(itemId)}`;
+    } else if (category) {
+        window.location.hash = encodeURIComponent(category);
+    } else {
+        history.replaceState(null, '', window.location.pathname);
+    }
+}
+
+function restoreFromHash() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return false;
+
+    const parts = hash.split('/').map(decodeURIComponent);
+    const categoryName = parts[0];
+    const itemId = parts[1];
+
+    if (!data[categoryName]) return false;
+
+    if (itemId) {
+        const item = data[categoryName].items.find(i => i.id === itemId);
+        if (item) {
+            const navItem = document.querySelector(`.nav-item[data-id="${itemId}"]`);
+            showItem(categoryName, item, navItem, true); // true = skip hash update
+            return true;
+        }
+    } else {
+        openCategory(categoryName, true); // true = skip hash update
+        return true;
+    }
+
+    return false;
 }
 
 async function loadData() {
@@ -64,11 +109,8 @@ function buildNavigation() {
             <i data-lucide="chevron-down" class="chevron"></i>
         `;
         header.addEventListener('click', () => {
-            // Close other categories
-            document.querySelectorAll('.nav-category.open').forEach(c => {
-                if (c !== category) c.classList.remove('open');
-            });
-            category.classList.toggle('open');
+            // Open the category overview page
+            openCategory(categoryName);
         });
 
         const items = document.createElement('div');
@@ -99,6 +141,9 @@ function showWelcome() {
     currentItem = null;
     currentCategory = null;
 
+    // Clear URL hash
+    updateHash();
+
     // Update breadcrumb
     document.getElementById('breadcrumb').innerHTML = `
         <span class="breadcrumb-home">Compendium</span>
@@ -106,6 +151,7 @@ function showWelcome() {
 
     // Clear active states
     document.querySelectorAll('.nav-item.active').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-category.open').forEach(el => el.classList.remove('open'));
 
     // Calculate stats
     let stats = {};
@@ -153,12 +199,17 @@ function showWelcome() {
 }
 
 // ===== CATEGORY OVERVIEW =====
-function openCategory(categoryName) {
+function openCategory(categoryName, skipHash = false) {
     const categoryData = data[categoryName];
     if (!categoryData) return;
 
     currentItem = null;
     currentCategory = categoryName;
+
+    // Update URL hash
+    if (!skipHash) {
+        updateHash(categoryName);
+    }
 
     // Open the sidebar category
     document.querySelectorAll('.nav-category.open').forEach(c => c.classList.remove('open'));
@@ -245,9 +296,14 @@ function navigateToItemById(categoryName, itemId) {
 }
 
 // ===== ARTICLE DISPLAY =====
-function showItem(categoryName, item, navElement = null) {
+function showItem(categoryName, item, navElement = null, skipHash = false) {
     currentItem = item;
     currentCategory = categoryName;
+
+    // Update URL hash
+    if (!skipHash) {
+        updateHash(categoryName, item.id);
+    }
 
     // Update active state in navigation
     document.querySelectorAll('.nav-item.active').forEach(el => el.classList.remove('active'));
@@ -266,7 +322,7 @@ function showItem(categoryName, item, navElement = null) {
     document.getElementById('breadcrumb').innerHTML = `
         <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
         <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-current">${categoryName}</span>
+        <span class="breadcrumb-category" style="cursor:pointer" onclick="openCategory('${categoryName}')">${categoryName}</span>
         <span class="breadcrumb-sep">/</span>
         <span class="breadcrumb-current">${item.title}</span>
     `;
