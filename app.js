@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupMobileMenu();
     setupKeyboardShortcuts();
     setupLogoClick();
+    setupLightbox();
     lucide.createIcons();
 
     // Check for URL hash to restore state
@@ -55,6 +56,38 @@ function setupLogoClick() {
             }, 500);
         });
     }
+}
+
+// ===== IMAGE LIGHTBOX =====
+function setupLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    // Close lightbox handlers
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+    };
+
+    lightboxBackdrop.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+
+    // Delegate click events on content body for images
+    document.getElementById('content-body').addEventListener('click', (e) => {
+        if (e.target.tagName === 'IMG') {
+            lightboxImg.src = e.target.src;
+            lightboxImg.alt = e.target.alt;
+            lightbox.classList.add('active');
+        }
+    });
 }
 
 // ===== URL HASH PERSISTENCE =====
