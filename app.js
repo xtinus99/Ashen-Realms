@@ -114,7 +114,7 @@ function showWelcome() {
     }
 
     const statsHtml = Object.entries(stats).map(([name, count]) => `
-        <div class="stat-card">
+        <div class="stat-card" data-category="${name}" onclick="openCategory('${name}')" style="cursor: pointer;">
             <div class="stat-number">${count}</div>
             <div class="stat-label">${name}</div>
         </div>
@@ -150,6 +150,98 @@ function showWelcome() {
     `;
 
     lucide.createIcons();
+}
+
+// ===== CATEGORY OVERVIEW =====
+function openCategory(categoryName) {
+    const categoryData = data[categoryName];
+    if (!categoryData) return;
+
+    currentItem = null;
+    currentCategory = categoryName;
+
+    // Open the sidebar category
+    document.querySelectorAll('.nav-category.open').forEach(c => c.classList.remove('open'));
+    const sidebarCategory = document.querySelector(`.nav-category[data-category="${categoryName}"]`);
+    if (sidebarCategory) {
+        sidebarCategory.classList.add('open');
+    }
+
+    // Clear active nav items
+    document.querySelectorAll('.nav-item.active').forEach(el => el.classList.remove('active'));
+
+    // Update breadcrumb
+    document.getElementById('breadcrumb').innerHTML = `
+        <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">${categoryName}</span>
+    `;
+
+    // Build item cards
+    const itemsHtml = categoryData.items.map(item => {
+        // Get a preview from the content (first paragraph or description)
+        let preview = '';
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = item.content;
+        const firstP = tempDiv.querySelector('p');
+        if (firstP) {
+            preview = firstP.textContent.substring(0, 120);
+            if (firstP.textContent.length > 120) preview += '...';
+        }
+
+        // Get meta info
+        let metaText = '';
+        if (item.frontmatter) {
+            const fm = item.frontmatter;
+            if (fm.role) metaText = fm.role;
+            else if (fm.status) metaText = fm.status;
+            else if (fm.domain) metaText = fm.domain;
+            else if (fm.type) metaText = fm.type;
+            else if (fm.organ) metaText = fm.organ;
+        }
+
+        return `
+            <div class="category-item-card" onclick="navigateToItemById('${categoryName}', '${item.id}')">
+                <h3 class="category-item-title">${item.title}</h3>
+                ${metaText ? `<div class="category-item-meta">${metaText}</div>` : ''}
+                ${preview ? `<p class="category-item-preview">${preview}</p>` : ''}
+            </div>
+        `;
+    }).join('');
+
+    document.getElementById('content-body').innerHTML = `
+        <div class="category-overview">
+            <header class="category-header">
+                <i data-lucide="${categoryData.info.icon || 'folder'}" class="category-icon"></i>
+                <div>
+                    <h1 class="category-title">${categoryName}</h1>
+                    <p class="category-description">${categoryData.info.description || ''}</p>
+                </div>
+            </header>
+            <div class="category-items-grid">
+                ${itemsHtml}
+            </div>
+        </div>
+    `;
+
+    lucide.createIcons();
+
+    // Close mobile sidebar
+    document.getElementById('sidebar').classList.remove('open');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function navigateToItemById(categoryName, itemId) {
+    const categoryData = data[categoryName];
+    if (!categoryData) return;
+
+    const item = categoryData.items.find(i => i.id === itemId);
+    if (item) {
+        const navItem = document.querySelector(`.nav-item[data-id="${itemId}"]`);
+        showItem(categoryName, item, navItem);
+    }
 }
 
 // ===== ARTICLE DISPLAY =====

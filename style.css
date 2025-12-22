@@ -1228,3 +1228,102 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* === CATEGORY OVERVIEW === */
+.category-overview {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.category-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--blood-glow);
+    flex-shrink: 0;
+}
+
+.category-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--parchment);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.category-description {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.category-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.category-item-card {
+    background: linear-gradient(180deg, var(--ash) 0%, var(--shadow) 100%);
+    border: 1px solid var(--border-normal);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.category-item-card:hover {
+    border-color: var(--blood);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.2);
+}
+
+.category-item-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--bone);
+    margin-bottom: var(--spacing-xs);
+}
+
+.category-item-meta {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    color: var(--blood-glow);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.category-item-preview {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+    }
+
+    .category-items-grid {
+        grid-template-columns: 1fr;
+    }
+}
