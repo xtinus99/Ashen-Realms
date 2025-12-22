@@ -29,12 +29,30 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function setupLogoClick() {
     const logo = document.querySelector('.logo-container');
+    const skull = document.getElementById('skull-icon');
+
     if (logo) {
         logo.style.cursor = 'pointer';
-        logo.addEventListener('click', () => {
+        logo.addEventListener('click', (e) => {
+            // Don't navigate if clicking the skull itself
+            if (skull && skull.contains(e.target)) {
+                return;
+            }
             showWelcome();
             // Close mobile sidebar if open
             document.getElementById('sidebar').classList.remove('open');
+        });
+    }
+
+    // Skull click animation
+    if (skull) {
+        skull.addEventListener('click', (e) => {
+            e.stopPropagation();
+            skull.classList.add('laughing');
+            // Remove class after animation completes
+            setTimeout(() => {
+                skull.classList.remove('laughing');
+            }, 500);
         });
     }
 }
