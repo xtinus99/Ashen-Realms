@@ -13,9 +13,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupSearch();
     setupMobileMenu();
     setupKeyboardShortcuts();
+    setupLogoClick();
     lucide.createIcons();
     showWelcome();
 });
+
+function setupLogoClick() {
+    const logo = document.querySelector('.logo-container');
+    if (logo) {
+        logo.style.cursor = 'pointer';
+        logo.addEventListener('click', () => {
+            showWelcome();
+            // Close mobile sidebar if open
+            document.getElementById('sidebar').classList.remove('open');
+        });
+    }
+}
 
 async function loadData() {
     try {
