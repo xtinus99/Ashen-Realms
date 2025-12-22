@@ -127,8 +127,18 @@ function buildNavigation() {
             <i data-lucide="chevron-down" class="chevron"></i>
         `;
         header.addEventListener('click', () => {
-            // Open the category overview page
-            openCategory(categoryName);
+            // If already open, just toggle closed
+            if (category.classList.contains('open')) {
+                category.classList.remove('open');
+            } else {
+                // Close other categories and open this one
+                document.querySelectorAll('.nav-category.open').forEach(c => {
+                    if (c !== category) c.classList.remove('open');
+                });
+                category.classList.add('open');
+                // Open the category overview page
+                openCategory(categoryName);
+            }
         });
 
         const items = document.createElement('div');
