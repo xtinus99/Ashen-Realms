@@ -1438,3 +1438,26 @@ body {
     transform: scale(1.02);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+
+/* NPC Portrait styling */
+.npc-portrait {
+    float: right;
+    margin: 0 0 1rem 1.5rem;
+    max-width: 250px;
+}
+
+.npc-portrait img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+    .npc-portrait {
+        float: none;
+        margin: 0 auto 1rem;
+        max-width: 200px;
+    }
+}
