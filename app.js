@@ -60,15 +60,25 @@ function playNextTrack() {
     audio.play();
 }
 
+function updateSliderFill(slider) {
+    const value = slider.value;
+    const percent = (value / slider.max) * 100;
+    slider.style.background = `linear-gradient(to right, #8b2d2d 0%, #8b2d2d ${percent}%, rgba(255, 255, 255, 0.2) ${percent}%, rgba(255, 255, 255, 0.2) 100%)`;
+}
+
 function setupAudioControls() {
     const volumeSlider = document.getElementById('volume-slider');
     const muteBtn = document.getElementById('mute-btn');
+
+    // Initialize slider fill
+    updateSliderFill(volumeSlider);
 
     volumeSlider.addEventListener('input', (e) => {
         const volume = e.target.value / 100;
         audio.volume = volume;
         savedVolume = volume;
         localStorage.setItem('audioVolume', volume);
+        updateSliderFill(e.target);
 
         if (volume === 0) {
             isMuted = true;
