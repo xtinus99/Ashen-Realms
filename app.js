@@ -11,7 +11,9 @@ const audioTracks = [
     'Track 1.mp3',
     'Track 2.mp3',
     'Track 3.mp3',
-    'Track 4.mp3'
+    'Track 4.mp3',
+    'Track 5.mp3',
+    'Track 6.mp3'
 ];
 
 let audio = null;
@@ -20,28 +22,34 @@ let isMuted = false;
 let savedVolume = 0.3;
 
 function initAudio() {
-    // Shuffle tracks and pick a random starting point
-    currentTrackIndex = Math.floor(Math.random() * audioTracks.length);
-
-    audio = new Audio(audioTracks[currentTrackIndex]);
-    audio.volume = savedVolume;
-
-    // Load saved preferences
+    // Load saved preferences first
     const savedMuted = localStorage.getItem('audioMuted');
     const savedVol = localStorage.getItem('audioVolume');
 
     if (savedMuted === 'true') {
         isMuted = true;
-        audio.muted = true;
     }
     if (savedVol !== null) {
         savedVolume = parseFloat(savedVol);
-        audio.volume = savedVolume;
         document.getElementById('volume-slider').value = savedVolume * 100;
     }
 
+    // Shuffle tracks and pick a random starting point
+    currentTrackIndex = Math.floor(Math.random() * audioTracks.length);
+
+    audio = new Audio(audioTracks[currentTrackIndex]);
+    audio.volume = savedVolume;
+    audio.muted = isMuted;
+    audio.loop = false;
+
     // When track ends, play next random track
     audio.addEventListener('ended', () => {
+        playNextTrack();
+    });
+
+    // Handle audio errors - try next track
+    audio.addEventListener('error', () => {
+        console.log('Audio error, trying next track...');
         playNextTrack();
     });
 
@@ -98,15 +106,31 @@ function setupAudioControls() {
     });
 
     // Start audio on first user interaction (browser autoplay policy)
+    let audioStarted = false;
     const startAudio = () => {
-        if (audio.paused && !isMuted) {
-            audio.play().catch(() => {}); // Ignore errors
+        if (!audioStarted && audio.paused && !isMuted) {
+            audio.play().then(() => {
+                audioStarted = true;
+                document.removeEventListener('click', startAudio);
+                document.removeEventListener('keydown', startAudio);
+                document.removeEventListener('touchstart', startAudio);
+            }).catch((e) => {
+                console.log('Audio play failed, will retry on next interaction:', e);
+            });
         }
-        document.removeEventListener('click', startAudio);
-        document.removeEventListener('keydown', startAudio);
     };
     document.addEventListener('click', startAudio);
     document.addEventListener('keydown', startAudio);
+    document.addEventListener('touchstart', startAudio);
+
+    // Also try to play when audio is loaded
+    audio.addEventListener('canplaythrough', () => {
+        if (!audioStarted && !isMuted) {
+            audio.play().then(() => {
+                audioStarted = true;
+            }).catch(() => {}); // May fail due to autoplay policy, that's ok
+        }
+    });
 }
 
 function updateMuteIcon() {
