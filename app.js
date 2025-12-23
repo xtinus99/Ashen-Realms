@@ -6,6 +6,116 @@ let data = {};
 let currentItem = null;
 let currentCategory = null;
 
+// ===== AUDIO PLAYER =====
+const audioTracks = [
+    'Track 1.mp3',
+    'Track 2.mp3',
+    'Track 3.mp3',
+    'Track 4.mp3'
+];
+
+let audio = null;
+let currentTrackIndex = 0;
+let isMuted = false;
+let savedVolume = 0.3;
+
+function initAudio() {
+    // Shuffle tracks and pick a random starting point
+    currentTrackIndex = Math.floor(Math.random() * audioTracks.length);
+
+    audio = new Audio(audioTracks[currentTrackIndex]);
+    audio.volume = savedVolume;
+
+    // Load saved preferences
+    const savedMuted = localStorage.getItem('audioMuted');
+    const savedVol = localStorage.getItem('audioVolume');
+
+    if (savedMuted === 'true') {
+        isMuted = true;
+        audio.muted = true;
+    }
+    if (savedVol !== null) {
+        savedVolume = parseFloat(savedVol);
+        audio.volume = savedVolume;
+        document.getElementById('volume-slider').value = savedVolume * 100;
+    }
+
+    // When track ends, play next random track
+    audio.addEventListener('ended', () => {
+        playNextTrack();
+    });
+
+    updateMuteIcon();
+}
+
+function playNextTrack() {
+    // Pick a different random track
+    let nextIndex;
+    do {
+        nextIndex = Math.floor(Math.random() * audioTracks.length);
+    } while (nextIndex === currentTrackIndex && audioTracks.length > 1);
+
+    currentTrackIndex = nextIndex;
+    audio.src = audioTracks[currentTrackIndex];
+    audio.play();
+}
+
+function setupAudioControls() {
+    const volumeSlider = document.getElementById('volume-slider');
+    const muteBtn = document.getElementById('mute-btn');
+
+    volumeSlider.addEventListener('input', (e) => {
+        const volume = e.target.value / 100;
+        audio.volume = volume;
+        savedVolume = volume;
+        localStorage.setItem('audioVolume', volume);
+
+        if (volume === 0) {
+            isMuted = true;
+        } else {
+            isMuted = false;
+            audio.muted = false;
+        }
+        localStorage.setItem('audioMuted', isMuted);
+        updateMuteIcon();
+    });
+
+    muteBtn.addEventListener('click', () => {
+        isMuted = !isMuted;
+        audio.muted = isMuted;
+        localStorage.setItem('audioMuted', isMuted);
+        updateMuteIcon();
+    });
+
+    // Start audio on first user interaction (browser autoplay policy)
+    const startAudio = () => {
+        if (audio.paused && !isMuted) {
+            audio.play().catch(() => {}); // Ignore errors
+        }
+        document.removeEventListener('click', startAudio);
+        document.removeEventListener('keydown', startAudio);
+    };
+    document.addEventListener('click', startAudio);
+    document.addEventListener('keydown', startAudio);
+}
+
+function updateMuteIcon() {
+    const muteBtn = document.getElementById('mute-btn');
+    const volumeIcon = document.getElementById('volume-icon');
+
+    if (isMuted || audio.volume === 0) {
+        volumeIcon.setAttribute('data-lucide', 'volume-x');
+        muteBtn.classList.add('muted');
+    } else if (audio.volume < 0.5) {
+        volumeIcon.setAttribute('data-lucide', 'volume-1');
+        muteBtn.classList.remove('muted');
+    } else {
+        volumeIcon.setAttribute('data-lucide', 'volume-2');
+        muteBtn.classList.remove('muted');
+    }
+    lucide.createIcons();
+}
+
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', async () => {
     await loadData();
@@ -15,6 +125,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupKeyboardShortcuts();
     setupLogoClick();
     setupLightbox();
+    initAudio();
+    setupAudioControls();
     lucide.createIcons();
 
     // Check for URL hash to restore state
