@@ -1085,6 +1085,43 @@ body {
     background: rgba(200, 190, 167, 0.03);
 }
 
+/* Stat Block Table (D&D style) */
+.stat-block {
+    width: 100%;
+    max-width: 500px;
+    margin: var(--spacing-md) 0;
+    border-collapse: collapse;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    background: rgba(20, 18, 16, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.stat-block th {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--stone);
+    color: var(--gold-pale);
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px solid var(--blood);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.stat-block td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: center;
+    color: var(--text-normal);
+    border-right: 1px solid var(--border-subtle);
+    font-family: var(--font-ui);
+}
+
+.stat-block td:last-child {
+    border-right: none;
+}
+
 /* === SEARCH MODAL === */
 .search-modal {
     display: none;
