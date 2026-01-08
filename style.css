@@ -1550,6 +1550,7 @@ body {
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
     border-bottom: 1px solid var(--border-subtle);
+    clear: both;
 }
 
 .article-body h3 {
@@ -1673,6 +1674,34 @@ body {
 .callout-scene .callout-title { background: rgba(168, 162, 158, 0.15); color: var(--bone); }
 
 /* Tables */
+.article-body table {
+    width: 100%;
+    margin: var(--spacing-lg) 0;
+    border-collapse: collapse;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    clear: both;
+}
+
+.article-body table th,
+.article-body table td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-normal);
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.article-body table th {
+    background: var(--stone);
+    color: var(--bone);
+    font-weight: 600;
+}
+
+.article-body table tr:hover td {
+    background: rgba(200, 190, 167, 0.03);
+}
+
 .data-table {
     width: 100%;
     margin: var(--spacing-lg) 0;
@@ -2122,8 +2151,9 @@ body {
     height: auto !important;
     float: none !important;
     margin: 0 !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
     object-fit: contain;
-    border-radius: var(--radius-md);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
