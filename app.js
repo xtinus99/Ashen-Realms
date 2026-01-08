@@ -528,6 +528,21 @@ function buildWikiIndex() {
     // Categories where first names should also be indexed
     const firstNameCategories = ['Party', 'NPCs'];
 
+    // First pass: collect all first names to detect duplicates
+    const firstNameCount = {};
+    for (const [categoryName, categoryData] of Object.entries(data)) {
+        if (firstNameCategories.includes(categoryName)) {
+            for (const item of categoryData.items) {
+                const parts = item.title.split(' ');
+                if (parts.length >= 2 && parts[0] !== 'The' && parts[0].length > 2) {
+                    const firstName = parts[0];
+                    firstNameCount[firstName] = (firstNameCount[firstName] || 0) + 1;
+                }
+            }
+        }
+    }
+
+    // Second pass: build the index
     for (const [categoryName, categoryData] of Object.entries(data)) {
         for (const item of categoryData.items) {
             wikiIndex.push({
@@ -536,14 +551,13 @@ function buildWikiIndex() {
                 category: categoryName
             });
 
-            // For Party and NPCs, also index first name as alias
+            // For Party and NPCs, also index first name as alias (only if unique)
             if (firstNameCategories.includes(categoryName)) {
                 const parts = item.title.split(' ');
-                // Only add first name if it's a multi-word name and first part is a name (not "The")
                 if (parts.length >= 2 && parts[0] !== 'The' && parts[0].length > 2) {
                     const firstName = parts[0];
-                    // Don't add if first name is same as full title
-                    if (firstName !== item.title) {
+                    // Only add if first name is unique (not shared by multiple characters)
+                    if (firstName !== item.title && firstNameCount[firstName] === 1) {
                         wikiIndex.push({
                             title: firstName,
                             id: item.id,
