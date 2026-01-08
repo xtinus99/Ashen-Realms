@@ -267,18 +267,15 @@ function setupLogoClick() {
     if (logo) {
         logo.style.cursor = 'pointer';
         logo.addEventListener('click', (e) => {
-            // Don't navigate if clicking the sigil itself
-            if (sigil && sigil.contains(e.target)) {
-                return;
-            }
             showWelcome();
             // Close mobile sidebar if open
             document.getElementById('sidebar').classList.remove('open');
         });
     }
 
-    // Sigil click animation - divine glow pulse
+    // Sigil click - navigate home with divine glow pulse animation
     if (sigil) {
+        sigil.style.cursor = 'pointer';
         sigil.addEventListener('click', (e) => {
             e.stopPropagation();
             sigil.classList.add('divine-pulse');
@@ -286,6 +283,10 @@ function setupLogoClick() {
             setTimeout(() => {
                 sigil.classList.remove('divine-pulse');
             }, 600);
+            // Navigate home
+            showWelcome();
+            // Close mobile sidebar if open
+            document.getElementById('sidebar').classList.remove('open');
         });
     }
 }
