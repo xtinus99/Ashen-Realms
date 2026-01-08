@@ -1052,7 +1052,7 @@ function showItem(categoryName, item, navElement = null, skipHash = false) {
     optimizeContentImages(contentBody);
 
     // Generate table of contents for long articles
-    generateTableOfContents(contentBody, categoryName);
+    generateTableOfContents(contentBody, categoryName, item.title);
 
     // Auto-link references to other entries
     const articleBody = contentBody.querySelector('.article-body');
@@ -1082,7 +1082,7 @@ function showItem(categoryName, item, navElement = null, skipHash = false) {
 }
 
 // ===== TABLE OF CONTENTS =====
-function generateTableOfContents(contentBody, categoryName) {
+function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
     const articleBody = contentBody.querySelector('.article-body');
     if (!articleBody) return;
 
@@ -1108,13 +1108,17 @@ function generateTableOfContents(contentBody, categoryName) {
         `;
     }).join('');
 
-    // For NPCs and Creatures, check if there's an image to place beside TOC
-    const shouldWrapWithImage = ['NPCs', 'Creatures'].includes(categoryName);
+    // Categories that should have image beside TOC
+    const imageCategories = ['Party', 'NPCs', 'Locations', 'Creatures', 'Items', 'Lore'];
+    // Specific items to exclude from image wrapping
+    const excludeItems = ['The Silken Refuge'];
+
+    const shouldWrapWithImage = imageCategories.includes(categoryName) && !excludeItems.includes(itemTitle);
     let firstImage = null;
 
     if (shouldWrapWithImage) {
-        // Find the first image (npc-portrait or content-image)
-        firstImage = articleBody.querySelector('.npc-portrait, img.content-image');
+        // Find the first image (npc-portrait, content-image, or any img)
+        firstImage = articleBody.querySelector('.npc-portrait, img.content-image, img');
         if (firstImage) {
             firstImage.remove();
         }
