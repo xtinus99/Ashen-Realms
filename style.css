@@ -2116,8 +2116,12 @@ body {
 }
 
 .lightbox-content img {
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    width: auto !important;
+    height: auto !important;
+    float: none !important;
+    margin: 0 !important;
     object-fit: contain;
     border-radius: var(--radius-md);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
