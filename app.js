@@ -644,8 +644,9 @@ function autoLinkWikiReferences(articleBody, currentItemTitle) {
 
             // Create a regex that matches the title as a whole word
             // Use word boundaries but also allow for possessives ('s)
+            // Negative lookbehind (?<!') prevents matching after apostrophe (e.g., "Kael" in "Vor'Kael")
             const escapedTitle = entry.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`\\b(${escapedTitle})(?:'s)?\\b`, 'gi');
+            const regex = new RegExp(`(?<!')\\b(${escapedTitle})(?:'s)?\\b`, 'gi');
 
             let match;
             while ((match = regex.exec(text)) !== null) {
