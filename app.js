@@ -524,6 +524,10 @@ let wikiIndex = [];
 
 function buildWikiIndex() {
     wikiIndex = [];
+
+    // Categories where first names should also be indexed
+    const firstNameCategories = ['Party', 'NPCs'];
+
     for (const [categoryName, categoryData] of Object.entries(data)) {
         for (const item of categoryData.items) {
             wikiIndex.push({
@@ -531,6 +535,25 @@ function buildWikiIndex() {
                 id: item.id,
                 category: categoryName
             });
+
+            // For Party and NPCs, also index first name as alias
+            if (firstNameCategories.includes(categoryName)) {
+                const parts = item.title.split(' ');
+                // Only add first name if it's a multi-word name and first part is a name (not "The")
+                if (parts.length >= 2 && parts[0] !== 'The' && parts[0].length > 2) {
+                    const firstName = parts[0];
+                    // Don't add if first name is same as full title
+                    if (firstName !== item.title) {
+                        wikiIndex.push({
+                            title: firstName,
+                            id: item.id,
+                            category: categoryName,
+                            isAlias: true,
+                            fullTitle: item.title
+                        });
+                    }
+                }
+            }
         }
         // Also index subcategory items if they exist
         if (categoryData.subcategories) {
@@ -627,7 +650,7 @@ function autoLinkWikiReferences(articleBody, currentItemTitle) {
                         start: start,
                         end: end,
                         matched: match[0],
-                        title: entry.title,
+                        title: entry.fullTitle || entry.title,
                         id: entry.id,
                         category: entry.category
                     });
