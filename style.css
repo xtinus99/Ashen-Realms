@@ -1598,6 +1598,21 @@ body {
     border-bottom-color: var(--gold-pale);
 }
 
+/* Wiki Links - Internal cross-references */
+.wiki-link {
+    color: var(--gold);
+    cursor: pointer;
+    border-bottom: 1px dotted var(--gold-deep);
+    transition: all var(--transition-fast);
+}
+
+.wiki-link:hover {
+    color: var(--gold-bright);
+    border-bottom-style: solid;
+    border-bottom-color: var(--gold-bright);
+    text-shadow: 0 0 8px rgba(232, 192, 64, 0.3);
+}
+
 .article-body ul, .article-body ol {
     margin: var(--spacing-md) 0;
     padding-left: var(--spacing-lg);
