@@ -210,7 +210,22 @@ const footerQuotes = [
     "The void whispers secrets to those who listen.",
     "Walk softly in the realm of fallen divinity.",
     "Something ancient stirs in the ash and bone.",
-    "Between shadow and flame, truth awaits."
+    "Between shadow and flame, truth awaits.",
+    "Every sovereign casts a long shadow.",
+    "The faithful pray. The wise prepare.",
+    "Blood remembers what flesh forgets.",
+    "In the silence between heartbeats, they listen.",
+    "All roads lead to ruin. Choose yours carefully.",
+    "The dead do not stay buried in these lands.",
+    "Power has a price. Divinity demands more.",
+    "What was torn asunder seeks to be whole.",
+    "Trust is a currency spent only once.",
+    "The throne room echoes with the screams of gods.",
+    "Some doors, once opened, cannot be closed.",
+    "Memory is the cruelest wound.",
+    "They divided a god. They became monsters.",
+    "Hope is the last lie we tell ourselves.",
+    "The Usurpation was not the end. It was the beginning."
 ];
 
 function setupDynamicQuotes() {
@@ -261,19 +276,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function setupLogoClick() {
-    const logo = document.querySelector('.logo-container');
     const sigil = document.getElementById('sigil-icon');
 
-    if (logo) {
-        logo.style.cursor = 'pointer';
-        logo.addEventListener('click', (e) => {
-            showWelcome();
-            // Close mobile sidebar if open
-            document.getElementById('sidebar').classList.remove('open');
-        });
-    }
-
-    // Sigil click - navigate home with divine glow pulse animation
+    // Only sigil click navigates home (with divine glow pulse animation)
     if (sigil) {
         sigil.style.cursor = 'pointer';
         sigil.addEventListener('click', (e) => {
