@@ -2133,8 +2133,11 @@ body {
 
 .lightbox-content {
     position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    height: 90vh;
     z-index: 1;
     transform: scale(0.9);
     transition: transform 0.3s ease;
@@ -2144,17 +2147,23 @@ body {
     transform: scale(1);
 }
 
-.lightbox-content img {
-    max-width: 90vw !important;
-    max-height: 90vh !important;
+.lightbox-content img,
+#lightbox-img {
+    max-width: 100% !important;
+    max-height: 100% !important;
     width: auto !important;
     height: auto !important;
     float: none !important;
     margin: 0 !important;
     border: none !important;
     border-radius: var(--radius-md) !important;
-    object-fit: contain;
+    object-fit: contain !important;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Force lightbox image to scale up to fill container */
+.lightbox.active .lightbox-content img {
+    min-height: 60vh;
 }
 
 .lightbox-close {
