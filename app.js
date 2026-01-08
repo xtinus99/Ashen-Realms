@@ -409,14 +409,15 @@ function setupLightbox() {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
     const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxContent = lightbox.querySelector('.lightbox-content');
 
     // Close lightbox handlers
     const closeLightbox = () => {
         lightbox.classList.remove('active');
     };
 
-    lightboxBackdrop.addEventListener('click', closeLightbox);
-    lightboxClose.addEventListener('click', closeLightbox);
+    // Close on clicking anywhere in the lightbox (backdrop, image, content area)
+    lightbox.addEventListener('click', closeLightbox);
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
