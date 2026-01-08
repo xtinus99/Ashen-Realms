@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ashen Realms</title>
+    <link rel="stylesheet" href="style.css?v=22">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Background Effects - Divine Battlefield Shrine -->
+    <div class="bg-effects">
+        <div class="bg-gradient"></div>
+        <div class="bg-noise"></div>
+        <div class="god-rays"></div>
+        <div class="bg-vignette"></div>
+
+        <!-- Rising Embers -->
+        <div class="ember-container">
+            <div class="ember ember-1"></div>
+            <div class="ember ember-2"></div>
+            <div class="ember ember-3"></div>
+            <div class="ember ember-4"></div>
+            <div class="ember ember-5"></div>
+        </div>
+
+        <!-- Smoke Clouds -->
+        <div class="smoke-layer">
+            <div class="smoke smoke-1"></div>
+            <div class="smoke smoke-2"></div>
+        </div>
+    </div>
+
+    <!-- Falling Ashes Effect (Video overlay) -->
+    <video class="ashes-overlay" autoplay loop muted playsinline>
+        <source src="Assets/red ashes.mp4" type="video/mp4">
+    </video>
+
+    <div class="app">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon sigil-icon" id="sigil-icon">
+                        <img src="Assets/Sigil.webp" alt="Divine Sigil" class="sigil-img">
+                    </div>
+                    <div class="logo-text">
+                        <h1>The Ashen Realms</h1>
+                        <span class="subtitle">Player Compendium</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-wrapper">
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="search" placeholder="Search..." autocomplete="off">
+                    <kbd class="search-hint">Ctrl+K</kbd>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-categories" id="nav-categories"></div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="footer-quote">
+                    <em>"The Maker is dead. The Sovereigns reign."</em>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="reading-progress" id="reading-progress"></div>
+            <header class="top-bar">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-home">Compendium</span>
+                </div>
+                <div class="top-bar-actions">
+                    <button id="random-article-btn" class="action-btn" aria-label="Random article" title="Random article">
+                        <i data-lucide="shuffle"></i>
+                    </button>
+                    <button id="copy-link-btn" class="action-btn" aria-label="Copy link" title="Copy link to clipboard">
+                        <i data-lucide="link"></i>
+                    </button>
+                    <button id="bookmark-btn" class="action-btn" aria-label="Bookmark article" title="Bookmark this article">
+                        <i data-lucide="bookmark"></i>
+                    </button>
+                </div>
+                <div class="audio-controls" id="audio-controls">
+                    <button id="prev-track-btn" class="audio-btn" aria-label="Previous track">
+                        <i data-lucide="skip-back"></i>
+                    </button>
+                    <button id="mute-btn" class="mute-btn" aria-label="Toggle mute">
+                        <i data-lucide="volume-2" id="volume-icon"></i>
+                    </button>
+                    <button id="next-track-btn" class="audio-btn" aria-label="Next track">
+                        <i data-lucide="skip-forward"></i>
+                    </button>
+                    <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="30">
+                    <span id="track-name" class="track-name"></span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="content-body" id="content-body"></div>
+            </div>
+        </main>
+    </div>
+
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-backdrop"></div>
+        <div class="search-modal-content">
+            <div class="search-modal-input">
+                <i data-lucide="search"></i>
+                <input type="text" id="modal-search" placeholder="Search..." autocomplete="off">
+                <kbd>Esc</kbd>
+            </div>
+            <div class="search-modal-results" id="modal-search-results"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <!-- Image Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <button class="lightbox-close" aria-label="Close">&times;</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
