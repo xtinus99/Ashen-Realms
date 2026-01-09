@@ -526,7 +526,7 @@ function buildWikiIndex() {
     wikiIndex = [];
 
     // Categories where first names should also be indexed
-    const firstNameCategories = ['Party', 'NPCs'];
+    const firstNameCategories = ['Party', 'NPCs', 'Sovereigns'];
 
     // First pass: collect all first names to detect duplicates
     const firstNameCount = {};
