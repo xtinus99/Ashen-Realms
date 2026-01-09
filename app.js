@@ -1406,12 +1406,6 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     const contentBody = document.getElementById('content-body');
     contentBody.innerHTML = `
         <article class="article">
-            <nav class="article-nav article-nav-top">
-                <button class="back-to-category-btn" onclick="openCategory('${categoryName}')">
-                    <i data-lucide="arrow-left"></i>
-                    Back to ${categoryName}
-                </button>
-            </nav>
             <header class="article-header">
                 <div class="article-category">
                     <i data-lucide="${categoryInfo.icon || 'file'}"></i>
