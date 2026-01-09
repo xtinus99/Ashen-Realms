@@ -204,6 +204,11 @@ body {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+    /* GPU compositing for better scroll performance */
+    transform: translateZ(0);
+    will-change: transform;
+    contain: strict;
+    isolation: isolate;
 }
 
 /* Base gradient - darker with blood undertones */
@@ -246,7 +251,7 @@ body {
     left: 50%;
     width: 200%;
     height: 80%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
     background:
         conic-gradient(from 250deg at 50% 0%,
             transparent 0deg,
@@ -268,6 +273,7 @@ body {
         );
     opacity: 0.8;
     animation: god-rays-pulse 12s ease-in-out infinite;
+    will-change: opacity;
 }
 
 @keyframes god-rays-pulse {
@@ -328,6 +334,9 @@ body {
         0 0 12px var(--ember-glow);
     opacity: 0;
     animation: ember-rise 10s ease-out infinite;
+    /* GPU compositing for smooth animation */
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .ember-1 { left: 10%; bottom: 0; animation-delay: 0s; }
@@ -403,6 +412,11 @@ body {
 @keyframes smoke-float-2 {
     0%, 100% { transform: translate(0, 0); opacity: 0.35; }
     50% { transform: translate(-60px, -30px); opacity: 0.55; }
+}
+
+/* Pause animations during active scrolling for better performance */
+.is-scrolling .bg-effects * {
+    animation-play-state: paused !important;
 }
 
 /* === ORNATE GLOWING BORDER FRAME === */
@@ -1040,14 +1054,16 @@ body {
     display: flex;
     align-items: center;
     padding: 0 var(--spacing-xl);
+    /* Solid background instead of backdrop-filter for better scroll performance */
     background: linear-gradient(180deg,
-        rgba(16, 16, 26, 0.95) 0%,
-        rgba(10, 10, 18, 0.9) 100%);
-    backdrop-filter: blur(12px);
+        rgba(16, 16, 26, 0.98) 0%,
+        rgba(10, 10, 18, 0.97) 100%);
     border-bottom: 1px solid var(--gold-dark);
     position: sticky;
     top: 0;
     z-index: 50;
+    /* GPU layer for sticky element */
+    transform: translateZ(0);
 }
 
 /* Gold accent line under top bar */
@@ -1186,6 +1202,8 @@ body {
 .content-body {
     width: 100%;
     max-width: var(--content-max-width);
+    /* Improve rendering performance for long content */
+    contain: layout style;
 }
 
 /* === WELCOME SCREEN - BATTLEFIELD SHRINE === */

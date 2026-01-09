@@ -1754,9 +1754,17 @@ function setupBackToTop() {
 
     // Throttle scroll handler for better performance
     let ticking = false;
+    let scrollTimeout = null;
 
     // Show/hide button and update progress based on scroll position
     window.addEventListener('scroll', () => {
+        // Pause animations during scroll for better performance
+        document.body.classList.add('is-scrolling');
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            document.body.classList.remove('is-scrolling');
+        }, 150);
+
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const scrollY = window.scrollY;
