@@ -1406,6 +1406,12 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     const contentBody = document.getElementById('content-body');
     contentBody.innerHTML = `
         <article class="article">
+            <nav class="article-nav article-nav-top">
+                <button class="back-to-category-btn" onclick="openCategory('${categoryName}')">
+                    <i data-lucide="arrow-left"></i>
+                    Back to ${categoryName}
+                </button>
+            </nav>
             <header class="article-header">
                 <div class="article-category">
                     <i data-lucide="${categoryInfo.icon || 'file'}"></i>
@@ -1448,9 +1454,6 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
 
     // Add related articles section
     addRelatedArticles(contentBody, categoryName, item);
-
-    // Add back-to-category navigation
-    addArticleNav(contentBody, categoryName);
 
     // Close mobile sidebar
     document.getElementById('sidebar').classList.remove('open');
@@ -1567,27 +1570,6 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
         });
     });
 
-    lucide.createIcons();
-}
-
-// ===== ARTICLE NAVIGATION =====
-function addArticleNav(contentBody, categoryName) {
-    const article = contentBody.querySelector('.article');
-    if (!article) return;
-
-    const categoryInfo = data[categoryName]?.info || {};
-    const icon = categoryInfo.icon || 'folder';
-
-    const navHtml = `
-        <nav class="article-nav">
-            <button class="back-to-category-btn" onclick="openCategory('${categoryName}')">
-                <i data-lucide="arrow-left"></i>
-                Back to ${categoryName}
-            </button>
-        </nav>
-    `;
-
-    article.insertAdjacentHTML('beforeend', navHtml);
     lucide.createIcons();
 }
 
