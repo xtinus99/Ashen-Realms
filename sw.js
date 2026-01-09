@@ -1,14 +1,32 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v1';
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'ashen-realms-v2';
+
+// Core assets to cache immediately on install
+const CORE_ASSETS = [
     '/',
     '/index.html',
     '/style.css',
     '/app.js',
     '/data.json',
-    'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap'
+    '/Assets/Sigil.webp',
+    '/Assets/Dark Marble.webp',
+    '/Card Back.png'
+];
+
+// Font files to cache
+const FONT_ASSETS = [
+    '/fonts/IMFellEnglish-Regular.ttf',
+    '/fonts/IMFellEnglish-Italic.ttf',
+    '/fonts/Spectral-Regular.ttf',
+    '/fonts/Spectral-Italic.ttf',
+    '/fonts/Spectral-Medium.ttf',
+    '/fonts/Spectral-SemiBold.ttf',
+    '/fonts/Spectral-Bold.ttf',
+    '/fonts/static/Inter_18pt-Regular.ttf',
+    '/fonts/static/Inter_18pt-Medium.ttf',
+    '/fonts/static/Inter_18pt-SemiBold.ttf'
 ];
 
 // Install event - cache core assets
@@ -16,7 +34,15 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('Caching core assets...');
-            return cache.addAll(ASSETS_TO_CACHE);
+            // Cache core assets first (these are essential)
+            return cache.addAll(CORE_ASSETS).then(() => {
+                // Then try to cache fonts (don't fail if some are missing)
+                return Promise.allSettled(
+                    FONT_ASSETS.map(font =>
+                        cache.add(font).catch(() => console.log('Font not found:', font))
+                    )
+                );
+            });
         })
     );
     self.skipWaiting();
@@ -28,7 +54,7 @@ self.addEventListener('activate', (event) => {
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames
-                    .filter((name) => name !== CACHE_NAME)
+                    .filter((name) => name.startsWith('ashen-realms-') && name !== CACHE_NAME)
                     .map((name) => caches.delete(name))
             );
         })
@@ -44,39 +70,72 @@ self.addEventListener('fetch', (event) => {
     // Skip chrome-extension and other non-http(s) requests
     if (!event.request.url.startsWith('http')) return;
 
-    event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            // Return cached response if available
-            if (cachedResponse) {
-                // Fetch and update cache in background for next time
-                fetch(event.request).then((networkResponse) => {
+    const url = new URL(event.request.url);
+
+    // For same-origin requests, use cache-first strategy
+    if (url.origin === location.origin) {
+        event.respondWith(
+            caches.match(event.request).then((cachedResponse) => {
+                // Return cached response if available
+                if (cachedResponse) {
+                    // Update cache in background for dynamic content
+                    if (url.pathname.endsWith('.json') || url.pathname.endsWith('.js') || url.pathname.endsWith('.css')) {
+                        fetch(event.request).then((networkResponse) => {
+                            if (networkResponse && networkResponse.status === 200) {
+                                caches.open(CACHE_NAME).then((cache) => {
+                                    cache.put(event.request, networkResponse.clone());
+                                });
+                            }
+                        }).catch(() => {});
+                    }
+                    return cachedResponse;
+                }
+
+                // Not in cache, fetch from network
+                return fetch(event.request).then((networkResponse) => {
+                    // Cache all successful responses
                     if (networkResponse && networkResponse.status === 200) {
+                        const responseToCache = networkResponse.clone();
                         caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, networkResponse.clone());
+                            cache.put(event.request, responseToCache);
                         });
                     }
-                }).catch(() => {});
+                    return networkResponse;
+                }).catch(() => {
+                    // Offline and not in cache
+                    if (event.request.mode === 'navigate') {
+                        return caches.match('/index.html');
+                    }
+                    // For images, return a placeholder or empty response
+                    if (event.request.destination === 'image') {
+                        return new Response('', { status: 200 });
+                    }
+                    return new Response('Offline', { status: 503 });
+                });
+            })
+        );
+    } else {
+        // For cross-origin requests (like external scripts), network-first
+        event.respondWith(
+            fetch(event.request)
+                .then((response) => {
+                    // Cache successful responses
+                    if (response && response.status === 200) {
+                        const responseToCache = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(event.request, responseToCache);
+                        });
+                    }
+                    return response;
+                })
+                .catch(() => caches.match(event.request))
+        );
+    }
+});
 
-                return cachedResponse;
-            }
-
-            // Not in cache, fetch from network
-            return fetch(event.request).then((networkResponse) => {
-                // Cache successful responses for images and other assets
-                if (networkResponse && networkResponse.status === 200) {
-                    const responseToCache = networkResponse.clone();
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseToCache);
-                    });
-                }
-                return networkResponse;
-            }).catch(() => {
-                // Offline and not in cache - return offline page for navigation requests
-                if (event.request.mode === 'navigate') {
-                    return caches.match('/index.html');
-                }
-                return new Response('Offline', { status: 503 });
-            });
-        })
-    );
+// Listen for messages from the main thread
+self.addEventListener('message', (event) => {
+    if (event.data === 'skipWaiting') {
+        self.skipWaiting();
+    }
 });

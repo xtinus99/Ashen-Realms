@@ -986,6 +986,23 @@ function openCategory(categoryName, skipHash = false) {
         `;
     }).join('');
 
+    // Special timeline view for Sessions
+    let timelineHtml = '';
+    if (categoryName === 'Sessions') {
+        timelineHtml = generateSessionTimeline(categoryData.items);
+    }
+
+    // Relationship map button for Party and NPCs
+    let relationshipMapBtn = '';
+    if (categoryName === 'Party' || categoryName === 'NPCs') {
+        relationshipMapBtn = `
+            <button class="relationship-map-btn" onclick="showRelationshipMap()">
+                <i data-lucide="git-merge"></i>
+                View Relationship Map
+            </button>
+        `;
+    }
+
     document.getElementById('content-body').innerHTML = `
         <div class="category-overview">
             <header class="category-header">
@@ -994,7 +1011,9 @@ function openCategory(categoryName, skipHash = false) {
                     <h1 class="category-title">${categoryName}</h1>
                     <p class="category-description">${categoryData.info.description || ''}</p>
                 </div>
+                ${relationshipMapBtn}
             </header>
+            ${timelineHtml}
             <div class="category-items-grid">
                 ${itemsHtml}
             </div>
@@ -1008,6 +1027,309 @@ function openCategory(categoryName, skipHash = false) {
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== SESSION TIMELINE =====
+function generateSessionTimeline(sessions) {
+    // Extract key events from each session (look for major happenings)
+    const timelineEvents = sessions.map((session, index) => {
+        // Parse session number and title
+        const match = session.title.match(/Session (\d+):\s*(.+)/);
+        const sessionNum = match ? match[1] : (index + 1).toString().padStart(2, '0');
+        const sessionTitle = match ? match[2] : session.title;
+
+        // Extract key events from raw content (look for significant items)
+        const keyEvents = [];
+        const raw = session.raw || '';
+
+        // Look for deaths
+        if (raw.match(/\bdied\b|\bdeath\b|\bkilled\b|\bfell\b/i)) {
+            const deathMatch = raw.match(/(\w+(?:\s+\w+)?)\s+(?:died|was killed|fell)/i);
+            if (deathMatch) keyEvents.push({ type: 'death', text: deathMatch[0] });
+        }
+
+        // Look for major discoveries or acquisitions
+        if (raw.match(/\bacquired\b|\bdiscovered\b|\bfound\b|\brevealed\b/i)) {
+            keyEvents.push({ type: 'discovery', text: 'Major discovery' });
+        }
+
+        // Look for Sovereign encounters
+        const sovereigns = ['Mareatha', 'Azerach', 'Talaris', 'Vor\'Kael', 'Imhuran', 'Kaedris', 'Karthayne', 'Ismara', 'Vortegas', 'Eredain', 'Ultharion', 'Nhalyra', 'Aral-Vyn'];
+        for (const sov of sovereigns) {
+            if (raw.includes(sov)) {
+                keyEvents.push({ type: 'sovereign', text: sov });
+                break;
+            }
+        }
+
+        return {
+            id: session.id,
+            num: sessionNum,
+            title: sessionTitle,
+            events: keyEvents
+        };
+    });
+
+    return `
+        <div class="session-timeline">
+            <h2><i data-lucide="git-branch"></i> Campaign Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                ${timelineEvents.map((event, i) => `
+                    <div class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}" onclick="navigateToItemById('Sessions', '${event.id}')">
+                        <div class="timeline-marker">
+                            <span class="timeline-num">${event.num}</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">${event.title}</h3>
+                            ${event.events.length > 0 ? `
+                                <div class="timeline-events">
+                                    ${event.events.slice(0, 2).map(e => `
+                                        <span class="timeline-event timeline-event-${e.type}">${e.text}</span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// ===== RELATIONSHIP MAP =====
+function showRelationshipMap() {
+    // Remove existing modal
+    const existing = document.getElementById('relationship-map-modal');
+    if (existing) {
+        existing.remove();
+        return;
+    }
+
+    // Build nodes from Party, NPCs, and Sovereigns
+    const nodes = [];
+    const nodeMap = new Map();
+    const categories = ['Party', 'NPCs', 'Sovereigns'];
+
+    for (const cat of categories) {
+        if (data[cat]) {
+            for (const item of data[cat].items) {
+                const node = {
+                    id: item.id,
+                    title: item.title,
+                    category: cat,
+                    raw: item.raw || '',
+                    connections: []
+                };
+                nodes.push(node);
+                nodeMap.set(item.title, node);
+                // Also map first name
+                const firstName = item.title.split(' ')[0];
+                if (firstName.length > 2 && firstName !== 'The') {
+                    nodeMap.set(firstName, node);
+                }
+            }
+        }
+    }
+
+    // Build connections based on mentions
+    const edges = [];
+    const edgeSet = new Set();
+
+    for (const node of nodes) {
+        for (const [name, targetNode] of nodeMap) {
+            if (targetNode.id !== node.id && node.raw.includes(name)) {
+                const edgeKey = [node.id, targetNode.id].sort().join('-');
+                if (!edgeSet.has(edgeKey)) {
+                    edgeSet.add(edgeKey);
+                    edges.push({ source: node, target: targetNode });
+                    node.connections.push(targetNode.id);
+                    targetNode.connections.push(node.id);
+                }
+            }
+        }
+    }
+
+    // Filter to only show nodes with connections
+    const connectedNodes = nodes.filter(n => n.connections.length > 0);
+
+    // Create modal
+    const modal = document.createElement('div');
+    modal.id = 'relationship-map-modal';
+    modal.className = 'relationship-map-modal';
+    modal.innerHTML = `
+        <div class="relationship-map-backdrop"></div>
+        <div class="relationship-map-content">
+            <div class="relationship-map-header">
+                <h3><i data-lucide="git-merge"></i> Character Relationships</h3>
+                <div class="relationship-map-legend">
+                    <span class="legend-item legend-party"><span class="legend-dot"></span> Party</span>
+                    <span class="legend-item legend-npc"><span class="legend-dot"></span> NPCs</span>
+                    <span class="legend-item legend-sovereign"><span class="legend-dot"></span> Sovereigns</span>
+                </div>
+                <button class="relationship-map-close" aria-label="Close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="relationship-map-container">
+                <svg id="relationship-svg"></svg>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    lucide.createIcons();
+
+    // Close handlers
+    modal.querySelector('.relationship-map-backdrop').addEventListener('click', () => modal.remove());
+    modal.querySelector('.relationship-map-close').addEventListener('click', () => modal.remove());
+
+    // Initialize the graph
+    initRelationshipGraph(connectedNodes, edges);
+}
+
+function initRelationshipGraph(nodes, edges) {
+    const svg = document.getElementById('relationship-svg');
+    const container = svg.parentElement;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    svg.setAttribute('width', width);
+    svg.setAttribute('height', height);
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+    // Simple force simulation
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    // Position nodes in a circle initially, with Party in center
+    const partyNodes = nodes.filter(n => n.category === 'Party');
+    const otherNodes = nodes.filter(n => n.category !== 'Party');
+
+    // Place party members near center
+    partyNodes.forEach((node, i) => {
+        const angle = (i / partyNodes.length) * Math.PI * 2;
+        const radius = 80;
+        node.x = centerX + Math.cos(angle) * radius;
+        node.y = centerY + Math.sin(angle) * radius;
+        node.vx = 0;
+        node.vy = 0;
+    });
+
+    // Place others in outer ring
+    otherNodes.forEach((node, i) => {
+        const angle = (i / otherNodes.length) * Math.PI * 2;
+        const radius = Math.min(width, height) * 0.35;
+        node.x = centerX + Math.cos(angle) * radius;
+        node.y = centerY + Math.sin(angle) * radius;
+        node.vx = 0;
+        node.vy = 0;
+    });
+
+    // Simple physics simulation
+    function simulate() {
+        const iterations = 100;
+        for (let iter = 0; iter < iterations; iter++) {
+            // Repulsion between all nodes
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[j].x - nodes[i].x;
+                    const dy = nodes[j].y - nodes[i].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                    const force = 2000 / (dist * dist);
+                    const fx = (dx / dist) * force;
+                    const fy = (dy / dist) * force;
+                    nodes[i].vx -= fx;
+                    nodes[i].vy -= fy;
+                    nodes[j].vx += fx;
+                    nodes[j].vy += fy;
+                }
+            }
+
+            // Attraction along edges
+            for (const edge of edges) {
+                const dx = edge.target.x - edge.source.x;
+                const dy = edge.target.y - edge.source.y;
+                const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                const force = (dist - 120) * 0.05;
+                const fx = (dx / dist) * force;
+                const fy = (dy / dist) * force;
+                edge.source.vx += fx;
+                edge.source.vy += fy;
+                edge.target.vx -= fx;
+                edge.target.vy -= fy;
+            }
+
+            // Center gravity
+            for (const node of nodes) {
+                node.vx += (centerX - node.x) * 0.01;
+                node.vy += (centerY - node.y) * 0.01;
+            }
+
+            // Apply velocities with damping
+            for (const node of nodes) {
+                node.x += node.vx * 0.1;
+                node.y += node.vy * 0.1;
+                node.vx *= 0.9;
+                node.vy *= 0.9;
+
+                // Keep in bounds
+                node.x = Math.max(50, Math.min(width - 50, node.x));
+                node.y = Math.max(50, Math.min(height - 50, node.y));
+            }
+        }
+    }
+
+    simulate();
+
+    // Render edges
+    const edgesGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    edgesGroup.classList.add('edges');
+    for (const edge of edges) {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', edge.source.x);
+        line.setAttribute('y1', edge.source.y);
+        line.setAttribute('x2', edge.target.x);
+        line.setAttribute('y2', edge.target.y);
+        line.classList.add('edge-line');
+        edgesGroup.appendChild(line);
+    }
+    svg.appendChild(edgesGroup);
+
+    // Render nodes
+    const nodesGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    nodesGroup.classList.add('nodes');
+    for (const node of nodes) {
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.classList.add('node-group');
+        g.setAttribute('transform', `translate(${node.x}, ${node.y})`);
+        g.dataset.id = node.id;
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        const radius = node.category === 'Party' ? 20 : (node.category === 'Sovereigns' ? 16 : 12);
+        circle.setAttribute('r', radius);
+        circle.classList.add('node-circle', `node-${node.category.toLowerCase()}`);
+
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('dy', radius + 14);
+        text.classList.add('node-label');
+        // Truncate long names
+        const displayName = node.title.length > 15 ? node.title.substring(0, 12) + '...' : node.title;
+        text.textContent = displayName;
+
+        g.appendChild(circle);
+        g.appendChild(text);
+
+        // Click to navigate
+        g.style.cursor = 'pointer';
+        g.addEventListener('click', () => {
+            document.getElementById('relationship-map-modal').remove();
+            navigateToItem(node.id);
+        });
+
+        nodesGroup.appendChild(g);
+    }
+    svg.appendChild(nodesGroup);
 }
 
 function navigateToItemById(categoryName, itemId) {
@@ -1118,11 +1440,100 @@ function showItem(categoryName, item, navElement = null, skipHash = false) {
     // Update bookmark button state
     updateBookmarkButton();
 
+    // Add related articles section
+    addRelatedArticles(contentBody, categoryName, item);
+
     // Close mobile sidebar
     document.getElementById('sidebar').classList.remove('open');
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== RELATED ARTICLES =====
+function addRelatedArticles(contentBody, currentCategory, currentItem) {
+    const article = contentBody.querySelector('.article');
+    if (!article) return;
+
+    // Find articles that mention this item (incoming links)
+    const incomingLinks = [];
+    // Find articles this item mentions (outgoing links)
+    const outgoingLinks = [];
+
+    const currentTitle = currentItem.title;
+    const currentId = currentItem.id;
+
+    // Search through all categories and items
+    for (const [categoryName, categoryData] of Object.entries(data)) {
+        for (const item of categoryData.items) {
+            // Skip self
+            if (item.id === currentId) continue;
+
+            // Check if this item's content mentions the current item
+            if (item.raw && (
+                item.raw.includes(currentTitle) ||
+                item.raw.includes(currentTitle.split(' ')[0]) // First name match
+            )) {
+                incomingLinks.push({
+                    category: categoryName,
+                    item: item,
+                    icon: categoryData.info?.icon || 'file-text'
+                });
+            }
+
+            // Check if current item mentions this item
+            if (currentItem.raw && (
+                currentItem.raw.includes(item.title) ||
+                currentItem.raw.includes(item.title.split(' ')[0])
+            )) {
+                outgoingLinks.push({
+                    category: categoryName,
+                    item: item,
+                    icon: categoryData.info?.icon || 'file-text'
+                });
+            }
+        }
+    }
+
+    // Remove duplicates (items that appear in both lists)
+    const outgoingIds = new Set(outgoingLinks.map(l => l.item.id));
+    const uniqueIncoming = incomingLinks.filter(l => !outgoingIds.has(l.item.id));
+
+    // Combine and limit
+    const allRelated = [...outgoingLinks, ...uniqueIncoming];
+    if (allRelated.length === 0) return;
+
+    // Limit to 8 related articles
+    const limitedRelated = allRelated.slice(0, 8);
+
+    const relatedHtml = `
+        <section class="related-articles">
+            <h2><i data-lucide="link-2"></i> Related Articles</h2>
+            <div class="related-articles-grid">
+                ${limitedRelated.map(rel => `
+                    <a href="#" class="related-article-card" data-target="${rel.item.id}">
+                        <i data-lucide="${rel.icon}"></i>
+                        <div class="related-article-info">
+                            <span class="related-article-title">${rel.item.title}</span>
+                            <span class="related-article-category">${rel.category}</span>
+                        </div>
+                    </a>
+                `).join('')}
+            </div>
+        </section>
+    `;
+
+    article.insertAdjacentHTML('beforeend', relatedHtml);
+
+    // Setup click handlers
+    article.querySelectorAll('.related-article-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToItem(card.dataset.target);
+        });
+    });
+
+    lucide.createIcons();
 }
 
 // ===== TABLE OF CONTENTS =====
@@ -1382,12 +1793,49 @@ function updateSearchSelection(results) {
     });
 }
 
+// Track active search filters
+let activeSearchFilters = new Set();
+
 function openSearchModal() {
     const modal = document.getElementById('search-modal');
     const input = document.getElementById('modal-search');
     modal.classList.add('open');
     input.focus();
     input.value = '';
+    activeSearchFilters.clear();
+
+    // Build filter chips
+    const filtersContainer = document.getElementById('search-filters');
+    const categories = Object.keys(data);
+    filtersContainer.innerHTML = categories.map(cat => {
+        const icon = data[cat]?.info?.icon || 'folder';
+        return `
+            <button class="search-filter-chip" data-category="${cat}">
+                <i data-lucide="${icon}"></i>
+                ${cat}
+            </button>
+        `;
+    }).join('');
+
+    // Add click handlers for filters
+    filtersContainer.querySelectorAll('.search-filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const category = chip.dataset.category;
+            if (activeSearchFilters.has(category)) {
+                activeSearchFilters.delete(category);
+                chip.classList.remove('active');
+            } else {
+                activeSearchFilters.add(category);
+                chip.classList.add('active');
+            }
+            // Re-run search with new filters
+            const query = document.getElementById('modal-search').value;
+            if (query.length >= 2) {
+                performModalSearch(query);
+            }
+        });
+    });
+
     document.getElementById('modal-search-results').innerHTML = `
         <div class="search-empty">Start typing to search the chronicles...</div>
     `;
@@ -1413,6 +1861,11 @@ function performModalSearch(query) {
     const queryLower = query.toLowerCase();
 
     for (const [categoryName, categoryData] of Object.entries(data)) {
+        // Skip categories if filters are active and this category isn't selected
+        if (activeSearchFilters.size > 0 && !activeSearchFilters.has(categoryName)) {
+            continue;
+        }
+
         for (const item of categoryData.items) {
             const titleMatch = item.title.toLowerCase().includes(queryLower);
             const contentMatch = item.raw.toLowerCase().includes(queryLower);
@@ -1522,6 +1975,18 @@ function setupKeyboardShortcuts() {
             e.preventDefault();
             showKeyboardHelp();
         }
+
+        // B = Toggle bookmark on current article
+        if (e.key === 'b' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+            e.preventDefault();
+            toggleBookmark();
+        }
+
+        // Shift+B = Show bookmarks list
+        if (e.key === 'B' && e.shiftKey && !e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            showBookmarksList();
+        }
     });
 }
 
@@ -1578,6 +2043,14 @@ function showKeyboardHelp() {
                 <div class="keyboard-help-item">
                     <kbd>?</kbd>
                     <span>Toggle this help</span>
+                </div>
+                <div class="keyboard-help-item">
+                    <kbd>B</kbd>
+                    <span>Bookmark current article</span>
+                </div>
+                <div class="keyboard-help-item">
+                    <kbd>Shift</kbd> + <kbd>B</kbd>
+                    <span>View all bookmarks</span>
                 </div>
             </div>
             <button class="keyboard-help-close" onclick="document.getElementById('keyboard-help').remove()">Close</button>
@@ -1697,6 +2170,106 @@ function updateBookmarkButton() {
     } else {
         bookmarkBtn.classList.remove('bookmarked');
     }
+}
+
+function showBookmarksList() {
+    const bookmarks = getBookmarks();
+
+    // Remove existing modal if present
+    const existing = document.getElementById('bookmarks-modal');
+    if (existing) {
+        existing.remove();
+        return;
+    }
+
+    const modal = document.createElement('div');
+    modal.id = 'bookmarks-modal';
+    modal.className = 'bookmarks-modal';
+
+    let bookmarksHtml = '';
+    if (bookmarks.length === 0) {
+        bookmarksHtml = '<p class="bookmarks-empty">No bookmarks yet. Press <kbd>B</kbd> on any article to bookmark it.</p>';
+    } else {
+        bookmarksHtml = '<ul class="bookmarks-list">';
+        for (const bookmark of bookmarks) {
+            const categoryInfo = data[bookmark.category]?.info;
+            const icon = categoryInfo?.icon || 'file-text';
+            bookmarksHtml += `
+                <li class="bookmarks-item" data-category="${bookmark.category}" data-id="${bookmark.id}">
+                    <i data-lucide="${icon}"></i>
+                    <div class="bookmarks-item-info">
+                        <span class="bookmarks-item-title">${bookmark.title}</span>
+                        <span class="bookmarks-item-category">${bookmark.category}</span>
+                    </div>
+                    <button class="bookmarks-remove" data-category="${bookmark.category}" data-id="${bookmark.id}" title="Remove bookmark">
+                        <i data-lucide="x"></i>
+                    </button>
+                </li>
+            `;
+        }
+        bookmarksHtml += '</ul>';
+    }
+
+    modal.innerHTML = `
+        <div class="bookmarks-modal-backdrop"></div>
+        <div class="bookmarks-modal-content">
+            <div class="bookmarks-modal-header">
+                <h3><i data-lucide="bookmark"></i> Bookmarks</h3>
+                <button class="bookmarks-modal-close" aria-label="Close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="bookmarks-modal-body">
+                ${bookmarksHtml}
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    lucide.createIcons();
+
+    // Close handlers
+    modal.querySelector('.bookmarks-modal-backdrop').addEventListener('click', () => modal.remove());
+    modal.querySelector('.bookmarks-modal-close').addEventListener('click', () => modal.remove());
+
+    // Navigate to bookmark on click
+    modal.querySelectorAll('.bookmarks-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            if (e.target.closest('.bookmarks-remove')) return;
+            const category = item.dataset.category;
+            const id = item.dataset.id;
+            const categoryData = data[category];
+            if (categoryData) {
+                const itemData = categoryData.items.find(i => i.id === id);
+                if (itemData) {
+                    const navItem = document.querySelector(`.nav-item[data-id="${id}"]`);
+                    showItem(category, itemData, navItem);
+                    modal.remove();
+                }
+            }
+        });
+    });
+
+    // Remove bookmark button
+    modal.querySelectorAll('.bookmarks-remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const category = btn.dataset.category;
+            const id = btn.dataset.id;
+            const bookmarks = getBookmarks();
+            const index = bookmarks.findIndex(b => b.category === category && b.id === id);
+            if (index !== -1) {
+                bookmarks.splice(index, 1);
+                saveBookmarks(bookmarks);
+                btn.closest('.bookmarks-item').remove();
+                updateBookmarkButton();
+                if (bookmarks.length === 0) {
+                    modal.querySelector('.bookmarks-modal-body').innerHTML =
+                        '<p class="bookmarks-empty">No bookmarks yet. Press <kbd>B</kbd> on any article to bookmark it.</p>';
+                }
+            }
+        });
+    });
 }
 
 function goToRandomArticle() {
