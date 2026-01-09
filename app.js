@@ -1504,26 +1504,44 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
     const outgoingIds = new Set(outgoingLinks.map(l => l.item.id));
     const uniqueIncoming = incomingLinks.filter(l => !outgoingIds.has(l.item.id));
 
-    // Combine and limit
+    // Combine all related
     const allRelated = [...outgoingLinks, ...uniqueIncoming];
     if (allRelated.length === 0) return;
 
-    // Limit to 8 related articles
-    const limitedRelated = allRelated.slice(0, 8);
+    // Group by category
+    const grouped = {};
+    for (const rel of allRelated) {
+        if (!grouped[rel.category]) {
+            grouped[rel.category] = {
+                icon: rel.icon,
+                items: []
+            };
+        }
+        grouped[rel.category].items.push(rel.item);
+    }
+
+    // Build grouped HTML
+    const groupsHtml = Object.entries(grouped).map(([category, group]) => `
+        <div class="related-group">
+            <div class="related-group-header">
+                <i data-lucide="${group.icon}"></i>
+                <span>${category}</span>
+            </div>
+            <div class="related-group-items">
+                ${group.items.map(item => `
+                    <a href="#" class="related-article-link" data-target="${item.id}">
+                        <span>${item.title}</span>
+                    </a>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
 
     const relatedHtml = `
         <section class="related-articles">
             <h2><i data-lucide="link-2"></i> Related Articles</h2>
-            <div class="related-articles-grid">
-                ${limitedRelated.map(rel => `
-                    <a href="#" class="related-article-card" data-target="${rel.item.id}">
-                        <i data-lucide="${rel.icon}"></i>
-                        <div class="related-article-info">
-                            <span class="related-article-title">${rel.item.title}</span>
-                            <span class="related-article-category">${rel.category}</span>
-                        </div>
-                    </a>
-                `).join('')}
+            <div class="related-groups">
+                ${groupsHtml}
             </div>
         </section>
     `;
@@ -1531,10 +1549,10 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
     article.insertAdjacentHTML('beforeend', relatedHtml);
 
     // Setup click handlers
-    article.querySelectorAll('.related-article-card').forEach(card => {
-        card.addEventListener('click', (e) => {
+    article.querySelectorAll('.related-article-link').forEach(link => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            navigateToItem(card.dataset.target);
+            navigateToItem(link.dataset.target);
         });
     });
 
