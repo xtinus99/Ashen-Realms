@@ -1645,6 +1645,7 @@ function navigateToItem(targetName) {
     const normalizedTarget = targetName.toLowerCase().replace(/[^a-z0-9]/g, '');
 
     for (const [categoryName, categoryData] of Object.entries(data)) {
+        // Search top-level items
         for (const item of categoryData.items) {
             const normalizedItem = item.title.toLowerCase().replace(/[^a-z0-9]/g, '');
             if (normalizedItem.includes(normalizedTarget) || normalizedTarget.includes(normalizedItem)) {
@@ -1652,6 +1653,20 @@ function navigateToItem(targetName) {
                 const navItem = document.querySelector(`.nav-item[data-id="${item.id}"]`);
                 showItem(categoryName, item, navItem);
                 return;
+            }
+        }
+
+        // Search subcategories (nested items like The Silken Refuge under Crownfall)
+        if (categoryData.subcategories) {
+            for (const [subName, subItems] of Object.entries(categoryData.subcategories)) {
+                for (const item of subItems) {
+                    const normalizedItem = item.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    if (normalizedItem.includes(normalizedTarget) || normalizedTarget.includes(normalizedItem)) {
+                        const navItem = document.querySelector(`.nav-item[data-id="${item.id}"]`);
+                        showItem(categoryName, item, navItem);
+                        return;
+                    }
+                }
             }
         }
     }
