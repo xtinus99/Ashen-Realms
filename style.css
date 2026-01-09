@@ -1718,6 +1718,7 @@ body {
     font-size: 1.15rem;
     color: var(--parchment);
     margin-bottom: var(--spacing-lg);
+    margin-left: var(--spacing-md);
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
