@@ -488,7 +488,9 @@ function restoreFromHash() {
 
         if (item) {
             const navItem = document.querySelector(`.nav-item[data-id="${itemId}"]`);
-            showItem(categoryName, item, navItem, true); // true = skip hash update
+            showItem(categoryName, item, navItem, true, true); // skip hash update, skip scroll to top
+            // Restore scroll position after content loads
+            restoreScrollPosition();
             return true;
         } else {
             // Item not found in category
@@ -496,7 +498,9 @@ function restoreFromHash() {
             return true;
         }
     } else {
-        openCategory(categoryName, true); // true = skip hash update
+        openCategory(categoryName, true, true); // skip hash update, skip scroll to top
+        // Restore scroll position after content loads
+        restoreScrollPosition();
         return true;
     }
 }
@@ -913,7 +917,7 @@ function showWelcome() {
 }
 
 // ===== CATEGORY OVERVIEW =====
-function openCategory(categoryName, skipHash = false) {
+function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
     const categoryData = data[categoryName];
     if (!categoryData) return;
 
@@ -1025,8 +1029,10 @@ function openCategory(categoryName, skipHash = false) {
     // Close mobile sidebar
     document.getElementById('sidebar').classList.remove('open');
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to top (unless restoring from hash with saved scroll position)
+    if (!skipScrollToTop) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 }
 
 // ===== SESSION TIMELINE =====
@@ -1344,7 +1350,7 @@ function navigateToItemById(categoryName, itemId) {
 }
 
 // ===== ARTICLE DISPLAY =====
-function showItem(categoryName, item, navElement = null, skipHash = false) {
+function showItem(categoryName, item, navElement = null, skipHash = false, skipScrollToTop = false) {
     currentItem = item;
     currentCategory = categoryName;
 
@@ -1446,8 +1452,10 @@ function showItem(categoryName, item, navElement = null, skipHash = false) {
     // Close mobile sidebar
     document.getElementById('sidebar').classList.remove('open');
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to top (unless restoring from hash with saved scroll position)
+    if (!skipScrollToTop) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 }
 
 // ===== RELATED ARTICLES =====
@@ -2358,6 +2366,29 @@ function copyCurrentLink(btn) {
     });
 }
 
+// ===== SCROLL POSITION PERSISTENCE =====
+let scrollSaveTimeout = null;
+
+function saveScrollPosition() {
+    const hash = window.location.hash;
+    if (hash) {
+        localStorage.setItem('scrollPosition_' + hash, window.scrollY);
+    }
+}
+
+function restoreScrollPosition() {
+    const hash = window.location.hash;
+    if (hash) {
+        const savedPosition = localStorage.getItem('scrollPosition_' + hash);
+        if (savedPosition !== null) {
+            // Small delay to ensure content is rendered
+            setTimeout(() => {
+                window.scrollTo(0, parseInt(savedPosition, 10));
+            }, 50);
+        }
+    }
+}
+
 // ===== BACK TO TOP BUTTON =====
 function setupBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top');
@@ -2375,6 +2406,10 @@ function setupBackToTop() {
         scrollTimeout = setTimeout(() => {
             document.body.classList.remove('is-scrolling');
         }, 150);
+
+        // Save scroll position (debounced)
+        clearTimeout(scrollSaveTimeout);
+        scrollSaveTimeout = setTimeout(saveScrollPosition, 200);
 
         if (!ticking) {
             window.requestAnimationFrame(() => {
