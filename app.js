@@ -1463,17 +1463,25 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
     const currentTitle = currentItem.title;
     const currentId = currentItem.id;
 
+    // Helper to check if text contains a name (with word boundaries)
+    function containsName(text, name) {
+        if (!text || !name || name.length < 4) return false;
+        // Skip common words that might match accidentally
+        const skipWords = ['The', 'And', 'For', 'With', 'From', 'This', 'That', 'Session'];
+        if (skipWords.includes(name)) return false;
+        // Use word boundary check
+        const regex = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        return regex.test(text);
+    }
+
     // Search through all categories and items
     for (const [categoryName, categoryData] of Object.entries(data)) {
         for (const item of categoryData.items) {
             // Skip self
             if (item.id === currentId) continue;
 
-            // Check if this item's content mentions the current item
-            if (item.raw && (
-                item.raw.includes(currentTitle) ||
-                item.raw.includes(currentTitle.split(' ')[0]) // First name match
-            )) {
+            // Check if this item's content mentions the current item (full title only)
+            if (item.raw && containsName(item.raw, currentTitle)) {
                 incomingLinks.push({
                     category: categoryName,
                     item: item,
@@ -1481,11 +1489,8 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
                 });
             }
 
-            // Check if current item mentions this item
-            if (currentItem.raw && (
-                currentItem.raw.includes(item.title) ||
-                currentItem.raw.includes(item.title.split(' ')[0])
-            )) {
+            // Check if current item mentions this item (full title only)
+            if (currentItem.raw && containsName(currentItem.raw, item.title)) {
                 outgoingLinks.push({
                     category: categoryName,
                     item: item,
