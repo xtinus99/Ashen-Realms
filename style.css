@@ -4155,12 +4155,13 @@ body {
     margin: 0 8px;
 }
 
-/* Main Layout - List takes all available space, detail panel fixed width */
+/* Main Layout - 50/50 split */
 .bonds-layout {
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: 1fr 1fr;
     min-height: calc(100vh - 140px);
-    gap: 0;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
 }
 
 /* Remove all ornate decorations */
