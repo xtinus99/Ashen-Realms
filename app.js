@@ -2586,7 +2586,7 @@ const CHAR_NAMES = {
 
 let selectedEntry = null;
 let currentSort = 'reputation'; // 'reputation' or 'name'
-let bookOpened = false;
+let pageFlipInstance = null;
 
 function renderRelationshipsView() {
     const characterData = relationshipData[currentRepCharacter];
@@ -2612,89 +2612,148 @@ function renderRelationshipsView() {
         selectedEntry = relationships[0]?.name || null;
     }
 
-    const entriesHtml = relationships.map(rel => renderJournalEntry(rel)).join('');
-    const detailHtml = selectedEntry ? renderJournalDetail(relationships.find(r => r.name === selectedEntry)) : '';
+    // Build pages HTML - each relationship gets a left (list) + right (detail) page spread
+    let pagesHtml = '';
 
-    // Show closed book first if not opened yet
-    if (!bookOpened) {
-        document.getElementById('content-body').innerHTML = `
-            <div class="journal-container">
-                <div class="journal-closed" id="journal-closed">
-                    <div class="book-spine-closed"></div>
-                    <div class="book-pages-under"></div>
-                    <div class="book-cover"></div>
-                    <div class="book-pages-edge"></div>
-                </div>
-            </div>
-        `;
+    // Front cover
+    pagesHtml += `<div class="journal-page cover" data-density="hard"></div>`;
 
-        document.getElementById('journal-closed').addEventListener('click', () => {
-            const closed = document.getElementById('journal-closed');
-            closed.classList.add('opening');
-            setTimeout(() => {
-                bookOpened = true;
-                renderRelationshipsView();
-            }, 800);
-        });
-        return;
-    }
+    // Inside front cover (blank)
+    pagesHtml += `<div class="journal-page cover-back" data-density="hard"></div>`;
 
-    document.getElementById('content-body').innerHTML = `
-        <div class="journal-container">
-            <div class="journal-book" id="journal-book">
-                <!-- Left page with entries -->
-                <div class="journal-left-page">
-                    <div class="page-header">
-                        <div class="page-title">Bonds & Standing</div>
-                        <div class="page-subtitle">The personal ledger of ${CHAR_NAMES[currentRepCharacter]}</div>
-                    </div>
-
-                    <div class="journal-tabs">
-                        <button class="journal-tab ${currentRepCharacter === 'jonas' ? 'active' : ''}" data-char="jonas">Jonas</button>
-                        <button class="journal-tab ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">Sol</button>
-                        <button class="journal-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">Fursen</button>
-                    </div>
-
-                    <div class="journal-controls">
-                        <div class="journal-filters">
-                            <button class="journal-filter ${currentRepFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
-                            <button class="journal-filter ${currentRepFilter === 'sovereigns' ? 'active' : ''}" data-filter="sovereigns">Sovereigns</button>
-                            <button class="journal-filter ${currentRepFilter === 'npcs' ? 'active' : ''}" data-filter="npcs">NPCs</button>
-                            <button class="journal-filter ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
-                        </div>
-                        <div class="journal-sort">
-                            <span class="sort-label">Sort:</span>
-                            <button class="sort-btn ${currentSort === 'reputation' ? 'active' : ''}" data-sort="reputation">Standing</button>
-                            <button class="sort-btn ${currentSort === 'name' ? 'active' : ''}" data-sort="name">Name</button>
-                        </div>
-                    </div>
-
-                    <div class="journal-entries">
-                        ${entriesHtml}
-                    </div>
-
-                    <div class="page-number">— ${relationships.length} entries —</div>
+    // Main content page - List on left
+    pagesHtml += `
+        <div class="journal-page">
+            <div class="journal-left-page">
+                <div class="page-header">
+                    <div class="page-title">Bonds & Standing</div>
+                    <div class="page-subtitle">The personal ledger of ${CHAR_NAMES[currentRepCharacter]}</div>
                 </div>
 
-                <!-- Center spine -->
-                <div class="journal-spine"></div>
-
-                <!-- Right page with details -->
-                <div class="journal-right-page">
-                    ${detailHtml}
+                <div class="journal-tabs">
+                    <button class="journal-tab ${currentRepCharacter === 'jonas' ? 'active' : ''}" data-char="jonas">Jonas</button>
+                    <button class="journal-tab ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">Sol</button>
+                    <button class="journal-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">Fursen</button>
                 </div>
 
-                <!-- Close button -->
-                <button class="journal-close-btn" id="journal-close-btn" title="Close book">
-                    <i data-lucide="x"></i>
-                </button>
+                <div class="journal-controls">
+                    <div class="journal-filters">
+                        <button class="journal-filter ${currentRepFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+                        <button class="journal-filter ${currentRepFilter === 'sovereigns' ? 'active' : ''}" data-filter="sovereigns">Sovereigns</button>
+                        <button class="journal-filter ${currentRepFilter === 'npcs' ? 'active' : ''}" data-filter="npcs">NPCs</button>
+                        <button class="journal-filter ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
+                    </div>
+                    <div class="journal-sort">
+                        <span class="sort-label">Sort:</span>
+                        <button class="sort-btn ${currentSort === 'reputation' ? 'active' : ''}" data-sort="reputation">Standing</button>
+                        <button class="sort-btn ${currentSort === 'name' ? 'active' : ''}" data-sort="name">Name</button>
+                    </div>
+                </div>
+
+                <div class="journal-entries">
+                    ${relationships.map(rel => renderJournalEntry(rel)).join('')}
+                </div>
+
+                <div class="page-number">— ${relationships.length} entries —</div>
             </div>
         </div>
     `;
 
-    // Setup event listeners
+    // Detail page on right
+    const selectedRel = relationships.find(r => r.name === selectedEntry);
+    pagesHtml += `
+        <div class="journal-page">
+            <div class="journal-right-page">
+                ${selectedRel ? renderJournalDetail(selectedRel) : '<div class="detail-empty">Select an entry to view details</div>'}
+            </div>
+        </div>
+    `;
+
+    // Inside back cover
+    pagesHtml += `<div class="journal-page cover-back" data-density="hard"></div>`;
+
+    // Back cover
+    pagesHtml += `<div class="journal-page cover" data-density="hard"></div>`;
+
+    document.getElementById('content-body').innerHTML = `
+        <div class="journal-container">
+            <button class="journal-back-btn" id="journal-back-btn">
+                <i data-lucide="arrow-left"></i>
+                Back
+            </button>
+            <div id="book-container">${pagesHtml}</div>
+            <div class="book-nav">
+                <button class="book-nav-btn" id="prev-page-btn">← Previous</button>
+                <button class="book-nav-btn" id="next-page-btn">Next →</button>
+            </div>
+        </div>
+    `;
+
+    // Initialize StPageFlip
+    const bookContainer = document.getElementById('book-container');
+
+    // Destroy previous instance if exists
+    if (pageFlipInstance) {
+        pageFlipInstance.destroy();
+    }
+
+    // Calculate book size based on viewport
+    const maxWidth = Math.min(window.innerWidth * 0.85, 1200);
+    const maxHeight = Math.min(window.innerHeight * 0.8, 750);
+    const aspectRatio = 0.7; // width/height for each page
+
+    let pageHeight = maxHeight;
+    let pageWidth = pageHeight * aspectRatio;
+
+    if (pageWidth * 2 > maxWidth) {
+        pageWidth = maxWidth / 2;
+        pageHeight = pageWidth / aspectRatio;
+    }
+
+    pageFlipInstance = new St.PageFlip(bookContainer, {
+        width: Math.floor(pageWidth),
+        height: Math.floor(pageHeight),
+        size: 'stretch',
+        minWidth: 300,
+        maxWidth: 600,
+        minHeight: 400,
+        maxHeight: 900,
+        showCover: true,
+        mobileScrollSupport: false,
+        drawShadow: true,
+        flippingTime: 800,
+        usePortrait: false,
+        startZIndex: 0,
+        autoSize: true,
+        maxShadowOpacity: 0.5,
+        showPageCorners: true
+    });
+
+    pageFlipInstance.loadFromHTML(document.querySelectorAll('.journal-page'));
+
+    // Start with book open to the main content (page 2)
+    setTimeout(() => {
+        pageFlipInstance.flip(2);
+    }, 100);
+
+    // Navigation buttons
+    document.getElementById('prev-page-btn').addEventListener('click', () => {
+        pageFlipInstance.flipPrev();
+    });
+
+    document.getElementById('next-page-btn').addEventListener('click', () => {
+        pageFlipInstance.flipNext();
+    });
+
+    // Back button - return to previous page/home
+    document.getElementById('journal-back-btn').addEventListener('click', () => {
+        window.location.hash = '';
+    });
+
+    // Setup event listeners for tabs/filters/sort
     document.querySelectorAll('.journal-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
+        tab.addEventListener('click', (e) => {
+            e.stopPropagation();
             currentRepCharacter = tab.dataset.char;
             selectedEntry = null;
             renderRelationshipsView();
@@ -2702,7 +2761,8 @@ function renderRelationshipsView() {
     });
 
     document.querySelectorAll('.journal-filter').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
             currentRepFilter = btn.dataset.filter;
             selectedEntry = null;
             renderRelationshipsView();
@@ -2710,28 +2770,19 @@ function renderRelationshipsView() {
     });
 
     document.querySelectorAll('.sort-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
             currentSort = btn.dataset.sort;
             renderRelationshipsView();
         });
     });
 
     document.querySelectorAll('.journal-entry').forEach(entry => {
-        entry.addEventListener('click', () => {
+        entry.addEventListener('click', (e) => {
+            e.stopPropagation();
             selectedEntry = entry.dataset.name;
             renderRelationshipsView();
         });
-    });
-
-    // Close book by clicking the close button
-    document.getElementById('journal-close-btn').addEventListener('click', () => {
-        const book = document.getElementById('journal-book');
-        book.classList.add('closing');
-        setTimeout(() => {
-            bookOpened = false;
-            selectedEntry = null;
-            renderRelationshipsView();
-        }, 500);
     });
 
     lucide.createIcons();
