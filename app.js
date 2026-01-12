@@ -2642,10 +2642,6 @@ function renderRelationshipsView() {
     document.getElementById('content-body').innerHTML = `
         <div class="journal-container">
             <div class="journal-book" id="journal-book">
-                <!-- Cover edges (absolute positioned) -->
-                <div class="book-cover-back"></div>
-                <div class="book-cover-front" id="book-cover-front"></div>
-
                 <!-- Left page with entries -->
                 <div class="journal-left-page">
                     <div class="page-header">
@@ -2687,6 +2683,11 @@ function renderRelationshipsView() {
                 <div class="journal-right-page">
                     ${detailHtml}
                 </div>
+
+                <!-- Close button -->
+                <button class="journal-close-btn" id="journal-close-btn" title="Close book">
+                    <i data-lucide="x"></i>
+                </button>
             </div>
         </div>
     `;
@@ -2722,17 +2723,15 @@ function renderRelationshipsView() {
         });
     });
 
-    // Close book by clicking the front cover
-    document.getElementById('book-cover-front').addEventListener('click', () => {
-        const cover = document.getElementById('book-cover-front');
+    // Close book by clicking the close button
+    document.getElementById('journal-close-btn').addEventListener('click', () => {
         const book = document.getElementById('journal-book');
-        cover.classList.add('closing');
         book.classList.add('closing');
         setTimeout(() => {
             bookOpened = false;
             selectedEntry = null;
             renderRelationshipsView();
-        }, 700);
+        }, 500);
     });
 
     lucide.createIcons();
