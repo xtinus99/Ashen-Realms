@@ -574,11 +574,31 @@ function attachImageZoom() {
         img.dataset.zoomAttached = 'true';
         img.style.cursor = 'zoom-in';
 
-        // Attach to medium-zoom instance
+        // Use simple lightbox for hero-portrait images (avoids sliding animation issue)
+        if (img.closest('.hero-portrait')) {
+            img.addEventListener('click', () => openPortraitLightbox(img.src));
+            return;
+        }
+
+        // Attach to medium-zoom instance for other images
         if (mediumZoomInstance) {
             mediumZoomInstance.attach(img);
         }
     });
+}
+
+function openPortraitLightbox(src) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'portrait-lightbox';
+    lightbox.innerHTML = `<img src="${src}" alt="Portrait">`;
+    lightbox.addEventListener('click', () => lightbox.remove());
+    document.addEventListener('keydown', function closeOnEsc(e) {
+        if (e.key === 'Escape') {
+            lightbox.remove();
+            document.removeEventListener('keydown', closeOnEsc);
+        }
+    });
+    document.body.appendChild(lightbox);
 }
 
 // Legacy function name for compatibility
@@ -3014,7 +3034,7 @@ function renderBondDetail(rel) {
         <div class="detail-panel ${isEnemy ? 'enemy' : ''}">
             <div class="detail-hero">
                 <div class="hero-portrait ${isEnemy ? 'enemy' : `tier-${tier.class}`}">
-                    ${imageName ? `<img src="images/${imageName}.webp" alt="${rel.name}" data-zoom-src="images/${imageName}.webp" onerror="this.src='thumbnails/${imageName}.webp'">` : `<span class="hero-initial">${rel.name.charAt(0)}</span>`}
+                    ${imageName ? `<img src="images/${imageName}.webp" alt="${rel.name}" onerror="this.src='thumbnails/${imageName}.webp'">` : `<span class="hero-initial">${rel.name.charAt(0)}</span>`}
                     ${tier.class === 'soulbound' || tier.class === 'devoted' ? '<div class="hero-particles"></div>' : ''}
                 </div>
                 <div class="hero-info">
