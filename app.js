@@ -2586,7 +2586,6 @@ const CHAR_NAMES = {
 
 let selectedEntry = null;
 let currentSort = 'reputation'; // 'reputation' or 'name'
-let pageFlipInstance = null;
 
 function renderRelationshipsView() {
     const characterData = relationshipData[currentRepCharacter];
@@ -2612,291 +2611,344 @@ function renderRelationshipsView() {
         selectedEntry = relationships[0]?.name || null;
     }
 
-    // Build pages HTML - each relationship gets a left (list) + right (detail) page spread
-    let pagesHtml = '';
-
-    // Front cover
-    pagesHtml += `<div class="journal-page cover" data-density="hard"></div>`;
-
-    // Inside front cover (blank)
-    pagesHtml += `<div class="journal-page cover-back" data-density="hard"></div>`;
-
-    // Main content page - List on left
-    pagesHtml += `
-        <div class="journal-page">
-            <div class="journal-left-page">
-                <div class="page-header">
-                    <div class="page-title">Bonds & Standing</div>
-                    <div class="page-subtitle">The personal ledger of ${CHAR_NAMES[currentRepCharacter]}</div>
-                </div>
-
-                <div class="journal-tabs">
-                    <button class="journal-tab ${currentRepCharacter === 'jonas' ? 'active' : ''}" data-char="jonas">Jonas</button>
-                    <button class="journal-tab ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">Sol</button>
-                    <button class="journal-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">Fursen</button>
-                </div>
-
-                <div class="journal-controls">
-                    <div class="journal-filters">
-                        <button class="journal-filter ${currentRepFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
-                        <button class="journal-filter ${currentRepFilter === 'sovereigns' ? 'active' : ''}" data-filter="sovereigns">Sovereigns</button>
-                        <button class="journal-filter ${currentRepFilter === 'npcs' ? 'active' : ''}" data-filter="npcs">NPCs</button>
-                        <button class="journal-filter ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
-                    </div>
-                    <div class="journal-sort">
-                        <span class="sort-label">Sort:</span>
-                        <button class="sort-btn ${currentSort === 'reputation' ? 'active' : ''}" data-sort="reputation">Standing</button>
-                        <button class="sort-btn ${currentSort === 'name' ? 'active' : ''}" data-sort="name">Name</button>
-                    </div>
-                </div>
-
-                <div class="journal-entries">
-                    ${relationships.map(rel => renderJournalEntry(rel)).join('')}
-                </div>
-
-                <div class="page-number">— ${relationships.length} entries —</div>
-            </div>
-        </div>
-    `;
-
-    // Detail page on right
     const selectedRel = relationships.find(r => r.name === selectedEntry);
-    pagesHtml += `
-        <div class="journal-page">
-            <div class="journal-right-page">
-                ${selectedRel ? renderJournalDetail(selectedRel) : '<div class="detail-empty">Select an entry to view details</div>'}
-            </div>
-        </div>
-    `;
-
-    // Inside back cover
-    pagesHtml += `<div class="journal-page cover-back" data-density="hard"></div>`;
-
-    // Back cover
-    pagesHtml += `<div class="journal-page cover" data-density="hard"></div>`;
 
     document.getElementById('content-body').innerHTML = `
-        <div class="journal-container">
-            <button class="journal-back-btn" id="journal-back-btn">
-                <i data-lucide="arrow-left"></i>
-                Back
-            </button>
-            <div id="book-container">${pagesHtml}</div>
-            <div class="book-nav">
-                <button class="book-nav-btn" id="prev-page-btn">← Previous</button>
-                <button class="book-nav-btn" id="next-page-btn">Next →</button>
+        <div class="bonds-container">
+            <div class="bonds-header">
+                <button class="bonds-back-btn" id="bonds-back-btn">
+                    <i data-lucide="arrow-left"></i>
+                    <span>Back</span>
+                </button>
+                <div class="bonds-title-area">
+                    <h1 class="bonds-title">Bonds & Standing</h1>
+                    <p class="bonds-subtitle">The personal ledger of ${CHAR_NAMES[currentRepCharacter]}</p>
+                </div>
+            </div>
+
+            <div class="bonds-controls">
+                <div class="char-tabs">
+                    <button class="char-tab ${currentRepCharacter === 'jonas' ? 'active' : ''}" data-char="jonas">
+                        <span class="tab-name">Jonas</span>
+                    </button>
+                    <button class="char-tab ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">
+                        <span class="tab-name">Sol</span>
+                    </button>
+                    <button class="char-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">
+                        <span class="tab-name">Fursen</span>
+                    </button>
+                </div>
+
+                <div class="bonds-filters">
+                    <button class="filter-chip ${currentRepFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+                    <button class="filter-chip ${currentRepFilter === 'sovereigns' ? 'active' : ''}" data-filter="sovereigns">Sovereigns</button>
+                    <button class="filter-chip ${currentRepFilter === 'npcs' ? 'active' : ''}" data-filter="npcs">NPCs</button>
+                    <button class="filter-chip ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
+                    <div class="filter-divider"></div>
+                    <button class="sort-chip ${currentSort === 'reputation' ? 'active' : ''}" data-sort="reputation">
+                        <i data-lucide="trending-up"></i> Standing
+                    </button>
+                    <button class="sort-chip ${currentSort === 'name' ? 'active' : ''}" data-sort="name">
+                        <i data-lucide="a-large-small"></i> Name
+                    </button>
+                </div>
+            </div>
+
+            <div class="bonds-layout">
+                <div class="bonds-list">
+                    ${relationships.map((rel, index) => renderBondCard(rel, index)).join('')}
+                </div>
+                <div class="bonds-detail" id="bonds-detail">
+                    ${selectedRel ? renderBondDetail(selectedRel) : '<div class="detail-empty"><i data-lucide="users"></i><p>Select a bond to view details</p></div>'}
+                </div>
             </div>
         </div>
     `;
 
-    // Initialize StPageFlip
-    const bookContainer = document.getElementById('book-container');
-
-    // Destroy previous instance if exists
-    if (pageFlipInstance) {
-        pageFlipInstance.destroy();
-    }
-
-    // Calculate book size based on viewport
-    const maxWidth = Math.min(window.innerWidth * 0.85, 1200);
-    const maxHeight = Math.min(window.innerHeight * 0.8, 750);
-    const aspectRatio = 0.7; // width/height for each page
-
-    let pageHeight = maxHeight;
-    let pageWidth = pageHeight * aspectRatio;
-
-    if (pageWidth * 2 > maxWidth) {
-        pageWidth = maxWidth / 2;
-        pageHeight = pageWidth / aspectRatio;
-    }
-
-    pageFlipInstance = new St.PageFlip(bookContainer, {
-        width: Math.floor(pageWidth),
-        height: Math.floor(pageHeight),
-        size: 'stretch',
-        minWidth: 300,
-        maxWidth: 600,
-        minHeight: 400,
-        maxHeight: 900,
-        showCover: true,
-        mobileScrollSupport: false,
-        drawShadow: true,
-        flippingTime: 800,
-        usePortrait: false,
-        startZIndex: 0,
-        autoSize: true,
-        maxShadowOpacity: 0.5,
-        showPageCorners: true
-    });
-
-    pageFlipInstance.loadFromHTML(document.querySelectorAll('.journal-page'));
-
-    // Start with book open to the main content (page 2)
-    setTimeout(() => {
-        pageFlipInstance.flip(2);
-    }, 100);
-
-    // Navigation buttons
-    document.getElementById('prev-page-btn').addEventListener('click', () => {
-        pageFlipInstance.flipPrev();
-    });
-
-    document.getElementById('next-page-btn').addEventListener('click', () => {
-        pageFlipInstance.flipNext();
-    });
-
-    // Back button - return to previous page/home
-    document.getElementById('journal-back-btn').addEventListener('click', () => {
+    // Setup event listeners
+    document.getElementById('bonds-back-btn').addEventListener('click', () => {
         window.location.hash = '';
     });
 
-    // Setup event listeners for tabs/filters/sort
-    document.querySelectorAll('.journal-tab').forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.stopPropagation();
+    document.querySelectorAll('.char-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
             currentRepCharacter = tab.dataset.char;
             selectedEntry = null;
             renderRelationshipsView();
         });
     });
 
-    document.querySelectorAll('.journal-filter').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
+    document.querySelectorAll('.filter-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
             currentRepFilter = btn.dataset.filter;
             selectedEntry = null;
             renderRelationshipsView();
         });
     });
 
-    document.querySelectorAll('.sort-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
+    document.querySelectorAll('.sort-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
             currentSort = btn.dataset.sort;
             renderRelationshipsView();
         });
     });
 
-    document.querySelectorAll('.journal-entry').forEach(entry => {
-        entry.addEventListener('click', (e) => {
-            e.stopPropagation();
-            selectedEntry = entry.dataset.name;
-            renderRelationshipsView();
+    document.querySelectorAll('.bond-card').forEach(card => {
+        card.addEventListener('click', () => {
+            selectedEntry = card.dataset.name;
+            // Update detail panel without full re-render for smoother feel
+            const rel = relationships.find(r => r.name === selectedEntry);
+            document.querySelectorAll('.bond-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            const detailPanel = document.getElementById('bonds-detail');
+            detailPanel.innerHTML = renderBondDetail(rel);
+            lucide.createIcons();
+            animateDetailPanel();
         });
     });
 
     lucide.createIcons();
+
+    // Animate cards on initial load
+    animateBondCards();
 }
 
-function renderJournalEntry(rel) {
-    const tier = getRepTier(rel.reputation);
-    let imageName = REP_IMAGE_MAP[rel.name];
-    if (imageName === undefined) imageName = rel.name;
-
-    const isSelected = selectedEntry === rel.name;
-    const enemyClass = rel.permanentEnemy ? 'enemy' : '';
-
-    return `
-        <div class="journal-entry ${isSelected ? 'selected' : ''} ${enemyClass} tier-${tier.class}" data-name="${rel.name}">
-            <div class="entry-portrait">
-                ${imageName ? `<img src="thumbnails/${imageName}.webp" alt="${rel.name}" onerror="this.style.display='none'">` : ''}
-                <span class="entry-initial">${rel.name.charAt(0)}</span>
-            </div>
-            <div class="entry-info">
-                <div class="entry-name">${rel.name}</div>
-                <div class="entry-standing tier-${tier.class}">${rel.permanentEnemy ? '☠ Eternal Enemy' : tier.name}</div>
-            </div>
-            <div class="entry-indicator"></div>
-        </div>
-    `;
-}
-
-function renderJournalDetail(rel) {
-    if (!rel) return '<div class="detail-empty">Select an entry to view details</div>';
-
+function renderBondCard(rel, index) {
     const tier = getRepTier(rel.reputation);
     const progress = getRepProgress(rel.reputation);
     let imageName = REP_IMAGE_MAP[rel.name];
     if (imageName === undefined) imageName = rel.name;
 
+    const isSelected = selectedEntry === rel.name;
+    const isEnemy = rel.permanentEnemy;
+
+    return `
+        <div class="bond-card ${isSelected ? 'selected' : ''} ${isEnemy ? 'enemy' : ''} tier-${tier.class}"
+             data-name="${rel.name}" data-index="${index}">
+            <div class="card-portrait">
+                ${imageName ? `<img src="thumbnails/${imageName}.webp" alt="${rel.name}" onerror="this.style.display='none'">` : ''}
+                <span class="card-initial">${rel.name.charAt(0)}</span>
+                ${isEnemy ? '<div class="enemy-overlay"><i data-lucide="skull"></i></div>' : ''}
+                ${tier.class === 'soulbound' || tier.class === 'devoted' ? '<div class="card-glow"></div>' : ''}
+            </div>
+            <div class="card-info">
+                <div class="card-name">${rel.name}</div>
+                <div class="card-type">${rel.type}</div>
+                <div class="card-standing">
+                    ${isEnemy ? `
+                        <span class="standing-text enemy">Eternal Enemy</span>
+                    ` : `
+                        <div class="standing-bar-mini">
+                            <div class="standing-fill-mini tier-${tier.class}" data-width="${progress.percentage}"></div>
+                        </div>
+                        <span class="standing-text tier-${tier.class}">${tier.name}</span>
+                    `}
+                </div>
+            </div>
+            <div class="card-indicator">
+                <i data-lucide="chevron-right"></i>
+            </div>
+        </div>
+    `;
+}
+
+function renderBondDetail(rel) {
+    if (!rel) return '<div class="detail-empty"><i data-lucide="users"></i><p>Select a bond to view details</p></div>';
+
+    const tier = getRepTier(rel.reputation);
+    const progress = getRepProgress(rel.reputation);
+    let imageName = REP_IMAGE_MAP[rel.name];
+    if (imageName === undefined) imageName = rel.name;
+    const isEnemy = rel.permanentEnemy;
+
+    // Build tier progress visualization
+    const tierProgressHtml = REP_TIERS.map((t, i) => {
+        const isCurrent = t.class === tier.class;
+        const isPast = rel.reputation >= t.max;
+        const isFuture = rel.reputation < t.min;
+        return `<div class="tier-node ${isCurrent ? 'current' : ''} ${isPast ? 'past' : ''} ${isFuture ? 'future' : ''} tier-${t.class}" title="${t.name}"></div>`;
+    }).join('');
+
     const historyHtml = rel.history?.length > 0
-        ? rel.history.map(h => `
-            <div class="detail-history-item">
+        ? rel.history.slice(0, 5).map(h => `
+            <div class="history-entry">
                 <span class="history-change ${h.change >= 0 ? 'positive' : 'negative'}">${h.change >= 0 ? '+' : ''}${h.change.toLocaleString()}</span>
                 <span class="history-reason">${h.reason}</span>
             </div>
         `).join('')
-        : '<div class="detail-history-item"><em>No recorded history</em></div>';
+        : '<div class="history-entry empty">No recorded history</div>';
 
     const unlocksHtml = rel.unlocks?.length > 0
         ? rel.unlocks.map(u => {
             const unlocked = rel.reputation >= u.threshold;
-            return `<div class="detail-unlock ${unlocked ? 'unlocked' : 'locked'}">
-                <span class="unlock-marker">${unlocked ? '✓' : '○'}</span>
-                <span class="unlock-text">${unlocked ? u.reward : '???'}</span>
-            </div>`;
+            const unlockTier = getRepTier(u.threshold);
+            return `
+                <div class="unlock-row ${unlocked ? 'unlocked' : 'locked'}">
+                    <span class="unlock-icon">${unlocked ? '<i data-lucide="check-circle"></i>' : '<i data-lucide="lock"></i>'}</span>
+                    <span class="unlock-tier tier-${unlockTier.class}">${unlockTier.name}</span>
+                    <span class="unlock-reward">${unlocked ? u.reward : '???'}</span>
+                </div>
+            `;
         }).join('')
         : '';
 
     return `
-        <div class="detail-content ${rel.permanentEnemy ? 'enemy' : ''}">
-            <div class="detail-header">
-                <div class="detail-portrait-frame ${rel.permanentEnemy ? 'enemy' : `tier-${tier.class}`}">
-                    ${imageName ? `<img src="images/${imageName}.webp" alt="${rel.name}" onerror="this.src='thumbnails/${imageName}.webp'">` : `<span class="detail-initial">${rel.name.charAt(0)}</span>`}
+        <div class="detail-panel ${isEnemy ? 'enemy' : ''}">
+            <div class="detail-hero">
+                <div class="hero-portrait ${isEnemy ? 'enemy' : `tier-${tier.class}`}">
+                    ${imageName ? `<img src="images/${imageName}.webp" alt="${rel.name}" onerror="this.src='thumbnails/${imageName}.webp'">` : `<span class="hero-initial">${rel.name.charAt(0)}</span>`}
+                    ${tier.class === 'soulbound' || tier.class === 'devoted' ? '<div class="hero-particles"></div>' : ''}
                 </div>
-                <div class="detail-title-area">
-                    <h2 class="detail-name">${rel.name}</h2>
-                    <div class="detail-type">${rel.type}</div>
-                    ${rel.romanceAvailable ? '<div class="detail-romance"><i data-lucide="heart"></i> Romance possible</div>' : ''}
+                <div class="hero-info">
+                    <h2 class="hero-name">${rel.name}</h2>
+                    <div class="hero-type">${rel.type}</div>
+                    ${rel.romanceAvailable ? '<div class="hero-romance"><i data-lucide="heart"></i> Romance Available</div>' : ''}
                 </div>
             </div>
 
-            ${rel.permanentEnemy ? `
-                <div class="detail-enemy-banner">
+            ${isEnemy ? `
+                <div class="enemy-banner">
                     <i data-lucide="skull"></i>
                     <span>ETERNAL ENEMY</span>
                     <i data-lucide="skull"></i>
                 </div>
             ` : `
-                <div class="detail-standing">
-                    <div class="standing-label">Standing: <span class="tier-${tier.class}">${tier.name}</span></div>
-                    <div class="standing-bar">
-                        <div class="standing-fill tier-${tier.class}" style="width: ${progress.percentage}%"></div>
+                <div class="standing-section">
+                    <div class="standing-header">
+                        <span class="standing-label">Standing</span>
+                        <span class="standing-value tier-${tier.class}">${tier.name}</span>
                     </div>
-                    <div class="standing-values">${progress.current.toLocaleString()} / ${progress.needed.toLocaleString()}</div>
+                    <div class="standing-bar-large">
+                        <div class="standing-fill-large tier-${tier.class}" data-width="${progress.percentage}"></div>
+                        <div class="standing-glow tier-${tier.class}"></div>
+                    </div>
+                    <div class="standing-numbers">
+                        <span class="current-rep">${progress.current.toLocaleString()}</span>
+                        <span class="rep-divider">/</span>
+                        <span class="max-rep">${progress.needed.toLocaleString()}</span>
+                    </div>
+                    <div class="tier-progress">
+                        ${tierProgressHtml}
+                    </div>
                 </div>
             `}
 
             ${rel.description ? `
-                <div class="detail-quote">
-                    <div class="quote-mark">"</div>
-                    <p>${rel.description}</p>
+                <div class="quote-section">
+                    <div class="quote-icon"><i data-lucide="quote"></i></div>
+                    <p class="quote-text">${rel.description}</p>
                 </div>
             ` : ''}
 
-            <div class="detail-section">
-                <h3 class="section-title"><i data-lucide="scroll-text"></i> Chronicle</h3>
-                <div class="detail-history">
+            <div class="traits-section">
+                ${rel.likes?.length ? `
+                    <div class="trait-group likes">
+                        <div class="trait-header"><i data-lucide="thumbs-up"></i> Appreciates</div>
+                        <div class="trait-tags">${rel.likes.map(l => `<span class="trait-tag">${l}</span>`).join('')}</div>
+                    </div>
+                ` : ''}
+                ${rel.dislikes?.length ? `
+                    <div class="trait-group dislikes">
+                        <div class="trait-header"><i data-lucide="thumbs-down"></i> Disdains</div>
+                        <div class="trait-tags">${rel.dislikes.map(d => `<span class="trait-tag">${d}</span>`).join('')}</div>
+                    </div>
+                ` : ''}
+            </div>
+
+            <div class="history-section">
+                <h3 class="section-header"><i data-lucide="scroll-text"></i> Chronicle</h3>
+                <div class="history-list">
                     ${historyHtml}
                 </div>
             </div>
 
             ${unlocksHtml ? `
-                <div class="detail-section">
-                    <h3 class="section-title"><i data-lucide="gift"></i> Rewards</h3>
-                    <div class="detail-unlocks">
+                <div class="unlocks-section">
+                    <h3 class="section-header"><i data-lucide="gift"></i> Reputation Rewards</h3>
+                    <div class="unlocks-list">
                         ${unlocksHtml}
                     </div>
                 </div>
             ` : ''}
-
-            <div class="detail-footer">
-                <div class="footer-divider"></div>
-                <div class="detail-traits">
-                    ${rel.likes?.length ? `<div class="trait-group"><span class="trait-label">Appreciates:</span> ${rel.likes.join(' • ')}</div>` : ''}
-                    ${rel.dislikes?.length ? `<div class="trait-group"><span class="trait-label">Disdains:</span> ${rel.dislikes.join(' • ')}</div>` : ''}
-                </div>
-            </div>
         </div>
     `;
 }
+
+function animateBondCards() {
+    // Animate cards appearing with stagger
+    anime({
+        targets: '.bond-card',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        delay: anime.stagger(50, {start: 100}),
+        duration: 400,
+        easing: 'easeOutCubic'
+    });
+
+    // Animate mini standing bars filling
+    setTimeout(() => {
+        document.querySelectorAll('.standing-fill-mini').forEach(bar => {
+            const targetWidth = bar.dataset.width;
+            anime({
+                targets: bar,
+                width: [0, targetWidth + '%'],
+                duration: 800,
+                easing: 'easeOutExpo'
+            });
+        });
+    }, 300);
+}
+
+function animateDetailPanel() {
+    // Animate the detail panel content
+    anime({
+        targets: '.detail-panel',
+        opacity: [0, 1],
+        translateX: [20, 0],
+        duration: 300,
+        easing: 'easeOutCubic'
+    });
+
+    // Animate the large standing bar
+    setTimeout(() => {
+        document.querySelectorAll('.standing-fill-large').forEach(bar => {
+            const targetWidth = bar.dataset.width;
+            anime({
+                targets: bar,
+                width: [0, targetWidth + '%'],
+                duration: 1000,
+                easing: 'easeOutExpo'
+            });
+        });
+    }, 200);
+
+    // Animate tier nodes
+    anime({
+        targets: '.tier-node',
+        scale: [0, 1],
+        delay: anime.stagger(40, {start: 400}),
+        duration: 300,
+        easing: 'easeOutBack'
+    });
+
+    // Animate history entries
+    anime({
+        targets: '.history-entry',
+        opacity: [0, 1],
+        translateX: [-10, 0],
+        delay: anime.stagger(60, {start: 600}),
+        duration: 300,
+        easing: 'easeOutCubic'
+    });
+
+    // Animate unlock rows
+    anime({
+        targets: '.unlock-row',
+        opacity: [0, 1],
+        translateX: [-10, 0],
+        delay: anime.stagger(60, {start: 700}),
+        duration: 300,
+        easing: 'easeOutCubic'
+    });
+}
+
