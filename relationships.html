@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationships - The Ashen Realms</title>
+    <link rel="stylesheet" href="style.css?v=37">
+    <link rel="stylesheet" href="relationships.css?v=1">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="bg-gradient"></div>
+        <div class="bg-noise"></div>
+        <div class="bg-vignette"></div>
+    </div>
+
+    <div class="relationships-page">
+        <!-- Header -->
+        <header class="rel-header">
+            <a href="index.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+                <span>Return to Compendium</span>
+            </a>
+            <h1 class="rel-title">Bonds & Standing</h1>
+            <div class="rel-subtitle">The threads that bind fate</div>
+        </header>
+
+        <!-- Character Selector -->
+        <div class="character-selector">
+            <button class="char-tab active" data-character="jonas">
+                <span class="char-name">Jonas</span>
+                <span class="char-class">Eldritch Knight</span>
+            </button>
+            <button class="char-tab" data-character="sol">
+                <span class="char-name">Sol Raven</span>
+                <span class="char-class">Sorcerer</span>
+            </button>
+            <button class="char-tab" data-character="fursen">
+                <span class="char-name">Fursen</span>
+                <span class="char-class">Monk</span>
+            </button>
+        </div>
+
+        <!-- Faction/NPC Filter -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="sovereigns">Sovereigns</button>
+            <button class="filter-btn" data-filter="npcs">NPCs</button>
+            <button class="filter-btn" data-filter="factions">Factions</button>
+        </div>
+
+        <!-- Relationship Cards Container -->
+        <div class="relationships-container" id="relationships-container">
+            <!-- Cards populated by JavaScript -->
+        </div>
+
+        <!-- Reputation Tier Legend -->
+        <div class="tier-legend">
+            <h3>Reputation Tiers</h3>
+            <div class="tier-list">
+                <div class="tier-item tier-hated">
+                    <span class="tier-range">0</span>
+                    <span class="tier-name">Hated</span>
+                </div>
+                <div class="tier-item tier-hostile">
+                    <span class="tier-range">3,000</span>
+                    <span class="tier-name">Hostile</span>
+                </div>
+                <div class="tier-item tier-unfriendly">
+                    <span class="tier-range">6,000</span>
+                    <span class="tier-name">Unfriendly</span>
+                </div>
+                <div class="tier-item tier-neutral">
+                    <span class="tier-range">9,000</span>
+                    <span class="tier-name">Neutral</span>
+                </div>
+                <div class="tier-item tier-cordial">
+                    <span class="tier-range">15,000</span>
+                    <span class="tier-name">Cordial</span>
+                </div>
+                <div class="tier-item tier-friendly">
+                    <span class="tier-range">21,000</span>
+                    <span class="tier-name">Friendly</span>
+                </div>
+                <div class="tier-item tier-trusted">
+                    <span class="tier-range">33,000</span>
+                    <span class="tier-name">Trusted</span>
+                </div>
+                <div class="tier-item tier-devoted">
+                    <span class="tier-range">45,000</span>
+                    <span class="tier-name">Devoted</span>
+                </div>
+                <div class="tier-item tier-soulbound">
+                    <span class="tier-range">51,000</span>
+                    <span class="tier-name">Soulbound</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="relationships.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

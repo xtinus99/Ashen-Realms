@@ -1,0 +1,676 @@
+{
+    "jonas": {
+        "relationships": [
+            {
+                "name": "Vor'Kael the Hollow Empress",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 0,
+                "permanentEnemy": true,
+                "description": "You spoke my true name in my own throat. There is no forgiveness. Only inevitability.",
+                "likes": [],
+                "dislikes": ["Your existence", "The name you stole", "Defiance"],
+                "history": [
+                    { "change": -9000, "reason": "Spoke her true name in the Throat" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Azerach the Whispered King",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 25000,
+                "description": "You amuse me, branded one. Speak what I cannot.",
+                "likes": ["Defiance against other Sovereigns", "Secrets revealed", "Interesting choices"],
+                "dislikes": ["Removing the brand", "Boring predictability"],
+                "history": [
+                    { "change": 5000, "reason": "Accepted the brand willingly" },
+                    { "change": 8000, "reason": "Used against Vor'Kael" },
+                    { "change": 3000, "reason": "Carried message to Talaris" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Can hear whispers of the Silent Dominion" },
+                    { "threshold": 33000, "reward": "Azerach speaks through you when needed" },
+                    { "threshold": 45000, "reward": "???" }
+                ]
+            },
+            {
+                "name": "Imhuran the Regent of Hours",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 4500,
+                "description": "A metaphysical error. Noted. Recorded. Watched.",
+                "likes": ["Order", "Punctuality", "Acceptance of judgment"],
+                "dislikes": ["Defiance of temporal law", "Chaos", "Escape from justice"],
+                "history": [
+                    { "change": -3000, "reason": "Defied judgment in the Clockwork Sanctum" },
+                    { "change": -1500, "reason": "Helped Fursen escape imprisonment" }
+                ],
+                "unlocks": [
+                    { "threshold": 15000, "reward": "May petition for audience" },
+                    { "threshold": 33000, "reward": "Temporal punishments reduced" }
+                ]
+            },
+            {
+                "name": "Talaris Bloomrend",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 16000,
+                "description": "The branded one carries interesting messages.",
+                "likes": ["Defiance in the face of death", "Natural cycles respected", "Interesting deaths"],
+                "dislikes": ["Unnatural preservation", "Cowardice", "Stagnation"],
+                "history": [
+                    { "change": 4000, "reason": "Carried Azerach's message" },
+                    { "change": 3000, "reason": "Respected Elias's final choice" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Safe passage through the Blooming Rot" },
+                    { "threshold": 33000, "reward": "Audience with the Verdant King" }
+                ]
+            },
+            {
+                "name": "Mareatha the Vein-Mother",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 5000,
+                "description": "Another drop in the endless flow.",
+                "likes": ["Blood sacrifice", "Devotion", "Suffering offered willingly"],
+                "dislikes": ["Heresy", "Defiance of the Church", "Helping Seraphine"],
+                "history": [
+                    { "change": -2500, "reason": "Allied with heretics" },
+                    { "change": -1500, "reason": "Killed Kaleth Vorn" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Seraphine Vale",
+                "type": "NPC - Ally",
+                "category": "npcs",
+                "reputation": 14000,
+                "description": "We walk the same path now, whether we chose it or not.",
+                "likes": ["Questioning faith", "Honoring the dead", "Defying corruption", "Truth over comfort"],
+                "dislikes": ["Blind obedience", "Manipulation", "Being used as a tool"],
+                "history": [
+                    { "change": 3000, "reason": "Helped expose Kaleth's crimes" },
+                    { "change": 2000, "reason": "Trusted her with mission" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Will share Church secrets" },
+                    { "threshold": 33000, "reward": "Will fight alongside you" },
+                    { "threshold": 45000, "reward": "???" }
+                ],
+                "romanceAvailable": true
+            },
+            {
+                "name": "Fursen",
+                "type": "Party Member",
+                "category": "npcs",
+                "reputation": 21000,
+                "description": "We have bled together. That means something.",
+                "likes": ["Honesty", "Protecting allies", "Respecting the fallen"],
+                "dislikes": ["Betrayal", "Abandonment", "Using others as pawns"],
+                "history": [
+                    { "change": -5000, "reason": "Betrayal at Lastwell (gave name to husks)" },
+                    { "change": 4000, "reason": "Reconciliation gift (100gp + medical kit)" },
+                    { "change": 3000, "reason": "Dug Kael's grave with bare hands" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Full trust restored" },
+                    { "threshold": 33000, "reward": "Will share burden of names" }
+                ]
+            },
+            {
+                "name": "Sol Raven",
+                "type": "Party Member",
+                "category": "npcs",
+                "reputation": 18000,
+                "description": "You carry darkness, but you choose the light.",
+                "likes": ["Seeking knowledge", "Protecting innocents", "Facing hard truths"],
+                "dislikes": ["Nihilism", "Cruelty", "Wasted potential"],
+                "history": [
+                    { "change": 4000, "reason": "Stood together against Savaros" },
+                    { "change": 3000, "reason": "Respected Mira's sacrifice" },
+                    { "change": 2000, "reason": "Adventuring together" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Ardian Bloodveil",
+                "type": "NPC - Uncertain",
+                "category": "npcs",
+                "reputation": 12000,
+                "description": "The brand... interesting. We should speak.",
+                "likes": ["Martial honor", "Divine connection", "Those who carry burdens", "Faith"],
+                "dislikes": ["Cowardice", "Betrayal of oath", "Those who flee from duty"],
+                "history": [
+                    { "change": 3000, "reason": "Noticed Azerach's brand with respect" }
+                ],
+                "unlocks": [
+                    { "threshold": 15000, "reward": "Private audience" },
+                    { "threshold": 21000, "reward": "True nature revealed?" }
+                ]
+            },
+            {
+                "name": "The Church of Mareatha",
+                "type": "Faction",
+                "category": "factions",
+                "reputation": 3500,
+                "description": "Heretics. Enemies of the faith.",
+                "likes": ["Submission", "Blood tithes", "Destroying heresy"],
+                "dislikes": ["Heretics", "Defiance", "Seraphine Vale"],
+                "history": [
+                    { "change": -3000, "reason": "Allied with Seraphine" },
+                    { "change": -1500, "reason": "Killed Tribunal members" },
+                    { "change": -1000, "reason": "Destroyed Savaros" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Thessaly",
+                "type": "NPC - Neutral",
+                "category": "npcs",
+                "reputation": 16000,
+                "description": "Seekers of truth are always welcome at the Frayed Codex.",
+                "likes": ["Truth over comfort", "Forbidden knowledge", "Those who question", "Living history"],
+                "dislikes": ["Book burners", "Willful ignorance", "The Church", "Those who destroy knowledge"],
+                "history": [
+                    { "change": 3000, "reason": "Purchased forbidden texts" },
+                    { "change": 2000, "reason": "Brought news of Mira's quest" },
+                    { "change": 2000, "reason": "Gave letter and clay token for Velvet Thorn" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Access to restricted collection" },
+                    { "threshold": 33000, "reward": "Thessaly's personal knowledge" }
+                ]
+            },
+            {
+                "name": "Broma",
+                "type": "NPC - Merchant",
+                "category": "npcs",
+                "reputation": 7000,
+                "description": "That hammer... get out. Get OUT.",
+                "likes": ["Honest craftsmanship", "Patience", "Quality materials", "Professional respect"],
+                "dislikes": ["Cursed weapons", "Rushed work", "Oaths to Sovereigns", "Weapons that shouldn't exist"],
+                "history": [
+                    { "change": 3000, "reason": "Commissioned Custodian Shield (100gp)" },
+                    { "change": 1000, "reason": "Professional transaction" },
+                    { "change": -6000, "reason": "Pulsehammer terrified her - kicked him out of shop" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Priority commissions" },
+                    { "threshold": 33000, "reward": "Master-tier crafting available" }
+                ]
+            },
+            {
+                "name": "Velvet Thorn",
+                "type": "NPC - Ally",
+                "category": "npcs",
+                "reputation": 15000,
+                "description": "Any friend of Thessaly's is welcome here. The best rooms.",
+                "likes": ["Thessaly's connections", "Interesting guests", "Discretion", "Those who respect hospitality"],
+                "dislikes": ["Troublemakers", "Those who abuse hospitality", "Rudeness"],
+                "history": [
+                    { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Permanent discount at her establishment" },
+                    { "threshold": 33000, "reward": "Private information network access" }
+                ]
+            }
+        ]
+    },
+    "sol": {
+        "relationships": [
+            {
+                "name": "Aedwynn the Maker",
+                "type": "Dead God",
+                "category": "sovereigns",
+                "reputation": 37000,
+                "description": "You are my Witness. Carry what I was.",
+                "likes": ["Preserving memory", "Seeking truth about the Usurpation", "Protecting the innocent"],
+                "dislikes": ["Forgetting", "Serving the Thirteen", "Despair"],
+                "history": [
+                    { "change": 15000, "reason": "Accepted role as The Witness" },
+                    { "change": 8000, "reason": "Showed memory to Talaris" },
+                    { "change": 5000, "reason": "Carries her shard faithfully" }
+                ],
+                "unlocks": [
+                    { "threshold": 33000, "reward": "Visions of the world before" },
+                    { "threshold": 45000, "reward": "Fragment of divine power awakens" },
+                    { "threshold": 51000, "reward": "???" }
+                ]
+            },
+            {
+                "name": "Talaris Bloomrend",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 24000,
+                "description": "You showed me what I helped destroy. Curious.",
+                "likes": ["Memory of Aedwynn", "Acceptance of decay", "Defiance"],
+                "dislikes": ["Cowardice", "Denial of death", "Stagnation"],
+                "history": [
+                    { "change": 10000, "reason": "Showed Aedwynn's memory" },
+                    { "change": 5000, "reason": "Witnessed Elias's choice with respect" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Safe passage through the Blooming Rot" },
+                    { "threshold": 33000, "reward": "Talaris shares memories of the Usurpation" }
+                ]
+            },
+            {
+                "name": "Kael's Echo",
+                "type": "Memory",
+                "category": "npcs",
+                "reputation": 42000,
+                "description": "You told me I was real. I will never forget that.",
+                "likes": ["Being remembered", "Questions about existence", "Kindness"],
+                "dislikes": ["Being forgotten", "Nihilism"],
+                "history": [
+                    { "change": 15000, "reason": "Told him he was real" },
+                    { "change": 10000, "reason": "Spoke his eulogy" },
+                    { "change": 8000, "reason": "Carries his Echo in the Codex" }
+                ],
+                "unlocks": [
+                    { "threshold": 33000, "reward": "Kael answers one question per rest" },
+                    { "threshold": 45000, "reward": "Kael's deeper memories accessible" }
+                ]
+            },
+            {
+                "name": "Velara Ashyn",
+                "type": "NPC - Soul",
+                "category": "npcs",
+                "reputation": 18000,
+                "description": "You carry me toward danger, but also toward freedom.",
+                "likes": ["Freedom", "Being remembered", "Kindness", "Hope for escape"],
+                "dislikes": ["Kaedris", "The Bastion", "Being forgotten", "Captivity"],
+                "history": [
+                    { "change": 5000, "reason": "Found her after 500 years" },
+                    { "change": 4000, "reason": "Carries her amulet safely" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Velara shares Bastion secrets" },
+                    { "threshold": 33000, "reward": "Velara can manifest briefly" }
+                ],
+                "romanceAvailable": true
+            },
+            {
+                "name": "Jonas",
+                "type": "Party Member",
+                "category": "npcs",
+                "reputation": 18000,
+                "description": "Bound by fire and blood. We survive together.",
+                "likes": ["Loyalty", "Facing danger together", "Honesty"],
+                "dislikes": ["Betrayal", "Cowardice"],
+                "history": [
+                    { "change": 4000, "reason": "Stood together against Savaros" },
+                    { "change": 3000, "reason": "Trusted with Vor'Kael's name secret" },
+                    { "change": 2000, "reason": "Adventuring together" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Fursen",
+                "type": "Party Member",
+                "category": "npcs",
+                "reputation": 18000,
+                "description": "You understand what it is to carry something heavier than yourself.",
+                "likes": ["Understanding", "Carrying burdens together", "Memory"],
+                "dislikes": ["Abandonment", "Forgetting the lost"],
+                "history": [
+                    { "change": 5000, "reason": "Prevented Door of Possibility incident" },
+                    { "change": 4000, "reason": "Respected the weight of 10,000 names" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Imhuran the Regent of Hours",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 6500,
+                "description": "An anomaly. Your existence... troubles the ledger.",
+                "likes": ["Order", "Proper temporal flow"],
+                "dislikes": ["Anomalies", "Escape from judgment", "Chaos"],
+                "history": [
+                    { "change": -3000, "reason": "Expelled as metaphysical error" },
+                    { "change": 500, "reason": "Traded memory for passage" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Vor'Kael the Hollow Empress",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 7000,
+                "description": "You carry something indigestible. Curious.",
+                "likes": ["Meaning to consume", "Interesting prey"],
+                "dislikes": ["The indigestible", "Kael's escape"],
+                "history": [
+                    { "change": -2000, "reason": "Helped Kael escape consumption" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Thessaly",
+                "type": "NPC - Neutral",
+                "category": "npcs",
+                "reputation": 20000,
+                "description": "The Witness... yes, you would seek knowledge.",
+                "likes": ["Truth over comfort", "Forbidden knowledge", "Those who question", "Living history"],
+                "dislikes": ["Book burners", "Willful ignorance", "The Church", "Those who destroy knowledge"],
+                "history": [
+                    { "change": 5000, "reason": "Purchased The Doctrine of Still Air" },
+                    { "change": 4000, "reason": "Shared knowledge of Aedwynn" },
+                    { "change": 2000, "reason": "Gave letter and clay token for Velvet Thorn" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Access to pre-Usurpation texts" }
+                ]
+            },
+            {
+                "name": "Seraphine Vale",
+                "type": "NPC - Uncertain",
+                "category": "npcs",
+                "reputation": 16000,
+                "description": "You gave me Mira's blade. It judges me still.",
+                "likes": ["Questioning faith", "Honoring the dead", "Defying corruption", "Truth over comfort"],
+                "dislikes": ["Blind obedience", "Manipulation", "Being used as a tool"],
+                "history": [
+                    { "change": 5000, "reason": "Gave her Oathkeeper" },
+                    { "change": 2000, "reason": "Reported Mira and Kael's deaths with respect" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Seraphine shares her doubts" },
+                    { "threshold": 33000, "reward": "May call on Seraphine in crisis" }
+                ]
+            },
+            {
+                "name": "Broma",
+                "type": "NPC - Merchant",
+                "category": "npcs",
+                "reputation": 9000,
+                "description": "Another customer. Professional enough.",
+                "likes": ["Honest craftsmanship", "Patience", "Quality materials", "Professional respect"],
+                "dislikes": ["Cursed weapons", "Rushed work", "Oaths to Sovereigns"],
+                "history": [],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Priority commissions" }
+                ]
+            },
+            {
+                "name": "Ardian Bloodveil",
+                "type": "NPC - Uncertain",
+                "category": "npcs",
+                "reputation": 9000,
+                "description": "One of the branded one's companions.",
+                "likes": ["Martial honor", "Divine connection", "Those who carry burdens", "Faith"],
+                "dislikes": ["Cowardice", "Betrayal of oath", "Those who flee from duty"],
+                "history": [],
+                "unlocks": []
+            },
+            {
+                "name": "The Church of Mareatha",
+                "type": "Faction",
+                "category": "factions",
+                "reputation": 4000,
+                "description": "Abomination. Walking heresy.",
+                "likes": ["Destruction of undead", "Submission"],
+                "dislikes": ["Undead", "Heretics", "Aedwynn worshippers"],
+                "history": [
+                    { "change": -3000, "reason": "Exists as animated skeleton" },
+                    { "change": -2000, "reason": "Allied with heretics" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Velvet Thorn",
+                "type": "NPC - Ally",
+                "category": "npcs",
+                "reputation": 15000,
+                "description": "Any friend of Thessaly's is welcome here. The best rooms.",
+                "likes": ["Thessaly's connections", "Interesting guests", "Discretion", "Those who respect hospitality"],
+                "dislikes": ["Troublemakers", "Those who abuse hospitality", "Rudeness"],
+                "history": [
+                    { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Permanent discount at her establishment" },
+                    { "threshold": 33000, "reward": "Private information network access" }
+                ]
+            }
+        ]
+    },
+    "fursen": {
+        "relationships": [
+            {
+                "name": "Imhuran the Regent of Hours",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 2000,
+                "description": "You escaped. A flaw in my system. This will be... corrected.",
+                "likes": ["Surrender", "Returning to imprisonment", "Order"],
+                "dislikes": ["Escape", "The Blind Spot", "Chaos"],
+                "history": [
+                    { "change": -5000, "reason": "Escaped eternal imprisonment" },
+                    { "change": -2000, "reason": "Exploited system flaw (Blind Spot)" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Vor'Kael the Hollow Empress",
+                "type": "Sovereign",
+                "category": "sovereigns",
+                "reputation": 8000,
+                "description": "Ten thousand names... such a feast you carry.",
+                "likes": ["Meaning to consume", "The weight of names"],
+                "dislikes": ["Escape", "Defiance"],
+                "history": [
+                    { "change": -2000, "reason": "Passed through the Throat" },
+                    { "change": 1000, "reason": "Carries delicious names" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "The Satiated One",
+                "type": "Primordial Entity",
+                "category": "sovereigns",
+                "reputation": 20000,
+                "description": "You carry hunger without consuming. Interesting choice.",
+                "likes": ["Interesting choices", "Philosophy", "Questions worth answering", "Novelty"],
+                "dislikes": ["Predictability", "Boredom", "Uninteresting visitors"],
+                "history": [
+                    { "change": 6000, "reason": "Philosophical conversation about hunger" },
+                    { "change": 5000, "reason": "Proved interesting enough to pass" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "The Satiated One shares ancient wisdom" },
+                    { "threshold": 33000, "reward": "Safe passage through the Throat guaranteed" }
+                ]
+            },
+            {
+                "name": "Veshra Coil",
+                "type": "NPC - Ally",
+                "category": "npcs",
+                "reputation": 25000,
+                "description": "You are always welcome here, lion. Always.",
+                "likes": ["Respect for her workers", "Genuine connection", "Returning guests", "Loyalty"],
+                "dislikes": ["Exploitation", "Cruelty", "The slave trade", "House Keth"],
+                "history": [
+                    { "change": 8000, "reason": "Treated workers with genuine respect" },
+                    { "change": 5000, "reason": "Connected with Scarlet & Cinder" },
+                    { "change": 3000, "reason": "Open invitation extended" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Free lodging at the Silken Refuge" },
+                    { "threshold": 33000, "reward": "Veshra's personal protection" },
+                    { "threshold": 45000, "reward": "???" }
+                ],
+                "romanceAvailable": true
+            },
+            {
+                "name": "Scarlet & Cinder",
+                "type": "NPCs - Companions",
+                "category": "npcs",
+                "reputation": 28000,
+                "description": "Come back to us, lion. We remember.",
+                "likes": ["Genuine connection", "Being remembered", "Warmth", "Shared stories"],
+                "dislikes": ["Being forgotten", "Coldness", "Empty transactions"],
+                "history": [
+                    { "change": 10000, "reason": "Night of genuine connection" },
+                    { "change": 5000, "reason": "Received Cinder's Scale token" },
+                    { "change": 4000, "reason": "Shared stories of the 10,000" }
+                ],
+                "unlocks": [
+                    { "threshold": 33000, "reward": "Cinder's Scale provides comfort in dark times" },
+                    { "threshold": 45000, "reward": "Deeper connection possible" }
+                ],
+                "romanceAvailable": true
+            },
+            {
+                "name": "Thresh",
+                "type": "NPC - Artisan",
+                "category": "npcs",
+                "reputation": 24000,
+                "description": "You paid me in something more valuable than gold. I will remember you forever.",
+                "likes": ["Novelty", "Stories that cost something", "Being remembered", "The strange and unique"],
+                "dislikes": ["Boring work", "Being forgotten", "Gold without meaning"],
+                "history": [
+                    { "change": 10000, "reason": "Paid in remembrance instead of gold" },
+                    { "change": 5000, "reason": "Shared the weight of 10,000 names" }
+                ],
+                "unlocks": [
+                    { "threshold": 33000, "reward": "Free body modifications" },
+                    { "threshold": 45000, "reward": "Thresh creates something unique for you" }
+                ]
+            },
+            {
+                "name": "Jonas",
+                "type": "Party Member",
+                "category": "npcs",
+                "reputation": 17000,
+                "description": "We have bled together. Betrayed and forgiven. That is stronger than trust.",
+                "likes": ["Honesty", "Facing danger together", "Redemption"],
+                "dislikes": ["Betrayal", "Abandonment"],
+                "history": [
+                    { "change": -5000, "reason": "Betrayed at Lastwell" },
+                    { "change": 6000, "reason": "Reconciliation accepted" },
+                    { "change": 4000, "reason": "Received medical kit and gold" },
+                    { "change": 3000, "reason": "Buried Kael together" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Sol Raven",
+                "type": "Party Member",
+                "category": "npcs",
+                "reputation": 18000,
+                "description": "We both carry the weight of those who came before.",
+                "likes": ["Understanding", "Shared burdens", "Memory"],
+                "dislikes": ["Forgetting", "Abandonment"],
+                "history": [
+                    { "change": 5000, "reason": "Prevented Door of Possibility" },
+                    { "change": 4000, "reason": "Shared grief for Mira and Kael" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Thessaly",
+                "type": "NPC - Neutral",
+                "category": "npcs",
+                "reputation": 26000,
+                "description": "A living Leonin... I thought your people were gone. The Ledger is yours.",
+                "likes": ["Truth over comfort", "Forbidden knowledge", "Those who question", "Living history"],
+                "dislikes": ["Book burners", "Willful ignorance", "The Church", "Those who destroy knowledge"],
+                "history": [
+                    { "change": 10000, "reason": "Gave Ledger of Moments for free" },
+                    { "change": 5000, "reason": "Fascination with living Leonin" },
+                    { "change": 2000, "reason": "Gave letter and clay token for Velvet Thorn" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Free access to restricted texts" },
+                    { "threshold": 33000, "reward": "Thessaly researches Leonin history" }
+                ]
+            },
+            {
+                "name": "Sekris",
+                "type": "NPC - Dangerous",
+                "category": "npcs",
+                "reputation": 12000,
+                "description": "The contract-token remains. The deal awaits.",
+                "likes": ["Valuable meanings", "Completed transactions", "Patience", "Those who understand true cost"],
+                "dislikes": ["Broken contracts", "Wasted potential", "Those who renege on deals"],
+                "history": [
+                    { "change": 3000, "reason": "Accepted contract-token" }
+                ],
+                "unlocks": [
+                    { "threshold": 15000, "reward": "May negotiate contract terms" },
+                    { "threshold": 21000, "reward": "Alternative deals available" }
+                ]
+            },
+            {
+                "name": "Seraphine Vale",
+                "type": "NPC - Uncertain",
+                "category": "npcs",
+                "reputation": 12000,
+                "description": "Another companion of the branded one. Quiet. Watchful.",
+                "likes": ["Questioning faith", "Honoring the dead", "Defying corruption", "Truth over comfort"],
+                "dislikes": ["Blind obedience", "Manipulation", "Being used as a tool"],
+                "history": [
+                    { "change": 3000, "reason": "Was present when Mira and Kael's deaths were reported" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Broma",
+                "type": "NPC - Merchant",
+                "category": "npcs",
+                "reputation": 9000,
+                "description": "Customer. Professional.",
+                "likes": ["Honest craftsmanship", "Patience", "Quality materials", "Professional respect"],
+                "dislikes": ["Cursed weapons", "Rushed work", "Oaths to Sovereigns"],
+                "history": [],
+                "unlocks": []
+            },
+            {
+                "name": "Ardian Bloodveil",
+                "type": "NPC - Uncertain",
+                "category": "npcs",
+                "reputation": 9000,
+                "description": "The resurrected First Templar. Something is wrong with him.",
+                "likes": ["Martial honor", "Divine connection", "Those who carry burdens", "Faith"],
+                "dislikes": ["Cowardice", "Betrayal of oath", "Those who flee from duty"],
+                "history": [],
+                "unlocks": []
+            },
+            {
+                "name": "The Church of Mareatha",
+                "type": "Faction",
+                "category": "factions",
+                "reputation": 5500,
+                "description": "Another heretic ally. The blood will be collected.",
+                "likes": ["Submission", "Blood tithes"],
+                "dislikes": ["Heretics", "Those who escape Sovereigns"],
+                "history": [
+                    { "change": -2000, "reason": "Allied with heretics" },
+                    { "change": -1500, "reason": "Escaped Sovereign imprisonment" }
+                ],
+                "unlocks": []
+            },
+            {
+                "name": "Velvet Thorn",
+                "type": "NPC - Ally",
+                "category": "npcs",
+                "reputation": 15000,
+                "description": "Any friend of Thessaly's is welcome here. The best rooms.",
+                "likes": ["Thessaly's connections", "Interesting guests", "Discretion", "Those who respect hospitality"],
+                "dislikes": ["Troublemakers", "Those who abuse hospitality", "Rudeness"],
+                "history": [
+                    { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Permanent discount at her establishment" },
+                    { "threshold": 33000, "reward": "Private information network access" }
+                ]
+            }
+        ]
+    }
+}

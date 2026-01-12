@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationship Map - The Ashen Realms</title>
+    <link rel="stylesheet" href="style.css?v=37">
+    <link rel="stylesheet" href="relationship-map.css?v=1">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="bg-gradient"></div>
+        <div class="bg-noise"></div>
+        <div class="bg-vignette"></div>
+    </div>
+
+    <div class="map-page">
+        <!-- Header -->
+        <header class="map-header">
+            <a href="index.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+                <span>Return to Compendium</span>
+            </a>
+            <h1 class="map-title">Web of Connections</h1>
+            <div class="map-subtitle">The threads that bind the Ashen Realms</div>
+        </header>
+
+        <!-- Controls -->
+        <div class="map-controls">
+            <div class="control-group">
+                <label>View:</label>
+                <button class="control-btn active" data-view="all">All NPCs</button>
+                <button class="control-btn" data-view="party">Party Focus</button>
+                <button class="control-btn" data-view="sovereigns">Sovereigns</button>
+            </div>
+            <div class="control-group">
+                <label>Show Connections:</label>
+                <button class="control-btn toggle active" data-toggle="allies">Allies</button>
+                <button class="control-btn toggle active" data-toggle="enemies">Enemies</button>
+                <button class="control-btn toggle active" data-toggle="business">Business</button>
+                <button class="control-btn toggle" data-toggle="romance">Romance</button>
+            </div>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container" id="map-container">
+            <svg class="connections-layer" id="connections-layer"></svg>
+            <div class="nodes-layer" id="nodes-layer"></div>
+        </div>
+
+        <!-- Legend -->
+        <div class="map-legend">
+            <h3>Connection Types</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="legend-line ally"></span>
+                    <span>Ally / Friend</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-line enemy"></span>
+                    <span>Enemy / Hostile</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-line business"></span>
+                    <span>Business / Neutral</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-line romance"></span>
+                    <span>Romantic Interest</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-line sovereign"></span>
+                    <span>Sovereign Bond</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tooltip -->
+        <div class="node-tooltip" id="node-tooltip">
+            <div class="tooltip-header">
+                <img class="tooltip-img" src="" alt="">
+                <div class="tooltip-info">
+                    <div class="tooltip-name"></div>
+                    <div class="tooltip-type"></div>
+                </div>
+            </div>
+            <div class="tooltip-connections"></div>
+        </div>
+    </div>
+
+    <script src="relationship-map.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
