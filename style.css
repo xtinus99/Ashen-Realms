@@ -4906,23 +4906,23 @@ body {
 }
 
 /* Tier Colors for Standing */
-.tier-hated { color: #ff4444; }
-.tier-hostile { color: #ff6655; }
-.tier-unfriendly { color: #cc7744; }
+.tier-hostile { color: #ff4444; }
+.tier-hated { color: #ff6655; }
+.tier-wary { color: #cc7744; }
 .tier-neutral { color: #999; }
 .tier-cordial { color: #7ab54a; }
 .tier-friendly { color: #4ac59a; }
 .tier-trusted { color: #5ac5ff; }
-.tier-devoted { color: #b56aff; }
-.tier-soulbound { color: var(--gold-bright); text-shadow: 0 0 10px var(--glow-gold); }
+.tier-sworn { color: #b56aff; }
+.tier-kindred { color: var(--gold-bright); text-shadow: 0 0 10px var(--glow-gold); }
 
 /* Standing Bar Fill Colors */
-.standing-fill-mini.tier-hated,
-.standing-fill-large.tier-hated { background: linear-gradient(90deg, #4a0a0a, #8b1a1a); }
 .standing-fill-mini.tier-hostile,
-.standing-fill-large.tier-hostile { background: linear-gradient(90deg, #6b1010, #a02020); }
-.standing-fill-mini.tier-unfriendly,
-.standing-fill-large.tier-unfriendly { background: linear-gradient(90deg, #8b4513, #b06030); }
+.standing-fill-large.tier-hostile { background: linear-gradient(90deg, #4a0a0a, #8b1a1a); }
+.standing-fill-mini.tier-hated,
+.standing-fill-large.tier-hated { background: linear-gradient(90deg, #6b1010, #a02020); }
+.standing-fill-mini.tier-wary,
+.standing-fill-large.tier-wary { background: linear-gradient(90deg, #8b4513, #b06030); }
 .standing-fill-mini.tier-neutral,
 .standing-fill-large.tier-neutral { background: linear-gradient(90deg, #555, #777); }
 .standing-fill-mini.tier-cordial,
@@ -4931,31 +4931,31 @@ body {
 .standing-fill-large.tier-friendly { background: linear-gradient(90deg, #2a6a4a, #4a9a7a); }
 .standing-fill-mini.tier-trusted,
 .standing-fill-large.tier-trusted { background: linear-gradient(90deg, #1a5a8a, #3a8aca); }
-.standing-fill-mini.tier-devoted,
-.standing-fill-large.tier-devoted { background: linear-gradient(90deg, #6a2a8a, #9a4aca); }
-.standing-fill-mini.tier-soulbound,
-.standing-fill-large.tier-soulbound {
+.standing-fill-mini.tier-sworn,
+.standing-fill-large.tier-sworn { background: linear-gradient(90deg, #6a2a8a, #9a4aca); }
+.standing-fill-mini.tier-kindred,
+.standing-fill-large.tier-kindred {
     background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright), var(--gold-dark));
     box-shadow: 0 0 10px var(--glow-gold);
 }
 
 /* Portrait Tier Borders */
-.hero-portrait.tier-soulbound,
-.hero-portrait.tier-devoted {
+.hero-portrait.tier-kindred,
+.hero-portrait.tier-sworn {
     border-color: var(--gold);
     box-shadow: 0 0 25px var(--glow-gold);
 }
 
 /* Tier Node Colors */
-.tier-node.tier-hated { background: #ff4444; border-color: #ff4444; }
-.tier-node.tier-hostile { background: #ff6655; border-color: #ff6655; }
-.tier-node.tier-unfriendly { background: #cc7744; border-color: #cc7744; }
+.tier-node.tier-hostile { background: #ff4444; border-color: #ff4444; }
+.tier-node.tier-hated { background: #ff6655; border-color: #ff6655; }
+.tier-node.tier-wary { background: #cc7744; border-color: #cc7744; }
 .tier-node.tier-neutral { background: #999; border-color: #999; }
 .tier-node.tier-cordial { background: #7ab54a; border-color: #7ab54a; }
 .tier-node.tier-friendly { background: #4ac59a; border-color: #4ac59a; }
 .tier-node.tier-trusted { background: #5ac5ff; border-color: #5ac5ff; }
-.tier-node.tier-devoted { background: #b56aff; border-color: #b56aff; }
-.tier-node.tier-soulbound { background: var(--gold-bright); border-color: var(--gold-bright); box-shadow: 0 0 8px var(--glow-gold); }
+.tier-node.tier-sworn { background: #b56aff; border-color: #b56aff; }
+.tier-node.tier-kindred { background: var(--gold-bright); border-color: var(--gold-bright); box-shadow: 0 0 8px var(--glow-gold); }
 
 /* Responsive - Bonds Page */
 @media (max-width: 1100px) {

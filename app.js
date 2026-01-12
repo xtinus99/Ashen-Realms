@@ -2701,15 +2701,15 @@ document.head.appendChild(style);
 
 // ===== BONDS & STANDING (REPUTATION TRACKER) =====
 const REP_TIERS = [
-    { name: 'Hated', min: 0, max: 3000, class: 'hated' },
-    { name: 'Hostile', min: 3000, max: 6000, class: 'hostile' },
-    { name: 'Unfriendly', min: 6000, max: 9000, class: 'unfriendly' },
-    { name: 'Neutral', min: 9000, max: 15000, class: 'neutral' },
-    { name: 'Cordial', min: 15000, max: 21000, class: 'cordial' },
-    { name: 'Friendly', min: 21000, max: 33000, class: 'friendly' },
-    { name: 'Trusted', min: 33000, max: 45000, class: 'trusted' },
-    { name: 'Devoted', min: 45000, max: 51000, class: 'devoted' },
-    { name: 'Soulbound', min: 51000, max: 57000, class: 'soulbound' }
+    { name: 'Hostile', min: 0, max: 5000, class: 'hostile' },
+    { name: 'Hated', min: 5000, max: 7500, class: 'hated' },
+    { name: 'Wary', min: 7500, max: 10000, class: 'wary' },
+    { name: 'Neutral', min: 10000, max: 12500, class: 'neutral' },
+    { name: 'Cordial', min: 12500, max: 17500, class: 'cordial' },
+    { name: 'Friendly', min: 17500, max: 25000, class: 'friendly' },
+    { name: 'Trusted', min: 25000, max: 35000, class: 'trusted' },
+    { name: 'Sworn', min: 35000, max: 45000, class: 'sworn' },
+    { name: 'Kindred', min: 45000, max: Infinity, class: 'kindred' }
 ];
 
 let relationshipData = null;
