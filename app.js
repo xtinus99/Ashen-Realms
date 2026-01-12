@@ -3116,55 +3116,8 @@ function animateBondCards() {
         });
     });
 
-    // Initialize Atropos 3D tilt on bond cards
-    initBondCardTilt();
 }
 
-function initBondCardTilt() {
-    // Initialize Atropos on each bond card for 3D tilt effect
-    document.querySelectorAll('.bond-card').forEach(card => {
-        // Skip if already initialized
-        if (card.dataset.atroposInit) return;
-        card.dataset.atroposInit = 'true';
-
-        // Create subtle tilt effect on hover
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-                scale: 1.02,
-                duration: 0.2,
-                ease: 'power2.out'
-            });
-        });
-
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-                scale: 1,
-                rotateX: 0,
-                rotateY: 0,
-                duration: 0.3,
-                ease: 'power2.out'
-            });
-        });
-
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-
-            gsap.to(card, {
-                rotateX: rotateX,
-                rotateY: rotateY,
-                duration: 0.1,
-                ease: 'power2.out',
-                transformPerspective: 1000
-            });
-        });
-    });
-}
 
 function animateDetailPanel() {
     // Animate the detail panel content using GSAP
