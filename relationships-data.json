@@ -88,7 +88,7 @@
                 "category": "npcs",
                 "reputation": 14000,
                 "description": "We walk the same path now, whether we chose it or not.",
-                "likes": ["Truth and honesty", "Mira's legacy", "Finding the Arterial Texts", "Those who shatter comfortable lies"],
+                "likes": ["Truth and honesty", "Questioning faith", "Protecting the innocent", "Those who shatter comfortable lies"],
                 "dislikes": ["Deception", "The Mareathan Church", "Being used as an instrument", "Blind faith"],
                 "history": [
                     { "change": 3000, "reason": "Helped expose Kaleth's crimes" },
@@ -157,7 +157,7 @@
                 "category": "npcs",
                 "reputation": 16000,
                 "description": "Seekers of truth are always welcome at the Frayed Codex.",
-                "likes": ["Truth and forbidden knowledge", "Those seeking genuine understanding", "Rare texts", "Old friends like Mira"],
+                "likes": ["Truth and forbidden knowledge", "Those seeking genuine understanding", "Rare texts", "Old friends"],
                 "dislikes": ["Those who destroy knowledge", "Lies and deception", "Censorship", "Willful ignorance"],
                 "history": [
                     { "change": 3000, "reason": "Purchased forbidden texts" },
@@ -193,7 +193,7 @@
                 "category": "npcs",
                 "reputation": 15000,
                 "description": "Any friend of Thessaly's is welcome here. The best rooms.",
-                "likes": ["Discretion and professionalism", "Those connected to Thessaly", "Information exchange", "Respecting boundaries"],
+                "likes": ["Discretion and professionalism", "Trusted referrals", "Information exchange", "Respecting boundaries"],
                 "dislikes": ["Obvious lies", "Those who don't pay", "Trouble in her establishment", "Unseemly displays"],
                 "history": [
                     { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
@@ -268,7 +268,7 @@
                 "category": "npcs",
                 "reputation": 18000,
                 "description": "You carry me toward danger, but also toward freedom.",
-                "likes": ["Freedom and escape", "Being spoken to", "The Docent's Archive", "Hope for release"],
+                "likes": ["Freedom and escape", "Being spoken to", "Knowledge and answers", "Hope for release"],
                 "dislikes": ["Kaedris", "The Bastion of Fireblood", "Captivity", "The Passion-Seed being misused"],
                 "history": [
                     { "change": 5000, "reason": "Found her after 500 years" },
@@ -313,7 +313,7 @@
                 "category": "npcs",
                 "reputation": 20000,
                 "description": "The Witness... yes, you would seek knowledge.",
-                "likes": ["Truth and forbidden knowledge", "Those seeking genuine understanding", "Rare texts", "Old friends like Mira"],
+                "likes": ["Truth and forbidden knowledge", "Those seeking genuine understanding", "Rare texts", "Old friends"],
                 "dislikes": ["Those who destroy knowledge", "Lies and deception", "Censorship", "Willful ignorance"],
                 "history": [
                     { "change": 5000, "reason": "Purchased The Doctrine of Still Air" },
@@ -330,7 +330,7 @@
                 "category": "npcs",
                 "reputation": 16000,
                 "description": "You gave me Oathkeeper. It judges me still.",
-                "likes": ["Truth and honesty", "Mira's legacy", "Finding the Arterial Texts", "Those who shatter comfortable lies"],
+                "likes": ["Truth and honesty", "Questioning faith", "Protecting the innocent", "Those who shatter comfortable lies"],
                 "dislikes": ["Deception", "The Mareathan Church", "Being used as an instrument", "Blind faith"],
                 "history": [
                     { "change": 5000, "reason": "Gave her Oathkeeper - understood she needed it" },
@@ -385,7 +385,7 @@
                 "category": "npcs",
                 "reputation": 15000,
                 "description": "Any friend of Thessaly's is welcome here. The best rooms.",
-                "likes": ["Discretion and professionalism", "Those connected to Thessaly", "Information exchange", "Respecting boundaries"],
+                "likes": ["Discretion and professionalism", "Trusted referrals", "Information exchange", "Respecting boundaries"],
                 "dislikes": ["Obvious lies", "Those who don't pay", "Trouble in her establishment", "Unseemly displays"],
                 "history": [
                     { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
@@ -576,7 +576,7 @@
                 "category": "npcs",
                 "reputation": 12000,
                 "description": "Another companion of the branded one. Quiet. Watchful.",
-                "likes": ["Truth and honesty", "Mira's legacy", "Finding the Arterial Texts", "Those who shatter comfortable lies"],
+                "likes": ["Truth and honesty", "Questioning faith", "Protecting the innocent", "Those who shatter comfortable lies"],
                 "dislikes": ["Deception", "The Mareathan Church", "Being used as an instrument", "Blind faith"],
                 "history": [
                     { "change": 3000, "reason": "Was present when Mira and Kael's deaths were reported" }
@@ -625,7 +625,7 @@
                 "category": "npcs",
                 "reputation": 15000,
                 "description": "Any friend of Thessaly's is welcome here. The best rooms.",
-                "likes": ["Discretion and professionalism", "Those connected to Thessaly", "Information exchange", "Respecting boundaries"],
+                "likes": ["Discretion and professionalism", "Trusted referrals", "Information exchange", "Respecting boundaries"],
                 "dislikes": ["Obvious lies", "Those who don't pay", "Trouble in her establishment", "Unseemly displays"],
                 "history": [
                     { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
