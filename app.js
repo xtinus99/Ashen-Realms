@@ -264,9 +264,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     initAudio();
     setupAudioControls();
     initParticles();
-    initVantaFog();
     initSmoothScroll();
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 
     // Check for URL hash to restore state
     if (!restoreFromHash()) {
@@ -349,37 +348,6 @@ function initParticles() {
         },
         detectRetina: true
     });
-}
-
-// ===== VANTA.JS FOG EFFECT =====
-let vantaEffect = null;
-
-function initVantaFog() {
-    if (typeof VANTA === 'undefined' || typeof THREE === 'undefined') return;
-
-    const fogContainer = document.getElementById('vanta-fog');
-    if (!fogContainer) return;
-
-    try {
-        vantaEffect = VANTA.FOG({
-            el: fogContainer,
-            THREE: THREE,
-            mouseControls: false,
-            touchControls: false,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            highlightColor: 0x1a1520,
-            midtoneColor: 0x0d0a0f,
-            lowlightColor: 0x050308,
-            baseColor: 0x0a080c,
-            blurFactor: 0.7,
-            speed: 0.8,
-            zoom: 0.6
-        });
-    } catch (e) {
-        console.log('Vanta fog init failed:', e);
-    }
 }
 
 // ===== LENIS SMOOTH SCROLL =====
