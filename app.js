@@ -2642,10 +2642,12 @@ function renderRelationshipsView() {
     document.getElementById('content-body').innerHTML = `
         <div class="journal-container">
             <div class="journal-book" id="journal-book">
+                <!-- Cover edges (absolute positioned) -->
                 <div class="book-cover-back"></div>
+                <div class="book-cover-front" id="book-cover-front"></div>
 
+                <!-- Left page with entries -->
                 <div class="journal-left-page">
-                    <div class="page-curl"></div>
                     <div class="page-header">
                         <div class="page-title">Bonds & Standing</div>
                         <div class="page-subtitle">The personal ledger of ${CHAR_NAMES[currentRepCharacter]}</div>
@@ -2678,14 +2680,13 @@ function renderRelationshipsView() {
                     <div class="page-number">— ${relationships.length} entries —</div>
                 </div>
 
+                <!-- Center spine -->
                 <div class="journal-spine"></div>
 
+                <!-- Right page with details -->
                 <div class="journal-right-page">
-                    <div class="page-curl right"></div>
                     ${detailHtml}
                 </div>
-
-                <div class="book-cover-front" id="book-cover-front"></div>
             </div>
         </div>
     `;
