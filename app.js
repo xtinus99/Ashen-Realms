@@ -3014,7 +3014,7 @@ function renderBondDetail(rel) {
         <div class="detail-panel ${isEnemy ? 'enemy' : ''}">
             <div class="detail-hero">
                 <div class="hero-portrait ${isEnemy ? 'enemy' : `tier-${tier.class}`}">
-                    ${imageName ? `<img src="images/${imageName}.webp" alt="${rel.name}" onerror="this.src='thumbnails/${imageName}.webp'">` : `<span class="hero-initial">${rel.name.charAt(0)}</span>`}
+                    ${imageName ? `<img src="images/${imageName}.webp" alt="${rel.name}" data-zoom-src="images/${imageName}.webp" onerror="this.src='thumbnails/${imageName}.webp'">` : `<span class="hero-initial">${rel.name.charAt(0)}</span>`}
                     ${tier.class === 'soulbound' || tier.class === 'devoted' ? '<div class="hero-particles"></div>' : ''}
                 </div>
                 <div class="hero-info">

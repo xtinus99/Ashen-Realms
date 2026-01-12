@@ -5188,6 +5188,11 @@ body {
     box-shadow:
         0 10px 50px rgba(0, 0, 0, 0.6),
         0 0 40px rgba(var(--color-gold-rgb), 0.1);
+    object-fit: contain !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
 }
 
 /* =====================================================
