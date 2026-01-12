@@ -2619,17 +2619,13 @@ function renderRelationshipsView() {
     if (!bookOpened) {
         document.getElementById('content-body').innerHTML = `
             <div class="journal-container">
-                <div class="journal-closed" id="journal-closed">
-                    <div class="book-spine-closed"></div>
-                    <div class="book-pages-under"></div>
-                    <div class="book-cover">
-                        <div class="cover-border"></div>
-                        <div class="cover-emblem"></div>
-                        <div class="cover-title">Bonds & Standing</div>
-                        <div class="cover-subtitle">Personal Ledger</div>
-                        <div class="cover-instruction">Click to open</div>
+                <div class="journal-wrapper">
+                    <div class="journal-closed" id="journal-closed">
+                        <div class="book-spine-closed"></div>
+                        <div class="book-pages-under"></div>
+                        <div class="book-cover"></div>
+                        <div class="book-pages-edge"></div>
                     </div>
-                    <div class="book-pages-edge"></div>
                 </div>
             </div>
         `;
@@ -2640,17 +2636,17 @@ function renderRelationshipsView() {
             setTimeout(() => {
                 bookOpened = true;
                 renderRelationshipsView();
-            }, 800);
+            }, 700);
         });
         return;
     }
 
     document.getElementById('content-body').innerHTML = `
         <div class="journal-container">
-            <div class="journal-book open">
-                <button class="journal-close-btn" id="journal-close-btn" title="Close book">×</button>
-                <div class="book-cover-back"></div>
-                <div class="journal-left-page">
+            <div class="journal-wrapper">
+                <div class="journal-book" id="journal-book">
+                    <div class="book-cover-back"></div>
+                    <div class="journal-left-page">
                     <div class="page-curl"></div>
                     <div class="page-header">
                         <div class="page-title">Bonds & Standing</div>
@@ -2690,7 +2686,8 @@ function renderRelationshipsView() {
                     <div class="page-curl right"></div>
                     ${detailHtml}
                 </div>
-                <div class="book-cover-front"></div>
+                <div class="book-cover-front" id="book-cover-front"></div>
+                </div>
             </div>
         </div>
     `;
@@ -2726,11 +2723,17 @@ function renderRelationshipsView() {
         });
     });
 
-    // Close book button
-    document.getElementById('journal-close-btn').addEventListener('click', () => {
-        bookOpened = false;
-        selectedEntry = null;
-        renderRelationshipsView();
+    // Close book by clicking the front cover
+    document.getElementById('book-cover-front').addEventListener('click', () => {
+        const cover = document.getElementById('book-cover-front');
+        const book = document.getElementById('journal-book');
+        cover.classList.add('closing');
+        book.classList.add('closing');
+        setTimeout(() => {
+            bookOpened = false;
+            selectedEntry = null;
+            renderRelationshipsView();
+        }, 700);
     });
 
     lucide.createIcons();
