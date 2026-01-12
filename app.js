@@ -2920,6 +2920,7 @@ function renderRelationshipsView() {
             const detailPanel = document.getElementById('bonds-detail');
             detailPanel.innerHTML = renderBondDetail(rel);
             lucide.createIcons();
+            attachImageZoom();
             animateDetailPanel();
         });
     });
