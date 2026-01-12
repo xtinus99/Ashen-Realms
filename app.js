@@ -286,15 +286,16 @@ function initParticles() {
 
     tsParticles.load("tsparticles", {
         fullScreen: false,
+        fpsLimit: 60,
         background: {
             color: "transparent"
         },
         particles: {
             number: {
-                value: 50,
+                value: 35,
                 density: {
                     enable: true,
-                    area: 1000
+                    area: 1200
                 }
             },
             color: {
@@ -304,56 +305,41 @@ function initParticles() {
                 type: "circle"
             },
             opacity: {
-                value: { min: 0.1, max: 0.5 },
+                value: { min: 0.15, max: 0.4 },
                 animation: {
                     enable: true,
-                    speed: 0.5,
+                    speed: 0.3,
                     minimumValue: 0.1,
                     sync: false
                 }
             },
             size: {
-                value: { min: 1, max: 4 },
+                value: { min: 1, max: 3 },
                 animation: {
-                    enable: true,
-                    speed: 2,
-                    minimumValue: 0.5,
-                    sync: false
+                    enable: false
                 }
             },
             move: {
                 enable: true,
-                speed: { min: 0.3, max: 1 },
+                speed: 0.4,
                 direction: "top",
-                random: true,
+                random: false,
                 straight: false,
                 outModes: {
-                    default: "out",
-                    top: "out",
-                    bottom: "out"
+                    default: "out"
                 },
-                drift: {
-                    min: -0.5,
-                    max: 0.5
-                }
-            },
-            life: {
-                duration: {
-                    sync: false,
-                    value: { min: 3, max: 8 }
-                },
-                count: 0
+                drift: 0
             },
             wobble: {
                 enable: true,
-                distance: 10,
-                speed: 5
+                distance: 3,
+                speed: 1
             },
             twinkle: {
                 particles: {
                     enable: true,
-                    frequency: 0.03,
-                    opacity: 0.8,
+                    frequency: 0.02,
+                    opacity: 0.6,
                     color: {
                         value: "#c9a227"
                     }
