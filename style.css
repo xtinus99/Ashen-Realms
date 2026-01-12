@@ -3979,9 +3979,14 @@ body {
    Clean, dark, dramatic - inspired by modern action RPGs
    ===================================================== */
 
-/* Main Container */
+/* Main Container - Override content-body max-width */
+.content-body:has(.bonds-container) {
+    max-width: 100%;
+}
+
 .bonds-container {
     max-width: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     min-height: calc(100vh - 80px);
@@ -4150,10 +4155,10 @@ body {
     margin: 0 8px;
 }
 
-/* Main Layout - Two columns with cards taking more space */
+/* Main Layout - List takes all available space, detail panel fixed width */
 .bonds-layout {
     display: grid;
-    grid-template-columns: 1fr 420px;
+    grid-template-columns: 1fr 380px;
     min-height: calc(100vh - 140px);
     gap: 0;
 }
