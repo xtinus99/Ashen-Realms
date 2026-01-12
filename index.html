@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Ashen Realms</title>
-    <link rel="stylesheet" href="style.css?v=53">
+    <link rel="stylesheet" href="style.css?v=54">
     <!-- Tippy.js CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
@@ -39,10 +39,19 @@
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+
+    <!-- Three.js + Vanta.js for atmospheric fog -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.fog.min.js"></script>
+
+    <!-- Typed.js for typewriter effects -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
 </head>
 <body>
     <!-- Background Effects - Divine Battlefield Shrine -->
     <div class="bg-effects">
+        <!-- Vanta.js fog effect -->
+        <div id="vanta-fog"></div>
         <div class="bg-gradient"></div>
         <div class="bg-noise"></div>
         <div class="god-rays"></div>
