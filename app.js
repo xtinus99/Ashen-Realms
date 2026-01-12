@@ -441,6 +441,10 @@ function setupLightbox() {
             if (e.target.classList.contains('welcome-sigil')) {
                 return;
             }
+            // Don't open lightbox for small journal portraits (entry list)
+            if (e.target.closest('.entry-portrait')) {
+                return;
+            }
             // Use optimized version for lightbox (not thumbnail)
             const originalSrc = e.target.dataset.originalSrc || e.target.src;
             lightboxImg.src = getOptimizedImagePath(originalSrc);
@@ -2616,6 +2620,8 @@ function renderRelationshipsView() {
         document.getElementById('content-body').innerHTML = `
             <div class="journal-container">
                 <div class="journal-closed" id="journal-closed">
+                    <div class="book-spine-closed"></div>
+                    <div class="book-pages-under"></div>
                     <div class="book-cover">
                         <div class="cover-border"></div>
                         <div class="cover-emblem"></div>
@@ -2623,7 +2629,6 @@ function renderRelationshipsView() {
                         <div class="cover-subtitle">Personal Ledger</div>
                         <div class="cover-instruction">Click to open</div>
                     </div>
-                    <div class="book-spine-closed"></div>
                     <div class="book-pages-edge"></div>
                 </div>
             </div>
@@ -2635,7 +2640,7 @@ function renderRelationshipsView() {
             setTimeout(() => {
                 bookOpened = true;
                 renderRelationshipsView();
-            }, 600);
+            }, 800);
         });
         return;
     }
@@ -2643,6 +2648,7 @@ function renderRelationshipsView() {
     document.getElementById('content-body').innerHTML = `
         <div class="journal-container">
             <div class="journal-book open">
+                <button class="journal-close-btn" id="journal-close-btn" title="Close book">×</button>
                 <div class="book-cover-back"></div>
                 <div class="journal-left-page">
                     <div class="page-curl"></div>
@@ -2718,6 +2724,13 @@ function renderRelationshipsView() {
             selectedEntry = entry.dataset.name;
             renderRelationshipsView();
         });
+    });
+
+    // Close book button
+    document.getElementById('journal-close-btn').addEventListener('click', () => {
+        bookOpened = false;
+        selectedEntry = null;
+        renderRelationshipsView();
     });
 
     lucide.createIcons();
