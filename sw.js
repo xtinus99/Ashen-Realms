@@ -1,7 +1,7 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v14';
+const CACHE_NAME = 'ashen-realms-v15';
 
 // Core assets to cache immediately on install
 const CORE_ASSETS = [

@@ -2619,13 +2619,11 @@ function renderRelationshipsView() {
     if (!bookOpened) {
         document.getElementById('content-body').innerHTML = `
             <div class="journal-container">
-                <div class="journal-wrapper">
-                    <div class="journal-closed" id="journal-closed">
-                        <div class="book-spine-closed"></div>
-                        <div class="book-pages-under"></div>
-                        <div class="book-cover"></div>
-                        <div class="book-pages-edge"></div>
-                    </div>
+                <div class="journal-closed" id="journal-closed">
+                    <div class="book-spine-closed"></div>
+                    <div class="book-pages-under"></div>
+                    <div class="book-cover"></div>
+                    <div class="book-pages-edge"></div>
                 </div>
             </div>
         `;
@@ -2636,17 +2634,17 @@ function renderRelationshipsView() {
             setTimeout(() => {
                 bookOpened = true;
                 renderRelationshipsView();
-            }, 700);
+            }, 800);
         });
         return;
     }
 
     document.getElementById('content-body').innerHTML = `
         <div class="journal-container">
-            <div class="journal-wrapper">
-                <div class="journal-book" id="journal-book">
-                    <div class="book-cover-back"></div>
-                    <div class="journal-left-page">
+            <div class="journal-book" id="journal-book">
+                <div class="book-cover-back"></div>
+
+                <div class="journal-left-page">
                     <div class="page-curl"></div>
                     <div class="page-header">
                         <div class="page-title">Bonds & Standing</div>
@@ -2686,8 +2684,8 @@ function renderRelationshipsView() {
                     <div class="page-curl right"></div>
                     ${detailHtml}
                 </div>
+
                 <div class="book-cover-front" id="book-cover-front"></div>
-                </div>
             </div>
         </div>
     `;
