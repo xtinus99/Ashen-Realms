@@ -4150,10 +4150,12 @@ body {
     margin: 0 8px;
 }
 
-/* Main Layout - Full-width Gallery + Slide Panel */
+/* Main Layout - Two columns with cards taking more space */
 .bonds-layout {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 420px;
     min-height: calc(100vh - 140px);
+    gap: 0;
 }
 
 /* Remove all ornate decorations */
@@ -4166,11 +4168,11 @@ body {
     display: none;
 }
 
-/* Character Cards Gallery */
+/* Character Cards Gallery - Takes most of the space */
 .bonds-list-wrapper {
-    flex: 1;
     padding: var(--spacing-xl);
     overflow-y: auto;
+    max-height: calc(100vh - 140px);
 }
 
 .bonds-list-wrapper::before,
@@ -4180,7 +4182,7 @@ body {
 
 .bonds-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: var(--spacing-md);
     max-height: none;
     overflow: visible;
@@ -4286,10 +4288,13 @@ body {
 }
 
 .card-portrait img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
+    z-index: 2;
 }
 
 .card-initial {
@@ -4302,6 +4307,7 @@ body {
     font-size: 1.5rem;
     color: var(--gold-dark);
     background: linear-gradient(135deg, rgba(30, 25, 35, 1), rgba(20, 15, 25, 1));
+    z-index: 1;
 }
 
 .enemy-overlay {
@@ -4312,6 +4318,7 @@ body {
     align-items: center;
     justify-content: center;
     color: #fff;
+    z-index: 3;
 }
 
 .enemy-overlay svg {
@@ -4406,8 +4413,6 @@ body {
 
 /* Detail Panel - Clean Slide Panel */
 .bonds-detail {
-    width: 480px;
-    min-width: 480px;
     background: rgba(12, 10, 15, 0.98);
     border-left: 1px solid rgba(255, 255, 255, 0.06);
     padding: 0;
@@ -4965,20 +4970,22 @@ body {
 /* Responsive - Bonds Page */
 @media (max-width: 1100px) {
     .bonds-layout {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
     .bonds-detail {
         position: static;
-        width: 100%;
-        min-width: 100%;
         height: auto;
         border-left: none;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
+    .bonds-list-wrapper {
+        max-height: none;
+    }
+
     .bonds-list {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
 
     .hero-portrait {
