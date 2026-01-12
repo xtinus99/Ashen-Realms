@@ -8,10 +8,10 @@
                 "reputation": 0,
                 "permanentEnemy": true,
                 "description": "You spoke my true name in my own throat. There is no forgiveness. Only inevitability.",
-                "likes": ["Consuming meaning", "Fear", "Submission", "Names freely given"],
-                "dislikes": ["Defiance", "The indigestible", "Those who escape", "True names spoken against her"],
+                "likes": ["Concepts with strong meaning", "Identity and purpose", "Things she cannot digest", "Paradoxes and contradictions"],
+                "dislikes": ["Meaningless things", "The Satiated One", "Those who humiliate her", "Her true name spoken against her"],
                 "history": [
-                    { "change": -9000, "reason": "Spoke her true name in the Throat" }
+                    { "change": -9000, "reason": "Spoke her true name twice in the Throat" }
                 ],
                 "unlocks": []
             },
@@ -19,13 +19,13 @@
                 "name": "Azerach the Whispered King",
                 "type": "Sovereign",
                 "category": "sovereigns",
-                "reputation": 25000,
-                "description": "You amuse me, branded one. Speak what I cannot.",
-                "likes": ["Secrets", "Whispered truths", "Defiance against other Sovereigns", "Interesting choices"],
-                "dislikes": ["Silence", "Boring predictability", "Loyalty to other Sovereigns"],
+                "reputation": 16000,
+                "description": "You carry my silence. Speak what I cannot.",
+                "likes": ["Secrets and hidden truths", "Silence and stillness", "Those who speak truth honestly", "Patience and strategy"],
+                "dislikes": ["Deception and lies", "Noise and disruption", "Vor'Kael", "Being forced to speak"],
                 "history": [
                     { "change": 5000, "reason": "Accepted the brand willingly" },
-                    { "change": 8000, "reason": "Used against Vor'Kael" },
+                    { "change": 8000, "reason": "Delivered 800-year message to Vor'Kael" },
                     { "change": 3000, "reason": "Carried message to Talaris" }
                 ],
                 "unlocks": [
@@ -40,8 +40,8 @@
                 "category": "sovereigns",
                 "reputation": 4500,
                 "description": "A metaphysical error. Noted. Recorded. Watched.",
-                "likes": ["Order", "Punctuality", "Proper temporal flow", "Acceptance of judgment"],
-                "dislikes": ["Chaos", "Temporal anomalies", "Those who escape justice", "Defiance of law"],
+                "likes": ["Order and justice", "Perfect accuracy", "Those with clear destiny", "Philosophical truth"],
+                "dislikes": ["Chaos and randomness", "Those who violate his ledger", "Moral ambiguity", "Ontological anomalies"],
                 "history": [
                     { "change": -3000, "reason": "Defied judgment in the Clockwork Sanctum" },
                     { "change": -1500, "reason": "Helped Fursen escape imprisonment" }
@@ -56,11 +56,11 @@
                 "type": "Sovereign",
                 "category": "sovereigns",
                 "reputation": 16000,
-                "description": "The branded one carries interesting messages.",
-                "likes": ["Natural cycles", "Decay and rebirth", "Defiance in the face of death", "Interesting deaths"],
-                "dislikes": ["Unnatural preservation", "Stagnation", "Cowardice", "Those who flee from endings"],
+                "description": "You carry my brother's mark. After 800 years of silence... curious.",
+                "likes": ["Life and death cycles", "Transformation and renewal", "Those who accept mortality", "Decay as beauty"],
+                "dislikes": ["Permanence and stasis", "Those who cling to immortality", "Fire", "Hoarding and preservation"],
                 "history": [
-                    { "change": 4000, "reason": "Carried Azerach's message" },
+                    { "change": 4000, "reason": "Carried Azerach's message after 800 years" },
                     { "change": 3000, "reason": "Respected Elias's final choice" }
                 ],
                 "unlocks": [
@@ -73,23 +73,23 @@
                 "type": "Sovereign",
                 "category": "sovereigns",
                 "reputation": 5000,
-                "description": "Another drop in the endless flow.",
-                "likes": ["Blood sacrifice", "Devotion", "Suffering offered willingly", "The faithful"],
-                "dislikes": ["Heresy", "Defiance of the Church", "The unfaithful", "Those who waste blood"],
+                "description": "Another lost child. You will return to the fold.",
+                "likes": ["Loyalty and devotion", "Those who accept her love", "Blood and conversion", "Unity and obedience"],
+                "dislikes": ["Disloyalty and doubt", "Freedom of will", "Those who reject her healing", "Fire and radiance"],
                 "history": [
-                    { "change": -2500, "reason": "Allied with heretics" },
-                    { "change": -1500, "reason": "Killed Kaleth Vorn" }
+                    { "change": -2500, "reason": "Disrupted ritual at Veinspire" },
+                    { "change": -1500, "reason": "Killed Sister Marwen" }
                 ],
                 "unlocks": []
             },
             {
                 "name": "Seraphine Vale",
-                "type": "NPC - Ally",
+                "type": "Ally",
                 "category": "npcs",
                 "reputation": 14000,
                 "description": "We walk the same path now, whether we chose it or not.",
-                "likes": ["Questioning faith", "Honoring the dead", "Truth over comfort", "Those who protect innocents"],
-                "dislikes": ["Blind obedience", "Corruption", "Manipulation", "The Church's cruelty"],
+                "likes": ["Truth and honesty", "Mira's legacy", "Finding the Arterial Texts", "Those who shatter comfortable lies"],
+                "dislikes": ["Deception", "The Mareathan Church", "Being used as an instrument", "Ardian Bloodveil"],
                 "history": [
                     { "change": 3000, "reason": "Helped expose Kaleth's crimes" },
                     { "change": 2000, "reason": "Trusted her with mission" }
@@ -107,8 +107,8 @@
                 "category": "npcs",
                 "reputation": 51000,
                 "description": "You dug my grave with your bare hands. I will never forget.",
-                "likes": ["Being remembered", "Kindness", "Questions about existence", "Those who value memory"],
-                "dislikes": ["Being forgotten", "Nihilism", "Cruelty", "Dismissing the dead"],
+                "likes": ["Understanding and truth", "Being remembered", "Meaningful actions", "Those who question existence"],
+                "dislikes": ["Being forgotten", "Meaningless actions", "Vor'Kael", "Being unmade"],
                 "history": [
                     { "change": 15000, "reason": "Dug his grave with bare hands" },
                     { "change": 10000, "reason": "Reconciled with Fursen for his sake" },
@@ -122,14 +122,14 @@
             },
             {
                 "name": "Ardian Bloodveil",
-                "type": "NPC - Uncertain",
+                "type": "Uncertain",
                 "category": "npcs",
                 "reputation": 12000,
                 "description": "The brand... interesting. We should speak.",
-                "likes": ["Martial honor", "Divine connection", "Faith", "Those who carry burdens"],
-                "dislikes": ["Cowardice", "Betrayal of oath", "Those who flee from duty", "Weakness"],
+                "likes": ["Martial tradition", "Those bearing Sovereign marks", "Appearing righteous", "Devotion to Mareatha"],
+                "dislikes": ["Those who threaten Mareatha", "Suspicion of his nature", "Trickery"],
                 "history": [
-                    { "change": 3000, "reason": "Noticed Azerach's brand with respect" }
+                    { "change": 3000, "reason": "Acknowledged Azerach's brand without fear" }
                 ],
                 "unlocks": [
                     { "threshold": 15000, "reward": "Private audience" },
@@ -142,8 +142,8 @@
                 "category": "factions",
                 "reputation": 3500,
                 "description": "Heretics. Enemies of the faith.",
-                "likes": ["Blood tithes", "Submission", "Destroying heresy", "Faithful servants"],
-                "dislikes": ["Heretics", "Defiance", "Those who question doctrine"],
+                "likes": ["Blood tithes", "Submission", "Faithful servants", "Converting the lost"],
+                "dislikes": ["Heretics", "Those who question doctrine", "Fire and radiance"],
                 "history": [
                     { "change": -3000, "reason": "Allied with Seraphine" },
                     { "change": -1500, "reason": "Killed Tribunal members" },
@@ -153,12 +153,12 @@
             },
             {
                 "name": "Thessaly",
-                "type": "NPC - Neutral",
+                "type": "Neutral",
                 "category": "npcs",
                 "reputation": 16000,
                 "description": "Seekers of truth are always welcome at the Frayed Codex.",
-                "likes": ["Forbidden knowledge", "Truth over comfort", "Those who question", "Rare texts"],
-                "dislikes": ["Book burners", "Willful ignorance", "The Church", "Censorship"],
+                "likes": ["Truth and forbidden knowledge", "Those seeking genuine understanding", "Rare texts", "Old friends like Mira"],
+                "dislikes": ["Those who destroy knowledge", "Lies and deception", "The Cardinal", "Willful ignorance"],
                 "history": [
                     { "change": 3000, "reason": "Purchased forbidden texts" },
                     { "change": 2000, "reason": "Brought news of Mira's quest" },
@@ -171,16 +171,16 @@
             },
             {
                 "name": "Broma",
-                "type": "NPC - Merchant",
+                "type": "Merchant",
                 "category": "npcs",
                 "reputation": 7000,
                 "description": "That hammer... get out. Get OUT.",
-                "likes": ["Honest craftsmanship", "Quality materials", "Patient customers", "Professional respect"],
-                "dislikes": ["Cursed weapons", "Rushed work", "Oaths to Sovereigns", "Dangerous artifacts"],
+                "likes": ["Fine metalwork", "Pre-Usurpation alloys", "Clear honest requests", "Those who understand limits"],
+                "dislikes": ["The Pulsehammer", "Cursed weapons", "Kaedris's oath-demands", "Expecting the impossible"],
                 "history": [
                     { "change": 3000, "reason": "Commissioned Custodian Shield (100gp)" },
                     { "change": 1000, "reason": "Professional transaction" },
-                    { "change": -6000, "reason": "Pulsehammer terrified her - kicked him out of shop" }
+                    { "change": -6000, "reason": "Pulsehammer terrified her - kicked him out" }
                 ],
                 "unlocks": [
                     { "threshold": 21000, "reward": "Priority commissions" },
@@ -189,12 +189,12 @@
             },
             {
                 "name": "Velvet Thorn",
-                "type": "NPC - Ally",
+                "type": "Ally",
                 "category": "npcs",
                 "reputation": 15000,
                 "description": "Any friend of Thessaly's is welcome here. The best rooms.",
-                "likes": ["Discretion", "Interesting guests", "Those who respect hospitality", "Good stories"],
-                "dislikes": ["Troublemakers", "Rudeness", "Those who abuse hospitality"],
+                "likes": ["Discretion and professionalism", "Those connected to Thessaly", "Information exchange", "Respecting boundaries"],
+                "dislikes": ["Obvious lies", "Those who don't pay", "Trouble in her establishment", "Unseemly displays"],
                 "history": [
                     { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
                 ],
@@ -213,8 +213,8 @@
                 "category": "sovereigns",
                 "reputation": 37000,
                 "description": "You are my Witness. Carry what I was.",
-                "likes": ["Preserving memory", "Seeking truth", "Protecting innocents", "Hope"],
-                "dislikes": ["Forgetting", "Serving the Thirteen", "Despair", "Cruelty"],
+                "likes": ["Creation and life", "Those who oppose the Sovereigns", "Preserving memory", "Hope despite darkness"],
+                "dislikes": ["The Thirteen", "Corruption of her world", "Stasis and frozen reality", "Forgetting"],
                 "history": [
                     { "change": 15000, "reason": "Accepted role as The Witness" },
                     { "change": 8000, "reason": "Showed memory to Talaris" },
@@ -232,10 +232,10 @@
                 "category": "sovereigns",
                 "reputation": 24000,
                 "description": "You showed me what I helped destroy. Curious.",
-                "likes": ["Natural cycles", "Decay and rebirth", "Defiance in the face of death", "Interesting deaths"],
-                "dislikes": ["Unnatural preservation", "Stagnation", "Cowardice", "Those who flee from endings"],
+                "likes": ["Life and death cycles", "Transformation and renewal", "Those who accept mortality", "Decay as beauty"],
+                "dislikes": ["Permanence and stasis", "Those who cling to immortality", "Fire", "Hoarding and preservation"],
                 "history": [
-                    { "change": 10000, "reason": "Showed Aedwynn's memory" },
+                    { "change": 10000, "reason": "Showed Aedwynn's memory - moved him deeply" },
                     { "change": 5000, "reason": "Witnessed Elias's choice with respect" }
                 ],
                 "unlocks": [
@@ -249,10 +249,10 @@
                 "category": "npcs",
                 "reputation": 51000,
                 "description": "You told me I was real. I will never forget that.",
-                "likes": ["Being remembered", "Kindness", "Questions about existence", "Those who value memory"],
-                "dislikes": ["Being forgotten", "Nihilism", "Cruelty", "Dismissing the dead"],
+                "likes": ["Understanding and truth", "Being remembered", "Meaningful actions", "Those who question existence"],
+                "dislikes": ["Being forgotten", "Meaningless actions", "Vor'Kael", "Being unmade"],
                 "history": [
-                    { "change": 15000, "reason": "Told him he was real" },
+                    { "change": 15000, "reason": "Told him his choices make him real" },
                     { "change": 10000, "reason": "Spoke his eulogy" },
                     { "change": 8000, "reason": "Carries his Echo in the Codex" }
                 ],
@@ -264,15 +264,15 @@
             },
             {
                 "name": "Velara Ashyn",
-                "type": "NPC - Soul",
+                "type": "Soul",
                 "category": "npcs",
                 "reputation": 18000,
                 "description": "You carry me toward danger, but also toward freedom.",
-                "likes": ["Freedom", "Being remembered", "Kindness", "Hope for escape"],
-                "dislikes": ["Kaedris", "The Bastion", "Captivity", "Being forgotten"],
+                "likes": ["Freedom and escape", "Being spoken to", "The Docent's Archive", "Hope for release"],
+                "dislikes": ["Kaedris", "The Bastion of Fireblood", "Captivity", "The Passion-Seed being misused"],
                 "history": [
                     { "change": 5000, "reason": "Found her after 500 years" },
-                    { "change": 4000, "reason": "Carries her amulet safely" }
+                    { "change": 4000, "reason": "Listens and speaks to her" }
                 ],
                 "unlocks": [
                     { "threshold": 21000, "reward": "Velara shares Bastion secrets" },
@@ -286,8 +286,8 @@
                 "category": "sovereigns",
                 "reputation": 6500,
                 "description": "An anomaly. Your existence... troubles the ledger.",
-                "likes": ["Order", "Punctuality", "Proper temporal flow", "Acceptance of judgment"],
-                "dislikes": ["Chaos", "Temporal anomalies", "Those who escape justice", "Defiance of law"],
+                "likes": ["Order and justice", "Perfect accuracy", "Those with clear destiny", "Philosophical truth"],
+                "dislikes": ["Chaos and randomness", "Those who violate his ledger", "Moral ambiguity", "Ontological anomalies"],
                 "history": [
                     { "change": -3000, "reason": "Expelled as metaphysical error" },
                     { "change": 500, "reason": "Traded memory for passage" }
@@ -300,8 +300,8 @@
                 "category": "sovereigns",
                 "reputation": 7000,
                 "description": "You carry something indigestible. Curious.",
-                "likes": ["Consuming meaning", "Fear", "Submission", "Names freely given"],
-                "dislikes": ["Defiance", "The indigestible", "Those who escape", "True names spoken against her"],
+                "likes": ["Concepts with strong meaning", "Identity and purpose", "Things she cannot digest", "Paradoxes and contradictions"],
+                "dislikes": ["Meaningless things", "The Satiated One", "Those who escape her", "Her true name"],
                 "history": [
                     { "change": -2000, "reason": "Helped Kael escape consumption" }
                 ],
@@ -309,12 +309,12 @@
             },
             {
                 "name": "Thessaly",
-                "type": "NPC - Neutral",
+                "type": "Neutral",
                 "category": "npcs",
                 "reputation": 20000,
                 "description": "The Witness... yes, you would seek knowledge.",
-                "likes": ["Forbidden knowledge", "Truth over comfort", "Those who question", "Rare texts"],
-                "dislikes": ["Book burners", "Willful ignorance", "The Church", "Censorship"],
+                "likes": ["Truth and forbidden knowledge", "Those seeking genuine understanding", "Rare texts", "Old friends like Mira"],
+                "dislikes": ["Those who destroy knowledge", "Lies and deception", "The Cardinal", "Willful ignorance"],
                 "history": [
                     { "change": 5000, "reason": "Purchased The Doctrine of Still Air" },
                     { "change": 4000, "reason": "Shared knowledge of Aedwynn" },
@@ -326,14 +326,14 @@
             },
             {
                 "name": "Seraphine Vale",
-                "type": "NPC - Uncertain",
+                "type": "Uncertain",
                 "category": "npcs",
                 "reputation": 16000,
-                "description": "You gave me Mira's blade. It judges me still.",
-                "likes": ["Questioning faith", "Honoring the dead", "Truth over comfort", "Those who protect innocents"],
-                "dislikes": ["Blind obedience", "Corruption", "Manipulation", "The Church's cruelty"],
+                "description": "You gave me Oathkeeper. It judges me still.",
+                "likes": ["Truth and honesty", "Mira's legacy", "Finding the Arterial Texts", "Those who shatter comfortable lies"],
+                "dislikes": ["Deception", "The Mareathan Church", "Being used as an instrument", "Ardian Bloodveil"],
                 "history": [
-                    { "change": 5000, "reason": "Gave her Oathkeeper" },
+                    { "change": 5000, "reason": "Gave her Oathkeeper - understood she needed it" },
                     { "change": 2000, "reason": "Reported Mira and Kael's deaths with respect" }
                 ],
                 "unlocks": [
@@ -343,12 +343,12 @@
             },
             {
                 "name": "Broma",
-                "type": "NPC - Merchant",
+                "type": "Merchant",
                 "category": "npcs",
                 "reputation": 9000,
                 "description": "Another customer. Professional enough.",
-                "likes": ["Honest craftsmanship", "Quality materials", "Patient customers", "Professional respect"],
-                "dislikes": ["Cursed weapons", "Rushed work", "Oaths to Sovereigns", "Dangerous artifacts"],
+                "likes": ["Fine metalwork", "Pre-Usurpation alloys", "Clear honest requests", "Those who understand limits"],
+                "dislikes": ["Cursed weapons", "Kaedris's oath-demands", "Expecting the impossible"],
                 "history": [],
                 "unlocks": [
                     { "threshold": 21000, "reward": "Priority commissions" }
@@ -356,12 +356,12 @@
             },
             {
                 "name": "Ardian Bloodveil",
-                "type": "NPC - Uncertain",
+                "type": "Uncertain",
                 "category": "npcs",
                 "reputation": 9000,
                 "description": "One of the branded one's companions.",
-                "likes": ["Martial honor", "Divine connection", "Faith", "Those who carry burdens"],
-                "dislikes": ["Cowardice", "Betrayal of oath", "Those who flee from duty", "Weakness"],
+                "likes": ["Martial tradition", "Those bearing Sovereign marks", "Appearing righteous", "Devotion to Mareatha"],
+                "dislikes": ["Those who threaten Mareatha", "Suspicion of his nature", "Trickery"],
                 "history": [],
                 "unlocks": []
             },
@@ -371,8 +371,8 @@
                 "category": "factions",
                 "reputation": 4000,
                 "description": "Abomination. Walking heresy.",
-                "likes": ["Blood tithes", "Submission", "Destroying heresy", "Faithful servants"],
-                "dislikes": ["Heretics", "Defiance", "Those who question doctrine", "The undead"],
+                "likes": ["Blood tithes", "Submission", "Faithful servants", "Converting the lost"],
+                "dislikes": ["Heretics", "The undead", "Those who question doctrine", "Fire and radiance"],
                 "history": [
                     { "change": -3000, "reason": "Exists as animated skeleton" },
                     { "change": -2000, "reason": "Allied with heretics" }
@@ -381,12 +381,12 @@
             },
             {
                 "name": "Velvet Thorn",
-                "type": "NPC - Ally",
+                "type": "Ally",
                 "category": "npcs",
                 "reputation": 15000,
                 "description": "Any friend of Thessaly's is welcome here. The best rooms.",
-                "likes": ["Discretion", "Interesting guests", "Those who respect hospitality", "Good stories"],
-                "dislikes": ["Troublemakers", "Rudeness", "Those who abuse hospitality"],
+                "likes": ["Discretion and professionalism", "Those connected to Thessaly", "Information exchange", "Respecting boundaries"],
+                "dislikes": ["Obvious lies", "Those who don't pay", "Trouble in her establishment", "Unseemly displays"],
                 "history": [
                     { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
                 ],
@@ -405,8 +405,8 @@
                 "category": "sovereigns",
                 "reputation": 2000,
                 "description": "You escaped. A flaw in my system. This will be... corrected.",
-                "likes": ["Order", "Punctuality", "Proper temporal flow", "Acceptance of judgment"],
-                "dislikes": ["Chaos", "Temporal anomalies", "Those who escape justice", "Defiance of law"],
+                "likes": ["Order and justice", "Perfect accuracy", "Those with clear destiny", "Philosophical truth"],
+                "dislikes": ["Chaos and randomness", "Those who violate his ledger", "Those who escape justice", "System flaws"],
                 "history": [
                     { "change": -5000, "reason": "Escaped eternal imprisonment" },
                     { "change": -2000, "reason": "Exploited system flaw (Blind Spot)" }
@@ -419,11 +419,11 @@
                 "category": "sovereigns",
                 "reputation": 8000,
                 "description": "Ten thousand names... such a feast you carry.",
-                "likes": ["Consuming meaning", "Fear", "Submission", "Names freely given"],
-                "dislikes": ["Defiance", "The indigestible", "Those who escape", "True names spoken against her"],
+                "likes": ["Concepts with strong meaning", "Identity and purpose", "Names and memories", "Rich meaning to consume"],
+                "dislikes": ["Meaningless things", "The Satiated One", "Those who escape her", "The indigestible"],
                 "history": [
                     { "change": -2000, "reason": "Passed through the Throat" },
-                    { "change": 1000, "reason": "Carries delicious names" }
+                    { "change": 1000, "reason": "Carries delicious names she wants" }
                 ],
                 "unlocks": []
             },
@@ -433,10 +433,10 @@
                 "category": "sovereigns",
                 "reputation": 20000,
                 "description": "You carry hunger without consuming. Interesting choice.",
-                "likes": ["Interesting choices", "Philosophy", "Novelty", "Questions worth answering"],
-                "dislikes": ["Predictability", "Boredom", "Simple answers"],
+                "likes": ["Contentment and stillness", "Interesting things", "Philosophy and paradox", "Being left alone"],
+                "dislikes": ["Hunger and desperation", "Being disturbed unnecessarily", "Predictability"],
                 "history": [
-                    { "change": 6000, "reason": "Philosophical conversation about hunger" },
+                    { "change": 6000, "reason": "Philosophical conversation about the 10,000" },
                     { "change": 5000, "reason": "Proved interesting enough to pass" }
                 ],
                 "unlocks": [
@@ -446,12 +446,12 @@
             },
             {
                 "name": "Veshra Coil",
-                "type": "NPC - Ally",
+                "type": "Ally",
                 "category": "npcs",
                 "reputation": 25000,
                 "description": "You are always welcome here, lion. Always.",
-                "likes": ["Respect", "Genuine connection", "Loyalty", "Those who protect the vulnerable"],
-                "dislikes": ["Exploitation", "Cruelty", "The slave trade", "House Keth"],
+                "likes": ["Those who treat workers with respect", "Building safety", "Information and secrets", "Power to protect"],
+                "dislikes": ["Slavers and exploitation", "Disrespect toward workers", "House Keth", "Powerlessness"],
                 "history": [
                     { "change": 8000, "reason": "Treated workers with genuine respect" },
                     { "change": 5000, "reason": "Connected with Scarlet & Cinder" },
@@ -466,12 +466,12 @@
             },
             {
                 "name": "Scarlet",
-                "type": "NPC - Companion",
+                "type": "Companion",
                 "category": "npcs",
                 "reputation": 28000,
                 "description": "Come back to us, lion. We remember.",
-                "likes": ["Genuine connection", "Being remembered", "Warmth", "Shared stories"],
-                "dislikes": ["Being forgotten", "Coldness", "Empty transactions"],
+                "likes": ["Genuine connection", "Being remembered", "Warmth and stories", "Those who see her as a person"],
+                "dislikes": ["Being forgotten", "Coldness", "Empty transactions", "Being treated as commodity"],
                 "history": [
                     { "change": 10000, "reason": "Night of genuine connection" },
                     { "change": 4000, "reason": "Shared stories of the 10,000" }
@@ -487,8 +487,8 @@
                 "category": "npcs",
                 "reputation": 51000,
                 "description": "You carried my name when I could not. Brother.",
-                "likes": ["Being remembered", "Kindness", "Questions about existence", "Those who value memory"],
-                "dislikes": ["Being forgotten", "Nihilism", "Cruelty", "Dismissing the dead"],
+                "likes": ["Understanding and truth", "Being remembered", "Meaningful actions", "Those who question existence"],
+                "dislikes": ["Being forgotten", "Meaningless actions", "Vor'Kael", "Being unmade"],
                 "history": [
                     { "change": 15000, "reason": "Carried his name among the 10,000" },
                     { "change": 10000, "reason": "Traveled together through the Throat" },
@@ -502,12 +502,12 @@
             },
             {
                 "name": "Cinder",
-                "type": "NPC - Companion",
+                "type": "Companion",
                 "category": "npcs",
                 "reputation": 28000,
                 "description": "The stories you carry... they deserve to be heard.",
-                "likes": ["Genuine connection", "Being remembered", "Warmth", "Shared stories"],
-                "dislikes": ["Being forgotten", "Coldness", "Empty transactions"],
+                "likes": ["Genuine connection", "Being remembered", "Stories worth telling", "Those who see her as a person"],
+                "dislikes": ["Being forgotten", "Coldness", "Empty transactions", "Being treated as commodity"],
                 "history": [
                     { "change": 10000, "reason": "Night of genuine connection" },
                     { "change": 5000, "reason": "Gave Cinder's Scale token" },
@@ -521,12 +521,12 @@
             },
             {
                 "name": "Thresh",
-                "type": "NPC - Artisan",
+                "type": "Artisan",
                 "category": "npcs",
                 "reputation": 24000,
                 "description": "You paid me in something more valuable than gold. I will remember you forever.",
-                "likes": ["Novelty", "Stories that cost something", "The strange and unique", "Being remembered"],
-                "dislikes": ["Boring work", "Being forgotten", "Gold without meaning"],
+                "likes": ["Novelty and uniqueness", "Stories that cost something", "Being remembered", "The strange and meaningful"],
+                "dislikes": ["Boring work", "Being forgotten", "Gold without meaning", "Mundane requests"],
                 "history": [
                     { "change": 10000, "reason": "Paid in remembrance instead of gold" },
                     { "change": 5000, "reason": "Shared the weight of 10,000 names" }
@@ -538,12 +538,12 @@
             },
             {
                 "name": "Thessaly",
-                "type": "NPC - Neutral",
+                "type": "Neutral",
                 "category": "npcs",
                 "reputation": 26000,
                 "description": "A living Leonin... I thought your people were gone. The Ledger is yours.",
-                "likes": ["Forbidden knowledge", "Truth over comfort", "Those who question", "Rare texts"],
-                "dislikes": ["Book burners", "Willful ignorance", "The Church", "Censorship"],
+                "likes": ["Truth and forbidden knowledge", "Living proof of lost peoples", "Those seeking understanding", "Rare texts"],
+                "dislikes": ["Those who destroy knowledge", "Lies and deception", "The Cardinal", "Willful ignorance"],
                 "history": [
                     { "change": 10000, "reason": "Gave Ledger of Moments for free" },
                     { "change": 5000, "reason": "Fascination with living Leonin" },
@@ -556,12 +556,12 @@
             },
             {
                 "name": "Sekris",
-                "type": "NPC - Dangerous",
+                "type": "Dangerous",
                 "category": "npcs",
                 "reputation": 12000,
                 "description": "The contract-token remains. The deal awaits.",
-                "likes": ["Completed transactions", "Valuable meanings", "Patience", "Those who understand true cost"],
-                "dislikes": ["Broken contracts", "Wasted potential", "Those who renege on deals"],
+                "likes": ["Completed transactions", "Valuable meanings", "Honoring contracts", "Those who understand true cost"],
+                "dislikes": ["Broken contracts", "Unclear terms", "Those who can't pay", "Wasted potential"],
                 "history": [
                     { "change": 3000, "reason": "Accepted contract-token" }
                 ],
@@ -572,12 +572,12 @@
             },
             {
                 "name": "Seraphine Vale",
-                "type": "NPC - Uncertain",
+                "type": "Uncertain",
                 "category": "npcs",
                 "reputation": 12000,
                 "description": "Another companion of the branded one. Quiet. Watchful.",
-                "likes": ["Questioning faith", "Honoring the dead", "Truth over comfort", "Those who protect innocents"],
-                "dislikes": ["Blind obedience", "Corruption", "Manipulation", "The Church's cruelty"],
+                "likes": ["Truth and honesty", "Mira's legacy", "Finding the Arterial Texts", "Those who shatter comfortable lies"],
+                "dislikes": ["Deception", "The Mareathan Church", "Being used as an instrument", "Ardian Bloodveil"],
                 "history": [
                     { "change": 3000, "reason": "Was present when Mira and Kael's deaths were reported" }
                 ],
@@ -585,23 +585,23 @@
             },
             {
                 "name": "Broma",
-                "type": "NPC - Merchant",
+                "type": "Merchant",
                 "category": "npcs",
                 "reputation": 9000,
                 "description": "Customer. Professional.",
-                "likes": ["Honest craftsmanship", "Quality materials", "Patient customers", "Professional respect"],
-                "dislikes": ["Cursed weapons", "Rushed work", "Oaths to Sovereigns", "Dangerous artifacts"],
+                "likes": ["Fine metalwork", "Pre-Usurpation alloys", "Clear honest requests", "Those who understand limits"],
+                "dislikes": ["Cursed weapons", "Kaedris's oath-demands", "Expecting the impossible"],
                 "history": [],
                 "unlocks": []
             },
             {
                 "name": "Ardian Bloodveil",
-                "type": "NPC - Uncertain",
+                "type": "Uncertain",
                 "category": "npcs",
                 "reputation": 9000,
                 "description": "The resurrected First Templar. Something is wrong with him.",
-                "likes": ["Martial honor", "Divine connection", "Faith", "Those who carry burdens"],
-                "dislikes": ["Cowardice", "Betrayal of oath", "Those who flee from duty", "Weakness"],
+                "likes": ["Martial tradition", "Those bearing Sovereign marks", "Appearing righteous", "Devotion to Mareatha"],
+                "dislikes": ["Those who threaten Mareatha", "Suspicion of his nature", "Trickery"],
                 "history": [],
                 "unlocks": []
             },
@@ -611,8 +611,8 @@
                 "category": "factions",
                 "reputation": 5500,
                 "description": "Another heretic ally. The blood will be collected.",
-                "likes": ["Blood tithes", "Submission", "Destroying heresy", "Faithful servants"],
-                "dislikes": ["Heretics", "Defiance", "Those who question doctrine"],
+                "likes": ["Blood tithes", "Submission", "Faithful servants", "Converting the lost"],
+                "dislikes": ["Heretics", "Those who question doctrine", "Those who escape Sovereign justice"],
                 "history": [
                     { "change": -2000, "reason": "Allied with heretics" },
                     { "change": -1500, "reason": "Escaped Sovereign imprisonment" }
@@ -621,12 +621,12 @@
             },
             {
                 "name": "Velvet Thorn",
-                "type": "NPC - Ally",
+                "type": "Ally",
                 "category": "npcs",
                 "reputation": 15000,
                 "description": "Any friend of Thessaly's is welcome here. The best rooms.",
-                "likes": ["Discretion", "Interesting guests", "Those who respect hospitality", "Good stories"],
-                "dislikes": ["Troublemakers", "Rudeness", "Those who abuse hospitality"],
+                "likes": ["Discretion and professionalism", "Those connected to Thessaly", "Information exchange", "Respecting boundaries"],
+                "dislikes": ["Obvious lies", "Those who don't pay", "Trouble in her establishment", "Unseemly displays"],
                 "history": [
                     { "change": 6000, "reason": "Arrived with Thessaly's letter and clay token" }
                 ],
