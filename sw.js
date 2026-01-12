@@ -1,7 +1,7 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v15';
+const CACHE_NAME = 'ashen-realms-v16';
 
 // Core assets to cache immediately on install
 const CORE_ASSETS = [
@@ -10,9 +10,10 @@ const CORE_ASSETS = [
     '/style.css',
     '/app.js',
     '/data.json',
+    '/relationships-data.json',
     '/Assets/Sigil.webp',
     '/Assets/Dark Marble.webp',
-    '/Card Back.png'
+    '/Assets/Weeping Statue.webp'
 ];
 
 // Font files to cache
