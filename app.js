@@ -411,47 +411,45 @@ function optimizeContentImages(container) {
     });
 }
 
-// ===== IMAGE LIGHTBOX =====
+// ===== IMAGE ZOOM (Medium-Zoom) =====
+let mediumZoomInstance = null;
+
+function setupImageZoom() {
+    // Initialize Medium-Zoom with custom styling
+    mediumZoomInstance = mediumZoom('[data-zoomable]', {
+        margin: 40,
+        background: 'rgba(10, 10, 12, 0.95)',
+        scrollOffset: 0
+    });
+}
+
+function attachImageZoom() {
+    // Attach zoom to new images in content, excluding certain elements
+    const contentBody = document.getElementById('content-body');
+    if (!contentBody) return;
+
+    const images = contentBody.querySelectorAll('img:not(.welcome-sigil):not([data-no-zoom])');
+    images.forEach(img => {
+        // Skip if already zoomable or is a thumbnail in entry list
+        if (img.dataset.zoomable || img.closest('.entry-portrait') || img.closest('.card-portrait')) return;
+
+        // Mark as zoomable and attach
+        img.dataset.zoomable = 'true';
+        img.style.cursor = 'zoom-in';
+
+        // Use high-res version for zoom
+        const originalSrc = img.dataset.originalSrc || img.src;
+        img.dataset.zoomSrc = getOptimizedImagePath(originalSrc);
+
+        if (mediumZoomInstance) {
+            mediumZoomInstance.attach(img);
+        }
+    });
+}
+
+// Legacy function name for compatibility
 function setupLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
-    const lightboxClose = lightbox.querySelector('.lightbox-close');
-    const lightboxContent = lightbox.querySelector('.lightbox-content');
-
-    // Close lightbox handlers
-    const closeLightbox = () => {
-        lightbox.classList.remove('active');
-    };
-
-    // Close on clicking anywhere in the lightbox (backdrop, image, content area)
-    lightbox.addEventListener('click', closeLightbox);
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
-
-    // Delegate click events on content body for images
-    document.getElementById('content-body').addEventListener('click', (e) => {
-        if (e.target.tagName === 'IMG') {
-            // Don't open lightbox for welcome sigil
-            if (e.target.classList.contains('welcome-sigil')) {
-                return;
-            }
-            // Don't open lightbox for small journal portraits (entry list)
-            if (e.target.closest('.entry-portrait')) {
-                return;
-            }
-            // Use optimized version for lightbox (not thumbnail)
-            const originalSrc = e.target.dataset.originalSrc || e.target.src;
-            lightboxImg.src = getOptimizedImagePath(originalSrc);
-            lightboxImg.alt = e.target.alt;
-            lightbox.classList.add('active');
-        }
-    });
+    setupImageZoom();
 }
 
 // ===== URL HASH PERSISTENCE =====
@@ -737,6 +735,85 @@ function autoLinkWikiReferences(articleBody, currentItemTitle) {
             textNode.parentNode.replaceChild(fragment, textNode);
         }
     }
+}
+
+// ===== WIKI-LINK TOOLTIPS (Tippy.js) =====
+function initWikiLinkTooltips() {
+    // Find all wiki-links that don't have tooltips yet
+    const wikiLinks = document.querySelectorAll('.wiki-link:not([data-tippy-root])');
+
+    wikiLinks.forEach(link => {
+        const targetName = link.dataset.target;
+        const category = link.dataset.category;
+
+        // Find the item data to build tooltip content
+        const itemData = findItemByTitle(targetName);
+        if (!itemData) return;
+
+        // Build tooltip content
+        let tooltipContent = `<div class="wiki-tooltip">`;
+        tooltipContent += `<div class="wiki-tooltip-header">`;
+        tooltipContent += `<span class="wiki-tooltip-title">${itemData.title}</span>`;
+        tooltipContent += `<span class="wiki-tooltip-category">${category || 'Entry'}</span>`;
+        tooltipContent += `</div>`;
+
+        // Add a preview of the description if available
+        if (itemData.summary || itemData.description) {
+            let preview = itemData.summary || itemData.description;
+            // Strip HTML and truncate
+            preview = preview.replace(/<[^>]+>/g, '').substring(0, 120);
+            if (preview.length === 120) preview += '...';
+            tooltipContent += `<div class="wiki-tooltip-preview">${preview}</div>`;
+        }
+
+        tooltipContent += `<div class="wiki-tooltip-hint">Click to view</div>`;
+        tooltipContent += `</div>`;
+
+        // Initialize Tippy tooltip
+        tippy(link, {
+            content: tooltipContent,
+            allowHTML: true,
+            placement: 'top',
+            animation: 'shift-away',
+            theme: 'ashen',
+            delay: [300, 0],
+            duration: [200, 150],
+            interactive: false,
+            appendTo: document.body
+        });
+    });
+}
+
+// Helper to find item data by title
+function findItemByTitle(title) {
+    for (const [categoryName, categoryData] of Object.entries(data)) {
+        // Check main items
+        const items = categoryData.items || [];
+        const found = items.find(item =>
+            item.title === title ||
+            item.id === title ||
+            (item.aliases && item.aliases.includes(title))
+        );
+        if (found) {
+            return { ...found, category: categoryName };
+        }
+
+        // Check subcategories
+        if (categoryData.subcategories) {
+            for (const [subName, subData] of Object.entries(categoryData.subcategories)) {
+                const subItems = subData.items || [];
+                const subFound = subItems.find(item =>
+                    item.title === title ||
+                    item.id === title ||
+                    (item.aliases && item.aliases.includes(title))
+                );
+                if (subFound) {
+                    return { ...subFound, category: categoryName, subcategory: subName };
+                }
+            }
+        }
+    }
+    return null;
 }
 
 // ===== NAVIGATION =====
@@ -1460,6 +1537,12 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
             navigateToItem(target);
         });
     });
+
+    // Initialize tooltips on wiki-links
+    initWikiLinkTooltips();
+
+    // Attach image zoom to new images
+    attachImageZoom();
 
     lucide.createIcons();
 
@@ -2875,80 +2958,134 @@ function renderBondDetail(rel) {
 }
 
 function animateBondCards() {
-    // Animate cards appearing with stagger
-    anime({
-        targets: '.bond-card',
-        opacity: [0, 1],
-        translateY: [20, 0],
-        delay: anime.stagger(50, {start: 100}),
-        duration: 400,
-        easing: 'easeOutCubic'
-    });
+    // Animate cards appearing with stagger using GSAP
+    gsap.fromTo('.bond-card',
+        { opacity: 0, y: 20 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            stagger: 0.05,
+            delay: 0.1,
+            ease: 'power2.out'
+        }
+    );
 
     // Animate mini standing bars filling
-    setTimeout(() => {
+    gsap.delayedCall(0.3, () => {
         document.querySelectorAll('.standing-fill-mini').forEach(bar => {
             const targetWidth = bar.dataset.width;
-            anime({
-                targets: bar,
-                width: [0, targetWidth + '%'],
-                duration: 800,
-                easing: 'easeOutExpo'
+            gsap.fromTo(bar,
+                { width: '0%' },
+                { width: targetWidth + '%', duration: 0.8, ease: 'power3.out' }
+            );
+        });
+    });
+
+    // Initialize Atropos 3D tilt on bond cards
+    initBondCardTilt();
+}
+
+function initBondCardTilt() {
+    // Initialize Atropos on each bond card for 3D tilt effect
+    document.querySelectorAll('.bond-card').forEach(card => {
+        // Skip if already initialized
+        if (card.dataset.atroposInit) return;
+        card.dataset.atroposInit = 'true';
+
+        // Create subtle tilt effect on hover
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                scale: 1.02,
+                duration: 0.2,
+                ease: 'power2.out'
             });
         });
-    }, 300);
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                scale: 1,
+                rotateX: 0,
+                rotateY: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+
+            gsap.to(card, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                duration: 0.1,
+                ease: 'power2.out',
+                transformPerspective: 1000
+            });
+        });
+    });
 }
 
 function animateDetailPanel() {
-    // Animate the detail panel content
-    anime({
-        targets: '.detail-panel',
-        opacity: [0, 1],
-        translateX: [20, 0],
-        duration: 300,
-        easing: 'easeOutCubic'
-    });
+    // Animate the detail panel content using GSAP
+    gsap.fromTo('.detail-panel',
+        { opacity: 0, x: 20 },
+        { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' }
+    );
 
     // Animate the large standing bar
-    setTimeout(() => {
+    gsap.delayedCall(0.2, () => {
         document.querySelectorAll('.standing-fill-large').forEach(bar => {
             const targetWidth = bar.dataset.width;
-            anime({
-                targets: bar,
-                width: [0, targetWidth + '%'],
-                duration: 1000,
-                easing: 'easeOutExpo'
-            });
+            gsap.fromTo(bar,
+                { width: '0%' },
+                { width: targetWidth + '%', duration: 1, ease: 'power3.out' }
+            );
         });
-    }, 200);
+    });
 
     // Animate tier nodes
-    anime({
-        targets: '.tier-node',
-        scale: [0, 1],
-        delay: anime.stagger(40, {start: 400}),
-        duration: 300,
-        easing: 'easeOutBack'
-    });
+    gsap.fromTo('.tier-node',
+        { scale: 0 },
+        {
+            scale: 1,
+            duration: 0.3,
+            stagger: 0.04,
+            delay: 0.4,
+            ease: 'back.out(1.7)'
+        }
+    );
 
     // Animate history entries
-    anime({
-        targets: '.history-entry',
-        opacity: [0, 1],
-        translateX: [-10, 0],
-        delay: anime.stagger(60, {start: 600}),
-        duration: 300,
-        easing: 'easeOutCubic'
-    });
+    gsap.fromTo('.history-entry',
+        { opacity: 0, x: -10 },
+        {
+            opacity: 1,
+            x: 0,
+            duration: 0.3,
+            stagger: 0.06,
+            delay: 0.6,
+            ease: 'power2.out'
+        }
+    );
 
     // Animate unlock rows
-    anime({
-        targets: '.unlock-row',
-        opacity: [0, 1],
-        translateX: [-10, 0],
-        delay: anime.stagger(60, {start: 700}),
-        duration: 300,
-        easing: 'easeOutCubic'
-    });
+    gsap.fromTo('.unlock-row',
+        { opacity: 0, x: -10 },
+        {
+            opacity: 1,
+            x: 0,
+            duration: 0.3,
+            stagger: 0.06,
+            delay: 0.7,
+            ease: 'power2.out'
+        }
+    );
 }
 

@@ -4983,3 +4983,141 @@ body {
     }
 }
 
+/* =====================================================
+   TIPPY.JS CUSTOM THEME (ashen)
+   ===================================================== */
+
+.tippy-box[data-theme~='ashen'] {
+    background: linear-gradient(135deg, rgba(30, 28, 32, 0.98), rgba(20, 18, 22, 0.98));
+    border: 1px solid var(--color-gold);
+    border-radius: 8px;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(var(--color-gold-rgb), 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    font-family: var(--font-body);
+    max-width: 300px;
+}
+
+.tippy-box[data-theme~='ashen'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: var(--color-gold);
+}
+
+.tippy-box[data-theme~='ashen'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: var(--color-gold);
+}
+
+.tippy-box[data-theme~='ashen'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: var(--color-gold);
+}
+
+.tippy-box[data-theme~='ashen'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: var(--color-gold);
+}
+
+.tippy-box[data-theme~='ashen'] .tippy-content {
+    padding: 0;
+}
+
+/* Wiki tooltip content */
+.wiki-tooltip {
+    padding: 12px 14px;
+}
+
+.wiki-tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.wiki-tooltip-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-gold);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.wiki-tooltip-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.wiki-tooltip-preview {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.wiki-tooltip-hint {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0.7;
+}
+
+/* =====================================================
+   MEDIUM-ZOOM OVERRIDES
+   ===================================================== */
+
+.medium-zoom-overlay {
+    z-index: 10000;
+}
+
+.medium-zoom-image--opened {
+    z-index: 10001;
+    border-radius: 4px;
+    box-shadow:
+        0 10px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(var(--color-gold-rgb), 0.1);
+}
+
+/* =====================================================
+   3D CARD TILT ENHANCEMENTS
+   ===================================================== */
+
+.bond-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.bond-card .card-portrait,
+.bond-card .card-info {
+    transform: translateZ(20px);
+}
+
+.bond-card .card-indicator {
+    transform: translateZ(30px);
+}
+
+.bond-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.bond-card:hover::before {
+    opacity: 1;
+}
+
