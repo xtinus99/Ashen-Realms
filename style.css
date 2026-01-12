@@ -4181,8 +4181,8 @@ body {
 }
 
 .bonds-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-md);
     max-height: none;
     overflow: visible;
@@ -4229,7 +4229,6 @@ body {
 .bond-card:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.12);
-    transform: translateX(4px);
 }
 
 .bond-card.selected {
@@ -4399,7 +4398,6 @@ body {
 
 .bond-card:hover .card-indicator {
     color: rgba(255, 255, 255, 0.4);
-    transform: translateX(2px);
 }
 
 .bond-card.selected .card-indicator {
@@ -4985,7 +4983,7 @@ body {
     }
 
     .bonds-list {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        /* Already flex column from base styles */
     }
 
     .hero-portrait {
@@ -5041,7 +5039,6 @@ body {
     }
 
     .bonds-list {
-        grid-template-columns: 1fr;
         gap: var(--spacing-sm);
     }
 
@@ -5071,7 +5068,7 @@ body {
     }
 
     .bonds-list {
-        grid-template-columns: 1fr;
+        /* Already flex column from base styles */
     }
 
     .card-portrait {

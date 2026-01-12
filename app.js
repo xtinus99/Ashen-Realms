@@ -2950,7 +2950,7 @@ function renderBondCard(rel, index) {
             </div>
             <div class="card-info">
                 <div class="card-name">${rel.name}</div>
-                <div class="card-type">${rel.type}</div>
+                <div class="card-type">${rel.type.replace(/^NPC\s*-\s*/i, '')}</div>
                 <div class="card-standing">
                     ${isEnemy ? `
                         <span class="standing-text enemy">Eternal Enemy</span>
