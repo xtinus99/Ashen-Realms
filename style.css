@@ -4141,9 +4141,12 @@ body {
 /* Layout */
 .bonds-layout {
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: minmax(420px, 480px) minmax(500px, 700px);
     gap: var(--spacing-xl);
     align-items: start;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Bond Cards List */
@@ -4169,8 +4172,8 @@ body {
 .bond-card {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
-    padding: 12px 16px;
+    gap: var(--spacing-lg);
+    padding: 16px 20px;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid transparent;
     border-radius: var(--radius-md);
@@ -4207,8 +4210,8 @@ body {
 
 /* Card Portrait */
 .card-portrait {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: var(--stone);
     overflow: hidden;
@@ -4353,8 +4356,8 @@ body {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    min-height: 500px;
+    padding: var(--spacing-xl) var(--spacing-xxl);
+    min-height: 600px;
     position: sticky;
     top: 100px;
 }
@@ -4394,8 +4397,8 @@ body {
 }
 
 .hero-portrait {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     border-radius: var(--radius-md);
     overflow: hidden;
     flex-shrink: 0;

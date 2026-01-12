@@ -416,7 +416,8 @@ let mediumZoomInstance = null;
 
 function setupImageZoom() {
     // Initialize Medium-Zoom with custom styling
-    mediumZoomInstance = mediumZoom('[data-zoomable]', {
+    // mediumZoom returns a zoom instance we can use to attach/detach images
+    mediumZoomInstance = mediumZoom({
         margin: 40,
         background: 'rgba(10, 10, 12, 0.95)',
         scrollOffset: 0
@@ -428,19 +429,18 @@ function attachImageZoom() {
     const contentBody = document.getElementById('content-body');
     if (!contentBody) return;
 
-    const images = contentBody.querySelectorAll('img:not(.welcome-sigil):not([data-no-zoom])');
-    images.forEach(img => {
-        // Skip if already zoomable or is a thumbnail in entry list
-        if (img.dataset.zoomable || img.closest('.entry-portrait') || img.closest('.card-portrait')) return;
+    // Select all images that should be zoomable
+    const images = contentBody.querySelectorAll('img:not(.welcome-sigil):not([data-no-zoom]):not([data-zoom-attached])');
 
-        // Mark as zoomable and attach
-        img.dataset.zoomable = 'true';
+    images.forEach(img => {
+        // Skip if is a thumbnail in entry list or bond card
+        if (img.closest('.entry-portrait') || img.closest('.card-portrait')) return;
+
+        // Mark as attached to prevent double-attachment
+        img.dataset.zoomAttached = 'true';
         img.style.cursor = 'zoom-in';
 
-        // Use high-res version for zoom
-        const originalSrc = img.dataset.originalSrc || img.src;
-        img.dataset.zoomSrc = getOptimizedImagePath(originalSrc);
-
+        // Attach to medium-zoom instance
         if (mediumZoomInstance) {
             mediumZoomInstance.attach(img);
         }
