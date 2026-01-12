@@ -260,6 +260,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupBackToTop();
     setupTopBarActions();
     setupDynamicQuotes();
+    setupBondsLink();
     initAudio();
     setupAudioControls();
     lucide.createIcons();
@@ -463,6 +464,12 @@ function updateHash(category = null, itemId = null) {
 function restoreFromHash() {
     const hash = window.location.hash.slice(1);
     if (!hash) return false;
+
+    // Handle bonds page
+    if (hash === 'bonds') {
+        showRelationships();
+        return true;
+    }
 
     const parts = hash.split('/').map(decodeURIComponent);
     const categoryName = parts[0];
@@ -2461,3 +2468,248 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ===== BONDS & STANDING (REPUTATION TRACKER) =====
+const REP_TIERS = [
+    { name: 'Hated', min: 0, max: 3000, class: 'hated' },
+    { name: 'Hostile', min: 3000, max: 6000, class: 'hostile' },
+    { name: 'Unfriendly', min: 6000, max: 9000, class: 'unfriendly' },
+    { name: 'Neutral', min: 9000, max: 15000, class: 'neutral' },
+    { name: 'Cordial', min: 15000, max: 21000, class: 'cordial' },
+    { name: 'Friendly', min: 21000, max: 33000, class: 'friendly' },
+    { name: 'Trusted', min: 33000, max: 45000, class: 'trusted' },
+    { name: 'Devoted', min: 45000, max: 51000, class: 'devoted' },
+    { name: 'Soulbound', min: 51000, max: 57000, class: 'soulbound' }
+];
+
+let relationshipData = null;
+let currentRepCharacter = 'jonas';
+let currentRepFilter = 'all';
+
+function setupBondsLink() {
+    const bondsLink = document.getElementById('bonds-link');
+    if (bondsLink) {
+        bondsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showRelationships();
+            document.getElementById('sidebar').classList.remove('open');
+        });
+    }
+}
+
+async function loadRelationshipData() {
+    if (relationshipData) return relationshipData;
+    try {
+        const response = await fetch('relationships-data.json');
+        relationshipData = await response.json();
+        return relationshipData;
+    } catch (error) {
+        console.error('Failed to load relationship data:', error);
+        return null;
+    }
+}
+
+function getRepTier(reputation) {
+    for (let i = REP_TIERS.length - 1; i >= 0; i--) {
+        if (reputation >= REP_TIERS[i].min) {
+            return REP_TIERS[i];
+        }
+    }
+    return REP_TIERS[0];
+}
+
+function getRepProgress(reputation) {
+    const tier = getRepTier(reputation);
+    const tierRange = tier.max - tier.min;
+    const progress = reputation - tier.min;
+    return {
+        current: progress,
+        needed: tierRange,
+        percentage: Math.min(100, (progress / tierRange) * 100)
+    };
+}
+
+async function showRelationships() {
+    currentItem = null;
+    currentCategory = null;
+
+    await loadRelationshipData();
+    if (!relationshipData) {
+        document.getElementById('content-body').innerHTML = '<div class="welcome-container"><p>Failed to load relationship data.</p></div>';
+        return;
+    }
+
+    // Update URL
+    window.location.hash = 'bonds';
+
+    // Update breadcrumb
+    document.getElementById('breadcrumb').innerHTML = `
+        <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Bonds & Standing</span>
+    `;
+
+    // Clear active states
+    document.querySelectorAll('.nav-item.active').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-category.open').forEach(el => el.classList.remove('open'));
+
+    renderRelationshipsView();
+}
+
+function renderRelationshipsView() {
+    const characterData = relationshipData[currentRepCharacter];
+    if (!characterData) return;
+
+    let relationships = characterData.relationships;
+    if (currentRepFilter !== 'all') {
+        relationships = relationships.filter(r => r.category === currentRepFilter);
+    }
+
+    // Sort: permanent enemies first, then by reputation
+    relationships.sort((a, b) => {
+        if (a.permanentEnemy && !b.permanentEnemy) return -1;
+        if (!a.permanentEnemy && b.permanentEnemy) return 1;
+        return b.reputation - a.reputation;
+    });
+
+    const cardsHtml = relationships.map(rel => renderRepCard(rel)).join('');
+
+    document.getElementById('content-body').innerHTML = `
+        <div class="relationships-view">
+            <header class="rep-header">
+                <h1 class="rep-title">Bonds & Standing</h1>
+                <p class="rep-subtitle">The threads that bind fate</p>
+            </header>
+
+            <div class="rep-character-tabs">
+                <button class="rep-char-tab ${currentRepCharacter === 'jonas' ? 'active' : ''}" data-char="jonas">
+                    <img src="thumbnails/Jonas.webp" alt="Jonas" onerror="this.style.display='none'">
+                    <span>Jonas</span>
+                </button>
+                <button class="rep-char-tab ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">
+                    <img src="thumbnails/Sol Raven.webp" alt="Sol" onerror="this.style.display='none'">
+                    <span>Sol Raven</span>
+                </button>
+                <button class="rep-char-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">
+                    <img src="thumbnails/Fursen.webp" alt="Fursen" onerror="this.style.display='none'">
+                    <span>Fursen</span>
+                </button>
+            </div>
+
+            <div class="rep-filter-bar">
+                <button class="rep-filter-btn ${currentRepFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+                <button class="rep-filter-btn ${currentRepFilter === 'sovereigns' ? 'active' : ''}" data-filter="sovereigns">Sovereigns</button>
+                <button class="rep-filter-btn ${currentRepFilter === 'npcs' ? 'active' : ''}" data-filter="npcs">NPCs</button>
+                <button class="rep-filter-btn ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
+            </div>
+
+            <div class="rep-cards-grid">
+                ${cardsHtml}
+            </div>
+
+            <div class="rep-tier-legend">
+                <h3>Reputation Tiers</h3>
+                <div class="rep-tier-list">
+                    ${REP_TIERS.map(t => `
+                        <div class="rep-tier-item tier-${t.class}">
+                            <span class="tier-threshold">${t.min.toLocaleString()}</span>
+                            <span class="tier-name">${t.name}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Setup event listeners
+    document.querySelectorAll('.rep-char-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            currentRepCharacter = tab.dataset.char;
+            renderRelationshipsView();
+        });
+    });
+
+    document.querySelectorAll('.rep-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentRepFilter = btn.dataset.filter;
+            renderRelationshipsView();
+        });
+    });
+
+    lucide.createIcons();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderRepCard(rel) {
+    const tier = getRepTier(rel.reputation);
+    const progress = getRepProgress(rel.reputation);
+    const initial = rel.name.charAt(0).toUpperCase();
+
+    // Try to get image from thumbnails
+    const imageName = rel.name.replace(/'/g, "'");
+    const imageHtml = `<img src="thumbnails/${imageName}.webp" alt="${rel.name}" onerror="this.parentElement.innerHTML='${initial}'">`;
+
+    const permanentEnemyBadge = rel.permanentEnemy
+        ? `<div class="rep-enemy-badge"><i data-lucide="skull"></i> Permanent Enemy</div>`
+        : '';
+
+    const romanceIcon = rel.romanceAvailable
+        ? `<span class="rep-romance"><i data-lucide="heart"></i></span>`
+        : '';
+
+    const likesHtml = rel.likes?.length > 0
+        ? `<div class="rep-pref likes"><h4><i data-lucide="thumbs-up"></i> Likes</h4><ul>${rel.likes.map(l => `<li>${l}</li>`).join('')}</ul></div>`
+        : '';
+
+    const dislikesHtml = rel.dislikes?.length > 0
+        ? `<div class="rep-pref dislikes"><h4><i data-lucide="thumbs-down"></i> Dislikes</h4><ul>${rel.dislikes.map(d => `<li>${d}</li>`).join('')}</ul></div>`
+        : '';
+
+    const historyHtml = rel.history?.length > 0
+        ? `<div class="rep-history"><h4>Recent History</h4>${rel.history.slice(0, 3).map(h => `
+            <div class="rep-history-entry">
+                <span class="rep-change ${h.change >= 0 ? 'positive' : 'negative'}">${h.change >= 0 ? '+' : ''}${h.change.toLocaleString()}</span>
+                <span class="rep-reason">${h.reason}</span>
+            </div>
+        `).join('')}</div>`
+        : '';
+
+    const unlocksHtml = rel.unlocks?.length > 0
+        ? `<div class="rep-unlocks"><h4>Rewards</h4>${rel.unlocks.map(u => {
+            const unlocked = rel.reputation >= u.threshold;
+            const tierName = getRepTier(u.threshold).name;
+            return `<div class="rep-unlock ${unlocked ? 'unlocked' : 'locked'}">
+                <span class="rep-unlock-tier">${tierName}:</span>
+                <span class="rep-unlock-reward">${unlocked ? u.reward : '???'}</span>
+            </div>`;
+        }).join('')}</div>`
+        : '';
+
+    return `
+        <div class="rep-card ${rel.permanentEnemy ? 'permanent-enemy' : ''}">
+            <div class="rep-card-header">
+                <div class="rep-portrait">${imageHtml}</div>
+                <div class="rep-info">
+                    <div class="rep-name">${rel.name}${romanceIcon}</div>
+                    <div class="rep-type">${rel.type}</div>
+                </div>
+                ${permanentEnemyBadge || `<span class="rep-tier-badge tier-${tier.class}">${tier.name}</span>`}
+            </div>
+            <div class="rep-card-body">
+                <div class="rep-bar-container tier-${tier.class}">
+                    <div class="rep-bar-header">
+                        <span class="rep-tier-name">${tier.name}</span>
+                        <span class="rep-values">${progress.current.toLocaleString()} / ${progress.needed.toLocaleString()}</span>
+                    </div>
+                    <div class="rep-bar-track">
+                        <div class="rep-bar-fill" style="width: ${progress.percentage}%"></div>
+                    </div>
+                </div>
+                ${rel.description ? `<p class="rep-description">"${rel.description}"</p>` : ''}
+                ${(likesHtml || dislikesHtml) ? `<div class="rep-preferences">${likesHtml}${dislikesHtml}</div>` : ''}
+                ${historyHtml}
+                ${unlocksHtml}
+            </div>
+        </div>
+    `;
+}
