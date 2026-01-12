@@ -211,6 +211,13 @@ body {
     isolation: isolate;
 }
 
+/* tsParticles container */
+#tsparticles {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
 /* Base gradient - darker with blood undertones */
 .bg-gradient {
     position: absolute;
@@ -4141,11 +4148,11 @@ body {
 /* Layout */
 .bonds-layout {
     display: grid;
-    grid-template-columns: minmax(420px, 480px) minmax(500px, 700px);
-    gap: var(--spacing-xl);
+    grid-template-columns: minmax(480px, 580px) minmax(600px, 850px);
+    gap: var(--spacing-xxl);
     align-items: start;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 

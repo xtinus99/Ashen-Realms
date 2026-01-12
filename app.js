@@ -263,6 +263,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupBondsLink();
     initAudio();
     setupAudioControls();
+    initParticles();
+    initSmoothScroll();
     lucide.createIcons();
 
     // Check for URL hash to restore state
@@ -272,9 +274,155 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Listen for back/forward navigation
     window.addEventListener('hashchange', () => {
-        restoreFromHash();
+        if (!restoreFromHash()) {
+            showWelcome();
+        }
     });
 });
+
+// ===== TSPARTICLES - FLOATING ASH/EMBERS =====
+function initParticles() {
+    if (typeof tsParticles === 'undefined') return;
+
+    tsParticles.load("tsparticles", {
+        fullScreen: false,
+        background: {
+            color: "transparent"
+        },
+        particles: {
+            number: {
+                value: 50,
+                density: {
+                    enable: true,
+                    area: 1000
+                }
+            },
+            color: {
+                value: ["#c9a227", "#e8d59e", "#8b1a32", "#ff6b35"]
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: { min: 0.1, max: 0.5 },
+                animation: {
+                    enable: true,
+                    speed: 0.5,
+                    minimumValue: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: { min: 1, max: 4 },
+                animation: {
+                    enable: true,
+                    speed: 2,
+                    minimumValue: 0.5,
+                    sync: false
+                }
+            },
+            move: {
+                enable: true,
+                speed: { min: 0.3, max: 1 },
+                direction: "top",
+                random: true,
+                straight: false,
+                outModes: {
+                    default: "out",
+                    top: "out",
+                    bottom: "out"
+                },
+                drift: {
+                    min: -0.5,
+                    max: 0.5
+                }
+            },
+            life: {
+                duration: {
+                    sync: false,
+                    value: { min: 3, max: 8 }
+                },
+                count: 0
+            },
+            wobble: {
+                enable: true,
+                distance: 10,
+                speed: 5
+            },
+            twinkle: {
+                particles: {
+                    enable: true,
+                    frequency: 0.03,
+                    opacity: 0.8,
+                    color: {
+                        value: "#c9a227"
+                    }
+                }
+            }
+        },
+        detectRetina: true
+    });
+}
+
+// ===== LENIS SMOOTH SCROLL =====
+let lenisInstance = null;
+
+function initSmoothScroll() {
+    if (typeof Lenis === 'undefined') return;
+
+    lenisInstance = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2
+    });
+
+    function raf(time) {
+        lenisInstance.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Integrate with GSAP ScrollTrigger if available
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        lenisInstance.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenisInstance.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+    }
+}
+
+// ===== SPLITTING.JS TEXT ANIMATIONS =====
+function initSplitText(selector) {
+    if (typeof Splitting === 'undefined') return;
+
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+        if (el.dataset.split) return; // Already split
+        el.dataset.split = 'true';
+        Splitting({ target: el, by: 'chars' });
+
+        // Animate the characters with GSAP
+        const chars = el.querySelectorAll('.char');
+        if (chars.length && typeof gsap !== 'undefined') {
+            gsap.fromTo(chars,
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.05,
+                    stagger: 0.02,
+                    ease: 'power2.out'
+                }
+            );
+        }
+    });
+}
 
 function setupLogoClick() {
     const sigil = document.getElementById('sigil-icon');

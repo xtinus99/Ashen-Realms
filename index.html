@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Ashen Realms</title>
-    <link rel="stylesheet" href="style.css?v=50">
+    <link rel="stylesheet" href="style.css?v=51">
     <!-- Tippy.js CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css">
@@ -28,6 +28,17 @@
 
     <!-- Medium-Zoom for image viewing -->
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
+
+    <!-- tsParticles for floating ash/ember effects -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <!-- Lenis for smooth scrolling -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Splitting.js for text animations -->
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
 </head>
 <body>
     <!-- Background Effects - Divine Battlefield Shrine -->
@@ -37,20 +48,8 @@
         <div class="god-rays"></div>
         <div class="bg-vignette"></div>
 
-        <!-- Rising Embers -->
-        <div class="ember-container">
-            <div class="ember ember-1"></div>
-            <div class="ember ember-2"></div>
-            <div class="ember ember-3"></div>
-            <div class="ember ember-4"></div>
-            <div class="ember ember-5"></div>
-        </div>
-
-        <!-- Smoke Clouds -->
-        <div class="smoke-layer">
-            <div class="smoke smoke-1"></div>
-            <div class="smoke smoke-2"></div>
-        </div>
+        <!-- tsParticles ash/ember container -->
+        <div id="tsparticles"></div>
     </div>
 
     <div class="app">
