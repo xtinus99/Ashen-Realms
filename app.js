@@ -574,31 +574,11 @@ function attachImageZoom() {
         img.dataset.zoomAttached = 'true';
         img.style.cursor = 'zoom-in';
 
-        // Use simple lightbox for hero-portrait images (avoids sliding animation issue)
-        if (img.closest('.hero-portrait')) {
-            img.addEventListener('click', () => openPortraitLightbox(img.src));
-            return;
-        }
-
-        // Attach to medium-zoom instance for other images
+        // Attach to medium-zoom instance
         if (mediumZoomInstance) {
             mediumZoomInstance.attach(img);
         }
     });
-}
-
-function openPortraitLightbox(src) {
-    const lightbox = document.createElement('div');
-    lightbox.className = 'portrait-lightbox';
-    lightbox.innerHTML = `<img src="${src}" alt="Portrait">`;
-    lightbox.addEventListener('click', () => lightbox.remove());
-    document.addEventListener('keydown', function closeOnEsc(e) {
-        if (e.key === 'Escape') {
-            lightbox.remove();
-            document.removeEventListener('keydown', closeOnEsc);
-        }
-    });
-    document.body.appendChild(lightbox);
 }
 
 // Legacy function name for compatibility
