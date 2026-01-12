@@ -102,6 +102,25 @@
                 "romanceAvailable": true
             },
             {
+                "name": "Kael's Echo",
+                "type": "Memory",
+                "category": "npcs",
+                "reputation": 51000,
+                "description": "You dug my grave with your bare hands. I will never forget.",
+                "likes": ["Being remembered", "Kindness", "Questions about existence", "Those who value memory"],
+                "dislikes": ["Being forgotten", "Nihilism", "Cruelty", "Dismissing the dead"],
+                "history": [
+                    { "change": 15000, "reason": "Dug his grave with bare hands" },
+                    { "change": 10000, "reason": "Reconciled with Fursen for his sake" },
+                    { "change": 8000, "reason": "Stood vigil at his burial" }
+                ],
+                "unlocks": [
+                    { "threshold": 33000, "reward": "Kael answers one question per rest" },
+                    { "threshold": 45000, "reward": "Kael's deeper memories accessible" },
+                    { "threshold": 51000, "reward": "Soulbound - Kael's spirit watches over you" }
+                ]
+            },
+            {
                 "name": "Ardian Bloodveil",
                 "type": "NPC - Uncertain",
                 "category": "npcs",
@@ -228,7 +247,7 @@
                 "name": "Kael's Echo",
                 "type": "Memory",
                 "category": "npcs",
-                "reputation": 42000,
+                "reputation": 51000,
                 "description": "You told me I was real. I will never forget that.",
                 "likes": ["Being remembered", "Kindness", "Questions about existence", "Those who value memory"],
                 "dislikes": ["Being forgotten", "Nihilism", "Cruelty", "Dismissing the dead"],
@@ -239,7 +258,8 @@
                 ],
                 "unlocks": [
                     { "threshold": 33000, "reward": "Kael answers one question per rest" },
-                    { "threshold": 45000, "reward": "Kael's deeper memories accessible" }
+                    { "threshold": 45000, "reward": "Kael's deeper memories accessible" },
+                    { "threshold": 51000, "reward": "Soulbound - Kael lives on through you" }
                 ]
             },
             {
@@ -460,6 +480,25 @@
                     { "threshold": 33000, "reward": "Deeper connection possible" }
                 ],
                 "romanceAvailable": true
+            },
+            {
+                "name": "Kael's Echo",
+                "type": "Memory",
+                "category": "npcs",
+                "reputation": 51000,
+                "description": "You carried my name when I could not. Brother.",
+                "likes": ["Being remembered", "Kindness", "Questions about existence", "Those who value memory"],
+                "dislikes": ["Being forgotten", "Nihilism", "Cruelty", "Dismissing the dead"],
+                "history": [
+                    { "change": 15000, "reason": "Carried his name among the 10,000" },
+                    { "change": 10000, "reason": "Traveled together through the Throat" },
+                    { "change": 8000, "reason": "Buried together by Jonas" }
+                ],
+                "unlocks": [
+                    { "threshold": 33000, "reward": "Kael answers one question per rest" },
+                    { "threshold": 45000, "reward": "Kael's deeper memories accessible" },
+                    { "threshold": 51000, "reward": "Soulbound - Brothers in name and spirit" }
+                ]
             },
             {
                 "name": "Cinder",
