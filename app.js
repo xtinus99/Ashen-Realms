@@ -2640,14 +2640,27 @@ function renderRelationshipsView() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Image name mapping for NPCs whose file names don't match their display names
+const REP_IMAGE_MAP = {
+    "Kael's Echo": "Kael",
+    "Aedwynn the Maker": "Aedwynn Fragment - Golden Tree",
+    "Talaris Bloomrend": "Talaris Bloomrend the Verdant King",
+    "The Church of Mareatha": null // No image for factions
+};
+
 function renderRepCard(rel) {
     const tier = getRepTier(rel.reputation);
     const progress = getRepProgress(rel.reputation);
     const initial = rel.name.charAt(0).toUpperCase();
 
-    // Try to get image from thumbnails
-    const imageName = rel.name.replace(/'/g, "'");
-    const imageHtml = `<img src="thumbnails/${imageName}.webp" alt="${rel.name}" onerror="this.parentElement.innerHTML='${initial}'">`;
+    // Get image name from map or use the display name
+    let imageName = REP_IMAGE_MAP[rel.name];
+    if (imageName === undefined) {
+        imageName = rel.name;
+    }
+    const imageHtml = imageName
+        ? `<img src="thumbnails/${imageName}.webp" alt="${rel.name}" onerror="this.parentElement.innerHTML='${initial}'">`
+        : initial;
 
     const permanentEnemyBadge = rel.permanentEnemy
         ? `<div class="rep-enemy-badge"><i data-lucide="skull"></i> Permanent Enemy</div>`

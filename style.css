@@ -4192,8 +4192,10 @@ body {
 
 .rep-values {
     font-family: var(--font-ui);
-    font-size: 0.75rem;
-    color: var(--text-dim);
+    font-size: 0.8rem;
+    color: var(--bone);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
 .rep-bar-track {
