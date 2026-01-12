@@ -1409,11 +1409,20 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
         </span>
     `).join('');
 
+    // Check for sigil (sovereigns)
+    const sigil = item.frontmatter?.sigil;
+    const sigilHtml = sigil ? `
+        <div class="article-sigil">
+            <img src="${sigil}" alt="${item.title} Sigil" class="sigil-image">
+        </div>
+    ` : '';
+
     // Render article
     const contentBody = document.getElementById('content-body');
     contentBody.innerHTML = `
-        <article class="article">
+        <article class="article ${sigil ? 'has-sigil' : ''}">
             <header class="article-header">
+                ${sigilHtml}
                 <div class="article-category">
                     <i data-lucide="${categoryInfo.icon || 'file'}"></i>
                     ${categoryName}
@@ -2572,6 +2581,8 @@ const CHAR_NAMES = {
 };
 
 let selectedEntry = null;
+let currentSort = 'reputation'; // 'reputation' or 'name'
+let bookOpened = false;
 
 function renderRelationshipsView() {
     const characterData = relationshipData[currentRepCharacter];
@@ -2582,10 +2593,13 @@ function renderRelationshipsView() {
         relationships = relationships.filter(r => r.category === currentRepFilter);
     }
 
-    // Sort by reputation descending, permanent enemies at top
+    // Sort based on current sort mode
     relationships.sort((a, b) => {
         if (a.permanentEnemy && !b.permanentEnemy) return -1;
         if (!a.permanentEnemy && b.permanentEnemy) return 1;
+        if (currentSort === 'name') {
+            return a.name.localeCompare(b.name);
+        }
         return b.reputation - a.reputation;
     });
 
@@ -2597,12 +2611,41 @@ function renderRelationshipsView() {
     const entriesHtml = relationships.map(rel => renderJournalEntry(rel)).join('');
     const detailHtml = selectedEntry ? renderJournalDetail(relationships.find(r => r.name === selectedEntry)) : '';
 
+    // Show closed book first if not opened yet
+    if (!bookOpened) {
+        document.getElementById('content-body').innerHTML = `
+            <div class="journal-container">
+                <div class="journal-closed" id="journal-closed">
+                    <div class="book-cover">
+                        <div class="cover-border"></div>
+                        <div class="cover-emblem"></div>
+                        <div class="cover-title">Bonds & Standing</div>
+                        <div class="cover-subtitle">Personal Ledger</div>
+                        <div class="cover-instruction">Click to open</div>
+                    </div>
+                    <div class="book-spine-closed"></div>
+                    <div class="book-pages-edge"></div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('journal-closed').addEventListener('click', () => {
+            const closed = document.getElementById('journal-closed');
+            closed.classList.add('opening');
+            setTimeout(() => {
+                bookOpened = true;
+                renderRelationshipsView();
+            }, 600);
+        });
+        return;
+    }
+
     document.getElementById('content-body').innerHTML = `
         <div class="journal-container">
-            <div class="journal-book">
-                <div class="journal-spine"></div>
-
+            <div class="journal-book open">
+                <div class="book-cover-back"></div>
                 <div class="journal-left-page">
+                    <div class="page-curl"></div>
                     <div class="page-header">
                         <div class="page-title">Bonds & Standing</div>
                         <div class="page-subtitle">The personal ledger of ${CHAR_NAMES[currentRepCharacter]}</div>
@@ -2614,12 +2657,18 @@ function renderRelationshipsView() {
                         <button class="journal-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">Fursen</button>
                     </div>
 
-                    <div class="journal-filters">
-                        <span class="filter-label">Show:</span>
-                        <button class="journal-filter ${currentRepFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
-                        <button class="journal-filter ${currentRepFilter === 'sovereigns' ? 'active' : ''}" data-filter="sovereigns">Sovereigns</button>
-                        <button class="journal-filter ${currentRepFilter === 'npcs' ? 'active' : ''}" data-filter="npcs">NPCs</button>
-                        <button class="journal-filter ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
+                    <div class="journal-controls">
+                        <div class="journal-filters">
+                            <button class="journal-filter ${currentRepFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+                            <button class="journal-filter ${currentRepFilter === 'sovereigns' ? 'active' : ''}" data-filter="sovereigns">Sovereigns</button>
+                            <button class="journal-filter ${currentRepFilter === 'npcs' ? 'active' : ''}" data-filter="npcs">NPCs</button>
+                            <button class="journal-filter ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
+                        </div>
+                        <div class="journal-sort">
+                            <span class="sort-label">Sort:</span>
+                            <button class="sort-btn ${currentSort === 'reputation' ? 'active' : ''}" data-sort="reputation">Standing</button>
+                            <button class="sort-btn ${currentSort === 'name' ? 'active' : ''}" data-sort="name">Name</button>
+                        </div>
                     </div>
 
                     <div class="journal-entries">
@@ -2629,9 +2678,13 @@ function renderRelationshipsView() {
                     <div class="page-number">— ${relationships.length} entries —</div>
                 </div>
 
+                <div class="journal-spine"></div>
+
                 <div class="journal-right-page">
+                    <div class="page-curl right"></div>
                     ${detailHtml}
                 </div>
+                <div class="book-cover-front"></div>
             </div>
         </div>
     `;
@@ -2649,6 +2702,13 @@ function renderRelationshipsView() {
         btn.addEventListener('click', () => {
             currentRepFilter = btn.dataset.filter;
             selectedEntry = null;
+            renderRelationshipsView();
+        });
+    });
+
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentSort = btn.dataset.sort;
             renderRelationshipsView();
         });
     });
