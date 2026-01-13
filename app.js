@@ -1780,18 +1780,21 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     `;
 
     // Remove duplicate H1 if it matches the article title, insert easter egg in its place
+    // Remove duplicate H1 if it matches the article title, insert easter egg in its place
     const articleBody = contentBody.querySelector('.article-body');
     const firstH1 = articleBody?.querySelector('h1:first-child');
     if (firstH1 && firstH1.textContent.trim().toLowerCase() === item.title.toLowerCase()) {
-        // Create easter egg element to replace the H1
+        // Create easter egg container centered in the blank space
         const easterEgg = document.createElement('div');
         easterEgg.className = 'easter-egg';
         easterEgg.id = 'easter-egg';
         easterEgg.title = 'Click me!';
-        easterEgg.innerHTML = '<img src="images/Aedwynn Fragment - Golden Tree.webp" alt="" data-no-zoom>';
+        easterEgg.innerHTML = `
+            <img src="images/Aedwynn Fragment - Golden Tree.webp" alt="" data-no-zoom>
+            <span class="easter-egg-text">Screenshot this and put it in the DND section</span>
+        `;
         easterEgg.addEventListener('click', () => {
             easterEgg.classList.add('revealed');
-            showNotification('Screenshot this and send it in the DND channel!', 8000);
         });
 
         // Replace H1 with easter egg
