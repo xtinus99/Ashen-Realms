@@ -1169,8 +1169,8 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
         <span class="breadcrumb-current">${categoryName}</span>
     `;
 
-    // Build item cards
-    const itemsHtml = categoryData.items.map(item => {
+    // Helper function to build a single item card
+    function buildItemCard(item) {
         // Get a preview from the content (first paragraph or description)
         let preview = '';
         const tempDiv = document.createElement('div');
@@ -1211,7 +1211,46 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
                 </div>
             </div>
         `;
-    }).join('');
+    }
+
+    // Build item cards - with region grouping if available
+    let itemsHtml = '';
+    if (categoryData.info.hasRegions) {
+        // Group items by region
+        const regionOrder = categoryData.info.regions || [];
+        const itemsByRegion = {};
+
+        categoryData.items.forEach(item => {
+            const region = item.region || 'Other';
+            if (!itemsByRegion[region]) itemsByRegion[region] = [];
+            itemsByRegion[region].push(item);
+        });
+
+        // Build HTML with region headers
+        regionOrder.forEach(region => {
+            if (itemsByRegion[region] && itemsByRegion[region].length > 0) {
+                itemsHtml += `<div class="region-section" data-region="${region}">`;
+                itemsHtml += `<h2 class="region-header"><i data-lucide="map-pin"></i>${region}</h2>`;
+                itemsHtml += `<div class="region-items">`;
+                itemsHtml += itemsByRegion[region].map(buildItemCard).join('');
+                itemsHtml += `</div></div>`;
+            }
+        });
+
+        // Any items not in regionOrder
+        Object.keys(itemsByRegion).forEach(region => {
+            if (!regionOrder.includes(region) && itemsByRegion[region].length > 0) {
+                itemsHtml += `<div class="region-section" data-region="${region}">`;
+                itemsHtml += `<h2 class="region-header"><i data-lucide="map-pin"></i>${region}</h2>`;
+                itemsHtml += `<div class="region-items">`;
+                itemsHtml += itemsByRegion[region].map(buildItemCard).join('');
+                itemsHtml += `</div></div>`;
+            }
+        });
+    } else {
+        // No regions - flat list
+        itemsHtml = categoryData.items.map(buildItemCard).join('');
+    }
 
     // Special timeline view for Sessions
     let timelineHtml = '';

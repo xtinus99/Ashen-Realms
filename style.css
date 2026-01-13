@@ -2228,6 +2228,42 @@ body {
     gap: var(--spacing-lg);
 }
 
+/* Region sections for grouped categories (NPCs, Locations) */
+.region-section {
+    grid-column: 1 / -1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.region-section:not(:first-child) {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.region-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin: 0 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+.region-header svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+}
+
+.region-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
 .category-item-card {
     position: relative;
     background: linear-gradient(180deg,
