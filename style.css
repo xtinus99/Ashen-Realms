@@ -1094,33 +1094,32 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* Easter Egg */
-.easter-egg {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--spacing-md);
-    opacity: 0.3;
+/* Easter Egg - hidden in article body where duplicate H1 was */
+.article-body .easter-egg {
+    display: inline-block;
+    opacity: 0.15;
     transition: opacity 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    margin-bottom: 0.5rem;
 }
 
-.easter-egg:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
+.article-body .easter-egg:hover {
+    opacity: 0.6;
+    transform: scale(1.2);
 }
 
-.easter-egg img {
-    width: 24px;
-    height: 24px;
+.article-body .easter-egg img {
+    width: 16px;
+    height: 16px;
     object-fit: contain;
-    filter: sepia(1) hue-rotate(10deg);
+    filter: sepia(1) hue-rotate(10deg) brightness(0.8);
 }
 
-.easter-egg.revealed {
+.article-body .easter-egg.revealed {
     opacity: 1;
 }
 
-.easter-egg.revealed img {
+.article-body .easter-egg.revealed img {
     filter: none;
     animation: easter-glow 2s ease-in-out infinite;
 }

@@ -266,7 +266,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupAudioControls();
     initParticles();
     initSmoothScroll();
-    setupEasterEgg();
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
     // Check for URL hash to restore state
@@ -1780,11 +1779,23 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
         </article>
     `;
 
-    // Remove duplicate H1 if it matches the article title
+    // Remove duplicate H1 if it matches the article title, insert easter egg in its place
     const articleBody = contentBody.querySelector('.article-body');
     const firstH1 = articleBody?.querySelector('h1:first-child');
     if (firstH1 && firstH1.textContent.trim().toLowerCase() === item.title.toLowerCase()) {
-        firstH1.remove();
+        // Create easter egg element to replace the H1
+        const easterEgg = document.createElement('div');
+        easterEgg.className = 'easter-egg';
+        easterEgg.id = 'easter-egg';
+        easterEgg.title = 'Click me!';
+        easterEgg.innerHTML = '<img src="images/Aedwynn Fragment - Golden Tree.webp" alt="" data-no-zoom>';
+        easterEgg.addEventListener('click', () => {
+            easterEgg.classList.add('revealed');
+            showNotification('Screenshot this and send it in the DND channel!', 8000);
+        });
+
+        // Replace H1 with easter egg
+        firstH1.replaceWith(easterEgg);
     }
 
     // Optimize images (WebP conversion + lazy loading)
@@ -1794,7 +1805,6 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     generateTableOfContents(contentBody, categoryName, item.title);
 
     // Auto-link references to other entries
-    const articleBody = contentBody.querySelector('.article-body');
     if (articleBody) {
         autoLinkWikiReferences(articleBody, item.title);
     }
@@ -2859,16 +2869,6 @@ function setupBondsLink() {
             e.preventDefault();
             showRelationships();
             document.getElementById('sidebar').classList.remove('open');
-        });
-    }
-}
-
-function setupEasterEgg() {
-    const easterEgg = document.getElementById('easter-egg');
-    if (easterEgg) {
-        easterEgg.addEventListener('click', () => {
-            easterEgg.classList.add('revealed');
-            showNotification('Screenshot this and send it in the DND channel!', 8000);
         });
     }
 }
