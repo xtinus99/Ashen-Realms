@@ -225,7 +225,8 @@ const footerQuotes = [
     "Memory is the cruelest wound.",
     "They divided a god. They became monsters.",
     "Hope is the last lie we tell ourselves.",
-    "The Usurpation was not the end. It was the beginning."
+    "The Usurpation was not the end. It was the beginning.",
+    "I will hit you."
 ];
 
 function setupDynamicQuotes() {

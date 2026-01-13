@@ -642,6 +642,19 @@
                     { "threshold": 21000, "reward": "Permanent discount at her establishment" },
                     { "threshold": 33000, "reward": "Private information network access" }
                 ]
+            },
+            {
+                "name": "Jonas",
+                "type": "Party Member",
+                "category": "npcs",
+                "reputation": 1000,
+                "description": "I will hit you.",
+                "likes": ["Not touching him", "Keeping distance", "Silence", "Leaving him alone"],
+                "dislikes": ["Touching him", "Being too familiar", "Drugging him without consent", "Friendly shoulder pats"],
+                "history": [
+                    { "change": -9000, "reason": "Applied Moonbind Salve without consent" }
+                ],
+                "unlocks": []
             }
         ]
     }
