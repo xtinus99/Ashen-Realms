@@ -1795,7 +1795,7 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
             overlay.className = 'easter-egg-overlay';
             overlay.innerHTML = `
                 <div class="easter-egg-modal">
-                    <img src="images/Fragment of Aedwynn.png" alt="Fragment of Aedwynn">
+                    <img src="images/fragment-aedwynn.png" alt="Fragment of Aedwynn">
                     <p>Screenshot this and put it in the DND section</p>
                 </div>
             `;

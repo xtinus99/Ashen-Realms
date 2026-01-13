@@ -1101,18 +1101,13 @@ body {
     justify-content: center;
     min-height: 300px;
     margin: 1rem 0;
-    /* DEBUG - remove after confirming it works */
-    border: 2px solid red;
 }
 
 /* Easter Egg - visible gem */
 .easter-egg {
-    opacity: 1;
+    opacity: 0.8;
     transition: opacity 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    /* DEBUG */
-    background: yellow;
-    padding: 10px;
 }
 
 .easter-egg:hover {
@@ -1121,8 +1116,8 @@ body {
 }
 
 .easter-egg img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
 
