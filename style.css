@@ -4589,13 +4589,13 @@ body {
 
 /* Detail Content Wrapper */
 .detail-content {
-    padding: var(--spacing-xl) var(--spacing-2xl);
+    padding: var(--spacing-xl) 3rem;
 }
 
 /* Standing Section */
 .standing-section {
     margin-bottom: var(--spacing-xl);
-    padding: 0 var(--spacing-2xl);
+    padding: 0 3rem;
 }
 
 .standing-header {
