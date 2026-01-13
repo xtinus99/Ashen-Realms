@@ -11,7 +11,7 @@
                 "likes": ["Offering meaningful concepts", "Feeding her names willingly", "Presenting paradoxes", "Surrendering identity"],
                 "dislikes": ["Speaking her true name", "Escaping her consumption", "Helping The Satiated One", "Resisting digestion"],
                 "history": [
-                    { "change": -9000, "reason": "Spoke her true name twice in the Throat" }
+                    { "change": -9000, "reason": "Spoke her true name once in the Throat" }
                 ],
                 "unlocks": []
             },
@@ -376,6 +376,24 @@
                     { "threshold": 21000, "reward": "Permanent discount at her establishment" },
                     { "threshold": 33000, "reward": "Private information network access" }
                 ]
+            },
+            {
+                "name": "Sister Varen",
+                "type": "Ancient Ally",
+                "category": "npcs",
+                "reputation": 28000,
+                "description": "I had forgotten what blue looked like. Thank you.",
+                "likes": ["Sharing memories of the world before", "Keeping the old ways", "Fighting the Sovereigns", "Honest exchange"],
+                "dislikes": ["Serving the Sovereigns", "Forgetting the past", "Refusing fair trade", "Disrespecting the old ways"],
+                "history": [
+                    { "change": 15000, "reason": "Shared a memory of the world before the Murder" },
+                    { "change": 3000, "reason": "Carries shard of Aedwynn — kindred spirit" }
+                ],
+                "unlocks": [
+                    { "threshold": 21000, "reward": "Sister Varen shares Crownfall's secrets" },
+                    { "threshold": 33000, "reward": "Access to pre-Usurpation knowledge" },
+                    { "threshold": 45000, "reward": "Sister Varen reveals her full history" }
+                ]
             }
         ]
     },
@@ -428,19 +446,52 @@
                 "name": "Veshra Coil",
                 "type": "Ally",
                 "category": "npcs",
-                "reputation": 26000,
+                "reputation": 29000,
                 "description": "You are always welcome here, lion. Always.",
                 "likes": ["Treating workers kindly", "Sharing useful information", "Opposing exploitation", "Protecting the vulnerable"],
                 "dislikes": ["Disrespecting workers", "Aiding slavers", "Working with House Keth", "Abusing the vulnerable"],
                 "history": [
                     { "change": 8000, "reason": "Treated workers with genuine respect" },
                     { "change": 5000, "reason": "Connected with Scarlet & Cinder" },
-                    { "change": 3000, "reason": "Open invitation extended" }
+                    { "change": 3000, "reason": "Open invitation extended" },
+                    { "change": 3000, "reason": "Paid the workers generously; connected with Flame" }
                 ],
                 "unlocks": [
                     { "threshold": 21000, "reward": "Free lodging at the Silken Refuge" },
                     { "threshold": 33000, "reward": "Veshra's personal protection" },
                     { "threshold": 45000, "reward": "???" }
+                ]
+            },
+            {
+                "name": "Flame of Passion",
+                "type": "Companion",
+                "category": "npcs",
+                "reputation": 22000,
+                "description": "Come back alive, Leonin.",
+                "likes": ["Genuine connection", "Staying the night", "Treating her as a person", "Asking permission"],
+                "dislikes": ["Treating her as a transaction", "Rushing", "Acting entitled", "Forgetting her name"],
+                "history": [
+                    { "change": 12000, "reason": "Night of genuine connection; stayed until morning" }
+                ],
+                "unlocks": [
+                    { "threshold": 33000, "reward": "Deeper connection possible" },
+                    { "threshold": 45000, "reward": "Flame shares her past" }
+                ]
+            },
+            {
+                "name": "Senna",
+                "type": "Merchant",
+                "category": "npcs",
+                "reputation": 11000,
+                "description": "Thresh's debt is settled. Next time, full price.",
+                "likes": ["Fair payment", "Clear requests", "Discretion", "Not asking too many questions"],
+                "dislikes": ["Haggling", "Attracting attention", "Wasting her time", "Moral lectures"],
+                "history": [
+                    { "change": 1000, "reason": "Professional transaction via Thresh's referral" }
+                ],
+                "unlocks": [
+                    { "threshold": 15000, "reward": "Access to rarer compounds" },
+                    { "threshold": 21000, "reward": "Custom formulations available" }
                 ]
             },
             {
