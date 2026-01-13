@@ -1094,62 +1094,69 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* Easter Egg - centered in blank area where duplicate H1 was */
+/* Easter Egg - tiny gem hidden in blank area */
 .article-body .easter-egg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
-    opacity: 0.15;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: inline-block;
+    opacity: 0.12;
+    transition: opacity 0.3s ease;
     cursor: pointer;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0;
 }
 
 .article-body .easter-egg:hover {
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 .article-body .easter-egg img {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     object-fit: contain;
-    filter: sepia(1) hue-rotate(10deg) brightness(0.8);
-    transition: width 0.4s ease, height 0.4s ease, filter 0.4s ease;
 }
 
-.article-body .easter-egg .easter-egg-text {
-    display: none;
-    margin-top: 1rem;
+/* Easter Egg Lightbox Overlay */
+.easter-egg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 12, 0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: fadeIn 0.3s ease;
+}
+
+.easter-egg-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.easter-egg-modal img {
+    max-width: 80vw;
+    max-height: 60vh;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(201, 162, 39, 0.3);
+    animation: zoomIn 0.4s ease;
+}
+
+.easter-egg-modal p {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: var(--color-gold);
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    animation: fadeIn 0.5s ease 0.2s both;
 }
 
-.article-body .easter-egg.revealed {
-    opacity: 1;
-    cursor: default;
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-.article-body .easter-egg.revealed img {
-    width: 80px;
-    height: 80px;
-    filter: none;
-    animation: easter-glow 2s ease-in-out infinite;
-}
-
-.article-body .easter-egg.revealed .easter-egg-text {
-    display: block;
-    opacity: 1;
-}
-
-@keyframes easter-glow {
-    0%, 100% { filter: drop-shadow(0 0 6px var(--glow-gold)); }
-    50% { filter: drop-shadow(0 0 16px var(--glow-gold)); }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* === MAIN CONTENT === */

@@ -1780,21 +1780,28 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     `;
 
     // Remove duplicate H1 if it matches the article title, insert easter egg in its place
-    // Remove duplicate H1 if it matches the article title, insert easter egg in its place
+    // Remove duplicate H1 if it matches the article title, insert tiny easter egg
     const articleBody = contentBody.querySelector('.article-body');
     const firstH1 = articleBody?.querySelector('h1:first-child');
     if (firstH1 && firstH1.textContent.trim().toLowerCase() === item.title.toLowerCase()) {
-        // Create easter egg container centered in the blank space
+        // Create tiny easter egg gem
         const easterEgg = document.createElement('div');
         easterEgg.className = 'easter-egg';
         easterEgg.id = 'easter-egg';
         easterEgg.title = 'Click me!';
-        easterEgg.innerHTML = `
-            <img src="images/Aedwynn Fragment - Golden Tree.webp" alt="" data-no-zoom>
-            <span class="easter-egg-text">Screenshot this and put it in the DND section</span>
-        `;
+        easterEgg.innerHTML = `<img src="images/Fragment of Aedwynn.png" alt="" data-no-zoom>`;
         easterEgg.addEventListener('click', () => {
-            easterEgg.classList.add('revealed');
+            // Create lightbox overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'easter-egg-overlay';
+            overlay.innerHTML = `
+                <div class="easter-egg-modal">
+                    <img src="images/Fragment of Aedwynn.png" alt="Fragment of Aedwynn">
+                    <p>Screenshot this and put it in the DND section</p>
+                </div>
+            `;
+            overlay.addEventListener('click', () => overlay.remove());
+            document.body.appendChild(overlay);
         });
 
         // Replace H1 with easter egg
