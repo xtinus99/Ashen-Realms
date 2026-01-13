@@ -516,6 +516,12 @@ function optimizeContentImages(container) {
     const images = container.querySelectorAll('img');
 
     images.forEach(img => {
+        // Skip images with data-no-zoom (like easter egg)
+        if (img.hasAttribute('data-no-zoom')) {
+            img.style.opacity = '1';
+            return;
+        }
+
         const originalSrc = img.getAttribute('src');
 
         // Store original for lightbox (full quality)
