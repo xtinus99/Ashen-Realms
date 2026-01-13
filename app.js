@@ -2804,6 +2804,7 @@ const CHAR_NAMES = {
 
 let selectedEntry = null;
 let currentSort = 'reputation'; // 'reputation' or 'name'
+let sortAscending = false; // false = descending (highest first), true = ascending (lowest first)
 
 function renderRelationshipsView() {
     const characterData = relationshipData[currentRepCharacter];
@@ -2814,14 +2815,18 @@ function renderRelationshipsView() {
         relationships = relationships.filter(r => r.category === currentRepFilter);
     }
 
-    // Sort based on current sort mode
+    // Sort based on current sort mode and direction
     relationships.sort((a, b) => {
         if (a.permanentEnemy && !b.permanentEnemy) return -1;
         if (!a.permanentEnemy && b.permanentEnemy) return 1;
+
+        let result;
         if (currentSort === 'name') {
-            return a.name.localeCompare(b.name);
+            result = a.name.localeCompare(b.name);
+        } else {
+            result = b.reputation - a.reputation;
         }
-        return b.reputation - a.reputation;
+        return sortAscending ? -result : result;
     });
 
     // Select first entry by default if none selected
@@ -2864,10 +2869,10 @@ function renderRelationshipsView() {
                     <button class="filter-chip ${currentRepFilter === 'factions' ? 'active' : ''}" data-filter="factions">Factions</button>
                     <div class="filter-divider"></div>
                     <button class="sort-chip ${currentSort === 'reputation' ? 'active' : ''}" data-sort="reputation">
-                        <i data-lucide="trending-up"></i> Standing
+                        <i data-lucide="${currentSort === 'reputation' ? (sortAscending ? 'arrow-up' : 'arrow-down') : 'trending-up'}"></i> Standing
                     </button>
                     <button class="sort-chip ${currentSort === 'name' ? 'active' : ''}" data-sort="name">
-                        <i data-lucide="a-large-small"></i> Name
+                        <i data-lucide="${currentSort === 'name' ? (sortAscending ? 'arrow-up' : 'arrow-down') : 'a-large-small'}"></i> Name
                     </button>
                 </div>
             </div>
@@ -2906,7 +2911,14 @@ function renderRelationshipsView() {
 
     document.querySelectorAll('.sort-chip').forEach(btn => {
         btn.addEventListener('click', () => {
-            currentSort = btn.dataset.sort;
+            if (currentSort === btn.dataset.sort) {
+                // Same sort clicked - toggle direction
+                sortAscending = !sortAscending;
+            } else {
+                // Different sort clicked - switch to it with default direction
+                currentSort = btn.dataset.sort;
+                sortAscending = false;
+            }
             renderRelationshipsView();
         });
     });
