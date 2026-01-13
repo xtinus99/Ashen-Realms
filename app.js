@@ -1064,18 +1064,93 @@ function buildNavigation() {
             }
         }
 
-        // Regular items (not in subcategories)
-        categoryData.items.forEach(item => {
-            const navItem = document.createElement('div');
-            navItem.className = 'nav-item';
-            navItem.dataset.id = item.id;
-            navItem.textContent = item.title;
-            navItem.addEventListener('click', (e) => {
-                e.stopPropagation();
-                showItem(categoryName, item, navItem);
+        // Check if category has regions for grouping
+        if (categoryData.info && categoryData.info.hasRegions && categoryData.info.regions) {
+            const regionOrder = categoryData.info.regions;
+            const itemsByRegion = {};
+
+            // Initialize regions
+            regionOrder.forEach(region => {
+                itemsByRegion[region] = [];
             });
-            items.appendChild(navItem);
-        });
+
+            // Group items by region
+            categoryData.items.forEach(item => {
+                const region = item.region || 'Other';
+                if (!itemsByRegion[region]) {
+                    itemsByRegion[region] = [];
+                }
+                itemsByRegion[region].push(item);
+            });
+
+            // Build region subsections
+            regionOrder.forEach(region => {
+                if (itemsByRegion[region] && itemsByRegion[region].length > 0) {
+                    const regionSection = document.createElement('div');
+                    regionSection.className = 'nav-subcategory nav-region';
+
+                    const regionHeader = document.createElement('div');
+                    regionHeader.className = 'nav-subcategory-header';
+
+                    // Choose icon based on region name
+                    let regionIcon = 'map-pin';
+                    if (region === 'World') regionIcon = 'globe';
+                    else if (region === 'Deceased') regionIcon = 'skull';
+                    else if (region === 'Other') regionIcon = 'help-circle';
+                    else if (region.includes('Clockwork')) regionIcon = 'clock';
+                    else if (region.includes('Blooming')) regionIcon = 'flower-2';
+                    else if (region.includes('Ancient')) regionIcon = 'landmark';
+
+                    regionHeader.innerHTML = `
+                        <i data-lucide="${regionIcon}" class="sub-icon"></i>
+                        <span class="sub-name">${region}</span>
+                        <span class="sub-count">${itemsByRegion[region].length}</span>
+                        <span class="sub-toggle"><i data-lucide="chevron-right" class="nav-item-chevron"></i></span>
+                    `;
+
+                    // Click on header toggles expand/collapse
+                    regionHeader.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        regionSection.classList.toggle('expanded');
+                        lucide.createIcons();
+                    });
+
+                    const regionItems = document.createElement('div');
+                    regionItems.className = 'nav-subcategory-items';
+
+                    itemsByRegion[region].forEach(item => {
+                        const navItem = document.createElement('div');
+                        navItem.className = 'nav-item nav-item-child';
+                        navItem.dataset.id = item.id;
+                        navItem.dataset.region = region;
+                        navItem.textContent = item.title;
+                        navItem.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            showItem(categoryName, item, navItem);
+                        });
+                        regionItems.appendChild(navItem);
+                    });
+
+                    regionSection.appendChild(regionHeader);
+                    regionSection.appendChild(regionItems);
+                    items.appendChild(regionSection);
+                }
+            });
+        } else {
+            // Regular items (not in subcategories or regions)
+            categoryData.items.forEach(item => {
+                const navItem = document.createElement('div');
+                navItem.className = 'nav-item';
+                navItem.dataset.id = item.id;
+                navItem.textContent = item.title;
+                navItem.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showItem(categoryName, item, navItem);
+                });
+                items.appendChild(navItem);
+            });
+        }
 
         category.appendChild(header);
         category.appendChild(items);
@@ -1226,11 +1301,18 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
             itemsByRegion[region].push(item);
         });
 
-        // Build HTML with region headers
-        regionOrder.forEach(region => {
+        // Build HTML with collapsible region dropdowns
+        regionOrder.forEach((region, index) => {
             if (itemsByRegion[region] && itemsByRegion[region].length > 0) {
-                itemsHtml += `<div class="region-section" data-region="${region}">`;
-                itemsHtml += `<h2 class="region-header"><i data-lucide="map-pin"></i>${region}</h2>`;
+                const isOpen = index === 0 ? 'open' : ''; // First region open by default
+                const itemCount = itemsByRegion[region].length;
+                itemsHtml += `<div class="region-section ${isOpen}" data-region="${region}">`;
+                itemsHtml += `<button class="region-header" onclick="toggleRegion(this)">
+                    <i data-lucide="chevron-right" class="region-chevron"></i>
+                    <i data-lucide="map-pin" class="region-icon"></i>
+                    <span class="region-name">${region}</span>
+                    <span class="region-count">${itemCount}</span>
+                </button>`;
                 itemsHtml += `<div class="region-items">`;
                 itemsHtml += itemsByRegion[region].map(buildItemCard).join('');
                 itemsHtml += `</div></div>`;
@@ -1240,8 +1322,14 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
         // Any items not in regionOrder
         Object.keys(itemsByRegion).forEach(region => {
             if (!regionOrder.includes(region) && itemsByRegion[region].length > 0) {
+                const itemCount = itemsByRegion[region].length;
                 itemsHtml += `<div class="region-section" data-region="${region}">`;
-                itemsHtml += `<h2 class="region-header"><i data-lucide="map-pin"></i>${region}</h2>`;
+                itemsHtml += `<button class="region-header" onclick="toggleRegion(this)">
+                    <i data-lucide="chevron-right" class="region-chevron"></i>
+                    <i data-lucide="map-pin" class="region-icon"></i>
+                    <span class="region-name">${region}</span>
+                    <span class="region-count">${itemCount}</span>
+                </button>`;
                 itemsHtml += `<div class="region-items">`;
                 itemsHtml += itemsByRegion[region].map(buildItemCard).join('');
                 itemsHtml += `</div></div>`;
@@ -3182,6 +3270,12 @@ function closeMobileDetail() {
     if (detailPanel) {
         detailPanel.classList.remove('mobile-active');
     }
+}
+
+// Toggle region dropdown in category view
+function toggleRegion(button) {
+    const section = button.closest('.region-section');
+    section.classList.toggle('open');
 }
 
 function animateDetailPanel() {
