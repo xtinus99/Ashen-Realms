@@ -2932,6 +2932,7 @@ function renderRelationshipsView() {
             card.classList.add('selected');
             const detailPanel = document.getElementById('bonds-detail');
             detailPanel.innerHTML = renderBondDetail(rel);
+            detailPanel.classList.add('mobile-active');
             lucide.createIcons();
             attachImageZoom();
             animateDetailPanel();
@@ -3024,6 +3025,10 @@ function renderBondDetail(rel) {
         : '';
 
     return `
+        <button class="detail-mobile-back" onclick="closeMobileDetail()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to list
+        </button>
         <div class="detail-panel ${isEnemy ? 'enemy' : ''}">
             <div class="detail-hero">
                 <div class="hero-portrait ${isEnemy ? 'enemy' : `tier-${tier.class}`}">
@@ -3132,6 +3137,13 @@ function animateBondCards() {
 
 }
 
+
+function closeMobileDetail() {
+    const detailPanel = document.getElementById('bonds-detail');
+    if (detailPanel) {
+        detailPanel.classList.remove('mobile-active');
+    }
+}
 
 function animateDetailPanel() {
     // Animate the detail panel content using GSAP
