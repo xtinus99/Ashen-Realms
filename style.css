@@ -1094,6 +1094,42 @@ body {
     transition: opacity 0.3s ease;
 }
 
+/* Easter Egg */
+.easter-egg {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+    opacity: 0.3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.easter-egg:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.easter-egg img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: sepia(1) hue-rotate(10deg);
+}
+
+.easter-egg.revealed {
+    opacity: 1;
+}
+
+.easter-egg.revealed img {
+    filter: none;
+    animation: easter-glow 2s ease-in-out infinite;
+}
+
+@keyframes easter-glow {
+    0%, 100% { filter: drop-shadow(0 0 4px var(--glow-gold)); }
+    50% { filter: drop-shadow(0 0 12px var(--glow-gold)); }
+}
+
 /* === MAIN CONTENT === */
 .main-content {
     flex: 1;

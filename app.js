@@ -266,6 +266,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupAudioControls();
     initParticles();
     initSmoothScroll();
+    setupEasterEgg();
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
     // Check for URL hash to restore state
@@ -1779,6 +1780,13 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
         </article>
     `;
 
+    // Remove duplicate H1 if it matches the article title
+    const articleBody = contentBody.querySelector('.article-body');
+    const firstH1 = articleBody?.querySelector('h1:first-child');
+    if (firstH1 && firstH1.textContent.trim().toLowerCase() === item.title.toLowerCase()) {
+        firstH1.remove();
+    }
+
     // Optimize images (WebP conversion + lazy loading)
     optimizeContentImages(contentBody);
 
@@ -2048,7 +2056,7 @@ function navigateToItem(targetName) {
     showNotification(`"${targetName}" is not in the compendium — it may be hidden knowledge.`);
 }
 
-function showNotification(message) {
+function showNotification(message, duration = 3000) {
     // Create notification element
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -2072,7 +2080,7 @@ function showNotification(message) {
     setTimeout(() => {
         notification.style.animation = 'fadeOutDown 0.3s ease';
         setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    }, duration);
 }
 
 // ===== LOADING SKELETON =====
@@ -2851,6 +2859,16 @@ function setupBondsLink() {
             e.preventDefault();
             showRelationships();
             document.getElementById('sidebar').classList.remove('open');
+        });
+    }
+}
+
+function setupEasterEgg() {
+    const easterEgg = document.getElementById('easter-egg');
+    if (easterEgg) {
+        easterEgg.addEventListener('click', () => {
+            easterEgg.classList.add('revealed');
+            showNotification('Screenshot this and send it in the DND channel!', 8000);
         });
     }
 }
