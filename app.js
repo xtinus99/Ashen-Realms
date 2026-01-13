@@ -1780,18 +1780,17 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     `;
 
     // Remove duplicate H1 if it matches the article title, insert easter egg in its place
-    // Remove duplicate H1 if it matches the article title, insert tiny easter egg
+    // Remove duplicate H1 if it matches the article title
     const articleBody = contentBody.querySelector('.article-body');
     const firstH1 = articleBody?.querySelector('h1:first-child');
     if (firstH1 && firstH1.textContent.trim().toLowerCase() === item.title.toLowerCase()) {
-        // Create tiny easter egg gem
-        const easterEgg = document.createElement('div');
-        easterEgg.className = 'easter-egg';
-        easterEgg.id = 'easter-egg';
-        easterEgg.title = 'Click me!';
-        easterEgg.innerHTML = `<img src="images/Fragment of Aedwynn.png" alt="" data-no-zoom>`;
+        firstH1.remove();
+    }
+
+    // Setup easter egg click handler if present
+    const easterEgg = articleBody?.querySelector('.easter-egg');
+    if (easterEgg) {
         easterEgg.addEventListener('click', () => {
-            // Create lightbox overlay
             const overlay = document.createElement('div');
             overlay.className = 'easter-egg-overlay';
             overlay.innerHTML = `
@@ -1803,9 +1802,6 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
             overlay.addEventListener('click', () => overlay.remove());
             document.body.appendChild(overlay);
         });
-
-        // Replace H1 with easter egg
-        firstH1.replaceWith(easterEgg);
     }
 
     // Optimize images (WebP conversion + lazy loading)
