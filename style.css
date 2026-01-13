@@ -1016,6 +1016,13 @@ body {
     width: 14px;
     height: 14px;
     opacity: 0.7;
+    font-size: 0;
+    line-height: 0;
+}
+
+.nav-subcategory-header .nav-item-chevron {
+    font-size: 0;
+    line-height: 0;
 }
 
 .nav-subcategory-header .sub-name {
