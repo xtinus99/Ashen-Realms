@@ -5382,6 +5382,20 @@ body {
     box-shadow:
         0 10px 50px rgba(0, 0, 0, 0.6),
         0 0 40px rgba(var(--color-gold-rgb), 0.1);
+    /* Fix position offset from floated parent elements */
+    float: none !important;
+    margin: 0 !important;
+}
+
+/* Hide alt text that may flash during zoom transition */
+.medium-zoom-image {
+    font-size: 0;
+    color: transparent;
+}
+
+/* Ensure smooth return animation */
+.medium-zoom-image--hidden {
+    visibility: hidden;
 }
 
 /* =====================================================
