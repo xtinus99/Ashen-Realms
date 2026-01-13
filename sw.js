@@ -1,7 +1,7 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v36';
+const CACHE_NAME = 'ashen-realms-v37';
 
 // Core assets to cache immediately on install
 const CORE_ASSETS = [
@@ -73,22 +73,36 @@ self.addEventListener('fetch', (event) => {
 
     const url = new URL(event.request.url);
 
-    // For same-origin requests, use cache-first strategy
+    // For same-origin requests
     if (url.origin === location.origin) {
+        // Dynamic content (JSON, JS, CSS) - use network-first strategy
+        // This ensures updates are immediate without needing cache version bumps
+        if (url.pathname.endsWith('.json') || url.pathname.endsWith('.js') || url.pathname.endsWith('.css')) {
+            event.respondWith(
+                fetch(event.request)
+                    .then((networkResponse) => {
+                        // Cache the fresh response
+                        if (networkResponse && networkResponse.status === 200) {
+                            const responseToCache = networkResponse.clone();
+                            caches.open(CACHE_NAME).then((cache) => {
+                                cache.put(event.request, responseToCache);
+                            });
+                        }
+                        return networkResponse;
+                    })
+                    .catch(() => {
+                        // Network failed, fall back to cache
+                        return caches.match(event.request);
+                    })
+            );
+            return;
+        }
+
+        // Static assets (images, fonts, HTML) - use cache-first strategy for performance
         event.respondWith(
             caches.match(event.request).then((cachedResponse) => {
                 // Return cached response if available
                 if (cachedResponse) {
-                    // Update cache in background for dynamic content
-                    if (url.pathname.endsWith('.json') || url.pathname.endsWith('.js') || url.pathname.endsWith('.css')) {
-                        fetch(event.request).then((networkResponse) => {
-                            if (networkResponse && networkResponse.status === 200) {
-                                caches.open(CACHE_NAME).then((cache) => {
-                                    cache.put(event.request, networkResponse.clone());
-                                });
-                            }
-                        }).catch(() => {});
-                    }
                     return cachedResponse;
                 }
 
