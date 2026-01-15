@@ -1,7 +1,7 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v62';
+const CACHE_NAME = 'ashen-realms-v63';
 
 // Core assets to cache immediately on install
 const CORE_ASSETS = [
@@ -11,6 +11,16 @@ const CORE_ASSETS = [
     '/app.js',
     '/data.json',
     '/relationships-data.json',
+    '/vendor/css/tippy.css',
+    '/vendor/css/tippy-shift-away.css',
+    '/vendor/js/lucide.js',
+    '/vendor/js/gsap.min.js',
+    '/vendor/js/ScrollTrigger.min.js',
+    '/vendor/js/popper.min.js',
+    '/vendor/js/tippy.min.js',
+    '/vendor/js/medium-zoom.min.js',
+    '/vendor/js/lenis.min.js',
+    '/vendor/js/tsparticles.slim.bundle.min.js',
     '/Assets/Sigil.webp',
     '/Assets/Dark Marble.webp',
     '/Assets/Weeping Statue.webp'
