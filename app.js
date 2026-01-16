@@ -1181,6 +1181,9 @@ function showWelcome() {
     // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
     if (lenisInstance) {
         lenisInstance.start();
+        // Remove overflow overrides so Lenis can control scrolling
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
     }
 
     // Disable full-width mode
@@ -1246,6 +1249,8 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
     // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
     if (lenisInstance) {
         lenisInstance.start();
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
     }
 
     // Disable full-width mode
@@ -1736,6 +1741,8 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
     if (lenisInstance) {
         lenisInstance.start();
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
     }
 
     // Disable full-width mode
@@ -3470,6 +3477,9 @@ async function showSpells() {
     // Stop Lenis smooth scroll for spell compendium (it interferes with panel scrolling)
     if (lenisInstance) {
         lenisInstance.stop();
+        // Ensure native scroll works when Lenis is stopped
+        document.documentElement.style.overflow = 'auto';
+        document.body.style.overflow = 'auto';
     }
 
     // Enable full-width mode
@@ -3598,15 +3608,18 @@ function renderSpellsView() {
             <div class="spells-layout">
                 <div class="spells-list" id="spells-list">
                     ${currentSpellLevel === 'all' ?
-                        SPELL_LEVEL_ORDER.map(level => {
+                        SPELL_LEVEL_ORDER.map((level, levelIndex) => {
                             const levelSpells = spellsByLevel[level];
                             if (levelSpells.length === 0) return '';
+                            // First level (Cantrips) starts open
+                            const isOpen = levelIndex === 0;
                             return `
-                                <div class="spell-level-section">
-                                    <div class="spell-level-header">
+                                <div class="spell-level-section ${isOpen ? 'open' : ''}" data-level="${level}">
+                                    <button class="spell-level-header" type="button">
                                         <span class="level-name">${level}</span>
                                         <span class="level-count">${levelSpells.length}</span>
-                                    </div>
+                                        <svg class="level-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                    </button>
                                     <div class="spell-level-spells">
                                         ${levelSpells.map((spell, index) => renderSpellCard(spell, index)).join('')}
                                     </div>
@@ -3669,8 +3682,19 @@ function renderSpellsView() {
     const detailPanel = document.getElementById('spells-detail');
     const spellList = document.getElementById('spells-list');
 
-    // Use event delegation on the spell list instead of individual listeners
+    // Use event delegation on the spell list for both cards and level headers
     spellList.addEventListener('click', (e) => {
+        // Handle level header toggle (collapsible sections)
+        const header = e.target.closest('.spell-level-header');
+        if (header) {
+            const section = header.closest('.spell-level-section');
+            if (section) {
+                section.classList.toggle('open');
+            }
+            return;
+        }
+
+        // Handle spell card selection
         const card = e.target.closest('.spell-card');
         if (!card) return;
 
