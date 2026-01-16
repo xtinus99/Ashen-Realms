@@ -3392,6 +3392,7 @@ let currentSpellSchool = 'all';
 let currentSpellSource = 'all';
 let currentSpellSearch = '';
 let selectedSpell = null;
+let selectedSpellCard = null; // Track the DOM element for fast deselection
 
 const SPELL_LEVEL_ORDER = ['Cantrips', '1st Level', '2nd Level', '3rd Level', '4th Level', '5th Level', '6th Level', '7th Level', '8th Level', '9th Level'];
 
@@ -3618,41 +3619,54 @@ function renderSpellsView() {
     document.getElementById('filter-class').addEventListener('change', (e) => {
         currentSpellClass = e.target.value;
         selectedSpell = null;
+        selectedSpellCard = null;
         renderSpellsView();
     });
 
     document.getElementById('filter-level').addEventListener('change', (e) => {
         currentSpellLevel = e.target.value;
         selectedSpell = null;
+        selectedSpellCard = null;
         renderSpellsView();
     });
 
     document.getElementById('filter-school').addEventListener('change', (e) => {
         currentSpellSchool = e.target.value;
         selectedSpell = null;
+        selectedSpellCard = null;
         renderSpellsView();
     });
 
     document.getElementById('filter-source').addEventListener('change', (e) => {
         currentSpellSource = e.target.value;
         selectedSpell = null;
+        selectedSpellCard = null;
         renderSpellsView();
     });
 
-    document.querySelectorAll('.spell-card').forEach(card => {
-        card.addEventListener('click', () => {
-            selectedSpell = card.dataset.name;
-            const spell = spells.find(s => s.name === selectedSpell);
-            document.querySelectorAll('.spell-card').forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
-            const detailPanel = document.getElementById('spells-detail');
-            detailPanel.innerHTML = renderSpellDetail(spell);
-            detailPanel.classList.add('mobile-active');
-            // Only create icons within the detail panel
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons({ nodes: detailPanel.querySelectorAll('[data-lucide]') });
-            }
-        });
+    // Use event delegation on the spell list instead of individual listeners
+    const spellList = document.getElementById('spells-list');
+    spellList.addEventListener('click', (e) => {
+        const card = e.target.closest('.spell-card');
+        if (!card) return;
+
+        selectedSpell = card.dataset.name;
+        const spell = spells.find(s => s.name === selectedSpell);
+
+        // Fast deselection - only touch the previously selected card
+        if (selectedSpellCard && selectedSpellCard !== card) {
+            selectedSpellCard.classList.remove('selected');
+        }
+        card.classList.add('selected');
+        selectedSpellCard = card;
+
+        const detailPanel = document.getElementById('spells-detail');
+        detailPanel.innerHTML = renderSpellDetail(spell);
+        detailPanel.classList.add('mobile-active');
+        // Only create icons within the detail panel
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons({ nodes: detailPanel.querySelectorAll('[data-lucide]') });
+        }
     });
 
     lucide.createIcons();
