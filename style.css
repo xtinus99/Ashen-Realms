@@ -191,21 +191,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Override ALL Lenis scroll control when viewing spells */
-html.spells-view,
-html.spells-view.lenis,
-html.spells-view.lenis-smooth,
-html.spells-view.lenis-stopped,
-html.spells-view.lenis-scrolling {
-    overflow: visible !important;
-}
-
-html.spells-view body,
-html.spells-view.lenis body,
-html.spells-view.lenis-smooth body {
-    overflow: visible !important;
-}
-
 /* === SPINNING LOGO ICON === */
 @keyframes spin {
     from { transform: rotate(0deg); }

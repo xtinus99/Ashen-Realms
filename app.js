@@ -354,9 +354,11 @@ function initParticles() {
 
 // ===== LENIS SMOOTH SCROLL =====
 let lenisInstance = null;
+let lenisRafId = null;
 
 function initSmoothScroll() {
     if (typeof Lenis === 'undefined') return;
+    if (lenisInstance) return; // Already initialized
 
     lenisInstance = new Lenis({
         duration: 1.2,
@@ -369,20 +371,35 @@ function initSmoothScroll() {
     });
 
     function raf(time) {
-        lenisInstance.raf(time);
-        requestAnimationFrame(raf);
+        if (lenisInstance) {
+            lenisInstance.raf(time);
+            lenisRafId = requestAnimationFrame(raf);
+        }
     }
 
-    requestAnimationFrame(raf);
+    lenisRafId = requestAnimationFrame(raf);
 
     // Integrate with GSAP ScrollTrigger if available
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         lenisInstance.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => {
-            lenisInstance.raf(time * 1000);
+            if (lenisInstance) lenisInstance.raf(time * 1000);
         });
         gsap.ticker.lagSmoothing(0);
     }
+}
+
+function destroySmoothScroll() {
+    if (lenisRafId) {
+        cancelAnimationFrame(lenisRafId);
+        lenisRafId = null;
+    }
+    if (lenisInstance) {
+        lenisInstance.destroy();
+        lenisInstance = null;
+    }
+    // Remove any Lenis classes from html
+    document.documentElement.classList.remove('lenis', 'lenis-smooth', 'lenis-stopped', 'lenis-scrolling');
 }
 
 // ===== SPLITTING.JS TEXT ANIMATIONS =====
@@ -1178,11 +1195,8 @@ function showWelcome() {
     currentItem = null;
     currentCategory = null;
 
-    // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
-    if (lenisInstance) {
-        lenisInstance.start();
-    }
-    document.documentElement.classList.remove('spells-view');
+    // Re-enable Lenis smooth scroll (may have been destroyed for spell compendium)
+    initSmoothScroll();
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -1244,11 +1258,8 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
     currentItem = null;
     currentCategory = categoryName;
 
-    // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
-    if (lenisInstance) {
-        lenisInstance.start();
-    }
-    document.documentElement.classList.remove('spells-view');
+    // Re-enable Lenis smooth scroll (may have been destroyed for spell compendium)
+    initSmoothScroll();
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -1735,11 +1746,8 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     currentItem = item;
     currentCategory = categoryName;
 
-    // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
-    if (lenisInstance) {
-        lenisInstance.start();
-    }
-    document.documentElement.classList.remove('spells-view');
+    // Re-enable Lenis smooth scroll (may have been destroyed for spell compendium)
+    initSmoothScroll();
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -3470,12 +3478,8 @@ async function showSpells() {
         return;
     }
 
-    // Stop Lenis smooth scroll for spell compendium (it interferes with panel scrolling)
-    if (lenisInstance) {
-        lenisInstance.stop();
-    }
-    // Add class to override Lenis CSS and enable native scroll
-    document.documentElement.classList.add('spells-view');
+    // Destroy Lenis completely for spell compendium (it interferes with panel scrolling)
+    destroySmoothScroll();
 
     // Enable full-width mode
     document.getElementById('content-body').classList.add('full-width');
