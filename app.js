@@ -2349,16 +2349,37 @@ function performModalSearch(query) {
             continue;
         }
 
-        for (const item of categoryData.items) {
-            const titleMatch = item.title.toLowerCase().includes(queryLower);
-            const contentMatch = item.raw.toLowerCase().includes(queryLower);
+        // Search main items
+        if (categoryData.items) {
+            for (const item of categoryData.items) {
+                const titleMatch = item.title.toLowerCase().includes(queryLower);
+                const contentMatch = item.raw.toLowerCase().includes(queryLower);
 
-            if (titleMatch || contentMatch) {
-                results.push({
-                    category: categoryName,
-                    item: item,
-                    score: titleMatch ? 2 : 1
-                });
+                if (titleMatch || contentMatch) {
+                    results.push({
+                        category: categoryName,
+                        item: item,
+                        score: titleMatch ? 2 : 1
+                    });
+                }
+            }
+        }
+
+        // Search subcategories
+        if (categoryData.subcategories) {
+            for (const [subName, subItems] of Object.entries(categoryData.subcategories)) {
+                for (const item of subItems) {
+                    const titleMatch = item.title.toLowerCase().includes(queryLower);
+                    const contentMatch = item.raw.toLowerCase().includes(queryLower);
+
+                    if (titleMatch || contentMatch) {
+                        results.push({
+                            category: categoryName,
+                            item: item,
+                            score: titleMatch ? 2 : 1
+                        });
+                    }
+                }
             }
         }
     }
