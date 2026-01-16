@@ -5683,8 +5683,8 @@ body {
 /* Spells Layout - Two Column */
 .spells-layout {
     display: grid;
-    grid-template-columns: 1fr 450px;
-    gap: var(--spacing-lg);
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: var(--spacing-xl);
     min-height: 600px;
     align-items: start;
 }
@@ -5943,10 +5943,11 @@ body {
 
 .spell-detail-name {
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: var(--text-bright);
     margin: 0 0 var(--spacing-sm) 0;
     line-height: 1.2;
+    text-shadow: 0 0 30px rgba(201, 162, 39, 0.3);
 }
 
 .spell-detail-type {
@@ -6000,45 +6001,46 @@ body {
 /* Spell Stats Grid */
 .spell-stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
 }
 
 .spell-stat {
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-md);
     background: rgba(0, 0, 0, 0.3);
-    border-radius: var(--radius-sm);
-    border-left: 2px solid var(--gold-dark);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--gold-dark);
 }
 
 .stat-label {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-family: var(--font-ui);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .stat-label svg {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
 }
 
 .stat-value {
     font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--text-normal);
+    font-size: 1rem;
+    color: var(--text-bright);
+    font-weight: 500;
 }
 
 /* Spell Description */
 .spell-description {
     font-family: var(--font-body);
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    line-height: 1.8;
     color: var(--text-normal);
 }
 
@@ -6191,6 +6193,10 @@ body {
     .spells-detail:has(.detail-empty) {
         transform: translateX(100%);
     }
+
+    .spell-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -6226,13 +6232,17 @@ body {
     }
 
     .spell-stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .spell-detail-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .spell-detail-name {
+        font-size: 1.6rem;
     }
 
     .spell-detail-type {
