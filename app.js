@@ -262,6 +262,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupTopBarActions();
     setupDynamicQuotes();
     setupBondsLink();
+    setupSpellsLink();
     initAudio();
     setupAudioControls();
     initParticles();
@@ -611,6 +612,12 @@ function restoreFromHash() {
     // Handle bonds page
     if (hash === 'bonds') {
         showRelationships();
+        return true;
+    }
+
+    // Handle spells page
+    if (hash === 'spells') {
+        showSpells();
         return true;
     }
 
@@ -3360,6 +3367,468 @@ function animateDetailPanel() {
             duration: 0.3,
             stagger: 0.06,
             delay: 0.7,
+            ease: 'power2.out'
+        }
+    );
+}
+
+// ===== SPELL COMPENDIUM =====
+let spellsData = null;
+let currentSpellClass = 'all';
+let currentSpellLevel = 'all';
+let currentSpellSchool = 'all';
+let currentSpellSource = 'all';
+let currentSpellSearch = '';
+let selectedSpell = null;
+
+const SPELL_LEVEL_ORDER = ['Cantrips', '1st Level', '2nd Level', '3rd Level', '4th Level', '5th Level', '6th Level', '7th Level', '8th Level', '9th Level'];
+
+const SCHOOL_ICONS = {
+    'Abjuration': 'shield',
+    'Conjuration': 'sparkles',
+    'Divination': 'eye',
+    'Enchantment': 'heart',
+    'Evocation': 'zap',
+    'Illusion': 'ghost',
+    'Necromancy': 'skull',
+    'Transmutation': 'repeat'
+};
+
+const CLASS_ICONS = {
+    'Artificer': 'wrench',
+    'Bard': 'music',
+    'Cleric': 'cross',
+    'Druid': 'leaf',
+    'Paladin': 'shield',
+    'Ranger': 'target',
+    'Sorcerer': 'flame',
+    'Warlock': 'moon',
+    'Wizard': 'book-open'
+};
+
+function setupSpellsLink() {
+    const spellsLink = document.getElementById('spells-link');
+    if (spellsLink) {
+        spellsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSpells();
+            document.getElementById('sidebar').classList.remove('open');
+        });
+    }
+}
+
+async function loadSpellsData() {
+    if (spellsData) return spellsData;
+    try {
+        const response = await fetch('spells-data.json');
+        spellsData = await response.json();
+        return spellsData;
+    } catch (error) {
+        console.error('Failed to load spells data:', error);
+        return null;
+    }
+}
+
+async function showSpells() {
+    currentItem = null;
+    currentCategory = null;
+
+    await loadSpellsData();
+    if (!spellsData) {
+        document.getElementById('content-body').innerHTML = '<div class="welcome-container"><p>Failed to load spell data.</p></div>';
+        return;
+    }
+
+    // Update URL
+    window.location.hash = 'spells';
+
+    // Update breadcrumb
+    document.getElementById('breadcrumb').innerHTML = `
+        <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Spell Compendium</span>
+    `;
+
+    // Clear active states
+    document.querySelectorAll('.nav-item.active').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-category.open').forEach(el => el.classList.remove('open'));
+
+    renderSpellsView();
+}
+
+function getFilteredSpells() {
+    let spells = [...spellsData.allSpells];
+
+    // Filter by class
+    if (currentSpellClass !== 'all') {
+        spells = spells.filter(s => s.classes && s.classes.includes(currentSpellClass));
+    }
+
+    // Filter by level
+    if (currentSpellLevel !== 'all') {
+        spells = spells.filter(s => s.level === currentSpellLevel);
+    }
+
+    // Filter by school
+    if (currentSpellSchool !== 'all') {
+        spells = spells.filter(s => s.school === currentSpellSchool);
+    }
+
+    // Filter by source
+    if (currentSpellSource === 'standard') {
+        spells = spells.filter(s => s.source === 'standard');
+    } else if (currentSpellSource === 'ashen-realms') {
+        spells = spells.filter(s => s.source === 'ashen-realms');
+    }
+
+    // Filter by search
+    if (currentSpellSearch) {
+        const search = currentSpellSearch.toLowerCase();
+        spells = spells.filter(s =>
+            s.name.toLowerCase().includes(search) ||
+            s.description.toLowerCase().includes(search) ||
+            s.school.toLowerCase().includes(search)
+        );
+    }
+
+    return spells;
+}
+
+function renderSpellsView() {
+    const spells = getFilteredSpells();
+
+    // Select first spell if none selected or current selection is filtered out
+    if (!selectedSpell || !spells.find(s => s.name === selectedSpell)) {
+        selectedSpell = spells[0]?.name || null;
+    }
+
+    const selectedSpellData = spells.find(s => s.name === selectedSpell);
+
+    // Group spells by level
+    const spellsByLevel = {};
+    for (const level of SPELL_LEVEL_ORDER) {
+        spellsByLevel[level] = spells.filter(s => s.level === level);
+    }
+
+    document.getElementById('content-body').innerHTML = `
+        <div class="spells-container">
+            <div class="spells-header">
+                <button class="spells-back-btn" id="spells-back-btn">
+                    <i data-lucide="arrow-left"></i>
+                    <span>Back</span>
+                </button>
+                <div class="spells-title-area">
+                    <h1 class="spells-title">Spell Compendium</h1>
+                    <p class="spells-subtitle">${spells.length} spells found</p>
+                </div>
+            </div>
+
+            <div class="spells-controls">
+                <div class="spells-search-wrapper">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="spell-search" placeholder="Search spells..." value="${currentSpellSearch}">
+                </div>
+
+                <div class="spells-filters">
+                    <select id="filter-class" class="spell-filter-select">
+                        <option value="all" ${currentSpellClass === 'all' ? 'selected' : ''}>All Classes</option>
+                        ${Object.keys(spellsData.classes).map(c => `
+                            <option value="${c}" ${currentSpellClass === c ? 'selected' : ''}>${c}</option>
+                        `).join('')}
+                    </select>
+
+                    <select id="filter-level" class="spell-filter-select">
+                        <option value="all" ${currentSpellLevel === 'all' ? 'selected' : ''}>All Levels</option>
+                        ${SPELL_LEVEL_ORDER.map(l => `
+                            <option value="${l}" ${currentSpellLevel === l ? 'selected' : ''}>${l}</option>
+                        `).join('')}
+                    </select>
+
+                    <select id="filter-school" class="spell-filter-select">
+                        <option value="all" ${currentSpellSchool === 'all' ? 'selected' : ''}>All Schools</option>
+                        ${spellsData.schools.map(s => `
+                            <option value="${s}" ${currentSpellSchool === s ? 'selected' : ''}>${s}</option>
+                        `).join('')}
+                    </select>
+
+                    <select id="filter-source" class="spell-filter-select">
+                        <option value="all" ${currentSpellSource === 'all' ? 'selected' : ''}>All Sources</option>
+                        <option value="standard" ${currentSpellSource === 'standard' ? 'selected' : ''}>Standard</option>
+                        <option value="ashen-realms" ${currentSpellSource === 'ashen-realms' ? 'selected' : ''}>Ashen Realms</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="spells-layout">
+                <div class="spells-list" id="spells-list">
+                    ${currentSpellLevel === 'all' ?
+                        SPELL_LEVEL_ORDER.map(level => {
+                            const levelSpells = spellsByLevel[level];
+                            if (levelSpells.length === 0) return '';
+                            return `
+                                <div class="spell-level-section">
+                                    <div class="spell-level-header">
+                                        <span class="level-name">${level}</span>
+                                        <span class="level-count">${levelSpells.length}</span>
+                                    </div>
+                                    <div class="spell-level-spells">
+                                        ${levelSpells.map((spell, index) => renderSpellCard(spell, index)).join('')}
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')
+                        :
+                        `<div class="spell-level-spells">
+                            ${spells.map((spell, index) => renderSpellCard(spell, index)).join('')}
+                        </div>`
+                    }
+                </div>
+                <div class="spells-detail" id="spells-detail">
+                    ${selectedSpellData ? renderSpellDetail(selectedSpellData) : '<div class="detail-empty"><i data-lucide="sparkles"></i><p>Select a spell to view details</p></div>'}
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Setup event listeners
+    document.getElementById('spells-back-btn').addEventListener('click', () => {
+        window.location.hash = '';
+    });
+
+    document.getElementById('spell-search').addEventListener('input', (e) => {
+        currentSpellSearch = e.target.value;
+        renderSpellsView();
+    });
+
+    document.getElementById('filter-class').addEventListener('change', (e) => {
+        currentSpellClass = e.target.value;
+        selectedSpell = null;
+        renderSpellsView();
+    });
+
+    document.getElementById('filter-level').addEventListener('change', (e) => {
+        currentSpellLevel = e.target.value;
+        selectedSpell = null;
+        renderSpellsView();
+    });
+
+    document.getElementById('filter-school').addEventListener('change', (e) => {
+        currentSpellSchool = e.target.value;
+        selectedSpell = null;
+        renderSpellsView();
+    });
+
+    document.getElementById('filter-source').addEventListener('change', (e) => {
+        currentSpellSource = e.target.value;
+        selectedSpell = null;
+        renderSpellsView();
+    });
+
+    document.querySelectorAll('.spell-card').forEach(card => {
+        card.addEventListener('click', () => {
+            selectedSpell = card.dataset.name;
+            const spell = spells.find(s => s.name === selectedSpell);
+            document.querySelectorAll('.spell-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            const detailPanel = document.getElementById('spells-detail');
+            detailPanel.innerHTML = renderSpellDetail(spell);
+            detailPanel.classList.add('mobile-active');
+            lucide.createIcons();
+            animateSpellDetail();
+        });
+    });
+
+    lucide.createIcons();
+    animateSpellCards();
+}
+
+function renderSpellCard(spell, index) {
+    const isSelected = selectedSpell === spell.name;
+    const schoolIcon = SCHOOL_ICONS[spell.school] || 'sparkles';
+    const isAshen = spell.source === 'ashen-realms';
+
+    return `
+        <div class="spell-card ${isSelected ? 'selected' : ''} ${isAshen ? 'ashen-realms' : ''} school-${spell.school?.toLowerCase()}"
+             data-name="${spell.name}" data-index="${index}">
+            <div class="spell-card-icon">
+                <i data-lucide="${schoolIcon}"></i>
+            </div>
+            <div class="spell-card-info">
+                <div class="spell-card-name">${spell.name}</div>
+                <div class="spell-card-meta">
+                    <span class="spell-school">${spell.school || 'Unknown'}</span>
+                    ${spell.ritual ? '<span class="spell-tag ritual">Ritual</span>' : ''}
+                    ${spell.concentration ? '<span class="spell-tag concentration">C</span>' : ''}
+                    ${isAshen ? '<span class="spell-tag ashen">AR</span>' : ''}
+                </div>
+            </div>
+            <div class="spell-card-indicator">
+                <i data-lucide="chevron-right"></i>
+            </div>
+        </div>
+    `;
+}
+
+function renderSpellDetail(spell) {
+    if (!spell) return '<div class="detail-empty"><i data-lucide="sparkles"></i><p>Select a spell to view details</p></div>';
+
+    const schoolIcon = SCHOOL_ICONS[spell.school] || 'sparkles';
+    const isAshen = spell.source === 'ashen-realms';
+
+    // Format description with paragraphs
+    const formattedDescription = spell.description
+        .split('\n\n')
+        .map(p => p.trim())
+        .filter(p => p)
+        .map(p => `<p>${p}</p>`)
+        .join('');
+
+    return `
+        <button class="detail-mobile-back" onclick="closeMobileSpellDetail()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to list
+        </button>
+        <div class="spell-detail-panel ${isAshen ? 'ashen-realms' : ''}">
+            <div class="spell-detail-header">
+                <div class="spell-icon-large school-${spell.school?.toLowerCase()}">
+                    <i data-lucide="${schoolIcon}"></i>
+                </div>
+                <div class="spell-header-info">
+                    <h2 class="spell-detail-name">${spell.name}</h2>
+                    <div class="spell-detail-type">
+                        <span class="spell-level-badge">${spell.level}</span>
+                        <span class="spell-school-badge">${spell.school || 'Unknown'}</span>
+                        ${spell.ritual ? '<span class="spell-tag-badge ritual">Ritual</span>' : ''}
+                        ${spell.concentration ? '<span class="spell-tag-badge concentration">Concentration</span>' : ''}
+                        ${isAshen ? '<span class="spell-tag-badge ashen">Ashen Realms</span>' : ''}
+                    </div>
+                </div>
+            </div>
+
+            <div class="spell-stats-grid">
+                <div class="spell-stat">
+                    <div class="stat-label"><i data-lucide="clock"></i> Casting Time</div>
+                    <div class="stat-value">${spell.castingTime || '1 action'}</div>
+                </div>
+                <div class="spell-stat">
+                    <div class="stat-label"><i data-lucide="target"></i> Range</div>
+                    <div class="stat-value">${spell.range || 'Self'}</div>
+                </div>
+                <div class="spell-stat">
+                    <div class="stat-label"><i data-lucide="package"></i> Components</div>
+                    <div class="stat-value">${spell.components || 'V, S'}</div>
+                </div>
+                <div class="spell-stat">
+                    <div class="stat-label"><i data-lucide="timer"></i> Duration</div>
+                    <div class="stat-value">${spell.duration || 'Instantaneous'}</div>
+                </div>
+            </div>
+
+            <div class="spell-description">
+                ${formattedDescription}
+            </div>
+
+            ${spell.higherLevels ? `
+                <div class="spell-higher-levels">
+                    <h4><i data-lucide="trending-up"></i> At Higher Levels</h4>
+                    <p>${spell.higherLevels}</p>
+                </div>
+            ` : ''}
+
+            ${spell.ashenRealms ? `
+                <div class="spell-ashen-component">
+                    <h4><i data-lucide="flame"></i> Ashen Realms Component</h4>
+                    <p>${spell.ashenRealms}</p>
+                </div>
+            ` : ''}
+
+            ${spell.sovereignAttention ? `
+                <div class="spell-sovereign-attention">
+                    <h4><i data-lucide="eye"></i> Sovereign Attention</h4>
+                    <p>${spell.sovereignAttention}</p>
+                </div>
+            ` : ''}
+
+            ${spell.cost ? `
+                <div class="spell-cost">
+                    <h4><i data-lucide="skull"></i> Cost</h4>
+                    <p>${spell.cost}</p>
+                </div>
+            ` : ''}
+
+            ${spell.ashenSource ? `
+                <div class="spell-ashen-source">
+                    <h4><i data-lucide="sparkles"></i> Magic Source</h4>
+                    <p>${spell.ashenSource}</p>
+                </div>
+            ` : ''}
+
+            <div class="spell-classes">
+                <h4><i data-lucide="users"></i> Available To</h4>
+                <div class="class-tags">
+                    ${spell.classes?.map(c => `
+                        <span class="class-tag">
+                            <i data-lucide="${CLASS_ICONS[c] || 'user'}"></i>
+                            ${c}
+                        </span>
+                    `).join('') || '<span class="class-tag">Unknown</span>'}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function closeMobileSpellDetail() {
+    const detailPanel = document.getElementById('spells-detail');
+    if (detailPanel) {
+        detailPanel.classList.remove('mobile-active');
+    }
+}
+
+function animateSpellCards() {
+    if (typeof gsap === 'undefined') return;
+
+    gsap.fromTo('.spell-card',
+        { opacity: 0, y: 20 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            stagger: 0.02,
+            delay: 0.1,
+            ease: 'power2.out'
+        }
+    );
+
+    gsap.fromTo('.spell-level-header',
+        { opacity: 0, x: -20 },
+        {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            stagger: 0.1,
+            delay: 0.05,
+            ease: 'power2.out'
+        }
+    );
+}
+
+function animateSpellDetail() {
+    if (typeof gsap === 'undefined') return;
+
+    gsap.fromTo('.spell-detail-panel',
+        { opacity: 0, x: 20 },
+        { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' }
+    );
+
+    gsap.fromTo('.spell-stat',
+        { opacity: 0, y: 10 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            stagger: 0.05,
+            delay: 0.15,
             ease: 'power2.out'
         }
     );
