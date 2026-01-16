@@ -3647,9 +3647,18 @@ function renderSpellsView() {
         window.location.hash = '';
     });
 
+    let spellSearchDebounce;
     document.getElementById('spell-search').addEventListener('input', (e) => {
         currentSpellSearch = e.target.value;
-        renderSpellsView();
+        clearTimeout(spellSearchDebounce);
+        spellSearchDebounce = setTimeout(() => {
+            const cursorPos = e.target.selectionStart;
+            renderSpellsView();
+            // Refocus search input and restore cursor position
+            const searchInput = document.getElementById('spell-search');
+            searchInput.focus();
+            searchInput.setSelectionRange(cursorPos, cursorPos);
+        }, 150);
     });
 
     document.getElementById('filter-class').addEventListener('change', (e) => {
