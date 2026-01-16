@@ -4172,7 +4172,7 @@ body {
    ===================================================== */
 
 /* Main Container - Override content-body max-width */
-.content-body:has(.bonds-container) {
+.content-body.full-width {
     max-width: 100%;
 }
 
@@ -5536,10 +5536,7 @@ body {
    SPELL COMPENDIUM - ARCANE TOME AESTHETIC
    ===================================================== */
 
-/* Override content-body max-width for spells page */
-.content-body:has(.spells-container) {
-    max-width: 100%;
-}
+/* Note: .content-body.full-width handles max-width override (defined in bonds section) */
 
 .spells-container {
     max-width: none;

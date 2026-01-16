@@ -1178,6 +1178,9 @@ function showWelcome() {
     currentItem = null;
     currentCategory = null;
 
+    // Disable full-width mode
+    document.getElementById('content-body').classList.remove('full-width');
+
     // Clear URL hash
     updateHash();
 
@@ -1234,6 +1237,9 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
 
     currentItem = null;
     currentCategory = categoryName;
+
+    // Disable full-width mode
+    document.getElementById('content-body').classList.remove('full-width');
 
     // Update URL hash
     if (!skipHash) {
@@ -1716,6 +1722,9 @@ function navigateToItemById(categoryName, itemId) {
 function showItem(categoryName, item, navElement = null, skipHash = false, skipScrollToTop = false) {
     currentItem = item;
     currentCategory = categoryName;
+
+    // Disable full-width mode
+    document.getElementById('content-body').classList.remove('full-width');
 
     // Update URL hash
     if (!skipHash) {
@@ -2934,6 +2943,9 @@ async function showRelationships() {
         return;
     }
 
+    // Enable full-width mode
+    document.getElementById('content-body').classList.add('full-width');
+
     // Update URL
     window.location.hash = 'bonds';
 
@@ -3438,6 +3450,9 @@ async function showSpells() {
         document.getElementById('content-body').innerHTML = '<div class="welcome-container"><p>Failed to load spell data.</p></div>';
         return;
     }
+
+    // Enable full-width mode
+    document.getElementById('content-body').classList.add('full-width');
 
     // Update URL
     window.location.hash = 'spells';
