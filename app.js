@@ -1178,6 +1178,11 @@ function showWelcome() {
     currentItem = null;
     currentCategory = null;
 
+    // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
+    if (lenisInstance) {
+        lenisInstance.start();
+    }
+
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
 
@@ -1237,6 +1242,11 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
 
     currentItem = null;
     currentCategory = categoryName;
+
+    // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
+    if (lenisInstance) {
+        lenisInstance.start();
+    }
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -1722,6 +1732,11 @@ function navigateToItemById(categoryName, itemId) {
 function showItem(categoryName, item, navElement = null, skipHash = false, skipScrollToTop = false) {
     currentItem = item;
     currentCategory = categoryName;
+
+    // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
+    if (lenisInstance) {
+        lenisInstance.start();
+    }
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -3452,6 +3467,11 @@ async function showSpells() {
         return;
     }
 
+    // Stop Lenis smooth scroll for spell compendium (it interferes with panel scrolling)
+    if (lenisInstance) {
+        lenisInstance.stop();
+    }
+
     // Enable full-width mode
     document.getElementById('content-body').classList.add('full-width');
 
@@ -3666,10 +3686,7 @@ function renderSpellsView() {
 
         detailPanel.innerHTML = renderSpellDetail(spell);
         detailPanel.classList.add('mobile-active');
-        // Only create icons within the detail panel
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons({ nodes: detailPanel.querySelectorAll('[data-lucide]') });
-        }
+        // Icons are now pre-rendered as inline SVGs - no lucide.createIcons() needed
     });
 
     lucide.createIcons();
@@ -3790,14 +3807,51 @@ function formatSpellDescription(description) {
     return html;
 }
 
+// Pre-rendered SVG icons to avoid lucide.createIcons() call on every spell click
+const SPELL_DETAIL_ICONS = {
+    clock: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+    target: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+    package: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>',
+    timer: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg>',
+    'trending-up': '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
+    flame: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+    eye: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>',
+    skull: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/></svg>',
+    sparkles: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>',
+    users: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    user: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+    // School icons
+    shield: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>',
+    wand: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h0"/><path d="M17.8 6.2 19 5"/><path d="m3 21 9-9"/><path d="M12.2 6.2 11 5"/></svg>',
+    'book-open': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+    zap: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>',
+    ghost: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>',
+    skull2: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/></svg>',
+    shuffle: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></svg>',
+    // Class icons
+    wrench: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+    music: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+    'book-marked': '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><polyline points="10 2 10 10 13 7 16 10 16 2"/></svg>',
+    leaf: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
+    axe: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 12-8.5 8.5a2.12 2.12 0 1 1-3-3L11 9"/><path d="M15 13 9 7l4-4 6 6h3a8 8 0 0 1-7 7z"/></svg>',
+    mountain: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>',
+    compass: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
+    dices: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/></svg>',
+    swords: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/></svg>',
+    wand2: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>',
+};
+
 function renderSpellDetail(spell) {
-    if (!spell) return '<div class="detail-empty"><i data-lucide="sparkles"></i><p>Select a spell to view details</p></div>';
+    if (!spell) return '<div class="detail-empty">' + SPELL_DETAIL_ICONS.sparkles + '<p>Select a spell to view details</p></div>';
 
     const schoolIcon = SCHOOL_ICONS[spell.school] || 'sparkles';
     const isAshen = spell.source === 'ashen-realms';
 
     // Format description with paragraphs and markdown support
     const formattedDescription = formatSpellDescription(spell.description);
+
+    // Get the school icon SVG (use larger version)
+    const schoolSvg = SPELL_DETAIL_ICONS[schoolIcon] || SPELL_DETAIL_ICONS.sparkles;
 
     return `
         <button class="detail-mobile-back" onclick="closeMobileSpellDetail()">
@@ -3807,7 +3861,7 @@ function renderSpellDetail(spell) {
         <div class="spell-detail-panel ${isAshen ? 'ashen-realms' : ''}">
             <div class="spell-detail-header">
                 <div class="spell-icon-large school-${spell.school?.toLowerCase()}">
-                    <i data-lucide="${schoolIcon}"></i>
+                    ${schoolSvg}
                 </div>
                 <div class="spell-header-info">
                     <h2 class="spell-detail-name">${spell.name}</h2>
@@ -3823,19 +3877,19 @@ function renderSpellDetail(spell) {
 
             <div class="spell-stats-grid">
                 <div class="spell-stat">
-                    <div class="stat-label"><i data-lucide="clock"></i> Casting Time</div>
+                    <div class="stat-label">${SPELL_DETAIL_ICONS.clock} Casting Time</div>
                     <div class="stat-value">${spell.castingTime || '1 action'}</div>
                 </div>
                 <div class="spell-stat">
-                    <div class="stat-label"><i data-lucide="target"></i> Range</div>
+                    <div class="stat-label">${SPELL_DETAIL_ICONS.target} Range</div>
                     <div class="stat-value">${spell.range || 'Self'}</div>
                 </div>
                 <div class="spell-stat">
-                    <div class="stat-label"><i data-lucide="package"></i> Components</div>
+                    <div class="stat-label">${SPELL_DETAIL_ICONS.package} Components</div>
                     <div class="stat-value">${spell.components || 'V, S'}</div>
                 </div>
                 <div class="spell-stat">
-                    <div class="stat-label"><i data-lucide="timer"></i> Duration</div>
+                    <div class="stat-label">${SPELL_DETAIL_ICONS.timer} Duration</div>
                     <div class="stat-value">${spell.duration || 'Instantaneous'}</div>
                 </div>
             </div>
@@ -3846,48 +3900,46 @@ function renderSpellDetail(spell) {
 
             ${spell.higherLevels ? `
                 <div class="spell-higher-levels">
-                    <h4><i data-lucide="trending-up"></i> At Higher Levels</h4>
+                    <h4>${SPELL_DETAIL_ICONS['trending-up']} At Higher Levels</h4>
                     <p>${spell.higherLevels}</p>
                 </div>
             ` : ''}
 
             ${spell.ashenRealms ? `
                 <div class="spell-ashen-component">
-                    <h4><i data-lucide="flame"></i> Ashen Realms Component</h4>
+                    <h4>${SPELL_DETAIL_ICONS.flame} Ashen Realms Component</h4>
                     <p>${spell.ashenRealms}</p>
                 </div>
             ` : ''}
 
             ${spell.sovereignAttention ? `
                 <div class="spell-sovereign-attention">
-                    <h4><i data-lucide="eye"></i> Sovereign Attention</h4>
+                    <h4>${SPELL_DETAIL_ICONS.eye} Sovereign Attention</h4>
                     <p>${spell.sovereignAttention}</p>
                 </div>
             ` : ''}
 
             ${spell.cost ? `
                 <div class="spell-cost">
-                    <h4><i data-lucide="skull"></i> Cost</h4>
+                    <h4>${SPELL_DETAIL_ICONS.skull} Cost</h4>
                     <p>${spell.cost}</p>
                 </div>
             ` : ''}
 
             ${spell.ashenSource ? `
                 <div class="spell-ashen-source">
-                    <h4><i data-lucide="sparkles"></i> Magic Source</h4>
+                    <h4>${SPELL_DETAIL_ICONS.sparkles} Magic Source</h4>
                     <p>${spell.ashenSource}</p>
                 </div>
             ` : ''}
 
             <div class="spell-classes">
-                <h4><i data-lucide="users"></i> Available To</h4>
+                <h4>${SPELL_DETAIL_ICONS.users} Available To</h4>
                 <div class="class-tags">
-                    ${spell.classes?.map(c => `
-                        <span class="class-tag">
-                            <i data-lucide="${CLASS_ICONS[c] || 'user'}"></i>
-                            ${c}
-                        </span>
-                    `).join('') || '<span class="class-tag">Unknown</span>'}
+                    ${spell.classes?.map(c => {
+                        const classIcon = CLASS_ICONS[c] || 'user';
+                        return `<span class="class-tag">${SPELL_DETAIL_ICONS[classIcon] || SPELL_DETAIL_ICONS.user} ${c}</span>`;
+                    }).join('') || '<span class="class-tag">Unknown</span>'}
                 </div>
             </div>
         </div>
