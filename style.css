@@ -5536,6 +5536,11 @@ body {
    SPELL COMPENDIUM - ARCANE TOME AESTHETIC
    ===================================================== */
 
+/* Override content-body max-width for spells page */
+.content-body:has(.spells-container) {
+    max-width: 100%;
+}
+
 .spells-container {
     max-width: none;
     width: 100%;
