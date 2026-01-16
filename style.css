@@ -5692,9 +5692,12 @@ body {
     flex-direction: column;
     gap: var(--spacing-md);
     overflow-y: auto;
+    height: calc(100vh - 200px);
     max-height: calc(100vh - 200px);
     padding-right: var(--spacing-sm);
     overscroll-behavior: contain;
+    position: sticky;
+    top: 80px;
 }
 
 /* Spell Level Sections */
