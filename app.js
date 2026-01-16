@@ -3648,13 +3648,14 @@ function renderSpellsView() {
             const detailPanel = document.getElementById('spells-detail');
             detailPanel.innerHTML = renderSpellDetail(spell);
             detailPanel.classList.add('mobile-active');
-            lucide.createIcons();
-            animateSpellDetail();
+            // Only create icons within the detail panel
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons({ nodes: detailPanel.querySelectorAll('[data-lucide]') });
+            }
         });
     });
 
     lucide.createIcons();
-    animateSpellCards();
 }
 
 function renderSpellCard(spell, index) {
@@ -3800,52 +3801,5 @@ function closeMobileSpellDetail() {
     }
 }
 
-function animateSpellCards() {
-    if (typeof gsap === 'undefined') return;
-
-    gsap.fromTo('.spell-card',
-        { opacity: 0, y: 20 },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-            stagger: 0.02,
-            delay: 0.1,
-            ease: 'power2.out'
-        }
-    );
-
-    gsap.fromTo('.spell-level-header',
-        { opacity: 0, x: -20 },
-        {
-            opacity: 1,
-            x: 0,
-            duration: 0.4,
-            stagger: 0.1,
-            delay: 0.05,
-            ease: 'power2.out'
-        }
-    );
-}
-
-function animateSpellDetail() {
-    if (typeof gsap === 'undefined') return;
-
-    gsap.fromTo('.spell-detail-panel',
-        { opacity: 0, x: 20 },
-        { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' }
-    );
-
-    gsap.fromTo('.spell-stat',
-        { opacity: 0, y: 10 },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-            stagger: 0.05,
-            delay: 0.15,
-            ease: 'power2.out'
-        }
-    );
-}
+// Animations removed for performance - 669 spells is too many to animate
 
