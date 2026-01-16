@@ -5551,10 +5551,6 @@ html.lenis-stopped body {
     max-width: none;
     width: 100%;
     padding: var(--spacing-lg) var(--spacing-xl);
-    height: calc(100vh - 64px);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 .spells-header {
@@ -5695,18 +5691,19 @@ html.lenis-stopped body {
     display: grid;
     grid-template-columns: minmax(280px, 380px) 1fr;
     gap: var(--spacing-xl);
-    flex: 1;
-    min-height: 0; /* Important for flex child to respect overflow */
-    align-items: stretch;
+    align-items: start;
 }
 
 .spells-list {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    max-height: calc(100vh - 220px);
     overflow-y: auto;
     padding-right: var(--spacing-sm);
     overscroll-behavior: contain;
+    position: sticky;
+    top: 80px;
 }
 
 /* Spell Level Sections - Collapsible */
@@ -5903,8 +5900,11 @@ html.lenis-stopped body {
     border: 1px solid var(--border-normal);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
+    max-height: calc(100vh - 220px);
     overflow-y: auto;
     overscroll-behavior: contain;
+    position: sticky;
+    top: 80px;
 }
 
 .detail-empty {
