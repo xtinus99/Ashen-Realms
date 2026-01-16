@@ -3949,13 +3949,6 @@ function renderSpellDetail(spell) {
                 </div>
             ` : ''}
 
-            ${spell.ashenSource ? `
-                <div class="spell-ashen-source">
-                    <h4>${SPELL_DETAIL_ICONS.sparkles} Magic Source</h4>
-                    <p>${spell.ashenSource}</p>
-                </div>
-            ` : ''}
-
             <div class="spell-classes">
                 <h4>${SPELL_DETAIL_ICONS.users} Available To</h4>
                 <div class="class-tags">
