@@ -5686,6 +5686,7 @@ body {
     grid-template-columns: 1fr 450px;
     gap: var(--spacing-lg);
     min-height: 600px;
+    align-items: start;
 }
 
 .spells-list {
@@ -5695,6 +5696,7 @@ body {
     overflow-y: auto;
     max-height: calc(100vh - 320px);
     padding-right: var(--spacing-sm);
+    overscroll-behavior: contain;
 }
 
 /* Spell Level Sections */
@@ -5868,6 +5870,9 @@ body {
     padding: var(--spacing-lg);
     overflow-y: auto;
     max-height: calc(100vh - 320px);
+    overscroll-behavior: contain;
+    position: sticky;
+    top: var(--spacing-lg);
 }
 
 .detail-empty {
