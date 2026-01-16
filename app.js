@@ -3463,7 +3463,7 @@ function setupSpellsLink() {
 async function loadSpellsData() {
     if (spellsData) return spellsData;
     try {
-        const response = await fetch('spells-data.json');
+        const response = await fetch('spells-data.json?v=2');
         spellsData = await response.json();
         return spellsData;
     } catch (error) {
