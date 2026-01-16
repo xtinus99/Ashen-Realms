@@ -3685,19 +3685,102 @@ function renderSpellCard(spell, index) {
     `;
 }
 
+function formatSpellDescription(description) {
+    if (!description) return '';
+
+    // Process the description line by line
+    const lines = description.split('\n');
+    let html = '';
+    let inList = false;
+    let currentParagraph = [];
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+
+        // Empty line - close any open paragraph
+        if (!line) {
+            if (currentParagraph.length > 0) {
+                html += `<p>${currentParagraph.join(' ')}</p>`;
+                currentParagraph = [];
+            }
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            continue;
+        }
+
+        // List item
+        if (line.startsWith('- ')) {
+            // Close any open paragraph first
+            if (currentParagraph.length > 0) {
+                html += `<p>${currentParagraph.join(' ')}</p>`;
+                currentParagraph = [];
+            }
+
+            if (!inList) {
+                html += '<ul>';
+                inList = true;
+            }
+
+            // Process the list item content for bold/italic
+            let itemContent = line.substring(2);
+            itemContent = itemContent.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            itemContent = itemContent.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            html += `<li>${itemContent}</li>`;
+        }
+        // Bold section header (like **At Higher Levels:** or **Ashen Realms Notes:**)
+        else if (line.startsWith('**') && line.includes(':**')) {
+            // Close any open list
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            // Close any open paragraph
+            if (currentParagraph.length > 0) {
+                html += `<p>${currentParagraph.join(' ')}</p>`;
+                currentParagraph = [];
+            }
+
+            // Process bold text
+            let processedLine = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            processedLine = processedLine.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            html += `<p class="spell-note">${processedLine}</p>`;
+        }
+        // Regular paragraph line
+        else {
+            // Close any open list
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+
+            // Process bold/italic in the line
+            let processedLine = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            processedLine = processedLine.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            currentParagraph.push(processedLine);
+        }
+    }
+
+    // Close any remaining open elements
+    if (currentParagraph.length > 0) {
+        html += `<p>${currentParagraph.join(' ')}</p>`;
+    }
+    if (inList) {
+        html += '</ul>';
+    }
+
+    return html;
+}
+
 function renderSpellDetail(spell) {
     if (!spell) return '<div class="detail-empty"><i data-lucide="sparkles"></i><p>Select a spell to view details</p></div>';
 
     const schoolIcon = SCHOOL_ICONS[spell.school] || 'sparkles';
     const isAshen = spell.source === 'ashen-realms';
 
-    // Format description with paragraphs
-    const formattedDescription = spell.description
-        .split('\n\n')
-        .map(p => p.trim())
-        .filter(p => p)
-        .map(p => `<p>${p}</p>`)
-        .join('');
+    // Format description with paragraphs and markdown support
+    const formattedDescription = formatSpellDescription(spell.description);
 
     return `
         <button class="detail-mobile-back" onclick="closeMobileSpellDetail()">

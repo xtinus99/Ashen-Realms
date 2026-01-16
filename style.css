@@ -6050,6 +6050,43 @@ body {
     margin-bottom: 0;
 }
 
+.spell-description ul {
+    margin: 0 0 var(--spacing-md) 0;
+    padding-left: var(--spacing-lg);
+    list-style: none;
+}
+
+.spell-description ul li {
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+}
+
+.spell-description ul li::before {
+    content: '•';
+    position: absolute;
+    left: calc(-1 * var(--spacing-md));
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.spell-description ul li:last-child {
+    margin-bottom: 0;
+}
+
+.spell-description .spell-note {
+    color: var(--text-muted);
+    font-style: italic;
+    border-left: 2px solid var(--gold);
+    padding-left: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.spell-description strong {
+    color: var(--text-bright);
+    font-weight: 600;
+}
+
 /* Spell Extra Sections */
 .spell-higher-levels,
 .spell-ashen-component,
