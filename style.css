@@ -5537,19 +5537,19 @@ body {
    ===================================================== */
 
 .spells-container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: var(--spacing-lg);
+    max-width: none;
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
     min-height: 100vh;
 }
 
 .spells-header {
     display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 2px solid var(--gold-dark);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--gold-dark);
 }
 
 .spells-back-btn {
@@ -5583,26 +5583,24 @@ body {
 
 .spells-title {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--gold);
-    margin: 0 0 4px 0;
+    margin: 0;
     text-shadow: 0 0 20px var(--glow-gold);
 }
 
 .spells-subtitle {
-    font-family: var(--font-ui);
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    margin: 0;
+    display: none;
 }
 
 /* Spell Controls */
 .spells-controls {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
     background: rgba(201, 162, 39, 0.05);
     border: 1px solid var(--border-normal);
     border-radius: var(--radius-lg);
@@ -5612,9 +5610,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
-    min-width: 250px;
-    padding: 10px 16px;
+    width: 280px;
+    padding: 8px 14px;
     background: var(--abyss);
     border: 1px solid var(--border-normal);
     border-radius: var(--radius-md);
@@ -5653,16 +5650,15 @@ body {
 }
 
 .spell-filter-select {
-    padding: 10px 16px;
+    padding: 8px 12px;
     background: var(--abyss);
     border: 1px solid var(--border-normal);
     border-radius: var(--radius-md);
     color: var(--text-normal);
     font-family: var(--font-ui);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all var(--transition-normal);
-    min-width: 130px;
 }
 
 .spell-filter-select:hover {
@@ -5692,9 +5688,9 @@ body {
 .spells-list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     overflow-y: auto;
-    max-height: calc(100vh - 320px);
+    max-height: calc(100vh - 200px);
     padding-right: var(--spacing-sm);
     overscroll-behavior: contain;
 }
@@ -5867,9 +5863,9 @@ body {
     background: rgba(15, 15, 25, 0.8);
     border: 1px solid var(--border-normal);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     overflow-y: auto;
-    max-height: calc(100vh - 320px);
+    max-height: calc(100vh - 200px);
     overscroll-behavior: contain;
     position: sticky;
     top: var(--spacing-lg);
