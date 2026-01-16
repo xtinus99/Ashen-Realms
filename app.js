@@ -3644,14 +3644,18 @@ function renderSpellsView() {
         renderSpellsView();
     });
 
-    // Use event delegation on the spell list instead of individual listeners
+    // Create spell lookup map for O(1) access
+    const spellMap = new Map(spells.map(s => [s.name, s]));
+    const detailPanel = document.getElementById('spells-detail');
     const spellList = document.getElementById('spells-list');
+
+    // Use event delegation on the spell list instead of individual listeners
     spellList.addEventListener('click', (e) => {
         const card = e.target.closest('.spell-card');
         if (!card) return;
 
         selectedSpell = card.dataset.name;
-        const spell = spells.find(s => s.name === selectedSpell);
+        const spell = spellMap.get(selectedSpell);
 
         // Fast deselection - only touch the previously selected card
         if (selectedSpellCard && selectedSpellCard !== card) {
@@ -3660,7 +3664,6 @@ function renderSpellsView() {
         card.classList.add('selected');
         selectedSpellCard = card;
 
-        const detailPanel = document.getElementById('spells-detail');
         detailPanel.innerHTML = renderSpellDetail(spell);
         detailPanel.classList.add('mobile-active');
         // Only create icons within the detail panel

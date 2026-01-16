@@ -5542,7 +5542,10 @@ body {
     max-width: none;
     width: 100%;
     padding: var(--spacing-lg) var(--spacing-xl);
-    min-height: 100vh;
+    height: calc(100vh - 64px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .spells-header {
@@ -5683,8 +5686,9 @@ body {
     display: grid;
     grid-template-columns: minmax(280px, 380px) 1fr;
     gap: var(--spacing-xl);
-    min-height: 600px;
-    align-items: start;
+    flex: 1;
+    min-height: 0; /* Important for flex child to respect overflow */
+    align-items: stretch;
 }
 
 .spells-list {
@@ -5692,12 +5696,8 @@ body {
     flex-direction: column;
     gap: var(--spacing-md);
     overflow-y: auto;
-    height: calc(100vh - 200px);
-    max-height: calc(100vh - 200px);
     padding-right: var(--spacing-sm);
     overscroll-behavior: contain;
-    position: sticky;
-    top: 80px;
 }
 
 /* Spell Level Sections */
@@ -5870,10 +5870,7 @@ body {
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
     overflow-y: auto;
-    max-height: calc(100vh - 200px);
     overscroll-behavior: contain;
-    position: sticky;
-    top: var(--spacing-lg);
 }
 
 .detail-empty {
