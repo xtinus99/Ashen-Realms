@@ -1181,10 +1181,8 @@ function showWelcome() {
     // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
     if (lenisInstance) {
         lenisInstance.start();
-        // Remove overflow overrides so Lenis can control scrolling
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
     }
+    document.documentElement.classList.remove('spells-view');
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -1249,9 +1247,8 @@ function openCategory(categoryName, skipHash = false, skipScrollToTop = false) {
     // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
     if (lenisInstance) {
         lenisInstance.start();
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
     }
+    document.documentElement.classList.remove('spells-view');
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -1741,9 +1738,8 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     // Re-enable Lenis smooth scroll (may have been stopped for spell compendium)
     if (lenisInstance) {
         lenisInstance.start();
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
     }
+    document.documentElement.classList.remove('spells-view');
 
     // Disable full-width mode
     document.getElementById('content-body').classList.remove('full-width');
@@ -3477,10 +3473,9 @@ async function showSpells() {
     // Stop Lenis smooth scroll for spell compendium (it interferes with panel scrolling)
     if (lenisInstance) {
         lenisInstance.stop();
-        // Ensure native scroll works when Lenis is stopped
-        document.documentElement.style.overflow = 'auto';
-        document.body.style.overflow = 'auto';
     }
+    // Add class to override Lenis CSS and enable native scroll
+    document.documentElement.classList.add('spells-view');
 
     // Enable full-width mode
     document.getElementById('content-body').classList.add('full-width');
