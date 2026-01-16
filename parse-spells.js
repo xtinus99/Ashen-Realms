@@ -18,6 +18,21 @@ const LEVEL_FILES = {
     '9th Level': '9th Level.md'
 };
 
+const VALID_SCHOOLS = ['Abjuration', 'Conjuration', 'Divination', 'Enchantment', 'Evocation', 'Illusion', 'Necromancy', 'Transmutation'];
+
+function extractSchoolName(text) {
+    // Try to match a known school name
+    const lowerText = text.toLowerCase();
+    for (const school of VALID_SCHOOLS) {
+        if (lowerText.includes(school.toLowerCase())) {
+            return school;
+        }
+    }
+    // Fallback: get first word and capitalize
+    const firstWord = text.split(/[\s(]/)[0].trim();
+    return firstWord.charAt(0).toUpperCase() + firstWord.slice(1).toLowerCase();
+}
+
 function parseSpellFile(content, className, level) {
     const spells = [];
     const spellBlocks = content.split(/^---$/m).filter(block => block.trim());
@@ -73,7 +88,7 @@ function parseSpellBlock(lines, className, level) {
         // Parse school from italic line or **School:** line
         if (line.startsWith('*') && !line.startsWith('**') && line.endsWith('*')) {
             const schoolLine = line.slice(1, -1);
-            school = schoolLine.replace(/\s*cantrip\s*/i, '').replace(/\s*\(\d+\w+\s+Level.*?\)/i, '').trim();
+            school = extractSchoolName(schoolLine);
             if (schoolLine.toLowerCase().includes('ritual')) {
                 ritual = true;
             }
@@ -83,7 +98,7 @@ function parseSpellBlock(lines, className, level) {
         if (line.startsWith('**School:**')) {
             const schoolMatch = line.match(/\*\*School:\*\*\s*(.+)/);
             if (schoolMatch) {
-                school = schoolMatch[1].replace(/\s*\(\d+\w+\s+Level.*?\)/i, '').trim();
+                school = extractSchoolName(schoolMatch[1]);
                 if (line.toLowerCase().includes('ritual')) {
                     ritual = true;
                 }
@@ -160,11 +175,6 @@ function parseSpellBlock(lines, className, level) {
     }
 
     if (!name) return null;
-
-    // Capitalize school properly
-    if (school) {
-        school = school.charAt(0).toUpperCase() + school.slice(1).toLowerCase();
-    }
 
     // Add the source class if not in classes list
     if (classes.length === 0) {
@@ -254,6 +264,15 @@ function main() {
 
     // Sort spells alphabetically
     result.allSpells.sort((a, b) => a.name.localeCompare(b.name));
+
+    // Extract unique schools
+    const schoolsSet = new Set();
+    for (const spell of result.allSpells) {
+        if (spell.school && spell.school !== 'Unknown') {
+            schoolsSet.add(spell.school);
+        }
+    }
+    result.schools = Array.from(schoolsSet).sort();
 
     // Write output
     const outputPath = path.join(__dirname, 'spells-data.json');
