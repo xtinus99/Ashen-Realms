@@ -2370,6 +2370,7 @@ function performModalSearch(query) {
         resultsContainer.innerHTML = `
             <div class="search-empty">No chronicles found for "${query}"</div>
         `;
+        document.getElementById('modal-search').focus();
         return;
     }
 
@@ -2394,6 +2395,9 @@ function performModalSearch(query) {
             }
         });
     });
+
+    // Ensure focus stays on input after DOM update
+    document.getElementById('modal-search').focus();
 }
 
 function highlightMatch(text, query) {
