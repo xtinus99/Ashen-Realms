@@ -5690,7 +5690,7 @@ body {
     flex-direction: column;
     gap: var(--spacing-md);
     max-height: calc(100vh - 220px);
-    overflow-y: auto;
+    overflow-y: scroll;
     padding-right: var(--spacing-sm);
     overscroll-behavior: contain;
     position: sticky;
@@ -5702,7 +5702,6 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: var(--radius-md);
-    overflow: hidden;
 }
 
 .spell-level-header {
