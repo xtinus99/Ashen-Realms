@@ -2287,7 +2287,7 @@
       }
     }
   },
-  "spells": [
+  "allSpells": [
     {
       "name": "Abi-Dalzim's Horrid Wilting",
       "class": "Sorcerer",

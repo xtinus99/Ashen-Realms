@@ -200,7 +200,7 @@ function parseSpellBlock(lines, className, level) {
 function main() {
     const result = {
         classes: {},
-        spells: []
+        allSpells: []
     };
 
     const spellMap = new Map();
@@ -250,16 +250,16 @@ function main() {
     }
 
     // Convert map to array
-    result.spells = Array.from(spellMap.values());
+    result.allSpells = Array.from(spellMap.values());
 
     // Sort spells alphabetically
-    result.spells.sort((a, b) => a.name.localeCompare(b.name));
+    result.allSpells.sort((a, b) => a.name.localeCompare(b.name));
 
     // Write output
     const outputPath = path.join(__dirname, 'spells-data.json');
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
 
-    console.log(`Parsed ${result.spells.length} unique spells`);
+    console.log(`Parsed ${result.allSpells.length} unique spells`);
     console.log(`Output written to ${outputPath}`);
 }
 
