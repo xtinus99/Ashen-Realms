@@ -3752,7 +3752,7 @@ function renderSpellsView() {
 function renderSpellCard(spell, index) {
     const isSelected = selectedSpell === spell.name;
     const schoolIcon = SCHOOL_ICONS[spell.school] || 'sparkles';
-    const isAshen = spell.source === 'ashen-realms';
+    const isAshen = spell.source === 'ashen' || spell.source === 'ashen-realms';
 
     return `
         <div class="spell-card ${isSelected ? 'selected' : ''} ${isAshen ? 'ashen-realms' : ''} school-${spell.school?.toLowerCase()}"
@@ -3902,7 +3902,7 @@ function renderSpellDetail(spell) {
     if (!spell) return '<div class="detail-empty">' + SPELL_DETAIL_ICONS.sparkles + '<p>Select a spell to view details</p></div>';
 
     const schoolIcon = SCHOOL_ICONS[spell.school] || 'sparkles';
-    const isAshen = spell.source === 'ashen-realms';
+    const isAshen = spell.source === 'ashen' || spell.source === 'ashen-realms';
 
     // Format description with paragraphs and markdown support
     const formattedDescription = formatSpellDescription(spell.description);
