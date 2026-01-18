@@ -3548,7 +3548,7 @@ function getFilteredSpells() {
     if (currentSpellSource === 'standard') {
         spells = spells.filter(s => s.source === 'standard');
     } else if (currentSpellSource === 'ashen-realms') {
-        spells = spells.filter(s => s.source === 'ashen-realms');
+        spells = spells.filter(s => s.source === 'ashen' || s.source === 'ashen-realms');
     }
 
     // Filter by search
