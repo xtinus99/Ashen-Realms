@@ -1,7 +1,7 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v63';
+const CACHE_NAME = 'ashen-realms-v64';
 
 // Core assets to cache immediately on install
 const CORE_ASSETS = [
@@ -83,6 +83,9 @@ self.addEventListener('fetch', (event) => {
 
     const url = new URL(event.request.url);
 
+    // Create a cache key without query string (for versioned assets like app.js?v=67)
+    const cacheUrl = url.origin + url.pathname;
+
     // For same-origin requests
     if (url.origin === location.origin) {
         // Dynamic content (JSON, JS, CSS) - use network-first strategy
@@ -91,18 +94,18 @@ self.addEventListener('fetch', (event) => {
             event.respondWith(
                 fetch(event.request)
                     .then((networkResponse) => {
-                        // Cache the fresh response
+                        // Cache the fresh response using normalized URL (without query string)
                         if (networkResponse && networkResponse.status === 200) {
                             const responseToCache = networkResponse.clone();
                             caches.open(CACHE_NAME).then((cache) => {
-                                cache.put(event.request, responseToCache);
+                                cache.put(cacheUrl, responseToCache);
                             });
                         }
                         return networkResponse;
                     })
                     .catch(() => {
-                        // Network failed, fall back to cache
-                        return caches.match(event.request);
+                        // Network failed, fall back to cache using normalized URL
+                        return caches.match(cacheUrl);
                     })
             );
             return;

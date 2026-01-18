@@ -6034,7 +6034,7 @@ body {
     border-left: 3px solid var(--gold-dark);
 }
 
-.stat-label {
+.spell-stat .stat-label {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -6046,12 +6046,12 @@ body {
     margin-bottom: 6px;
 }
 
-.stat-label svg {
+.spell-stat .stat-label svg {
     width: 14px;
     height: 14px;
 }
 
-.stat-value {
+.spell-stat .stat-value {
     font-family: var(--font-body);
     font-size: 1rem;
     color: var(--text-bright);
