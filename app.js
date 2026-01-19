@@ -2938,7 +2938,7 @@ const REP_TIERS = [
 ];
 
 let relationshipData = null;
-let currentRepCharacter = 'jonas';
+let currentRepCharacter = 'lawrence';
 let currentRepFilter = 'all';
 
 function setupBondsLink() {
@@ -3024,7 +3024,7 @@ const REP_IMAGE_MAP = {
 
 // Character display names
 const CHAR_NAMES = {
-    jonas: 'Jonas',
+    lawrence: 'Lawrence',
     sol: 'Sol Raven',
     fursen: 'Fursen'
 };
@@ -3078,8 +3078,8 @@ function renderRelationshipsView() {
 
             <div class="bonds-controls">
                 <div class="char-tabs">
-                    <button class="char-tab ${currentRepCharacter === 'jonas' ? 'active' : ''}" data-char="jonas">
-                        <span class="tab-name">Jonas</span>
+                    <button class="char-tab ${currentRepCharacter === 'lawrence' ? 'active' : ''}" data-char="lawrence">
+                        <span class="tab-name">Lawrence</span>
                     </button>
                     <button class="char-tab ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">
                         <span class="tab-name">Sol</span>

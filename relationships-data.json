@@ -869,6 +869,72 @@
             "reward": "Sister Varen reveals her full history"
           }
         ]
+      },
+      {
+        "name": "Kaedris the Crimson Matron",
+        "type": "Sovereign",
+        "category": "sovereigns",
+        "reputation": -15000,
+        "permanentEnemy": true,
+        "description": "You carry my heart. You refuse to return it. I will be watching.",
+        "likes": [
+          "Burning with passion",
+          "Surrendering the seed",
+          "Following your heart",
+          "Intense emotional honesty"
+        ],
+        "dislikes": [
+          "Keeping what is hers",
+          "Defying her will",
+          "Cold calculation",
+          "Invoking Aedwynn"
+        ],
+        "history": [
+          {
+            "change": -10000,
+            "reason": "Refused to surrender the passion-seed"
+          },
+          {
+            "change": -5000,
+            "reason": "Declared the seed belongs to Aedwynn"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Lawrence",
+        "type": "Party",
+        "category": "npcs",
+        "reputation": 10000,
+        "description": "A broken paladin seeking purpose. Perhaps we can find it together.",
+        "likes": [
+          "Fighting for the cause",
+          "Defying Sovereigns",
+          "Protecting each other",
+          "Finding meaning"
+        ],
+        "dislikes": [
+          "Giving up",
+          "Betraying trust",
+          "Serving corrupt powers",
+          "Abandoning companions"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Joined the quest"
+          },
+          {
+            "change": 7000,
+            "reason": "Fought Ember Avatar together"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Trusted ally"
+          }
+        ]
       }
     ]
   },
@@ -1441,6 +1507,264 @@
         "unlocks": [],
         "deceased": true,
         "deathSession": 23
+      },
+      {
+        "name": "Kaedris the Crimson Matron",
+        "type": "Sovereign",
+        "category": "sovereigns",
+        "reputation": -5000,
+        "description": "You stand with the one who stole from me. Passion remembers.",
+        "likes": [
+          "Burning with passion",
+          "Following your heart",
+          "Intense devotion",
+          "Emotional honesty"
+        ],
+        "dislikes": [
+          "Opposing her will",
+          "Helping steal her property",
+          "Cold calculation",
+          "Fighting her avatars"
+        ],
+        "history": [
+          {
+            "change": -5000,
+            "reason": "Fought alongside Sol against Ember Avatar"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Lawrence",
+        "type": "Party",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "We met over grief and whiskey. He understands loss.",
+        "likes": [
+          "Fighting alongside him",
+          "Sharing burdens",
+          "Moving forward together",
+          "Respecting his past"
+        ],
+        "dislikes": [
+          "Betrayal",
+          "Giving up",
+          "Leaving him behind",
+          "Judging without understanding"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Shared grief over Jonas"
+          },
+          {
+            "change": 7000,
+            "reason": "Fought Ember Avatar together"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "True companionship"
+          }
+        ]
+      }
+    ]
+  },
+  "lawrence": {
+    "relationships": [
+      {
+        "name": "Mareatha the Vein-Mother",
+        "type": "Sovereign",
+        "category": "sovereigns",
+        "reputation": -5000,
+        "permanentEnemy": true,
+        "description": "Heretic. Oathbreaker. You will return to the fold — in chains or in blood.",
+        "likes": [
+          "Returning to the faith",
+          "Confessing sins",
+          "Offering blood willingly",
+          "Serving the Church"
+        ],
+        "dislikes": [
+          "Breaking oaths",
+          "Killing Templars",
+          "Rejecting her blood",
+          "Exposing Church secrets"
+        ],
+        "history": [
+          {
+            "change": -15000,
+            "reason": "Broke his sacred oaths"
+          },
+          {
+            "change": -10000,
+            "reason": "Killed brother Templars"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Kaedris the Crimson Matron",
+        "type": "Sovereign",
+        "category": "sovereigns",
+        "reputation": -8000,
+        "description": "You helped destroy my vessel. Passion remembers.",
+        "likes": [
+          "Following your heart",
+          "Burning with purpose",
+          "Passionate devotion",
+          "Emotional honesty"
+        ],
+        "dislikes": [
+          "Opposing her will",
+          "Helping steal her property",
+          "Cold calculation",
+          "Destroying her avatars"
+        ],
+        "history": [
+          {
+            "change": -8000,
+            "reason": "Landed killing blow on Ember Avatar"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "The Velvet Thorn",
+        "type": "NPC",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "Six weeks you rotted in my corner. Now you have somewhere to go.",
+        "likes": [
+          "Finding purpose",
+          "Paying tabs",
+          "Protecting companions",
+          "Moving forward"
+        ],
+        "dislikes": [
+          "Wallowing in despair",
+          "Causing trouble",
+          "Bringing heat to her inn",
+          "Giving up"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Settled six-week tab (on the house)"
+          },
+          {
+            "change": 7000,
+            "reason": "Found purpose with Sol and Fursen"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Trusted regular status"
+          },
+          {
+            "threshold": 21000,
+            "reward": "Safe harbor in Crownfall"
+          }
+        ]
+      },
+      {
+        "name": "Church of Mareatha",
+        "type": "Faction",
+        "category": "factions",
+        "reputation": -15000,
+        "permanentEnemy": true,
+        "description": "The Inquisition hunts you. We do not forget our own.",
+        "likes": [
+          "Returning to the faith",
+          "Turning yourself in",
+          "Dying in service",
+          "Exposing other heretics"
+        ],
+        "dislikes": [
+          "Existing as an oathbreaker",
+          "Evading the Inquisition",
+          "Spreading heresy",
+          "Helping enemies of the Church"
+        ],
+        "history": [
+          {
+            "change": -25000,
+            "reason": "Broke oaths and killed Templars"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Fursen",
+        "type": "Party",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "We met over grief and whiskey. That counts for something.",
+        "likes": [
+          "Fighting alongside him",
+          "Sharing burdens",
+          "Protecting each other",
+          "Moving forward together"
+        ],
+        "dislikes": [
+          "Betrayal",
+          "Giving up",
+          "Leaving him behind",
+          "Judging his past"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Shared grief over Jonas"
+          },
+          {
+            "change": 7000,
+            "reason": "Fought Ember Avatar together"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "True companionship"
+          }
+        ]
+      },
+      {
+        "name": "Sol Raven",
+        "type": "Party",
+        "category": "npcs",
+        "reputation": 10000,
+        "description": "A skeleton carrying a dead god's will. Strange company.",
+        "likes": [
+          "Fighting for the cause",
+          "Defying Sovereigns",
+          "Protecting each other",
+          "Finding purpose"
+        ],
+        "dislikes": [
+          "Giving up on the mission",
+          "Betraying trust",
+          "Serving Sovereigns",
+          "Abandoning companions"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Agreed to join the quest"
+          },
+          {
+            "change": 7000,
+            "reason": "Fought Ember Avatar together"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Trusted ally"
+          }
+        ]
       }
     ]
   }
