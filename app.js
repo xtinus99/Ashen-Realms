@@ -266,7 +266,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     initAudio();
     setupAudioControls();
     initParticles();
-    initSmoothScroll();
+    // Disabled Lenis smooth scroll - was causing scroll issues on article pages
+    // initSmoothScroll();
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
     // Check for URL hash to restore state
