@@ -2302,7 +2302,7 @@
       "ashenRealms": "This spell resonates powerfully near the borders of the Blooming Rot, where moisture is often corrupted by fungal growth.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -2322,7 +2322,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -2343,7 +2343,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -2732,7 +2732,7 @@
       "ashenRealms": "The morsel of food should be Spore Bread or preserved meat from the Ashen Realms.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -2774,7 +2774,7 @@
       "ashenRealms": "In the Ashen Realms, beasts transformed by this spell often take on characteristics of the local domain—rot-touched fur near the Blooming Rot, ashen coloring near Veinspire.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -2793,7 +2793,7 @@
       "ashenRealms": "In the Ashen Realms, the bone dust component can be substituted with powdered Corpse-Cap mushroom spores, which grow abundantly on decaying matter.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Wizard"
@@ -2835,7 +2835,7 @@
       "ashenRealms": "This spell is particularly favored by those who travel through the Blooming Rot, where living creatures often pose the greatest threat.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -2854,7 +2854,7 @@
       "ashenRealms": "Clot-Iron filings can substitute for the iron filings. The Sovereigns' divine magic is not suppressed by this spell.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Wizard"
@@ -2874,7 +2874,7 @@
       "ashenRealms": "Honey harvested from the Blooming Rot's fungal hives can substitute for the sympathy component.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -2993,7 +2993,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3014,7 +3014,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3035,7 +3035,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -3078,7 +3078,7 @@
       "ashenRealms": "Jacinths and silver bars bearing the sigils of the Thirteen Sovereigns are particularly effective for this spell.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3179,7 +3179,7 @@
       "ashenRealms": "A Heart-Stone shard (1,000 gp, consumed) from Veinspire can substitute for the agate. Awakened creatures in the Ashen Realms often take on unsettling characteristics — pale coloration, bioluminescent patches, or fungal growths.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid"
@@ -3199,7 +3199,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3282,7 +3282,7 @@
       "ashenRealms": "Use petrified fungal bark from a Giant Shroom-Tree in place of oak bark.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -3448,7 +3448,7 @@
       "ashenRealms": "A Cartilage Worm egg sac and a Skin-Walker's shed skin can substitute for the standard components.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Sorcerer",
@@ -3469,7 +3469,7 @@
       "ashenRealms": "Blades conjured in the Ashen Realms often appear as shards of Arterial Glass or Clot-Iron.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -3488,7 +3488,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -3552,7 +3552,7 @@
       "ashenRealms": "This spell is particularly effective against fungal creatures in the Ashen Realms, causing them to dessicate and crumble.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -3636,7 +3636,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3657,7 +3657,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -3679,7 +3679,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3700,7 +3700,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -3743,7 +3743,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -3765,7 +3765,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -3787,7 +3787,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -3809,7 +3809,7 @@
       "ashenRealms": "Near the Ossuary Kingdom, these pillars often appear as columns of fused bone rather than stone.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -3850,7 +3850,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -3872,7 +3872,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -3913,7 +3913,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3934,7 +3934,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -3975,7 +3975,7 @@
       "ashenRealms": "In the cavernous depths of the Ashen Realms, this spell draws upon the static energy that builds within the Ash Storms, manifesting as crackling bolts of gray-tinged lightning.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -4160,7 +4160,7 @@
       "ashenRealms": "Bloom Hound fur, Arterial Glass, and Marrow-Silver pins can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -4286,7 +4286,7 @@
       "ashenRealms": "Void-Dust from the Devoured Courts can substitute for the black pearl powder.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -4348,7 +4348,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -4370,7 +4370,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -4392,7 +4392,7 @@
       "ashenRealms": "Heart-Stone worth 1,000 gp can substitute for the diamond. The Ossuary Kingdom's necromancers have perfected variations of this spell.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -4433,7 +4433,7 @@
       "ashenRealms": "The toxic spore clouds of the Blooming Rot often inspire this spell's manifestation, appearing as sickly yellow-green with traces of bioluminescence.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -4493,7 +4493,7 @@
       "ashenRealms": "In the Ashen Realms, this spell contacts one of the Thirteen Sovereigns or their servants. Sanctified Blood and Devotional Incense from Veinspire can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -4512,7 +4512,7 @@
       "ashenRealms": "In the Ashen Realms, this spell often reveals the presence of Sovereign influence, fungal networks, or undead concentrations rather than traditional natural features.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -4592,7 +4592,7 @@
       "ashenRealms": "An Arterial Glass cone or White Marcher bone cone can substitute for the crystal component.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -4635,7 +4635,7 @@
       "ashenRealms": "In the Ashen Realms, this spell often summons fungal-touched beasts with bioluminescent markings.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -4674,7 +4674,7 @@
       "ashenRealms": "In the Ashen Realms, celestials summoned often bear marks of the Sovereigns' domains, appearing more somber and ancient than their counterparts elsewhere.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -4693,7 +4693,7 @@
       "ashenRealms": "In the Ashen Realms, elementals often manifest with domain-specific characteristics — fire elementals wreathed in blood-red flames near the Bastion, earth elementals formed of bone and calcite near the Ossuary Kingdom.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Wizard"
@@ -4713,7 +4713,7 @@
       "ashenRealms": "Fey summoned in the Blooming Rot often arrive twisted by fungal corruption.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Warlock"
@@ -4772,7 +4772,7 @@
       "ashenRealms": "A bioluminescent fungal berry can substitute for the holly berry. The fey summoned often have fungal or subterranean characteristics.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -4792,7 +4792,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -4814,7 +4814,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -4857,7 +4857,7 @@
       "ashenRealms": "In the Ashen Realms, this spell might contact Pre-Sovereign entities, the echoes of Aedwynn the Maker, or beings from the Realms Beyond.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock",
         "Wizard"
@@ -4877,7 +4877,7 @@
       "ashenRealms": "A statuette carved from Marrow-Silver and set with Heart-Stone gems can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -4959,7 +4959,7 @@
       "ashenRealms": "Near the Bastion of Fireblood, this spell struggles to lower temperatures below \"Hot.\"",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -5065,7 +5065,7 @@
       "ashenRealms": "The food created often has the pale, slightly fungal appearance common to Ashen Realms cuisine.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Cleric",
@@ -5086,7 +5086,7 @@
       "ashenRealms": "Ash from the Bastion of Fireblood and clay mixed with Sanctified Blood enhance the bond.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -5125,7 +5125,7 @@
       "ashenRealms": "Grave dirt from the Ossuary Kingdom and black onyx from the Devoured Courts are particularly potent.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Warlock",
@@ -5146,7 +5146,7 @@
       "ashenRealms": "Material sample from the target domain can serve as the component. Objects created in the Ashen Realms often bear subtle marks of their shadow origin.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Sorcerer",
@@ -5167,7 +5167,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -5211,7 +5211,7 @@
       "ashenRealms": "The motes often take on hues reflecting the local domain—crimson near Veinspire, pale bone-white near the Ossuary Kingdom.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -5275,7 +5275,7 @@
       "ashenRealms": "Use Luminescent Rot-Moss (no fireflies or glowworms exist).",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Bard",
@@ -5341,7 +5341,7 @@
       "ashenRealms": "In the perpetual twilight of the Ashen Realms, this spell is highly valued. The light produced often has a warm amber hue, reminiscent of the fabled surface sun.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -5384,7 +5384,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -5406,7 +5406,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -5428,7 +5428,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -5450,7 +5450,7 @@
       "ashenRealms": "Ember-Salt and sulfite ash from the Bastion of Fireblood can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -5470,7 +5470,7 @@
       "ashenRealms": "Demiplanes created in the Ashen Realms often take on characteristics of the nearest Sovereign's domain.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -5537,7 +5537,7 @@
       "ashenRealms": "Use a Rot-Moss frond in place of the yew leaf.",
       "ritual": true,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -5580,7 +5580,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -5646,7 +5646,7 @@
       "ashenRealms": "Void-Dust can substitute for the pinch of dust, intensifying the ray's destructive power.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -5666,7 +5666,7 @@
       "ashenRealms": "Sanctified Blood or Marrow-Silver and Clot-Iron dust can substitute for the standard components.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Paladin"
@@ -5752,7 +5752,7 @@
       "ashenRealms": "In the Ashen Realms, the sacrificial offering is typically blood drawn willingly from the caster, offered to one of the Thirteen Sovereigns rather than traditional gods.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -5792,7 +5792,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -5833,7 +5833,7 @@
       "ashenRealms": "In the Ashen Realms, this word is often spoken in the tongue of the Thirteen Sovereigns.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -5873,7 +5873,7 @@
       "ashenRealms": "This spell is particularly effective against creatures tied to the Devoured Courts.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -5916,7 +5916,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -5958,7 +5958,7 @@
       "ashenRealms": "A Heart-Stone worth 1,000 gp can substitute for the sapphire.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -6064,7 +6064,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -6107,7 +6107,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -6151,7 +6151,7 @@
       "ashenRealms": "In the Blooming Rot, this spell often manifests with fungal growths and spore clouds rather than traditional vegetation.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -6170,7 +6170,7 @@
       "ashenRealms": "Effects manifest as Blooming Rot fungi blooming, spore releases, or decay-world equivalents. No true flowers exist.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -6189,7 +6189,7 @@
       "ashenRealms": "In the Ashen Realms, this manifests as swirling ash and cinders rather than dust.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -6254,7 +6254,7 @@
       "ashenRealms": "Bone Ridge Stone and ash from the Bastion of Fireblood can substitute for the material components.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -6275,7 +6275,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -6486,7 +6486,7 @@
       "ashenRealms": "In the Ashen Realms, the conjured plants manifest as grasping fungal tendrils and Rot-Moss rather than living vines.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -6569,7 +6569,7 @@
       "ashenRealms": "In the Ashen Realms, this spell causes volcanic ash and hardite stone to erupt rather than earth.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -6612,7 +6612,7 @@
       "ashenRealms": "The Border Ethereal in the Ashen Realms is tinged with the essence of the Devoured Courts—echoes of absence and hunger.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -6635,7 +6635,7 @@
       "ashenRealms": "A preserved tendril from a Cartilage Worm or piece of Mycelium Thread can substitute for the tentacle component.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -6676,7 +6676,7 @@
       "ashenRealms": "Near the Devoured Courts, casters' eyes often manifest the Hollow Crown's empty gaze.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -6718,7 +6718,7 @@
       "ashenRealms": "The light manifests with a pale, ghostly quality reminiscent of Luminescent Rot-Moss.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Bard",
@@ -6803,7 +6803,7 @@
       "ashenRealms": "Use a tuft of Ash-Moth down or similar material from the Ashen Realms.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Bard",
@@ -6825,7 +6825,7 @@
       "ashenRealms": "Void-Dust mixed with the spheres enhances the spell's potency against creatures of the Devoured Courts.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -6847,7 +6847,7 @@
       "ashenRealms": "Powdered Death-Cap mushroom can substitute for graveyard dirt.",
       "ritual": true,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -6910,7 +6910,7 @@
       "ashenRealms": "In the Ashen Realms, the summoned mount often takes on characteristics of the local domain — bone-plated steeds near the Ossuary Kingdom, fungal-covered mounts near the Blooming Rot, etc.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Paladin"
       ]
@@ -6948,7 +6948,7 @@
       "ashenRealms": "Divinatory bones from the Ossuary Kingdom and a relic from the destination location can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -6990,7 +6990,7 @@
       "ashenRealms": "This spell resonates strongly with the necromantic energies of the Ossuary Kingdom and the Devoured Courts.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -7032,7 +7032,7 @@
       "ashenRealms": "Ember-Salt from the Bastion of Fireblood can substitute for phosphorus, while Luminescent Rot-Moss can substitute for a firefly.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -7053,7 +7053,7 @@
       "ashenRealms": "Near the Bastion of Fireblood, these flames burn with an intense blood-red hue.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -7117,7 +7117,7 @@
       "ashenRealms": "The leaf of sumac can be replaced with dried Cinder-Fungus.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -7136,7 +7136,7 @@
       "ashenRealms": "Ember-Salt from the Bastion of Fireblood can substitute for sulfur.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -7176,7 +7176,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -7198,7 +7198,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -7220,7 +7220,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7286,7 +7286,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7308,7 +7308,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -7330,7 +7330,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7352,7 +7352,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7374,7 +7374,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7418,7 +7418,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7462,7 +7462,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -7506,7 +7506,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger",
@@ -7527,7 +7527,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7549,7 +7549,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -7571,7 +7571,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -7593,7 +7593,7 @@
       "ashenRealms": "Near the Ossuary Kingdom, victims often transform into bone-like calcite rather than traditional stone.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock",
         "Wizard"
@@ -7613,7 +7613,7 @@
       "ashenRealms": "Use an Ash-Moth wing or Bloom Bat wing in place of the bird feather.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Sorcerer",
@@ -7657,7 +7657,7 @@
       "ashenRealms": "Sanctified Blood, Devotional Incense from Veinspire, and powdered Heart-Stone can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -7676,7 +7676,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -7698,7 +7698,7 @@
       "ashenRealms": "Heart-Stone dust worth 1,500 gp can substitute for the ruby dust.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Warlock",
@@ -7719,7 +7719,7 @@
       "ashenRealms": "A feather from one of the rare songbirds of the Pre-Sovereign era can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -7829,7 +7829,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -7895,7 +7895,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -7917,7 +7917,7 @@
       "ashenRealms": "A wisp of Spore-Smoke from a puffball fungus can substitute for normal smoke.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -7938,7 +7938,7 @@
       "ashenRealms": "Heart-Stone worth 5,000 gp can substitute for the diamond. The Thirteen Sovereigns can block gates into their domains.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -7979,7 +7979,7 @@
       "ashenRealms": "The Blooming Rot teems with oversized insects already. This spell can affect the unique species found there, creating even more monstrous versions.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -7998,7 +7998,7 @@
       "ashenRealms": "This spell is favored by the diplomats and spies who navigate the politics between the Thirteen Sovereigns.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Warlock"
@@ -8018,7 +8018,7 @@
       "ashenRealms": "An Arterial Glass bead can substitute for the crystal component.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -8038,7 +8038,7 @@
       "ashenRealms": "Devotional Incense and crushed Heart-Stone (200 gp) can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Bard",
@@ -8060,7 +8060,7 @@
       "ashenRealms": "Use Spore Pods or similar fungal growths from the Ashen Realms in place of mistletoe. The resulting berries manifest as small, luminescent fungi.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -8080,7 +8080,7 @@
       "ashenRealms": "In the Blooming Rot, this spell often manifests as fungal tendrils rather than plant vines.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -8122,7 +8122,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -8143,7 +8143,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -8205,7 +8205,7 @@
       "ashenRealms": "Crushed Heart-Stone (100 gp, consumed) can substitute for the diamond dust.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Bard",
@@ -8249,7 +8249,7 @@
       "ashenRealms": "In the Ashen Realms, the guardian takes on the aspect of the caster's patron Sovereign rather than a traditional deity.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -8268,7 +8268,7 @@
       "ashenRealms": "In the Ashen Realms, Primal Beast often manifests with fungal or bone characteristics, while Great Tree may appear as twisted, pale growth covered in luminescent moss.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -8288,7 +8288,7 @@
       "ashenRealms": "Ember-Salt, brimstone, Mycelium Thread, Cartilage Worm ichor, and a Marrow-Silver rod can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -8409,7 +8409,7 @@
       "ashenRealms": "Bone Ridge Stone, a Mycelium Thread strand, and a piece of Rot-Moss can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -8431,7 +8431,7 @@
       "ashenRealms": "This spell resonates with the entropic energies of the Devoured Courts.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -8450,7 +8450,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -8471,7 +8471,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Cleric",
@@ -8493,7 +8493,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -8536,7 +8536,7 @@
       "ashenRealms": "In Veinspire, this spell manifests as warm crimson light drawn from the domain's lifeblood.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid"
@@ -8639,7 +8639,7 @@
       "ashenRealms": "A bowl set with Heart-Stones from Veinspire can substitute for the gem-encrusted bowl.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid"
@@ -8679,7 +8679,7 @@
       "ashenRealms": "The petrified eye of a newt can be substituted with a crystallized Corpse-Crawler eye.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock"
       ]
@@ -8698,7 +8698,7 @@
       "ashenRealms": "A Clot-Iron shard from Veinspire can substitute for the iron.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -8744,7 +8744,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -8788,7 +8788,7 @@
       "ashenRealms": "A reliquary containing a relic from one of the Thirteen Sovereigns' temples worth 1,000 gp can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -8867,7 +8867,7 @@
       "ashenRealms": "Bioluminescent spores from a Hypno-Cap mushroom can substitute for the phosphorescent material.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -8910,7 +8910,7 @@
       "ashenRealms": "White Marcher bone dust and Sanctified Blood can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -8931,7 +8931,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Ranger",
@@ -8952,7 +8952,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -8974,7 +8974,7 @@
       "ashenRealms": "The owl feather can be replaced with an Ash-Moth wing.",
       "ritual": true,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Bard",
@@ -9017,7 +9017,7 @@
       "ashenRealms": "In the Ashen Realms, shadows for this spell are often drawn from the Devoured Courts rather than the Shadowfell.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -9057,7 +9057,7 @@
       "ashenRealms": "The Ossuary Kingdom's binding rituals often serve as the basis for variations of this spell.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock",
         "Wizard"
@@ -9077,7 +9077,7 @@
       "ashenRealms": "Near the Bastion of Fireblood, this cloud burns with an intense crimson glow and deals an additional 1d8 fire damage.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -9098,7 +9098,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -9182,7 +9182,7 @@
       "ashenRealms": "Spore Powder, grain, and decay-fat from the Blooming Rot can substitute for the standard components. The insects summoned often appear as the oversized, fungal-infested varieties common to that domain.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -9226,7 +9226,7 @@
       "ashenRealms": "Near the Bastion of Fireblood, these flames burn with an intense crimson hue.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -9248,7 +9248,7 @@
       "ashenRealms": "Casters near the White Marcher territories often manifest ice tinged with pale bone-white.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -9270,7 +9270,7 @@
       "ashenRealms": "Near the Ossuary Kingdom, the stone often manifests as bone-like calcite formations.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -9337,7 +9337,7 @@
       "ashenRealms": "A piece of Pre-Sovereign adamantine worth 500 gp can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -9356,7 +9356,7 @@
       "ashenRealms": "Use a Corpse-Hopper's leg in place of the grasshopper's hind leg.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -9400,7 +9400,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -9422,7 +9422,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -9444,7 +9444,7 @@
       "ashenRealms": "Devotional Incense (250 gp, consumed) and four strips of Ossuary bone (50 gp each) can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -9465,7 +9465,7 @@
       "ashenRealms": "In the Ashen Realms, the chest may be crafted from Bone Ridge Stone, Arterial Glass, or other domain-specific materials.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Wizard"
@@ -9570,7 +9570,7 @@
       "ashenRealms": "Use Luminescent Rot-Moss (no fireflies exist).",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Bard",
@@ -9635,7 +9635,7 @@
       "ashenRealms": "The bloodhound fur can be replaced with spores from a Tracker Fungus.",
       "ritual": true,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -9656,7 +9656,7 @@
       "ashenRealms": "A tuft of Bloom Hound fur can substitute for the bloodhound fur.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -9727,7 +9727,7 @@
       "ashenRealms": "A drop of Void-Dust dissolved in mercury can substitute. The echoes within the darkness often speak in the voices of the Devoured Courts.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock",
         "Wizard"
@@ -9812,7 +9812,7 @@
       "ashenRealms": "A reliquary containing Void-Glass from the Devoured Courts can substitute for the standard container.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -9936,7 +9936,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -9957,7 +9957,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -9978,7 +9978,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -9999,7 +9999,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -10062,7 +10062,7 @@
       "ashenRealms": "In Veinspire, this spell manifests as waves of warm crimson light.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -10101,7 +10101,7 @@
       "ashenRealms": "Transformation Sap from the Blooming Rot can substitute for the caterpillar cocoon.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -10144,7 +10144,7 @@
       "ashenRealms": "The miniature clay hand can be replaced with compressed ash formed into a hand shape.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -10164,7 +10164,7 @@
       "ashenRealms": "The maze's walls often appear to be made of bone when cast near the Ossuary Kingdom, or covered in fungal growth near the Blooming Rot.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -10205,7 +10205,7 @@
       "ashenRealms": "In the Ashen Realms, this spell works equally well with the petrified fungal material of Giant Shroom-Trees.",
       "ritual": true,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -10265,7 +10265,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -10287,7 +10287,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -10309,7 +10309,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger",
@@ -10354,7 +10354,7 @@
       "ashenRealms": "The illusion often manifests fears from the Ashen Realms — the Hollow Crown's void, the Crimson Matron's hunger, or the Verdant King's consuming growth.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -10397,7 +10397,7 @@
       "ashenRealms": "Near the Bastion of Fireblood, the meteors burn with an intense blood-red flame.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -10417,7 +10417,7 @@
       "ashenRealms": "Heart-Stone worth 500 gp can substitute for the diamond. Fortresses created near Veinspire often have walls that pulse with a faint red glow.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -10436,7 +10436,7 @@
       "ashenRealms": "This spell is highly valued by those who wish to hide their intentions from the servants of the Thirteen Sovereigns.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -10542,7 +10542,7 @@
       "ashenRealms": "In the Ashen Realms, this spell is often used to recreate landscapes lost to the domain shifts of the Sovereigns.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -10713,7 +10713,7 @@
       "ashenRealms": "The moonseed plant seeds can be replaced with Gloom-Cap spores that glow faintly in darkness.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -10732,7 +10732,7 @@
       "ashenRealms": "Marrow-Silver whistle, a piece of Ossuary bone, and Mycelium Thread can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Wizard"
@@ -10752,7 +10752,7 @@
       "ashenRealms": "Bone Ridge Stone carvings worth 5 gp can substitute for the ivory portal.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -10792,7 +10792,7 @@
       "ashenRealms": "A miniature Clot-Iron sword worth 250 gp can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -10832,7 +10832,7 @@
       "ashenRealms": "A Clot-Iron blade and soil mixture from the Blooming Rot can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -10895,7 +10895,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -10981,7 +10981,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Bard",
@@ -11021,7 +11021,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -11043,7 +11043,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -11065,7 +11065,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -11087,7 +11087,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -11109,7 +11109,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -11131,7 +11131,7 @@
       "ashenRealms": "An Arterial Glass sphere can substitute for the crystal sphere.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -11151,7 +11151,7 @@
       "ashenRealms": "Arterial Glass hemispheres can substitute for the crystal and gum arabic components.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Wizard"
@@ -11213,7 +11213,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -11235,7 +11235,7 @@
       "ashenRealms": "The ashes and spruce can be replaced with powdered Shadow-Moss.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -11255,7 +11255,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -11276,7 +11276,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -11297,7 +11297,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -11319,7 +11319,7 @@
       "ashenRealms": "Spore Powder can substitute for sesame seeds.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -11381,7 +11381,7 @@
       "ashenRealms": "In the Ashen Realms, this spell often manifests fears related to the Sovereigns — visions of the Hollow Crown's empty gaze, the Crimson Matron's hunger, or the Verdant King's consuming growth.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -11401,7 +11401,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -11423,7 +11423,7 @@
       "ashenRealms": "In the Ashen Realms, the phantom steed often takes the form of a spectral Giant Cave Beetle or other subterranean creature.",
       "ritual": true,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -11442,7 +11442,7 @@
       "ashenRealms": "In the Ashen Realms, this spell typically beseeches one of the Thirteen Sovereigns, who send servants appropriate to their domain.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -11461,7 +11461,7 @@
       "ashenRealms": "A Heart-Stone from Veinspire worth at least 1,000 gp can serve as the binding focus, its crystallized life essence creating a sympathetic link to bind extraplanar entities.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -11482,7 +11482,7 @@
       "ashenRealms": "Rods attuned to the domains of the Thirteen Sovereigns are rare and highly sought after by planar travelers.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -11505,7 +11505,7 @@
       "ashenRealms": "In the Ashen Realms, this spell affects fungal growths and mycelial networks rather than traditional plants, causing mushrooms and fungal matter to proliferate rapidly.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -11549,7 +11549,7 @@
       "ashenRealms": "Transformation Sap from the Blooming Rot can substitute for the caterpillar cocoon.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -11571,7 +11571,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -11593,7 +11593,7 @@
       "ashenRealms": "This word of power carries the authority of life itself, resonating with the Crimson Matron's domain.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric"
@@ -11613,7 +11613,7 @@
       "ashenRealms": "This word resonates with the finality of the Hollow Crown's domain.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -11635,7 +11635,7 @@
       "ashenRealms": "This word resonates with the suffering echoes of the Devoured Courts.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -11656,7 +11656,7 @@
       "ashenRealms": "This word of power resonates with the authority of the Thirteen Sovereigns.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -11758,7 +11758,7 @@
       "ashenRealms": "Near the Bastion of Fireblood, the red ray burns with particular intensity; near the Ossuary Kingdom, the indigo ray's petrification takes on a bone-like quality.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -11779,7 +11779,7 @@
       "ashenRealms": "The colors often shift to reflect the local Sovereign's domain.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -11799,7 +11799,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -11839,7 +11839,7 @@
       "ashenRealms": "Fleece and jade dust infused with Void-Dust can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -11859,7 +11859,7 @@
       "ashenRealms": "A small replica carved from Bone Ridge Stone worth 5 gp can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Wizard"
@@ -11948,7 +11948,7 @@
       "ashenRealms": "This spell resonates with the maddening whispers of the Devoured Courts.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -12011,7 +12011,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Bard",
@@ -12033,7 +12033,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -12055,7 +12055,7 @@
       "ashenRealms": "Sanctified Blood from Veinspire mixed with Marrow-Silver dust from the Ossuary can substitute for the diamond, the combined essence of life and death serving as a bridge for the returning soul.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -12076,7 +12076,7 @@
       "ashenRealms": "Fragments of Bloom Hound eggshell and Veinspire Crawler shell can serve as the material component, creatures from different domains creating the necessary sympathetic connection.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -12156,7 +12156,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -12178,7 +12178,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Druid",
@@ -12265,7 +12265,7 @@
       "ashenRealms": "Sanctified Blood from a temple of the Crimson Matron can substitute for holy water.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -12286,7 +12286,7 @@
       "ashenRealms": "Oils infused with Mycelium Extract from the Blooming Rot can substitute, the fungal essence of transformation and rebirth guiding the soul into its new vessel.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -12934,7 +12934,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -12955,7 +12955,7 @@
       "ashenRealms": "Heart-Stone worth 1,000 gp can substitute for the diamond. In the Ossuary Kingdom, resurrection is viewed with suspicion by the servants of the Hollow Crown.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric"
@@ -12975,7 +12975,7 @@
       "ashenRealms": "Clot-Iron filings can substitute for the iron filings.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -12996,7 +12996,7 @@
       "ashenRealms": "Heart-Stone crystals worth 300 gp from Veinspire can substitute for diamonds.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Cleric",
@@ -13120,7 +13120,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Sorcerer",
@@ -13182,7 +13182,7 @@
       "ashenRealms": "A polished Void-Glass mirror from the Devoured Courts serves as an exceptional focus, its connection to absent things allowing glimpses across vast distances.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -13205,7 +13205,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -13227,7 +13227,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -13290,7 +13290,7 @@
       "ashenRealms": "No special component required—the illusion draws upon the caster's will alone.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -13332,7 +13332,7 @@
       "ashenRealms": "A powder of Heart-Stone, Void-Dust, and Arterial Glass worth 5,000 gp can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -13394,7 +13394,7 @@
       "ashenRealms": "An Unmourned eye encased in Crystallized Passion (150 gp) can substitute for the standard component.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock"
       ]
@@ -13434,7 +13434,7 @@
       "ashenRealms": "A circlet of Marrow-Silver set with Heart-Stone worth 1,500 gp can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Wizard"
@@ -13560,7 +13560,7 @@
       "ashenRealms": "Use Rot-Moss bundle — no mistletoe or shamrock exists.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -13600,7 +13600,7 @@
       "ashenRealms": "This spell resonates with the sickly luminescence found in certain areas of the Blooming Rot and the Devoured Courts.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -13706,7 +13706,7 @@
       "ashenRealms": "Powdered Heart-Stone worth 1,500 gp can substitute for the ruby.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -13746,7 +13746,7 @@
       "ashenRealms": "No special component required.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -13789,7 +13789,7 @@
       "ashenRealms": "Use Spore Powder or Slumber-Moss dust in place of rose petals.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -13810,7 +13810,7 @@
       "ashenRealms": "In the Ashen Realms, this spell creates a storm of freezing ash and ice crystals rather than sleet.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -13894,7 +13894,7 @@
       "ashenRealms": "A Marrow-Silver cage can substitute for the standard component. This spell is commonly practiced in the Devoured Courts.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock",
         "Wizard"
@@ -14040,7 +14040,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -14062,7 +14062,7 @@
       "ashenRealms": "In the Ashen Realms, this spell allows communication with fungal growths, mushrooms, and mycelial networks, which often have surprisingly extensive knowledge of underground happenings.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Druid",
@@ -14105,7 +14105,7 @@
       "ashenRealms": "The thorns or twigs can be replaced with sharpened fungal spines from a Needle-Cap mushroom.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -14185,7 +14185,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Ranger",
@@ -14225,7 +14225,7 @@
       "ashenRealms": "A blade forged with Clot-Iron from Veinspire channels the spell's lethal precision.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Ranger",
         "Wizard"
@@ -14245,7 +14245,7 @@
       "ashenRealms": "Spores from a Stench-Puff mushroom can substitute for the rotten egg or skunk cabbage.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -14266,7 +14266,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -14287,7 +14287,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -14309,7 +14309,7 @@
       "ashenRealms": "Bone Ridge Stone responds particularly well to this spell.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Cleric",
@@ -14331,7 +14331,7 @@
       "ashenRealms": "Crushed Heart-Stone (100 gp, consumed) can substitute for the diamond dust.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -14354,7 +14354,7 @@
       "ashenRealms": "Near the Bastion of Fireblood, the storm rains fire and ash rather than acid and hail.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -14393,7 +14393,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -14559,7 +14559,7 @@
       "ashenRealms": "An Arterial Glass lens can substitute for the magnifying glass.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -14581,7 +14581,7 @@
       "ashenRealms": "Ember-Salt and Arterial Glass can substitute for the sunstone. This spell is particularly devastating to creatures of the Ossuary Kingdom and Devoured Courts.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid",
@@ -14625,7 +14625,7 @@
       "ashenRealms": "A quiver treated with Mycelium Thread from the Blooming Rot can serve as the focus, the regenerative fungal essence enabling endless ammunition production.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Ranger"
       ]
@@ -14666,7 +14666,7 @@
       "ashenRealms": "Void-Dust and powdered Heart-Stone worth 1,000 gp can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -14708,7 +14708,7 @@
       "ashenRealms": "Void-Dust from the Devoured Courts enhances the spell's mind-shattering effect when sprinkled in the air during casting.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -14790,7 +14790,7 @@
       "ashenRealms": "Marrow-Silver rings can substitute for the silver rings.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -14809,7 +14809,7 @@
       "ashenRealms": "Teleportation circles attuned to the domains of the Thirteen Sovereigns are closely guarded secrets.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -14830,7 +14830,7 @@
       "ashenRealms": "Chalks made from Marrow-Silver and inks infused with Sanctified Blood can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -14852,7 +14852,7 @@
       "ashenRealms": "Holy symbols dedicated to the Thirteen Sovereigns are the most common focus for this spell in the Ashen Realms.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -14871,7 +14871,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -14893,7 +14893,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Cleric",
@@ -14934,7 +14934,7 @@
       "ashenRealms": "Bloom Hound fur can substitute for bull hair.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -14994,7 +14994,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -15016,7 +15016,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -15038,7 +15038,7 @@
       "ashenRealms": "Use thorned fungal growth from Blooming Rot — no true plants exist.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid"
@@ -15166,7 +15166,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Cleric",
@@ -15208,7 +15208,7 @@
       "ashenRealms": "This spell is said to briefly align the caster with the timeless perspective of the Thirteen Sovereigns.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -15292,7 +15292,7 @@
       "ashenRealms": "Clay from the Blooming Rot mixed with Sanctified Blood can substitute for the standard components.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Wizard"
@@ -15312,7 +15312,7 @@
       "ashenRealms": "In the Blooming Rot, this spell can work with the great fungal stalks that serve as the domain's equivalent of trees.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -15331,7 +15331,7 @@
       "ashenRealms": "In the Blooming Rot, this spell can work with the great fungal stalks that serve as the domain's equivalent of trees.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
@@ -15351,7 +15351,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Cleric",
         "Warlock",
@@ -15372,7 +15372,7 @@
       "ashenRealms": "Void-Dust, gum arabic, and smoke from Ember-Salt can substitute for the standard components.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Warlock",
@@ -15415,7 +15415,7 @@
       "ashenRealms": "Heart-Stone worth 25,000 gp and Sanctified Blood can substitute. This spell is viewed with suspicion in the Ossuary Kingdom, where the Hollow Crown's servants guard the boundary between life and death.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric",
         "Druid"
@@ -15435,7 +15435,7 @@
       "ashenRealms": "An ointment made from Rot-Spore powder, Ember-Salt, and animal fat can substitute.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Bard",
         "Cleric",
@@ -15480,7 +15480,7 @@
       "ashenRealms": "Near the Crimson Matron's domain, the water takes on a blood-red tinge.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -15499,7 +15499,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -15673,7 +15673,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": true,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -15736,7 +15736,7 @@
       "ashenRealms": "Bile from one of the Blooming Rot's giant slugs can substitute for the standard component.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -16128,7 +16128,7 @@
       "ashenRealms": "Ember-Salt from the Bastion of Fireblood can substitute for phosphorus.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -16149,7 +16149,7 @@
       "ashenRealms": "Crushed Arterial Glass can substitute for the clear gemstone powder.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -16168,7 +16168,7 @@
       "ashenRealms": "A piece of Bone Ridge Stone or White Marcher crystal can substitute for quartz.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -16208,7 +16208,7 @@
       "ashenRealms": "A handful of volcanic ash can substitute for sand, creating a wall of swirling ash instead.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Wizard"
       ]
@@ -16227,7 +16227,7 @@
       "ashenRealms": "Bone Ridge Stone can substitute for granite.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Druid",
@@ -16249,7 +16249,7 @@
       "ashenRealms": "Thorns from the Blooming Rot's bramble-fungi can substitute.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -16309,7 +16309,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Artificer",
         "Bard",
@@ -16419,7 +16419,7 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
-      "source": "standard",
+      "source": "ashen",
       "classes": [
         "Bard",
         "Sorcerer",
@@ -16441,7 +16441,7 @@
       "ashenRealms": "The spiderweb can be replaced with strands of Silken Rot-Moss or web from an Ash-Spider.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Artificer",
         "Sorcerer",
@@ -16462,7 +16462,7 @@
       "ashenRealms": "This spell often manifests fears of the Thirteen Sovereigns—the Hollow Crown's void, the Crimson Matron's hunger, the Verdant King's consuming growth.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Warlock",
         "Wizard"
@@ -16482,7 +16482,7 @@
       "ashenRealms": "Near the Blooming Rot, whirlwinds conjured by this spell carry spores and fungal debris.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Sorcerer",
@@ -16503,7 +16503,7 @@
       "ashenRealms": "Ember-Salt and Sanctified Blood can substitute for fire and holy water.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid"
       ]
@@ -16543,7 +16543,7 @@
       "ashenRealms": "In the Ashen Realms, wish is rumored to draw upon the power of Aedwynn the Maker, whose creative essence still suffuses reality.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Wizard"
@@ -16563,7 +16563,7 @@
       "ashenRealms": "Use a shard of Cindermaw chitin that has been exposed to lightning.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Sorcerer",
         "Warlock",
@@ -16603,7 +16603,7 @@
       "ashenRealms": "In the Ashen Realms, sanctuaries are typically locations dedicated to one of the Thirteen Sovereigns.",
       "ritual": false,
       "concentration": false,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Cleric"
       ]
@@ -16622,7 +16622,7 @@
       "ashenRealms": "In the Ashen Realms, this spell animates the fungal growths, bone formations, and petrified vegetation native to each domain.",
       "ritual": false,
       "concentration": true,
-      "source": "ashen",
+      "source": "standard",
       "classes": [
         "Druid",
         "Ranger"
