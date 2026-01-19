@@ -2032,7 +2032,7 @@ function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
     }).join('');
 
     // Categories that should have image beside TOC
-    const imageCategories = ['Party', 'NPCs', 'Locations', 'Creatures', 'Felled Foes', 'Items', 'Lore'];
+    const imageCategories = ['Party', 'Hall of the Dead', 'NPCs', 'Locations', 'Creatures', 'Felled Foes', 'Items', 'Lore'];
     // Specific items to exclude from image wrapping
     const excludeItems = ['The Silken Refuge'];
 
