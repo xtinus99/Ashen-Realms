@@ -2289,22 +2289,24 @@ function openSearchModal() {
     modal.classList.add('open');
     input.focus();
     input.value = '';
-    activeSearchFilters.clear();
 
-    // Build filter chips
-    const filtersContainer = document.getElementById('search-filters');
+    // Start with all categories selected
     const categories = Object.keys(data);
+    activeSearchFilters = new Set(categories);
+
+    // Build filter chips (all active by default)
+    const filtersContainer = document.getElementById('search-filters');
     filtersContainer.innerHTML = categories.map(cat => {
         const icon = data[cat]?.info?.icon || 'folder';
         return `
-            <button class="search-filter-chip" data-category="${cat}">
+            <button class="search-filter-chip active" data-category="${cat}">
                 <i data-lucide="${icon}"></i>
                 ${cat}
             </button>
         `;
     }).join('');
 
-    // Add click handlers for filters
+    // Add click handlers for filters (click to toggle off/on)
     filtersContainer.querySelectorAll('.search-filter-chip').forEach(chip => {
         chip.addEventListener('click', () => {
             const category = chip.dataset.category;
@@ -2348,8 +2350,8 @@ function performModalSearch(query) {
     const queryLower = query.toLowerCase();
 
     for (const [categoryName, categoryData] of Object.entries(data)) {
-        // Skip categories if filters are active and this category isn't selected
-        if (activeSearchFilters.size > 0 && !activeSearchFilters.has(categoryName)) {
+        // Skip categories that aren't selected in the filters
+        if (!activeSearchFilters.has(categoryName)) {
             continue;
         }
 
