@@ -812,7 +812,34 @@ body {
 .nav-section {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: var(--spacing-sm) 0;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+}
+
+/* Nav section scrollbar - ensure it's interactive */
+.nav-section::-webkit-scrollbar {
+    width: 10px;
+}
+
+.nav-section::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.nav-section::-webkit-scrollbar-thumb {
+    background: var(--smoke);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.nav-section::-webkit-scrollbar-thumb:hover {
+    background: var(--dust);
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
 
 .nav-category {

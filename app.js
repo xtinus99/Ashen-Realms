@@ -367,7 +367,11 @@ function initSmoothScroll() {
         gestureOrientation: 'vertical',
         smoothWheel: true,
         wheelMultiplier: 1,
-        touchMultiplier: 2
+        touchMultiplier: 2,
+        prevent: (node) => {
+            // Allow native scrolling for elements with data-lenis-prevent
+            return node.closest('[data-lenis-prevent]') !== null;
+        }
     });
 
     function raf(time) {
