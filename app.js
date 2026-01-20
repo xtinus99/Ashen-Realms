@@ -1890,6 +1890,11 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     // Add related articles section
     addRelatedArticles(contentBody, categoryName, item);
 
+    // Add session navigation for Sessions category
+    if (categoryName === 'Sessions') {
+        addSessionNavigation(contentBody, item);
+    }
+
     // Close mobile sidebar
     document.getElementById('sidebar').classList.remove('open');
 
@@ -2002,6 +2007,63 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             navigateToItem(link.dataset.target);
+        });
+    });
+
+    lucide.createIcons();
+}
+
+// ===== SESSION NAVIGATION =====
+function addSessionNavigation(contentBody, currentItem) {
+    const article = contentBody.querySelector('.article');
+    if (!article) return;
+
+    const sessions = data['Sessions']?.items || [];
+    if (sessions.length <= 1) return;
+
+    // Find current session index
+    const currentIndex = sessions.findIndex(s => s.id === currentItem.id);
+    if (currentIndex === -1) return;
+
+    const prevSession = currentIndex > 0 ? sessions[currentIndex - 1] : null;
+    const nextSession = currentIndex < sessions.length - 1 ? sessions[currentIndex + 1] : null;
+
+    if (!prevSession && !nextSession) return;
+
+    const navHtml = `
+        <nav class="session-navigation">
+            ${prevSession ? `
+                <button class="session-nav-btn prev" data-id="${prevSession.id}">
+                    <i data-lucide="chevron-left"></i>
+                    <div class="session-nav-info">
+                        <span class="session-nav-label">Previous Session</span>
+                        <span class="session-nav-title">${prevSession.title}</span>
+                    </div>
+                </button>
+            ` : '<div class="session-nav-spacer"></div>'}
+            ${nextSession ? `
+                <button class="session-nav-btn next" data-id="${nextSession.id}">
+                    <div class="session-nav-info">
+                        <span class="session-nav-label">Next Session</span>
+                        <span class="session-nav-title">${nextSession.title}</span>
+                    </div>
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            ` : '<div class="session-nav-spacer"></div>'}
+        </nav>
+    `;
+
+    article.insertAdjacentHTML('beforeend', navHtml);
+
+    // Add click handlers
+    article.querySelectorAll('.session-nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sessionId = btn.dataset.id;
+            const session = sessions.find(s => s.id === sessionId);
+            if (session) {
+                const navItem = document.querySelector(`.nav-item[data-id="${sessionId}"]`);
+                showItem('Sessions', session, navItem);
+            }
         });
     });
 
@@ -2249,6 +2311,25 @@ function setupSearch() {
     // Keyboard navigation in search
     modalSearchInput.addEventListener('keydown', (e) => {
         const results = document.querySelectorAll('.search-result-item');
+        const chips = document.querySelectorAll('.search-filter-chip');
+
+        // Number keys 1-9 toggle filter chips
+        if (e.key >= '1' && e.key <= '9') {
+            const chipIndex = parseInt(e.key) - 1;
+            if (chipIndex < chips.length) {
+                e.preventDefault();
+                chips[chipIndex].click();
+            }
+            return;
+        }
+
+        // 0 or ` to clear all filters
+        if (e.key === '0' || e.key === '`') {
+            e.preventDefault();
+            clearAllFilters();
+            return;
+        }
+
         if (results.length === 0) return;
 
         if (e.key === 'ArrowDown') {
@@ -2283,6 +2364,18 @@ function updateSearchSelection(results) {
 // Track active search filters
 let activeSearchFilters = new Set();
 
+function clearAllFilters() {
+    activeSearchFilters.clear();
+    document.querySelectorAll('.search-filter-chip').forEach(chip => {
+        chip.classList.remove('active');
+    });
+    // Re-run search
+    const query = document.getElementById('modal-search').value;
+    if (query.length >= 2) {
+        performModalSearch(query);
+    }
+}
+
 function openSearchModal() {
     const modal = document.getElementById('search-modal');
     const input = document.getElementById('modal-search');
@@ -2291,18 +2384,20 @@ function openSearchModal() {
     input.value = '';
     activeSearchFilters.clear();
 
-    // Build filter chips (none active = search all)
+    // Build filter chips with number hints (none active = search all)
     const filtersContainer = document.getElementById('search-filters');
     const categories = Object.keys(data);
-    filtersContainer.innerHTML = categories.map(cat => {
+    filtersContainer.innerHTML = categories.map((cat, index) => {
         const icon = data[cat]?.info?.icon || 'folder';
+        const keyHint = index < 9 ? `<kbd class="chip-key">${index + 1}</kbd>` : '';
         return `
             <button class="search-filter-chip" data-category="${cat}">
+                ${keyHint}
                 <i data-lucide="${icon}"></i>
                 ${cat}
             </button>
         `;
-    }).join('');
+    }).join('') + `<button class="search-filter-clear" title="Clear all filters (0)"><kbd class="chip-key">0</kbd> Clear</button>`;
 
     // Add click handlers for filters (click to filter to ONLY that category)
     filtersContainer.querySelectorAll('.search-filter-chip').forEach(chip => {
@@ -2324,6 +2419,12 @@ function openSearchModal() {
             }
         });
     });
+
+    // Clear all button
+    const clearBtn = filtersContainer.querySelector('.search-filter-clear');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', clearAllFilters);
+    }
 
     document.getElementById('modal-search-results').innerHTML = `
         <div class="search-empty">Start typing to search the chronicles...</div>
