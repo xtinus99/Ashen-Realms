@@ -2289,31 +2289,31 @@ function openSearchModal() {
     modal.classList.add('open');
     input.focus();
     input.value = '';
+    activeSearchFilters.clear();
 
-    // Start with all categories selected
-    const categories = Object.keys(data);
-    activeSearchFilters = new Set(categories);
-
-    // Build filter chips (all active by default)
+    // Build filter chips (none active = search all)
     const filtersContainer = document.getElementById('search-filters');
+    const categories = Object.keys(data);
     filtersContainer.innerHTML = categories.map(cat => {
         const icon = data[cat]?.info?.icon || 'folder';
         return `
-            <button class="search-filter-chip active" data-category="${cat}">
+            <button class="search-filter-chip" data-category="${cat}">
                 <i data-lucide="${icon}"></i>
                 ${cat}
             </button>
         `;
     }).join('');
 
-    // Add click handlers for filters (click to toggle off/on)
+    // Add click handlers for filters (click to filter to ONLY that category)
     filtersContainer.querySelectorAll('.search-filter-chip').forEach(chip => {
         chip.addEventListener('click', () => {
             const category = chip.dataset.category;
             if (activeSearchFilters.has(category)) {
+                // Clicking active filter deselects it
                 activeSearchFilters.delete(category);
                 chip.classList.remove('active');
             } else {
+                // Clicking inactive filter selects it (adds to filter)
                 activeSearchFilters.add(category);
                 chip.classList.add('active');
             }
