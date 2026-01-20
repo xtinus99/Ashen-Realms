@@ -2121,6 +2121,49 @@ body {
     }
 }
 
+/* === SWIPE INDICATOR === */
+.swipe-indicator {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.2);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    animation: swipe-fade 0.5s ease-out forwards;
+    pointer-events: none;
+}
+
+.swipe-indicator.left {
+    left: 20px;
+}
+
+.swipe-indicator.right {
+    right: 20px;
+}
+
+.swipe-indicator svg {
+    width: 24px;
+    height: 24px;
+    color: var(--gold);
+}
+
+@keyframes swipe-fade {
+    0% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50%) scale(1.5);
+    }
+}
+
 /* Tables */
 .article-body table {
     width: 100%;
@@ -3651,8 +3694,10 @@ body {
     border: 1px solid var(--border-normal);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
-    max-width: 400px;
+    max-width: 500px;
     width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
@@ -3662,6 +3707,24 @@ body {
     color: var(--parchment);
     margin-bottom: var(--spacing-lg);
     text-align: center;
+}
+
+.keyboard-help-sections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.keyboard-help-section h4 {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .keyboard-help-list {
@@ -3716,6 +3779,17 @@ body {
 
 .keyboard-help-close:hover {
     border-color: var(--blood);
+}
+
+@media (max-width: 600px) {
+    .keyboard-help-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .keyboard-help-content {
+        max-width: 95%;
+        padding: var(--spacing-md);
+    }
 }
 
 /* === BOOKMARKS MODAL === */

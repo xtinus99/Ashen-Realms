@@ -267,6 +267,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupAudioControls();
     initParticles();
     initSmoothScroll();
+    setupSwipeGestures();
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
     // Check for URL hash to restore state
@@ -2070,6 +2071,82 @@ function addSessionNavigation(contentBody, currentItem) {
     lucide.createIcons();
 }
 
+// ===== SWIPE GESTURES FOR MOBILE =====
+function setupSwipeGestures() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    const minSwipeDistance = 80;
+    const maxVerticalDistance = 100;
+
+    document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        // Only handle swipes for Sessions
+        if (currentCategory !== 'Sessions' || !currentItem) return;
+
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = Math.abs(touchEndY - touchStartY);
+
+        // Ignore if vertical movement is too large (user is scrolling)
+        if (deltaY > maxVerticalDistance) return;
+
+        // Ignore if horizontal movement is too small
+        if (Math.abs(deltaX) < minSwipeDistance) return;
+
+        const sessions = data['Sessions']?.items || [];
+        const currentIndex = sessions.findIndex(s => s.id === currentItem.id);
+        if (currentIndex === -1) return;
+
+        if (deltaX > 0) {
+            // Swipe right = previous session
+            if (currentIndex > 0) {
+                const prevSession = sessions[currentIndex - 1];
+                const navItem = document.querySelector(`.nav-item[data-id="${prevSession.id}"]`);
+                showItem('Sessions', prevSession, navItem);
+                showSwipeIndicator('left');
+            }
+        } else {
+            // Swipe left = next session
+            if (currentIndex < sessions.length - 1) {
+                const nextSession = sessions[currentIndex + 1];
+                const navItem = document.querySelector(`.nav-item[data-id="${nextSession.id}"]`);
+                showItem('Sessions', nextSession, navItem);
+                showSwipeIndicator('right');
+            }
+        }
+    }
+}
+
+function showSwipeIndicator(direction) {
+    // Remove existing indicator
+    const existing = document.querySelector('.swipe-indicator');
+    if (existing) existing.remove();
+
+    const indicator = document.createElement('div');
+    indicator.className = `swipe-indicator ${direction}`;
+    indicator.innerHTML = direction === 'left'
+        ? '<i data-lucide="chevron-left"></i>'
+        : '<i data-lucide="chevron-right"></i>';
+    document.body.appendChild(indicator);
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // Remove after animation
+    setTimeout(() => indicator.remove(), 500);
+}
+
 // ===== TABLE OF CONTENTS =====
 function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
     const articleBody = contentBody.querySelector('.article-body');
@@ -2638,34 +2715,70 @@ function showKeyboardHelp() {
         <div class="keyboard-help-backdrop"></div>
         <div class="keyboard-help-content">
             <h3>Keyboard Shortcuts</h3>
-            <div class="keyboard-help-list">
-                <div class="keyboard-help-item">
-                    <kbd>J</kbd>
-                    <span>Next article in category</span>
+            <div class="keyboard-help-sections">
+                <div class="keyboard-help-section">
+                    <h4>Navigation</h4>
+                    <div class="keyboard-help-list">
+                        <div class="keyboard-help-item">
+                            <kbd>J</kbd>
+                            <span>Next article in category</span>
+                        </div>
+                        <div class="keyboard-help-item">
+                            <kbd>K</kbd>
+                            <span>Previous article in category</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="keyboard-help-item">
-                    <kbd>K</kbd>
-                    <span>Previous article in category</span>
+                <div class="keyboard-help-section">
+                    <h4>Search</h4>
+                    <div class="keyboard-help-list">
+                        <div class="keyboard-help-item">
+                            <kbd>Ctrl</kbd> + <kbd>K</kbd>
+                            <span>Open search</span>
+                        </div>
+                        <div class="keyboard-help-item">
+                            <kbd>1</kbd> - <kbd>9</kbd>
+                            <span>Toggle category filters</span>
+                        </div>
+                        <div class="keyboard-help-item">
+                            <kbd>0</kbd>
+                            <span>Clear all filters</span>
+                        </div>
+                        <div class="keyboard-help-item">
+                            <kbd>↑</kbd> <kbd>↓</kbd>
+                            <span>Navigate results</span>
+                        </div>
+                        <div class="keyboard-help-item">
+                            <kbd>Enter</kbd>
+                            <span>Open selected result</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="keyboard-help-item">
-                    <kbd>Ctrl</kbd> + <kbd>K</kbd>
-                    <span>Open search</span>
+                <div class="keyboard-help-section">
+                    <h4>Bookmarks</h4>
+                    <div class="keyboard-help-list">
+                        <div class="keyboard-help-item">
+                            <kbd>B</kbd>
+                            <span>Bookmark current article</span>
+                        </div>
+                        <div class="keyboard-help-item">
+                            <kbd>Shift</kbd> + <kbd>B</kbd>
+                            <span>View all bookmarks</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="keyboard-help-item">
-                    <kbd>Esc</kbd>
-                    <span>Close modal</span>
-                </div>
-                <div class="keyboard-help-item">
-                    <kbd>?</kbd>
-                    <span>Toggle this help</span>
-                </div>
-                <div class="keyboard-help-item">
-                    <kbd>B</kbd>
-                    <span>Bookmark current article</span>
-                </div>
-                <div class="keyboard-help-item">
-                    <kbd>Shift</kbd> + <kbd>B</kbd>
-                    <span>View all bookmarks</span>
+                <div class="keyboard-help-section">
+                    <h4>General</h4>
+                    <div class="keyboard-help-list">
+                        <div class="keyboard-help-item">
+                            <kbd>?</kbd>
+                            <span>Toggle this help</span>
+                        </div>
+                        <div class="keyboard-help-item">
+                            <kbd>Esc</kbd>
+                            <span>Close modal</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="keyboard-help-close" onclick="document.getElementById('keyboard-help').remove()">Close</button>
