@@ -2350,8 +2350,8 @@ function performModalSearch(query) {
     const queryLower = query.toLowerCase();
 
     for (const [categoryName, categoryData] of Object.entries(data)) {
-        // Skip categories that aren't selected in the filters
-        if (!activeSearchFilters.has(categoryName)) {
+        // Skip categories that aren't selected (if filters have been set up)
+        if (activeSearchFilters.size > 0 && !activeSearchFilters.has(categoryName)) {
             continue;
         }
 
