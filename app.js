@@ -2592,7 +2592,18 @@ function performModalSearch(query) {
         el.addEventListener('click', () => {
             const category = el.dataset.category;
             const id = el.dataset.id;
-            const item = data[category].items.find(i => i.id === id);
+
+            // Search in main items first
+            let item = data[category].items?.find(i => i.id === id);
+
+            // If not found, search in subcategories
+            if (!item && data[category].subcategories) {
+                for (const subItems of Object.values(data[category].subcategories)) {
+                    item = subItems.find(i => i.id === id);
+                    if (item) break;
+                }
+            }
+
             if (item) {
                 closeSearchModal();
                 const navItem = document.querySelector(`.nav-item[data-id="${id}"]`);
