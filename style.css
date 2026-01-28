@@ -6001,6 +6001,12 @@ body {
     display: flex;
 }
 
+/* When spell-level-spells is a direct child of spells-list (filtered by specific level) */
+.spells-list > .spell-level-spells {
+    display: flex;
+    padding-top: 0;
+}
+
 /* Spell Card */
 .spell-card {
     display: flex;
