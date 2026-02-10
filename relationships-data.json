@@ -567,7 +567,7 @@
         "name": "Velara Ashyn",
         "type": "Soul",
         "category": "npcs",
-        "reputation": 19000,
+        "reputation": 21000,
         "description": "You carry me toward danger, but also toward freedom.",
         "likes": [
           "Speaking to her",
@@ -589,6 +589,10 @@
           {
             "change": 4000,
             "reason": "Listens and speaks to her"
+          },
+          {
+            "change": 2000,
+            "reason": "Expressed awe at Sol's defiance of Kaedris; stabilized after trauma (Session 25)"
           }
         ],
         "unlocks": [
@@ -796,8 +800,8 @@
         "name": "Velvet Thorn",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 16000,
-        "description": "Any friend of Thessaly's is welcome here. The best rooms.",
+        "reputation": 19000,
+        "description": "You keep coming back with fewer people and more scars. At least you come back.",
         "likes": [
           "Being discreet",
           "Bringing good referrals",
@@ -814,6 +818,14 @@
           {
             "change": 6000,
             "reason": "Trusted by Thessaly"
+          },
+          {
+            "change": 1500,
+            "reason": "Shared grief over Jonas honestly; expressed gratitude (Session 24)"
+          },
+          {
+            "change": 1500,
+            "reason": "Returned with Lawrence's ashes; honest about another loss; consistent return (Session 26)"
           }
         ],
         "unlocks": [
@@ -824,6 +836,76 @@
           {
             "threshold": 33000,
             "reward": "Private information network access"
+          }
+        ]
+      },
+      {
+        "name": "Jawbone",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "You fought like you've seen those things before.",
+        "likes": [
+          "Defending Ashford",
+          "Honest intel about threats",
+          "Fighting alongside his guards",
+          "Practical solutions"
+        ],
+        "dislikes": [
+          "Threats to Ashford",
+          "Withholding information",
+          "Reckless behavior near the walls",
+          "Politics and games"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Fought alongside guards during Flesh Remnant breach; defended the eastern wall (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Jawbone shares Watch intelligence"
+          },
+          {
+            "threshold": 21000,
+            "reward": "Priority access to Watch resources"
+          }
+        ]
+      },
+      {
+        "name": "Sixfingers",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "Something's out there. And you've seen it.",
+        "likes": [
+          "Professional conduct",
+          "Sharing useful intelligence",
+          "Respecting the Guild",
+          "Honest dealing"
+        ],
+        "dislikes": [
+          "Wasting her time",
+          "Lying about conditions",
+          "Disrespecting salvagers",
+          "Reckless behavior"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Returned with critical intel; marked Remnant locations on map; confirmed eastern threats (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Sixfingers shares Guild intelligence"
+          },
+          {
+            "threshold": 21000,
+            "reward": "Priority access to Guild resources"
           }
         ]
       },
@@ -897,6 +979,195 @@
           {
             "change": -5000,
             "reason": "Declared the seed belongs to Aedwynn"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Sorrow",
+        "type": "Companion",
+        "category": "npcs",
+        "reputation": 14000,
+        "description": "You came seeking understanding. You left with purpose.",
+        "likes": [
+          "Honest vulnerability",
+          "Seeking understanding over comfort",
+          "Paying fairly",
+          "Respecting her gift"
+        ],
+        "dislikes": [
+          "Treating grief as weakness",
+          "Demanding comfort",
+          "Dishonesty about feelings",
+          "Rushing the process"
+        ],
+        "history": [
+          {
+            "change": 4000,
+            "reason": "Transformative emotional breakthrough; Sol gained purpose from grief (Session 24)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Sorrow shares deeper insights about the soul"
+          }
+        ]
+      },
+      {
+        "name": "Kettleback",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "Eat. Don't pay. Don't argue.",
+        "likes": [
+          "Not making a fuss",
+          "Paying fairly",
+          "Being honest",
+          "Coming back alive"
+        ],
+        "dislikes": [
+          "Drama in her inn",
+          "Lying to her face",
+          "Not eating",
+          "Causing trouble for Ashford"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Provided critical intel about Seraphine; showed quiet care after loss (Session 25)"
+          },
+          {
+            "change": 1000,
+            "reason": "Returned alive again; apologized for Fursen; defended the wall (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Kettleback shares what she hears from travelers"
+          }
+        ]
+      },
+      {
+        "name": "Scrimshaw",
+        "type": "Merchant",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "You need supplies, I have supplies. Simple.",
+        "likes": [
+          "Fair payment",
+          "Clear requests",
+          "Not wasting time",
+          "Practical people"
+        ],
+        "dislikes": [
+          "Haggling excessively",
+          "Unclear requests",
+          "Causing trouble",
+          "Stealing"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Confirmed Seraphine's purchase records; sold supplies; gave practical advice (Session 25)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Harwick",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "Whatever you're carrying, it's above my pay. Way above.",
+        "likes": [
+          "Paying on time",
+          "Not attracting danger",
+          "Professional conduct",
+          "Honest dealing"
+        ],
+        "dislikes": [
+          "Attracting monsters",
+          "Lying about destination",
+          "Not paying",
+          "Reckless behavior"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Survived divine combat together; Harwick awed by resilience (Session 24)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Teldryn",
+        "type": "Companion",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "He called us cowards and then fought beside us. I'll take that.",
+        "likes": [
+          "Competence",
+          "Honesty",
+          "Fighting alongside the party",
+          "Practical solutions"
+        ],
+        "dislikes": [
+          "Sovereign loyalty",
+          "Coldness toward others",
+          "Withholding information",
+          "Disrespecting the dead"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Proved himself in the wall breach; walked ten days through the Unclaimed together (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Dalla Merrik",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "A courier from Crownfall. Teldryn healed her ankle.",
+        "likes": [
+          "Professional courtesy",
+          "Honest warnings about the road",
+          "Not wasting her time"
+        ],
+        "dislikes": [
+          "Blocking the road",
+          "Dishonesty"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Brief roadside encounter; Teldryn healed her (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Gustave Mourir",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "Broken man at the Last Bed. His warning matters.",
+        "likes": [
+          "Patience",
+          "Listening without pushing"
+        ],
+        "dislikes": [
+          "Being rushed",
+          "Being pitied"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Visited him at the Last Bed; heard his testimony (Session 26)"
           }
         ],
         "unlocks": []
@@ -1051,7 +1322,7 @@
         "name": "Flame of Passion",
         "type": "Companion",
         "category": "npcs",
-        "reputation": 22000,
+        "reputation": 23000,
         "description": "Come back alive, Leonin.",
         "likes": [
           "Genuine connection",
@@ -1069,6 +1340,10 @@
           {
             "change": 12000,
             "reason": "Night of genuine connection; stayed until morning"
+          },
+          {
+            "change": 1000,
+            "reason": "Farewell message; Lirael confirms she will wait (Session 24)"
           }
         ],
         "unlocks": [
@@ -1121,7 +1396,7 @@
         "name": "Scarlet",
         "type": "Companion",
         "category": "npcs",
-        "reputation": 20000,
+        "reputation": 21000,
         "description": "Come back to us, lion. We remember.",
         "likes": [
           "Visiting her",
@@ -1139,6 +1414,10 @@
           {
             "change": 10000,
             "reason": "Night of genuine connection"
+          },
+          {
+            "change": 1000,
+            "reason": "Heartfelt farewell message delivered via Lirael (Session 24)"
           }
         ],
         "unlocks": [
@@ -1191,7 +1470,7 @@
         "name": "Cinder",
         "type": "Companion",
         "category": "npcs",
-        "reputation": 20000,
+        "reputation": 21500,
         "description": "The stories you carry... they deserve to be heard.",
         "likes": [
           "Visiting her",
@@ -1209,6 +1488,10 @@
           {
             "change": 10000,
             "reason": "Night of genuine connection"
+          },
+          {
+            "change": 1500,
+            "reason": "Farewell acknowledged; the scale she gave carries deeper meaning (Session 24)"
           }
         ],
         "unlocks": [
@@ -1404,41 +1687,6 @@
         "unlocks": []
       },
       {
-        "name": "Velvet Thorn",
-        "type": "Ally",
-        "category": "npcs",
-        "reputation": 16000,
-        "description": "Any friend of Thessaly's is welcome here. The best rooms.",
-        "likes": [
-          "Being discreet",
-          "Bringing good referrals",
-          "Sharing useful information",
-          "Respecting her rules"
-        ],
-        "dislikes": [
-          "Lying to her",
-          "Refusing to pay",
-          "Causing trouble",
-          "Making scenes"
-        ],
-        "history": [
-          {
-            "change": 6000,
-            "reason": "Trusted by Thessaly"
-          }
-        ],
-        "unlocks": [
-          {
-            "threshold": 21000,
-            "reward": "Permanent discount at her establishment"
-          },
-          {
-            "threshold": 33000,
-            "reward": "Private information network access"
-          }
-        ]
-      },
-      {
         "name": "Jonas",
         "type": "Fallen Companion",
         "category": "npcs",
@@ -1498,6 +1746,544 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "The Dealer",
+        "type": "Merchant",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Do try not to die in them. Returns are... not accepted.",
+        "likes": [
+          "Bringing interesting items to trade",
+          "Fair payment",
+          "Repeat business",
+          "Appreciating quality"
+        ],
+        "dislikes": [
+          "Haggling aggressively",
+          "Bringing cursed items",
+          "Wasting his time",
+          "Damaging merchandise"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Repeat customer; traded Flayer's Touch, purchased Wraps and Robes (Session 24)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Access to rarer inventory"
+          },
+          {
+            "threshold": 21000,
+            "reward": "The Dealer holds items on request"
+          }
+        ]
+      },
+      {
+        "name": "Lirael",
+        "type": "Companion",
+        "category": "npcs",
+        "reputation": 13500,
+        "description": "Come back, Fursen. Not for them. For yourself.",
+        "likes": [
+          "Appreciating music",
+          "Genuine emotion",
+          "Treating her as a person",
+          "Sharing stories"
+        ],
+        "dislikes": [
+          "Treating her as a transaction",
+          "Dismissing her music",
+          "Being cold or cruel",
+          "Forgetting her"
+        ],
+        "history": [
+          {
+            "change": 3500,
+            "reason": "Deep emotional bond; hour of music; heartfelt farewell and confession (Session 24)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Lirael plays music that heals"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Lirael shares her full history"
+          }
+        ]
+      },
+      {
+        "name": "Harwick",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "Whatever you're carrying, it's above my pay. Way above.",
+        "likes": [
+          "Paying on time",
+          "Not attracting danger",
+          "Professional conduct",
+          "Honest dealing"
+        ],
+        "dislikes": [
+          "Attracting monsters",
+          "Lying about destination",
+          "Not paying",
+          "Reckless behavior"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Mutual respect through dangerous journey; professional composure (Session 24)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Kettleback",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "NOT OUTSIDE MY INN!",
+        "likes": [
+          "Not making a fuss",
+          "Paying fairly",
+          "Being honest",
+          "Coming back alive"
+        ],
+        "dislikes": [
+          "Drama in her inn",
+          "Lying to her face",
+          "Not eating",
+          "Causing trouble for Ashford"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Quiet care on return from the deep Unclaimed; didn't ask questions (Session 25)"
+          },
+          {
+            "change": -500,
+            "reason": "Fought a stranger outside her inn; caused a scene; got bonked with a mug (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Kettleback shares what she hears from travelers"
+          }
+        ]
+      },
+      {
+        "name": "Sixfingers",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "I seem to recall offering Guild registration. Might have helped.",
+        "likes": [
+          "Professional conduct",
+          "Sharing useful intelligence",
+          "Respecting the Guild",
+          "Honest dealing"
+        ],
+        "dislikes": [
+          "Wasting her time",
+          "Lying about conditions",
+          "Disrespecting salvagers",
+          "Reckless behavior"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Professional inquiry about Seraphine; good description of target (Session 25)"
+          },
+          {
+            "change": 2000,
+            "reason": "Returned with critical intel about Flesh Remnants; confirmed eastern threats (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Sixfingers shares Guild intelligence"
+          },
+          {
+            "threshold": 21000,
+            "reward": "Priority access to Guild resources"
+          }
+        ]
+      },
+      {
+        "name": "Jawbone",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "You fought like you've seen those things before.",
+        "likes": [
+          "Defending Ashford",
+          "Honest intel about threats",
+          "Fighting alongside his guards",
+          "Practical solutions"
+        ],
+        "dislikes": [
+          "Threats to Ashford",
+          "Withholding information",
+          "Reckless behavior near the walls",
+          "Politics and games"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Fought alongside guards during Flesh Remnant breach; defended the eastern wall (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Jawbone shares Watch intelligence"
+          },
+          {
+            "threshold": 21000,
+            "reward": "Priority access to Watch resources"
+          }
+        ]
+      },
+      {
+        "name": "Velvet Thorn",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 18500,
+        "description": "Where's the paladin?",
+        "likes": [
+          "Being discreet",
+          "Bringing good referrals",
+          "Sharing useful information",
+          "Respecting her rules"
+        ],
+        "dislikes": [
+          "Lying to her",
+          "Refusing to pay",
+          "Causing trouble",
+          "Making scenes"
+        ],
+        "history": [
+          {
+            "change": 6000,
+            "reason": "Trusted by Thessaly"
+          },
+          {
+            "change": 1000,
+            "reason": "Free drink and silent kindness after returning from the Hollow (Session 24)"
+          },
+          {
+            "change": 1500,
+            "reason": "Showed Lawrence's ashes without pretense; consistent loyalty (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Permanent discount at her establishment"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Private information network access"
+          }
+        ]
+      },
+      {
+        "name": "Teldryn",
+        "type": "Companion",
+        "category": "npcs",
+        "reputation": 10000,
+        "description": "The Leonin. Bit me. Doesn't matter.",
+        "likes": [
+          "Directness",
+          "Combat skill",
+          "Honest anger",
+          "Survival instinct"
+        ],
+        "dislikes": [
+          "Excessive drinking",
+          "Self-pity",
+          "Wasted energy",
+          "Refusing help"
+        ],
+        "history": [
+          {
+            "change": 0,
+            "reason": "Bit him and called him a sovereign's bitch — Teldryn doesn't care (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Dalla Merrik",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10000,
+        "description": "Courier on the road. Teldryn fixed her up.",
+        "likes": [
+          "Not being a problem",
+          "Moving along quickly"
+        ],
+        "dislikes": [
+          "Wasting time"
+        ],
+        "history": [
+          {
+            "change": 0,
+            "reason": "Was asleep during the encounter (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Gustave Mourir",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "The man in the Last Bed. He saw something.",
+        "likes": [
+          "Patience",
+          "Directness"
+        ],
+        "dislikes": [
+          "Being pushed"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Visited him at the Last Bed; heard his testimony (Session 26)"
+          }
+        ],
+        "unlocks": []
+      }
+    ]
+  },
+  "teldryn": {
+    "relationships": [
+      {
+        "name": "Aral-Vyn the Bladed Saint",
+        "type": "Sovereign (Patron)",
+        "category": "sovereigns",
+        "reputation": 15000,
+        "description": "You are being refined. The process continues.",
+        "likes": [
+          "Efficient combat",
+          "Using the Sculptor's Touch",
+          "Daily pain offering",
+          "Embracing correction"
+        ],
+        "dislikes": [
+          "Wasted motion",
+          "Refusing refinement",
+          "Sentimental attachment",
+          "Imprecision"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Accepted pact; received new face and blade"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Aral-Vyn grants a new correction"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Deeper patron gifts unlock"
+          }
+        ]
+      },
+      {
+        "name": "Sol Raven",
+        "type": "Companion",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "The skeleton mediates. Useful. There's something else about him.",
+        "likes": [
+          "Rational discussion",
+          "Mediation",
+          "Interesting anomalies",
+          "Efficiency"
+        ],
+        "dislikes": [
+          "Excessive sentiment",
+          "Indecision",
+          "Wasted potential",
+          "Dishonesty"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Mediated with Fursen; showed composure; fought together at the wall (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Fursen",
+        "type": "Hostile",
+        "category": "npcs",
+        "reputation": 3000,
+        "description": "Another sovereign's bitch. At least he's honest about it.",
+        "likes": [
+          "Proving himself in combat",
+          "Acting independently",
+          "Being useful without being asked",
+          "Staying quiet"
+        ],
+        "dislikes": [
+          "Calling people cowards",
+          "Mentioning Ultharion",
+          "Mentioning the Umbrasseur Isles",
+          "Trying to bond with him"
+        ],
+        "history": [
+          {
+            "change": -4000,
+            "reason": "Called Fursen and Sol cowards to their faces (Session 26)"
+          },
+          {
+            "change": -3000,
+            "reason": "Shadar-kai from the Umbrasseur Isles — immediate distrust (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 8000,
+            "reward": "Fursen tolerates his presence"
+          },
+          {
+            "threshold": 15000,
+            "reward": "Fursen speaks to him directly"
+          }
+        ]
+      },
+      {
+        "name": "Jawbone",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "The Watch Captain. Practical man.",
+        "likes": [
+          "Defending Ashford",
+          "Honest intel about threats",
+          "Fighting alongside his guards",
+          "Practical solutions"
+        ],
+        "dislikes": [
+          "Threats to Ashford",
+          "Withholding information",
+          "Reckless behavior near the walls",
+          "Politics and games"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Fought in the wall breach; received supplies (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Dalla Merrik",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 14000,
+        "description": "You fixed my ankle and asked for nothing. I owe you.",
+        "likes": [
+          "Free healing",
+          "Professional courtesy",
+          "Asking for nothing in return",
+          "Efficiency"
+        ],
+        "dislikes": [
+          "Expecting favors",
+          "Wasting her time",
+          "Blocking the road",
+          "Dishonesty"
+        ],
+        "history": [
+          {
+            "change": 4000,
+            "reason": "Healed her twisted ankle with Sculptor's Touch; asked for nothing in return (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Free courier service"
+          },
+          {
+            "threshold": 21000,
+            "reward": "Dalla shares road intelligence"
+          }
+        ]
+      },
+      {
+        "name": "Kettleback",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "New face. Didn't cause the trouble. Didn't stop it either.",
+        "likes": [
+          "Not making a fuss",
+          "Paying fairly",
+          "Being honest",
+          "Coming back alive"
+        ],
+        "dislikes": [
+          "Drama in her inn",
+          "Lying to her face",
+          "Not eating",
+          "Causing trouble for Ashford"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Present during mug incident but wasn't the cause; stayed calm (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Velvet Thorn",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "New one gets the single at the end of the hall.",
+        "likes": [
+          "Being discreet",
+          "Bringing good referrals",
+          "Sharing useful information",
+          "Respecting her rules"
+        ],
+        "dislikes": [
+          "Lying to her",
+          "Refusing to pay",
+          "Causing trouble",
+          "Making scenes"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Arrived with Sol and Fursen; given a room; first impression (Session 26)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Permanent discount at her establishment"
+          }
+        ]
       }
     ]
   }

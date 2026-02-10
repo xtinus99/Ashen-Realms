@@ -6586,3 +6586,354 @@ body {
     }
 }
 
+/* =====================================================
+   INTERACTIVE WORLD MAP
+   ===================================================== */
+
+#world-map-container {
+    width: 100%;
+    height: 70vh;
+    min-height: 450px;
+    max-height: 800px;
+    border-radius: 8px;
+    border: 1px solid var(--border-gold);
+    margin: 1rem 0;
+    position: relative;
+    background: var(--void);
+    overflow: hidden;
+}
+
+#world-map-container .leaflet-container {
+    background: var(--void);
+    font-family: var(--font-body);
+}
+
+/* Marker styles */
+.map-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: radial-gradient(circle, var(--blood) 0%, var(--blood-deep) 100%);
+    box-shadow: 0 0 6px rgba(139, 26, 50, 0.6), 0 0 10px rgba(139, 26, 50, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.map-marker::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    box-shadow: 0 0 3px var(--gold);
+}
+
+.map-marker:hover {
+    transform: scale(1.4);
+    box-shadow: 0 0 10px rgba(139, 26, 50, 0.8), 0 0 20px rgba(139, 26, 50, 0.4);
+    z-index: 1000 !important;
+}
+
+.map-marker.type-sovereign {
+    border-color: var(--gold);
+    background: radial-gradient(circle, var(--blood) 0%, var(--blood-deep) 100%);
+}
+
+.map-marker.type-city {
+    border-color: var(--bone);
+    background: radial-gradient(circle, var(--smoke) 0%, var(--ash) 100%);
+    box-shadow: 0 0 6px rgba(200, 180, 120, 0.4), 0 0 10px rgba(200, 180, 120, 0.2);
+}
+
+.map-marker.type-city::after {
+    background: var(--bone);
+    box-shadow: 0 0 3px var(--bone);
+}
+
+.map-marker.type-landmark {
+    width: 14px !important;
+    height: 14px !important;
+    border-color: var(--dust);
+    background: radial-gradient(circle, var(--stone) 0%, var(--shadow) 100%);
+    box-shadow: 0 0 4px rgba(100, 100, 120, 0.3);
+}
+
+.map-marker.type-landmark::after {
+    width: 4px;
+    height: 4px;
+    background: var(--dust);
+    box-shadow: 0 0 2px var(--dust);
+}
+
+/* Party location pulse */
+.map-marker.party-location {
+    animation: party-pulse 2s ease-in-out infinite;
+}
+
+.map-marker.party-location::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold-bright);
+    animation: party-ring 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes party-ring {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes party-pulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(232, 192, 64, 0.6), 0 0 16px rgba(232, 192, 64, 0.3); }
+    50% { box-shadow: 0 0 16px rgba(232, 192, 64, 0.8), 0 0 32px rgba(232, 192, 64, 0.4); }
+}
+
+/* Leaflet popup overrides */
+.leaflet-popup-content-wrapper {
+    background: var(--ash) !important;
+    border: 1px solid var(--border-gold) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(139, 26, 50, 0.2) !important;
+    color: var(--text-normal) !important;
+    padding: 0 !important;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    min-width: 220px;
+    max-width: 300px;
+}
+
+.leaflet-popup-tip {
+    background: var(--ash) !important;
+    border-right: 1px solid var(--border-gold) !important;
+    border-bottom: 1px solid var(--border-gold) !important;
+}
+
+.leaflet-popup-close-button {
+    color: var(--text-dim) !important;
+    font-size: 18px !important;
+    top: 6px !important;
+    right: 8px !important;
+}
+
+.leaflet-popup-close-button:hover {
+    color: var(--gold-bright) !important;
+}
+
+/* Popup content structure */
+.map-popup {
+    padding: 12px 14px;
+}
+
+.map-popup-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--gold-bright);
+    margin-bottom: 2px;
+    line-height: 1.3;
+}
+
+.map-popup-subtitle {
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.map-popup-sovereign {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--blood-bright);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.map-popup-organ {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.map-popup-desc {
+    color: var(--text-normal);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 8px;
+}
+
+.map-popup-link {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-family: var(--font-ui);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 4px 0;
+}
+
+.map-popup-link:hover {
+    color: var(--gold-bright);
+    text-decoration: underline;
+}
+
+/* Coordinate helper toast */
+.map-coord-toast {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ash);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-bright);
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.map-coord-toast.visible {
+    opacity: 1;
+}
+
+/* Map legend */
+.map-legend {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(10, 10, 18, 0.9);
+    border: 1px solid var(--border-normal);
+    border-radius: 6px;
+    padding: 10px 14px;
+    z-index: 999;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.map-legend-title {
+    font-weight: 600;
+    color: var(--text-normal);
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+}
+
+.map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.map-legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid;
+    flex-shrink: 0;
+}
+
+.map-legend-dot.sovereign {
+    border-color: var(--gold);
+    background: var(--blood);
+}
+
+.map-legend-dot.city {
+    border-color: var(--bone);
+    background: var(--smoke);
+}
+
+.map-legend-dot.landmark {
+    border-color: var(--dust);
+    background: var(--stone);
+}
+
+.map-legend-dot.party {
+    border-color: var(--gold-bright);
+    background: var(--blood);
+    box-shadow: 0 0 4px var(--gold);
+}
+
+.map-hint {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(10, 10, 18, 0.85);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 6px 10px;
+    z-index: 999;
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    color: var(--text-faint);
+}
+
+/* Leaflet zoom controls */
+.leaflet-control-zoom a {
+    background: var(--ash) !important;
+    color: var(--text-normal) !important;
+    border-color: var(--border-normal) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: var(--stone) !important;
+    color: var(--gold-bright) !important;
+}
+
+/* Smooth zoom rendering for image overlay */
+.leaflet-image-layer {
+    image-rendering: auto;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.leaflet-zoom-animated {
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.leaflet-container {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Smooth marker repositioning during zoom */
+.leaflet-marker-icon {
+    transition: none;
+    will-change: transform;
+}
+
+/* Hide Leaflet attribution (we're self-hosting) */
+.leaflet-control-attribution {
+    display: none !important;
+}
+

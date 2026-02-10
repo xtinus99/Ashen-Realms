@@ -270,6 +270,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupSwipeGestures();
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
+    // Fix Leaflet marker icon paths for self-hosting
+    if (typeof L !== 'undefined') {
+        delete L.Icon.Default.prototype._getIconUrl;
+        L.Icon.Default.mergeOptions({
+            iconRetinaUrl: 'vendor/images/marker-icon-2x.png',
+            iconUrl: 'vendor/images/marker-icon.png',
+            shadowUrl: 'vendor/images/marker-shadow.png'
+        });
+    }
+
     // Check for URL hash to restore state
     if (!restoreFromHash()) {
         showWelcome();
@@ -1896,6 +1906,11 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
         addSessionNavigation(contentBody, item);
     }
 
+    // Initialize interactive world map if this is the map entry
+    if (item.id === 'the-ashen-realms') {
+        initWorldMap(contentBody);
+    }
+
     // Close mobile sidebar
     document.getElementById('sidebar').classList.remove('open');
 
@@ -1903,6 +1918,197 @@ function showItem(categoryName, item, navElement = null, skipHash = false, skipS
     if (!skipScrollToTop) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+}
+
+// ===== INTERACTIVE WORLD MAP =====
+let worldMapInstance = null;
+let mapDataCache = null;
+
+async function initWorldMap(contentBody) {
+    // Check if Leaflet is loaded
+    if (typeof L === 'undefined') {
+        console.warn('Leaflet not loaded yet, retrying...');
+        setTimeout(() => initWorldMap(contentBody), 200);
+        return;
+    }
+
+    // Find the world-map div and replace it
+    const worldMapDiv = contentBody.querySelector('.world-map');
+    if (!worldMapDiv) return;
+
+    // Create the map container
+    const mapContainer = document.createElement('div');
+    mapContainer.id = 'world-map-container';
+    worldMapDiv.replaceWith(mapContainer);
+
+    // Clean up any previous map instance
+    if (worldMapInstance) {
+        worldMapInstance.remove();
+        worldMapInstance = null;
+    }
+
+    // Image dimensions
+    const imgWidth = 1536;
+    const imgHeight = 1024;
+
+    // Create the Leaflet map with CRS.Simple (image coordinates)
+    const bounds = [[0, 0], [imgHeight, imgWidth]];
+    const map = L.map('world-map-container', {
+        crs: L.CRS.Simple,
+        minZoom: -1,
+        maxZoom: 3,
+        zoomSnap: 0.5,
+        zoomDelta: 0.5,
+        wheelPxPerZoomLevel: 60,
+        maxBoundsViscosity: 1.0,
+        doubleClickZoom: false,
+        zoomAnimation: false,
+        fadeAnimation: false,
+        markerZoomAnimation: false
+    });
+
+    // Add the map image as an overlay
+    L.imageOverlay('images/world-map.webp', bounds).addTo(map);
+    map.fitBounds(bounds);
+
+    // Set maxBounds after fitBounds so it calculates the right initial zoom
+    map.setMaxBounds(bounds);
+
+    worldMapInstance = map;
+
+    // Load marker data
+    try {
+        const response = await fetch('map-data.json?v=' + Date.now());
+        const mapData = await response.json();
+        addMapMarkers(map, mapData);
+    } catch (err) {
+        console.error('Failed to load map data:', err);
+    }
+
+    // Add legend
+    addMapLegend(mapContainer);
+
+    // Add coordinate helper hint
+    const hint = document.createElement('div');
+    hint.className = 'map-hint';
+    hint.textContent = 'Shift+Click to get coordinates';
+    mapContainer.appendChild(hint);
+
+    // Coordinate helper: Shift+Click to get coords
+    const toast = document.createElement('div');
+    toast.className = 'map-coord-toast';
+    mapContainer.appendChild(toast);
+
+    map.on('click', function (e) {
+        if (e.originalEvent.shiftKey) {
+            const lat = Math.round(e.latlng.lat);
+            const lng = Math.round(e.latlng.lng);
+            const coordText = `[${lat}, ${lng}]`;
+            toast.textContent = `Coords: ${coordText} (copied!)`;
+            toast.classList.add('visible');
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(coordText).catch(() => {});
+
+            // Also log to console with more detail
+            console.log(`Map coordinates: ${coordText} — Pixel (x=${lng}, y=${imgHeight - lat})`);
+
+            setTimeout(() => toast.classList.remove('visible'), 2500);
+        }
+    });
+
+    // Force a resize after a brief delay (Leaflet needs this when container is new)
+    setTimeout(() => map.invalidateSize(), 100);
+}
+
+function addMapMarkers(map, mapData) {
+    const partyLocationId = mapData.partyLocation;
+
+    mapData.markers.forEach(marker => {
+        const isParty = marker.id === partyLocationId;
+        const markerType = marker.type || 'landmark';
+
+        // Create custom div icon
+        const size = markerType === 'landmark' ? 14 : 18;
+        const icon = L.divIcon({
+            className: `map-marker type-${markerType}${isParty ? ' party-location' : ''}`,
+            iconSize: [size, size],
+            iconAnchor: [size / 2, size / 2],
+            popupAnchor: [0, -(size / 2 + 4)]
+        });
+
+        const leafletMarker = L.marker(marker.coords, { icon: icon }).addTo(map);
+
+        // Build popup HTML
+        let popupHtml = '<div class="map-popup">';
+        popupHtml += `<div class="map-popup-name">${marker.name}</div>`;
+
+        if (marker.subtitle) {
+            popupHtml += `<div class="map-popup-subtitle">${marker.subtitle}</div>`;
+        }
+
+        if (marker.sovereign) {
+            popupHtml += `<div class="map-popup-sovereign">${marker.sovereign}</div>`;
+        }
+
+        if (isParty) {
+            popupHtml += `<div class="map-popup-organ" style="color: var(--gold-bright);">&#9733; Party is here</div>`;
+        }
+
+        if (marker.description) {
+            popupHtml += `<div class="map-popup-desc">${marker.description}</div>`;
+        }
+
+        if (marker.link) {
+            popupHtml += `<a class="map-popup-link" data-category="${marker.link.category}" data-id="${marker.link.id}">Open in Compendium &rarr;</a>`;
+        }
+
+        popupHtml += '</div>';
+
+        leafletMarker.bindPopup(popupHtml, {
+            maxWidth: 300,
+            minWidth: 200
+        });
+
+        // Handle compendium link clicks inside popups
+        leafletMarker.on('popupopen', () => {
+            const popup = leafletMarker.getPopup();
+            const link = popup.getElement().querySelector('.map-popup-link');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const category = link.dataset.category;
+                    const id = link.dataset.id;
+                    navigateToItemById(category, id);
+                });
+            }
+        });
+    });
+}
+
+function addMapLegend(container) {
+    const legend = document.createElement('div');
+    legend.className = 'map-legend';
+    legend.innerHTML = `
+        <div class="map-legend-title">Legend</div>
+        <div class="map-legend-item">
+            <div class="map-legend-dot sovereign"></div>
+            <span>Sovereign Domain</span>
+        </div>
+        <div class="map-legend-item">
+            <div class="map-legend-dot city"></div>
+            <span>Independent City</span>
+        </div>
+        <div class="map-legend-item">
+            <div class="map-legend-dot landmark"></div>
+            <span>Landmark</span>
+        </div>
+        <div class="map-legend-item">
+            <div class="map-legend-dot party"></div>
+            <span>Party Location</span>
+        </div>
+    `;
+    container.appendChild(legend);
 }
 
 // ===== RELATED ARTICLES =====
@@ -3186,7 +3392,7 @@ function setupBondsLink() {
 async function loadRelationshipData() {
     if (relationshipData) return relationshipData;
     try {
-        const response = await fetch('relationships-data.json');
+        const response = await fetch('relationships-data.json?v=' + Date.now());
         relationshipData = await response.json();
         return relationshipData;
     } catch (error) {
@@ -3256,7 +3462,8 @@ const REP_IMAGE_MAP = {
 // Character display names
 const CHAR_NAMES = {
     sol: 'Sol Raven',
-    fursen: 'Fursen'
+    fursen: 'Fursen',
+    teldryn: 'Teldryn'
 };
 
 let selectedEntry = null;
@@ -3313,6 +3520,9 @@ function renderRelationshipsView() {
                     </button>
                     <button class="char-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">
                         <span class="tab-name">Fursen</span>
+                    </button>
+                    <button class="char-tab ${currentRepCharacter === 'teldryn' ? 'active' : ''}" data-char="teldryn">
+                        <span class="tab-name">Teldryn</span>
                     </button>
                 </div>
 

@@ -1,0 +1,168 @@
+{
+  "_comment": "HOW TO ADD MARKERS: Shift+Click on the map to get coordinates, then add a new entry here. Coords are [lat, lng] in Leaflet format (not pixel coords).",
+  "markers": [
+    {
+      "id": "cerebrax",
+      "name": "Cerebrax",
+      "coords": [833, 605],
+      "type": "sovereign",
+      "sovereign": "Ismara the Pale Duchess",
+      "description": "A realm of crystallized thought and living knowledge.",
+      "link": { "category": "Sovereigns", "id": "ismara-the-pale-duchess" }
+    },
+    {
+      "id": "ossathar",
+      "name": "Ossathar",
+      "coords": [779, 808],
+      "type": "sovereign",
+      "sovereign": "Vortegas the Bone-Warden",
+      "description": "A fortress-realm of petrified bone and calcified law.",
+      "link": { "category": "Sovereigns", "id": "vortegas-the-bone-warden" }
+    },
+    {
+      "id": "dominion-of-still-air",
+      "name": "Dominion of Still Air",
+      "coords": [723, 605],
+      "type": "sovereign",
+      "sovereign": "Azerach the Whispered King",
+      "description": "A suffocating expanse of dead air and enforced silence.",
+      "link": { "category": "Sovereigns", "id": "azerach-the-whispered-king" }
+    },
+    {
+      "id": "veinspire",
+      "name": "Veinspire",
+      "subtitle": "Sanguine Dominion",
+      "coords": [651, 734],
+      "type": "sovereign",
+      "sovereign": "Mareatha the Vein-Mother",
+      "description": "Cathedral-city where blood is currency, prayer, and law. Campaign starting location.",
+      "link": { "category": "Locations", "id": "veinspire" }
+    },
+    {
+      "id": "clockwork-sanctum",
+      "name": "The Clockwork Sanctum",
+      "coords": [692, 880],
+      "type": "sovereign",
+      "sovereign": "Imhuran the Regent of Hours",
+      "description": "A realm where time is literal and measured.",
+      "link": { "category": "Locations", "id": "the-clockwork-sanctum" }
+    },
+    {
+      "id": "crucible-of-flesh",
+      "name": "The Crucible of Flesh",
+      "coords": [599, 563],
+      "type": "sovereign",
+      "sovereign": "Aral-Vyn the Bladed Saint",
+      "description": "A forge-realm of living sculpture and relentless perfection.",
+      "link": { "category": "Sovereigns", "id": "aral-vyn-the-bladed-saint" }
+    },
+    {
+      "id": "blooming-rot",
+      "name": "The Blooming Rot",
+      "coords": [568, 841],
+      "type": "sovereign",
+      "sovereign": "Talaris Bloomrend the Verdant King",
+      "description": "A sentient forest where death feeds life and decay becomes growth.",
+      "link": { "category": "Locations", "id": "the-blooming-rot" }
+    },
+    {
+      "id": "vor-khalem",
+      "name": "Vor'Khalem",
+      "coords": [505, 731],
+      "type": "sovereign",
+      "sovereign": "Vor'Kael the Hollow Empress",
+      "description": "A wasteland of consumed meaning surrounding the Mouth of the World.",
+      "link": { "category": "Sovereigns", "id": "vorkael-the-hollow-empress" }
+    },
+    {
+      "id": "bastion-of-fireblood",
+      "name": "Bastion of Fireblood",
+      "coords": [369, 929],
+      "type": "sovereign",
+      "sovereign": "Kaedris the Crimson Matron",
+      "description": "A volcanic realm of burning desire and consuming passion.",
+      "link": { "category": "Sovereigns", "id": "kaedris-the-crimson-matron" }
+    },
+    {
+      "id": "elyara",
+      "name": "Elyara",
+      "subtitle": "Shattered Gravitas",
+      "coords": [305, 591],
+      "type": "sovereign",
+      "sovereign": "Eredain the Choirless Monarch",
+      "description": "A realm where sound itself is power.",
+      "link": { "category": "Sovereigns", "id": "eredain-the-choirless-monarch" }
+    },
+    {
+      "id": "umbrasseur-isles",
+      "name": "Umbrasseur Isles",
+      "coords": [219, 797],
+      "type": "sovereign",
+      "sovereign": "Ultharion the Obsidian Shepherd",
+      "description": "Shadowed isles where identity is fluid and faces are currency.",
+      "link": { "category": "Sovereigns", "id": "ultharion-the-obsidian-shepherd" }
+    },
+    {
+      "id": "nhalyrian-depths",
+      "name": "Nhalyrian Depths",
+      "coords": [187, 1233],
+      "type": "sovereign",
+      "sovereign": "Nhalyra the Azure Queen",
+      "description": "A submerged realm of living dreams and stolen consciousness.",
+      "link": { "category": "Sovereigns", "id": "nhalyra-the-azure-queen" }
+    },
+    {
+      "id": "crownfall",
+      "name": "Crownfall",
+      "coords": [430, 759],
+      "type": "city",
+      "description": "Independent city protected by a barrier that muffles divine sight.",
+      "link": { "category": "Locations", "id": "crownfall" }
+    },
+    {
+      "id": "pallid-crossroads",
+      "name": "The Pallid Crossroads",
+      "coords": [730, 790],
+      "type": "landmark",
+      "description": "A junction in The Unclaimed between Sovereign territories.",
+      "link": { "category": "Locations", "id": "the-pallid-crossroads" }
+    },
+    {
+      "id": "ashford",
+      "name": "Ashford",
+      "coords": [482, 859],
+      "type": "city",
+      "description": "Independent junction town in The Unclaimed."
+    },
+    {
+      "id": "the-hand",
+      "name": "The Hand",
+      "coords": [528, 980],
+      "type": "landmark",
+      "description": "Eastern landmass. Destination of the Arterial Texts."
+    },
+    {
+      "id": "the-hollow",
+      "name": "The Hollow",
+      "coords": [397, 783],
+      "type": "landmark",
+      "description": "Where the party fought the Smoldering Remnant. Jonas died here.",
+      "link": { "category": "Locations", "id": "the-hollow" }
+    },
+    {
+      "id": "gravenholm",
+      "name": "Gravenholm",
+      "coords": [816, 1364],
+      "type": "landmark",
+      "description": "A remote settlement on the eastern reaches."
+    },
+    {
+      "id": "bone-graveyard",
+      "name": "Bone Graveyard",
+      "coords": [510, 814],
+      "type": "landmark",
+      "description": "A vast field of ancient bones."
+    }
+  ],
+  "partyLocation": "crownfall"
+}
