@@ -1976,6 +1976,19 @@ async function initWorldMap(contentBody) {
 
     worldMapInstance = map;
 
+    // Scale markers based on zoom level
+    function updateMarkerScale() {
+        const zoom = map.getZoom();
+        // At minZoom (-1) scale = 0.5, at maxZoom (3) scale = 1.2
+        const scale = 0.5 + (zoom - (-1)) * (0.7 / 4);
+        document.querySelectorAll('.map-marker').forEach(el => {
+            el.style.transform = `scale(${scale})`;
+        });
+    }
+    map.on('zoomend', updateMarkerScale);
+    // Run once after markers are added
+    setTimeout(updateMarkerScale, 100);
+
     // Load marker data
     try {
         const response = await fetch('map-data.json?v=' + Date.now());
