@@ -1960,6 +1960,9 @@ async function initWorldMap(contentBody) {
         zoomSnap: 0.5,
         zoomDelta: 0.5,
         doubleClickZoom: false,
+        zoomAnimation: false,
+        fadeAnimation: false,
+        markerZoomAnimation: false,
         attributionControl: false
     });
 
