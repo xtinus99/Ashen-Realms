@@ -6905,33 +6905,6 @@ body {
     color: var(--gold-bright) !important;
 }
 
-/* Smooth zoom rendering for image overlay */
-.leaflet-image-layer {
-    image-rendering: auto;
-    will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-.leaflet-zoom-animated {
-    will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.leaflet-container {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-/* Smooth marker repositioning during zoom */
-.leaflet-marker-icon {
-    transition: none;
-    will-change: transform;
-}
-
 /* Hide Leaflet attribution (we're self-hosting) */
 .leaflet-control-attribution {
     display: none !important;

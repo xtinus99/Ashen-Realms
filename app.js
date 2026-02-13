@@ -1959,20 +1959,16 @@ async function initWorldMap(contentBody) {
         maxZoom: 3,
         zoomSnap: 0.5,
         zoomDelta: 0.5,
-        wheelPxPerZoomLevel: 60,
-        maxBoundsViscosity: 1.0,
         doubleClickZoom: false,
-        zoomAnimation: false,
-        fadeAnimation: false,
-        markerZoomAnimation: false
+        attributionControl: false
     });
 
     // Add the map image as an overlay
     L.imageOverlay('images/world-map.webp', bounds).addTo(map);
     map.fitBounds(bounds);
 
-    // Set maxBounds after fitBounds so it calculates the right initial zoom
-    map.setMaxBounds(bounds);
+    // Set maxBounds with padding so the map doesn't fight at edges
+    map.setMaxBounds([[-100, -100], [imgHeight + 100, imgWidth + 100]]);
 
     worldMapInstance = map;
 
