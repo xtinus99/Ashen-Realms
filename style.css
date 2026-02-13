@@ -6645,29 +6645,29 @@ body {
 }
 
 .map-marker.type-city {
-    border-color: var(--bone);
-    background: radial-gradient(circle, var(--smoke) 0%, var(--ash) 100%);
-    box-shadow: 0 0 6px rgba(200, 180, 120, 0.4), 0 0 10px rgba(200, 180, 120, 0.2);
+    border-color: #c9a84c;
+    background: radial-gradient(circle, #8a6a30 0%, #5a4218 100%);
+    box-shadow: 0 0 6px rgba(201, 168, 76, 0.4), 0 0 10px rgba(201, 168, 76, 0.2);
 }
 
 .map-marker.type-city::after {
-    background: var(--bone);
-    box-shadow: 0 0 3px var(--bone);
+    background: #c9a84c;
+    box-shadow: 0 0 3px #c9a84c;
 }
 
 .map-marker.type-landmark {
     width: 14px !important;
     height: 14px !important;
-    border-color: var(--dust);
-    background: radial-gradient(circle, var(--stone) 0%, var(--shadow) 100%);
-    box-shadow: 0 0 4px rgba(100, 100, 120, 0.3);
+    border-color: #7aaabe;
+    background: radial-gradient(circle, #4a6a8a 0%, #2a3e54 100%);
+    box-shadow: 0 0 4px rgba(122, 170, 190, 0.3);
 }
 
 .map-marker.type-landmark::after {
     width: 4px;
     height: 4px;
-    background: var(--dust);
-    box-shadow: 0 0 2px var(--dust);
+    background: #7aaabe;
+    box-shadow: 0 0 2px #7aaabe;
 }
 
 /* Party location pulse */
@@ -6864,13 +6864,13 @@ body {
 }
 
 .map-legend-dot.city {
-    border-color: var(--bone);
-    background: var(--smoke);
+    border-color: #c9a84c;
+    background: #8a6a30;
 }
 
 .map-legend-dot.landmark {
-    border-color: var(--dust);
-    background: var(--stone);
+    border-color: #7aaabe;
+    background: #4a6a8a;
 }
 
 .map-legend-dot.party {
