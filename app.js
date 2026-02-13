@@ -1925,22 +1925,9 @@ let worldMapInstance = null;
 let mapDataCache = null;
 
 async function initWorldMap(contentBody) {
-    // Check if Leaflet is loaded
-    if (typeof L === 'undefined') {
-        console.warn('Leaflet not loaded yet, retrying...');
-        setTimeout(() => initWorldMap(contentBody), 200);
-        return;
-    }
-
     // Find the world-map div and replace it
     const worldMapDiv = contentBody.querySelector('.world-map');
     if (!worldMapDiv) return;
-
-    // Create the map container
-    const mapContainer = document.createElement('div');
-    mapContainer.id = 'world-map-container';
-    mapContainer.setAttribute('data-lenis-prevent', '');
-    worldMapDiv.replaceWith(mapContainer);
 
     // Clean up any previous map instance
     if (worldMapInstance) {
@@ -1948,77 +1935,25 @@ async function initWorldMap(contentBody) {
         worldMapInstance = null;
     }
 
-    // Image dimensions
-    const imgWidth = 1536;
-    const imgHeight = 1024;
+    // Create iframe container — isolates the map from all website CSS/JS
+    const mapContainer = document.createElement('div');
+    mapContainer.id = 'world-map-container';
+    mapContainer.setAttribute('data-lenis-prevent', '');
+    worldMapDiv.replaceWith(mapContainer);
 
-    // Create the Leaflet map with CRS.Simple (image coordinates)
-    const bounds = [[0, 0], [imgHeight, imgWidth]];
-    const map = L.map('world-map-container', {
-        crs: L.CRS.Simple,
-        minZoom: -1,
-        maxZoom: 3,
-        zoomSnap: 0.5,
-        zoomDelta: 0.5,
-        doubleClickZoom: false,
-        zoomAnimation: false,
-        fadeAnimation: false,
-        markerZoomAnimation: false,
-        attributionControl: false
-    });
+    const iframe = document.createElement('iframe');
+    iframe.src = 'map-embed.html';
+    iframe.style.cssText = 'width:100%;height:100%;border:none;display:block;';
+    mapContainer.appendChild(iframe);
 
-    // Add the map image as an overlay
-    L.imageOverlay('images/world-map.webp', bounds).addTo(map);
-    map.fitBounds(bounds);
+    worldMapInstance = iframe;
 
-    // Set maxBounds with padding so the map doesn't fight at edges
-    map.setMaxBounds([[-100, -100], [imgHeight + 100, imgWidth + 100]]);
-
-    worldMapInstance = map;
-
-    // Load marker data
-    try {
-        const response = await fetch('map-data.json?v=' + Date.now());
-        const mapData = await response.json();
-        addMapMarkers(map, mapData);
-    } catch (err) {
-        console.error('Failed to load map data:', err);
-    }
-
-    // Add legend
-    addMapLegend(mapContainer);
-
-    // Add coordinate helper hint
-    const hint = document.createElement('div');
-    hint.className = 'map-hint';
-    hint.textContent = 'Shift+Click to get coordinates';
-    mapContainer.appendChild(hint);
-
-    // Coordinate helper: Shift+Click to get coords
-    const toast = document.createElement('div');
-    toast.className = 'map-coord-toast';
-    mapContainer.appendChild(toast);
-
-    map.on('click', function (e) {
-        if (e.originalEvent.shiftKey) {
-            const lat = Math.round(e.latlng.lat);
-            const lng = Math.round(e.latlng.lng);
-            const coordText = `[${lat}, ${lng}]`;
-            toast.textContent = `Coords: ${coordText} (copied!)`;
-            toast.classList.add('visible');
-
-            // Copy to clipboard
-            navigator.clipboard.writeText(coordText).catch(() => {});
-
-            // Also log to console with more detail
-            console.log(`Map coordinates: ${coordText} — Pixel (x=${lng}, y=${imgHeight - lat})`);
-
-            setTimeout(() => toast.classList.remove('visible'), 2500);
+    // Listen for compendium navigation from the iframe
+    window.addEventListener('message', function(e) {
+        if (e.data && e.data.type === 'map-navigate') {
+            navigateToItemById(e.data.category, e.data.id);
         }
     });
-
-    // Force a resize after a brief delay (Leaflet needs this when container is new)
-    setTimeout(() => map.invalidateSize(), 100);
 }
 
 function addMapMarkers(map, mapData) {
