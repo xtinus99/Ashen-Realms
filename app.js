@@ -1972,17 +1972,6 @@ async function initWorldMap(contentBody) {
 
     worldMapInstance = map;
 
-    // Scale markers based on zoom level (use CSS scale, not transform, to avoid overwriting Leaflet's positioning)
-    function updateMarkerScale() {
-        const zoom = map.getZoom();
-        const scale = 0.5 + (zoom - (-1)) * (0.7 / 4);
-        document.querySelectorAll('.map-marker').forEach(el => {
-            el.style.scale = scale;
-        });
-    }
-    map.on('zoomend', updateMarkerScale);
-    setTimeout(updateMarkerScale, 100);
-
     // Load marker data
     try {
         const response = await fetch('map-data.json?v=' + Date.now());
