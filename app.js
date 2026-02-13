@@ -1939,6 +1939,7 @@ async function initWorldMap(contentBody) {
     // Create the map container
     const mapContainer = document.createElement('div');
     mapContainer.id = 'world-map-container';
+    mapContainer.setAttribute('data-lenis-prevent', '');
     worldMapDiv.replaceWith(mapContainer);
 
     // Clean up any previous map instance
