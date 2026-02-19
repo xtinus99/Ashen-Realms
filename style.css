@@ -843,7 +843,6 @@ body {
 }
 
 .nav-category {
-    border-bottom: 1px solid var(--border-subtle);
 }
 
 .nav-category:last-child {
@@ -1007,13 +1006,7 @@ body {
 }
 
 .nav-item-child::before {
-    content: '';
-    position: absolute;
-    left: 3.5rem;
-    width: 6px;
-    height: 1px;
-    background: var(--text-faint);
-    margin-top: 0.7em;
+    content: none;
 }
 
 /* Subcategory Navigation (e.g., Crownfall within Locations) */

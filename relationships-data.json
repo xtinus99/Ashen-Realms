@@ -567,7 +567,7 @@
         "name": "Velara Ashyn",
         "type": "Soul",
         "category": "npcs",
-        "reputation": 21000,
+        "reputation": 23000,
         "description": "You carry me toward danger, but also toward freedom.",
         "likes": [
           "Speaking to her",
@@ -593,6 +593,10 @@
           {
             "change": 2000,
             "reason": "Expressed awe at Sol's defiance of Kaedris; stabilized after trauma (Session 25)"
+          },
+          {
+            "change": 2000,
+            "reason": "Spoke with her in safety; confirmed Kaedris cannot reach them in Crownfall (Session 27)"
           }
         ],
         "unlocks": [
@@ -800,7 +804,7 @@
         "name": "Velvet Thorn",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 19000,
+        "reputation": 20000,
         "description": "You keep coming back with fewer people and more scars. At least you come back.",
         "likes": [
           "Being discreet",
@@ -826,6 +830,10 @@
           {
             "change": 1500,
             "reason": "Returned with Lawrence's ashes; honest about another loss; consistent return (Session 26)"
+          },
+          {
+            "change": 1000,
+            "reason": "Another night, another silence. The empty stool speaks for itself. (Session 27)"
           }
         ],
         "unlocks": [
@@ -913,7 +921,7 @@
         "name": "Sister Varen",
         "type": "Ancient Ally",
         "category": "npcs",
-        "reputation": 28000,
+        "reputation": 33000,
         "description": "I had forgotten what blue looked like. Thank you.",
         "likes": [
           "Sharing memories of the world before",
@@ -935,6 +943,10 @@
           {
             "change": 3000,
             "reason": "Carries shard of Aedwynn — kindred spirit"
+          },
+          {
+            "change": 5000,
+            "reason": "Trusted with knowledge of the Hand and the Pulse; directed to purification site (Session 27)"
           }
         ],
         "unlocks": [
@@ -985,10 +997,10 @@
       },
       {
         "name": "Sorrow",
-        "type": "Companion",
+        "type": "Friend",
         "category": "npcs",
-        "reputation": 14000,
-        "description": "You came seeking understanding. You left with purpose.",
+        "reputation": 33000,
+        "description": "You showed me the sky. You are the first person who ever asked what I wanted.",
         "likes": [
           "Honest vulnerability",
           "Seeking understanding over comfort",
@@ -1005,6 +1017,10 @@
           {
             "change": 4000,
             "reason": "Transformative emotional breakthrough; Sol gained purpose from grief (Session 24)"
+          },
+          {
+            "change": 19000,
+            "reason": "Showed her the sky for the first time; received Sorrow's Tear — her final tear (Session 27)"
           }
         ],
         "unlocks": [
@@ -1168,6 +1184,29 @@
           {
             "change": 500,
             "reason": "Visited him at the Last Bed; heard his testimony (Session 26)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Edra",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "Brought the flayed man to my door. Didn't explain. Didn't need to.",
+        "likes": [
+          "Bringing patients",
+          "Honest dealings",
+          "Practical requests"
+        ],
+        "dislikes": [
+          "Wasting her time",
+          "Causing harm in her hall"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Brought Subject 6 to the Hall of Mending; asked her to care for him (Session 27)"
           }
         ],
         "unlocks": []
@@ -2062,6 +2101,58 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Denna Hesk",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 21000,
+        "description": "You found who took my husband. You killed him. I can never repay that.",
+        "likes": [
+          "Investigating disappearances",
+          "Protecting tradespeople",
+          "Following through on promises",
+          "Honesty"
+        ],
+        "dislikes": [
+          "Empty promises",
+          "Indifference to suffering",
+          "Abandoning investigations"
+        ],
+        "history": [
+          {
+            "change": 11000,
+            "reason": "Investigated the Carpenter's Quarter disappearances; killed Cordwain Corbel; avenged Torin Hesk (Session 27)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Denna spreads word of Fursen's deeds in the Carpenter's Quarter"
+          }
+        ]
+      },
+      {
+        "name": "Edra",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Brought a flayed man to my door. At least you brought him alive.",
+        "likes": [
+          "Bringing patients alive",
+          "Not making things worse"
+        ],
+        "dislikes": [
+          "Botched field medicine",
+          "Causing more harm"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Brought Subject 6 to the Hall of Mending; botched one clip removal but got him there alive (Session 27)"
+          }
+        ],
+        "unlocks": []
       }
     ]
   },
@@ -2282,6 +2373,102 @@
           {
             "threshold": 21000,
             "reward": "Permanent discount at her establishment"
+          }
+        ]
+      },
+      {
+        "name": "Captain Hael",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 25000,
+        "description": "Eight prisoners. A dead guard. Actionable intelligence. You delivered.",
+        "likes": [
+          "Actionable intelligence",
+          "Freeing prisoners",
+          "Following through",
+          "Professional conduct"
+        ],
+        "dislikes": [
+          "Withholding information",
+          "Going rogue without reporting",
+          "Endangering her guards",
+          "Empty promises"
+        ],
+        "history": [
+          {
+            "change": 15000,
+            "reason": "Freed 8 prisoners from Slavers' Hollow including a child; provided actionable intel (Session 27)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Captain Hael shares Watch intelligence about the Kennels"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Hael provides Varn Guard backup for operations"
+          }
+        ]
+      },
+      {
+        "name": "The Docent",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 15000,
+        "description": "A fair trade. Your interior for my texts. Satisfactory.",
+        "likes": [
+          "Fair knowledge trades",
+          "Honest experience",
+          "Respecting the rules",
+          "Precise questions"
+        ],
+        "dislikes": [
+          "Lying about experience",
+          "Touching without permission",
+          "Removing materials",
+          "Violence"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Traded honest account of losing his face for texts on Aral-Vyn (Session 27)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "The Docent offers deeper texts"
+          }
+        ]
+      },
+      {
+        "name": "Edra",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 16000,
+        "description": "That's not healing. That's something else. Show me more.",
+        "likes": [
+          "Demonstrating the Sculptor's Touch",
+          "Healing without conditions",
+          "Professional conduct",
+          "Honest dealing"
+        ],
+        "dislikes": [
+          "Refusing to help the injured",
+          "Overcharging the desperate",
+          "Arrogance without skill"
+        ],
+        "history": [
+          {
+            "change": 6000,
+            "reason": "Demonstrated Sculptor's Touch on a dockworker's crushed leg — healed and improved it (Session 27)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Edra refers patients to Teldryn"
           }
         ]
       }
