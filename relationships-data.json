@@ -804,7 +804,7 @@
         "name": "Velvet Thorn",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 20000,
+        "reputation": 21000,
         "description": "You keep coming back with fewer people and more scars. At least you come back.",
         "likes": [
           "Being discreet",
@@ -834,6 +834,10 @@
           {
             "change": 1000,
             "reason": "Another night, another silence. The empty stool speaks for itself. (Session 27)"
+          },
+          {
+            "change": 1000,
+            "reason": "Consistent return; trusted lodging through Slavers’ Hollow operations, Sessions 28-29"
           }
         ],
         "unlocks": [
@@ -1121,7 +1125,7 @@
         "name": "Teldryn",
         "type": "Companion",
         "category": "npcs",
-        "reputation": 13000,
+        "reputation": 15000,
         "description": "He called us cowards and then fought beside us. I'll take that.",
         "likes": [
           "Competence",
@@ -1139,6 +1143,10 @@
           {
             "change": 3000,
             "reason": "Proved himself in the wall breach; walked ten days through the Unclaimed together (Session 26)"
+          },
+          {
+            "change": 2000,
+            "reason": "Trusted him with Corbel’s Master Tools; fought alongside in Slavers’ Hollow; cleared the operation together, Sessions 28-29"
           }
         ],
         "unlocks": []
@@ -1192,7 +1200,7 @@
         "name": "Edra",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 13000,
+        "reputation": 14000,
         "description": "Brought the flayed man to my door. Didn't explain. Didn't need to.",
         "likes": [
           "Bringing patients",
@@ -1207,9 +1215,48 @@
           {
             "change": 3000,
             "reason": "Brought Subject 6 to the Hall of Mending; asked her to care for him (Session 27)"
+          },
+          {
+            "change": 1000,
+            "reason": "Returned to Hall of Mending; ongoing collaboration for Davan Holst’s care, Session 28"
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Captain Hael",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "You cleared the Hollow. That counts for something in my book.",
+        "likes": [
+          "Following through on commitments",
+          "Protecting civilians",
+          "Bringing evidence",
+          "Working within the law"
+        ],
+        "dislikes": [
+          "Vigilante justice in the Rings",
+          "Withholding evidence",
+          "Endangering civilians",
+          "Making promises you can’t keep"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Part of the team that cleared the Slavers’ Hollow; killed Greave and Korvain, Sessions 28-29"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Captain Hael shares Watch intelligence"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Hael provides Varn Guard backup for operations"
+          }
+        ]
       }
     ]
   },
@@ -1790,7 +1837,7 @@
         "name": "The Dealer",
         "type": "Merchant",
         "category": "npcs",
-        "reputation": 11000,
+        "reputation": 12000,
         "description": "Do try not to die in them. Returns are... not accepted.",
         "likes": [
           "Bringing interesting items to trade",
@@ -1808,6 +1855,10 @@
           {
             "change": 1000,
             "reason": "Repeat customer; traded Flayer's Touch, purchased Wraps and Robes (Session 24)"
+          },
+          {
+            "change": 1000,
+            "reason": "Purchased Cloak of Protection; return customer with full party, Session 29"
           }
         ],
         "unlocks": [
@@ -1995,7 +2046,7 @@
         "name": "Velvet Thorn",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 18500,
+        "reputation": 19500,
         "description": "Where's the paladin?",
         "likes": [
           "Being discreet",
@@ -2021,6 +2072,10 @@
           {
             "change": 1500,
             "reason": "Showed Lawrence's ashes without pretense; consistent loyalty (Session 26)"
+          },
+          {
+            "change": 1000,
+            "reason": "Continued loyalty through dangerous operations; trusted lodging, Sessions 28-29"
           }
         ],
         "unlocks": [
@@ -2038,7 +2093,7 @@
         "name": "Teldryn",
         "type": "Companion",
         "category": "npcs",
-        "reputation": 10000,
+        "reputation": 13000,
         "description": "The Leonin. Bit me. Doesn't matter.",
         "likes": [
           "Directness",
@@ -2056,6 +2111,10 @@
           {
             "change": 0,
             "reason": "Bit him and called him a sovereign's bitch — Teldryn doesn't care (Session 26)"
+          },
+          {
+            "change": 3000,
+            "reason": "Fought alongside in Slavers’ Hollow; grudging respect after combat; functional despite tension, Sessions 28-29"
           }
         ],
         "unlocks": []
@@ -2106,7 +2165,7 @@
         "name": "Denna Hesk",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 21000,
+        "reputation": 23000,
         "description": "You found who took my husband. You killed him. I can never repay that.",
         "likes": [
           "Investigating disappearances",
@@ -2123,6 +2182,10 @@
           {
             "change": 11000,
             "reason": "Investigated the Carpenter's Quarter disappearances; killed Cordwain Corbel; avenged Torin Hesk (Session 27)"
+          },
+          {
+            "change": 2000,
+            "reason": "Returned to deliver closure about Corbel; honest about survivors and casualties, Session 28"
           }
         ],
         "unlocks": [
@@ -2136,7 +2199,7 @@
         "name": "Edra",
         "type": "Neutral",
         "category": "npcs",
-        "reputation": 11000,
+        "reputation": 12000,
         "description": "Brought a flayed man to my door. At least you brought him alive.",
         "likes": [
           "Bringing patients alive",
@@ -2150,9 +2213,56 @@
           {
             "change": 1000,
             "reason": "Brought Subject 6 to the Hall of Mending; botched one clip removal but got him there alive (Session 27)"
+          },
+          {
+            "change": 1000,
+            "reason": "Ongoing collaboration at Hall of Mending; brought evidence from the Hollow, Session 28"
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Captain Hael",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 21000,
+        "description": "You brought me something I can use. Don’t make me regret trusting you.",
+        "likes": [
+          "Delivering actionable evidence",
+          "Connecting intelligence across cases",
+          "Asking hard questions",
+          "Working within the law"
+        ],
+        "dislikes": [
+          "Vigilante justice in the Rings",
+          "Withholding evidence",
+          "Haggling over bounties during a crisis",
+          "Making threats"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Delivered auction ledger, Korvain’s letter, and all evidence to Hael, Session 29"
+          },
+          {
+            "change": 4000,
+            "reason": "Connected Lord Harwick to both Corbel’s bone-craft and Korvain’s slave trade — built the case, Session 29"
+          },
+          {
+            "change": 2000,
+            "reason": "Asked Hael the hard question about trust and corruption; showed he understands the stakes, Session 29"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Captain Hael shares Watch intelligence about the Kennels"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Hael provides Varn Guard backup for operations"
+          }
+        ]
       }
     ]
   },
@@ -2197,7 +2307,7 @@
         "name": "Sol Raven",
         "type": "Companion",
         "category": "npcs",
-        "reputation": 12000,
+        "reputation": 14000,
         "description": "The skeleton mediates. Useful. There's something else about him.",
         "likes": [
           "Rational discussion",
@@ -2215,6 +2325,10 @@
           {
             "change": 2000,
             "reason": "Mediated with Fursen; showed composure; fought together at the wall (Session 26)"
+          },
+          {
+            "change": 2000,
+            "reason": "Received Corbel’s Master Tools; fought alongside in Slavers’ Hollow; trusted, Sessions 28-29"
           }
         ],
         "unlocks": []
@@ -2223,7 +2337,7 @@
         "name": "Fursen",
         "type": "Hostile",
         "category": "npcs",
-        "reputation": 3000,
+        "reputation": 5000,
         "description": "Another sovereign's bitch. At least he's honest about it.",
         "likes": [
           "Proving himself in combat",
@@ -2245,6 +2359,10 @@
           {
             "change": -3000,
             "reason": "Shadar-kai from the Umbrasseur Isles — immediate distrust (Session 26)"
+          },
+          {
+            "change": 2000,
+            "reason": "Combat cooperation in the Hollow; functional despite tension; Fursen bought him ale, Sessions 28-29"
           }
         ],
         "unlocks": [
@@ -2349,7 +2467,7 @@
         "name": "Velvet Thorn",
         "type": "Neutral",
         "category": "npcs",
-        "reputation": 10500,
+        "reputation": 11000,
         "description": "New one gets the single at the end of the hall.",
         "likes": [
           "Being discreet",
@@ -2367,6 +2485,10 @@
           {
             "change": 500,
             "reason": "Arrived with Sol and Fursen; given a room; first impression (Session 26)"
+          },
+          {
+            "change": 500,
+            "reason": "Returned after Hollow operations; another night at the inn, Sessions 28-29"
           }
         ],
         "unlocks": [
@@ -2380,7 +2502,7 @@
         "name": "Captain Hael",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 25000,
+        "reputation": 30000,
         "description": "Eight prisoners. A dead guard. Actionable intelligence. You delivered.",
         "likes": [
           "Actionable intelligence",
@@ -2398,6 +2520,10 @@
           {
             "change": 15000,
             "reason": "Freed 8 prisoners from Slavers' Hollow including a child; provided actionable intel (Session 27)"
+          },
+          {
+            "change": 5000,
+            "reason": "Collected Greave and Korvain bounties; delivered severed heads and evidence; earned Writ of Service, Sessions 28-29"
           }
         ],
         "unlocks": [
@@ -2446,7 +2572,7 @@
         "name": "Edra",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 16000,
+        "reputation": 18000,
         "description": "That's not healing. That's something else. Show me more.",
         "likes": [
           "Demonstrating the Sculptor's Touch",
@@ -2463,12 +2589,86 @@
           {
             "change": 6000,
             "reason": "Demonstrated Sculptor's Touch on a dockworker's crushed leg — healed and improved it (Session 27)"
+          },
+          {
+            "change": 2000,
+            "reason": "Healed Davan Holst’s flayed leg with Sculptor’s Touch; Edra witnessed and was impressed but suspicious, Session 28"
           }
         ],
         "unlocks": [
           {
             "threshold": 21000,
             "reward": "Edra refers patients to Teldryn"
+          }
+        ]
+      },
+      {
+        "name": "The Dealer",
+        "type": "Merchant",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "The surgeon who couldn’t decide what to buy.",
+        "likes": [
+          "Browsing seriously",
+          "Having gold to spend",
+          "Returning with intent",
+          "Not wasting time"
+        ],
+        "dislikes": [
+          "Window shopping without gold",
+          "Touching merchandise",
+          "Haggling aggressively",
+          "Bringing trouble to the shop"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Browsed extensively; showed genuine interest in shields, rings, and amulets; returned with full party, Sessions 28-29"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Access to rarer inventory"
+          },
+          {
+            "threshold": 21000,
+            "reward": "The Dealer holds items on request"
+          }
+        ]
+      },
+      {
+        "name": "Davan Holst",
+        "type": "Client",
+        "category": "npcs",
+        "reputation": 15000,
+        "description": "You made my leg better than it was. I owe you.",
+        "likes": [
+          "Professional conduct",
+          "Fair payment",
+          "Quality craftsmanship",
+          "Honest dealing"
+        ],
+        "dislikes": [
+          "Unreasonable demands",
+          "Cruelty to the vulnerable",
+          "Breaking agreements",
+          "Charity without terms"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Healed his flayed leg with Sculptor’s Touch — made it better than before; negotiated 30% masonry discount, Session 28"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Priority masonry and construction work at 30% discount"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Davan spreads word of Teldryn’s abilities among tradespeople"
           }
         ]
       }
