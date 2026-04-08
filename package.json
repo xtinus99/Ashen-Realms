@@ -1,0 +1,40 @@
+{
+  "name": "player-site",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xtinus99/Ashen-Realms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xtinus99/Ashen-Realms/issues"
+  },
+  "homepage": "https://github.com/xtinus99/Ashen-Realms#readme",
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "vite": "^8.0.6"
+  },
+  "dependencies": {
+    "@fontsource/im-fell-english": "^5.2.6",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/spectral": "^5.2.8",
+    "@popperjs/core": "^2.11.8",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/slim": "^3.9.1",
+    "gsap": "^3.14.2",
+    "leaflet": "^1.9.4",
+    "lenis": "^1.3.21",
+    "lucide": "^1.7.0",
+    "medium-zoom": "^1.1.0",
+    "tippy.js": "^6.3.7"
+  }
+}

@@ -3,90 +3,7 @@
    A chronicle of gods, monsters, and mortal ambition
    ===================================================== */
 
-/* === FONT FACES === */
-
-/* IM Fell English - Display font for titles */
-@font-face {
-    font-family: 'IM Fell English';
-    src: url('fonts/IMFellEnglish-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'IM Fell English';
-    src: url('fonts/IMFellEnglish-Italic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* Spectral - Body text font */
-@font-face {
-    font-family: 'Spectral';
-    src: url('fonts/Spectral-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('fonts/Spectral-Italic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('fonts/Spectral-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('fonts/Spectral-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Spectral';
-    src: url('fonts/Spectral-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Inter - UI font */
-@font-face {
-    font-family: 'Inter';
-    src: url('fonts/static/Inter_18pt-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: url('fonts/static/Inter_18pt-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: url('fonts/static/Inter_18pt-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
+/* Fonts are loaded via @fontsource in main.js (WOFF2 format) */
 
 /* === DESIGN TOKENS === */
 :root {
@@ -237,7 +154,7 @@ body {
     position: absolute;
     inset: 0;
     opacity: 0.15;
-    background-image: url('Assets/Dark Marble.webp');
+    background-image: url('/Assets/Dark Marble.webp');
     background-size: cover;
     background-position: center;
     mix-blend-mode: overlay;
@@ -503,7 +420,7 @@ body {
     width: 180px;
     height: 180px;
     pointer-events: none;
-    background-image: url('Assets/Golden Corner.webp');
+    background-image: url('/Assets/Golden Corner.webp');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.95;
@@ -3246,7 +3163,7 @@ body {
 /* Front - Card Back Design (silk refuge logo) */
 .worker-card-front {
     background-color: #2a1a1a;
-    background-image: url('images/silken-refuge-card.webp');
+    background-image: url('/images/silken-refuge-card.webp');
     background-size: cover;
     background-position: center;
     border: 2px solid #8B6914;
