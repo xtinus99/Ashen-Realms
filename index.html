@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    // Unregister old service worker from pre-Vite site
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (var r of registrations) { r.unregister(); }
+      });
+      caches.keys().then(function(names) {
+        for (var name of names) { caches.delete(name); }
+      });
+    }
+    </script>
     <title>The Ashen Realms</title>
     <meta name="description" content="A chronicle of thirteen thrones built on the corpse of a murdered god, and those who dare to walk between them.">
     <meta name="theme-color" content="#0a0a12">
