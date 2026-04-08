@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/xtinus99/Ashen-Realms#readme",
   "devDependencies": {
-    "sharp": "^0.34.5",
     "vite": "^8.0.6"
   },
   "dependencies": {
