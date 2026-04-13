@@ -122,8 +122,9 @@ export function autoLinkWikiReferences(articleBody, currentItemTitle) {
 
         // Check each wiki entry
         for (const entry of wikiIndex) {
-            // Skip self-references
+            // Skip self-references (check both title and fullTitle for aliases)
             if (entry.title === currentItemTitle) continue;
+            if (entry.fullTitle && entry.fullTitle === currentItemTitle) continue;
 
             // Create a regex that matches the title as a whole word
             // Use word boundaries but also allow for possessives ('s)
