@@ -130,7 +130,12 @@ export function autoLinkWikiReferences(articleBody, currentItemTitle) {
             // Use word boundaries but also allow for possessives ('s)
             // Negative lookbehind (?<!') prevents matching after apostrophe (e.g., "Kael" in "Vor'Kael")
             const escapedTitle = entry.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`(?<!')\\b(${escapedTitle})(?:'s)?\\b`, 'gi');
+            // Specific disambiguators: "The Hollow" must not match inside Sovereign titles
+            // ("the Hollow Crown" = Karthayne, "the Hollow Empress" = Vor'Kael)
+            const followGuard = entry.title.toLowerCase() === 'the hollow'
+                ? '(?!\\s+(?:Crown|Empress))'
+                : '';
+            const regex = new RegExp(`(?<!')\\b(${escapedTitle})(?:'s)?\\b${followGuard}`, 'gi');
 
             let match;
             while ((match = regex.exec(text)) !== null) {

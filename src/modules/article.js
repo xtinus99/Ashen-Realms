@@ -552,8 +552,15 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
         // Skip common words that might match accidentally
         const skipWords = ['The', 'And', 'For', 'With', 'From', 'This', 'That', 'Session'];
         if (skipWords.includes(name)) return false;
+        const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        // Specific disambiguators: "The Hollow" must not match inside Sovereign titles
+        // ("the Hollow Crown" = Karthayne, "the Hollow Empress" = Vor'Kael)
+        if (name.toLowerCase() === 'the hollow') {
+            const regex = new RegExp(`\\b${escapedName}\\b(?!\\s+(?:Crown|Empress))`, 'i');
+            return regex.test(text);
+        }
         // Use word boundary check
-        const regex = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        const regex = new RegExp(`\\b${escapedName}\\b`, 'i');
         return regex.test(text);
     }
 

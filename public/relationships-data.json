@@ -6,7 +6,7 @@
         "type": "Dead God",
         "category": "sovereigns",
         "reputation": 51000,
-        "description": "You are my Witness, Aedwynn-Born. The keeping is yours now.",
+        "description": "You are my Witness. The keeping is yours now.",
         "likes": [
           "Creating new things",
           "Fighting the Sovereigns",
@@ -34,7 +34,7 @@
           },
           {
             "change": 13000,
-            "reason": "Returned the Passion-Seed to her in the Basilica; received the title Aedwynn-Born; accepted The Vigil from her knight Galheran"
+            "reason": "Returned the Passion-Seed to her in the Basilica; the figment Witnessed him by name as the Aedwynn-Born he had always been, and gave her knight leave to hand him The Vigil"
           }
         ],
         "unlocks": [
@@ -2696,10 +2696,10 @@
       },
       {
         "name": "Galheran the Unmoved",
-        "type": "Hostile",
+        "type": "Neutral",
         "category": "npcs",
-        "reputation": 3000,
-        "description": "Powerless dog. He let you walk out anyway. The Maker asked it of him. He did not enjoy it.",
+        "reputation": 9500,
+        "description": "He called you a powerless dog and meant it. After the renunciation, he stepped aside without comment. The hatred has not left him, but it is no longer aimed at you.",
         "likes": [
           "Honouring the Maker",
           "Renouncing Sovereigns",
@@ -2714,17 +2714,17 @@
         "history": [
           {
             "change": 3000,
-            "reason": "Galheran rose against you on sight; Sol's intervention stayed his hand; you walked out of the chamber under his allowance, not with his blessing"
+            "reason": "Galheran rose against you on sight, called you \"Bastard... Dog of Valdyrian... USURPER!\", and put you on the floor in seconds. Sol's intervention kept the second blow from landing."
           },
           {
-            "change": 0,
-            "reason": "After the renunciation: the Unmoved stepped aside. Whatever changed, it is not friendship — but the door is no longer closed to you."
+            "change": 6500,
+            "reason": "After the renunciation: you came back into the chamber, knelt, peeled off the grafted face yourself, and renounced your Sovereign aloud. Galheran was taken aback. He had put you on the floor an hour earlier; this was not what he had been bracing for. He stepped aside and let you walk past him into the Maker's chamber. Not friendship. Not warmth. But the door is no longer closed to you."
           }
         ],
         "unlocks": [
           {
-            "threshold": 9000,
-            "reward": "Galheran ceases to consider you an active threat"
+            "threshold": 15000,
+            "reward": "Galheran will speak to you without the eye-lights flaring"
           },
           {
             "threshold": 21000,
