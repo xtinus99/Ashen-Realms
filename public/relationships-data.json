@@ -5,8 +5,8 @@
         "name": "Aedwynn the Maker",
         "type": "Dead God",
         "category": "sovereigns",
-        "reputation": 38000,
-        "description": "You are my Witness. Carry what I was.",
+        "reputation": 51000,
+        "description": "You are my Witness, Aedwynn-Born. The keeping is yours now.",
         "likes": [
           "Creating new things",
           "Fighting the Sovereigns",
@@ -31,6 +31,10 @@
           {
             "change": 5000,
             "reason": "Carries her shard faithfully"
+          },
+          {
+            "change": 13000,
+            "reason": "Returned the Passion-Seed to her in the Basilica; received the title Aedwynn-Born; accepted The Vigil from her knight Galheran"
           }
         ],
         "unlocks": [
@@ -128,10 +132,10 @@
       },
       {
         "name": "Velara Ashyn",
-        "type": "Soul",
+        "type": "At Rest",
         "category": "npcs",
-        "reputation": 23000,
-        "description": "You carry me toward danger, but also toward freedom.",
+        "reputation": 28000,
+        "description": "Released. At rest in the Maker's tree.",
         "likes": [
           "Speaking to her",
           "Seeking her freedom",
@@ -160,6 +164,10 @@
           {
             "change": 2000,
             "reason": "Spoke with her in safety; confirmed Kaedris cannot reach them in Crownfall (Session 27)"
+          },
+          {
+            "change": 5000,
+            "reason": "Carried her to the Basilica and released her into the Maker's tree; she rests now after 500 years"
           }
         ],
         "unlocks": [
@@ -904,6 +912,41 @@
         ],
         "unlocks": [],
         "deceased": true
+      },
+      {
+        "name": "Galheran the Unmoved",
+        "type": "Ancient Ally",
+        "category": "npcs",
+        "reputation": 28000,
+        "description": "Sister-shard. The keeping is in better hands now.",
+        "likes": [
+          "Honouring the Maker",
+          "The Witness's work",
+          "Carrying the duty forward",
+          "Standing where you are told to stand"
+        ],
+        "dislikes": [
+          "Sovereign-bound bodies near the door",
+          "Anyone bearing Aral-Vyn's mark",
+          "Anyone bearing Vortegas's mark",
+          "Abandoning a post"
+        ],
+        "history": [
+          {
+            "change": 28000,
+            "reason": "Calmed by Sol's Witness power; accepted Sol's mission; gave The Vigil to Sol; stepped out of his two-thousand-year post for the first time"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 33000,
+            "reward": "Galheran answers a single question about the Maker's circle"
+          },
+          {
+            "threshold": 45000,
+            "reward": "Dawn's Edge will release to a hand the Witness vouches for"
+          }
+        ]
       }
     ]
   },
@@ -1867,7 +1910,7 @@
         "name": "Korrath the Steady",
         "type": "Elder",
         "category": "npcs",
-        "reputation": 28000,
+        "reputation": 33000,
         "description": "Those names are not a gift, boy. They are a task.",
         "likes": [
           "Honesty about what you don't know",
@@ -1885,6 +1928,10 @@
           {
             "change": 18000,
             "reason": "Seven weeks of training, trust, and the old ways; farewell with hand on shoulder (Sessions 31-32)"
+          },
+          {
+            "change": 5000,
+            "reason": "Recognised Fursen's call as Pride-business; the Pride answered with him"
           }
         ],
         "unlocks": [
@@ -1902,7 +1949,7 @@
         "name": "Ashka Voidmane",
         "type": "Friend",
         "category": "npcs",
-        "reputation": 30000,
+        "reputation": 33000,
         "description": "TELL ME ABOUT THE SUN!",
         "likes": [
           "Telling her about the outside",
@@ -1920,6 +1967,10 @@
           {
             "change": 20000,
             "reason": "Pulled him through a tear because he was the colour they're supposed to be; seven weeks of friendship; emotional farewell (Sessions 30-32)"
+          },
+          {
+            "change": 3000,
+            "reason": "Stood at Fursen's side when the Pride answered the call to the Knuckle Pass"
           }
         ],
         "unlocks": [
@@ -1937,8 +1988,8 @@
         "name": "Yira Duskmane",
         "type": "Mentor",
         "category": "npcs",
-        "reputation": 24000,
-        "description": "Control. Always control.",
+        "reputation": 34000,
+        "description": "She came when you called. The Pride answers.",
         "likes": [
           "Discipline",
           "Asking the Void instead of forcing it",
@@ -1955,6 +2006,10 @@
           {
             "change": 14000,
             "reason": "Taught Void Strike and Absence Step; seven weeks of training; warm farewell (Sessions 31-32)"
+          },
+          {
+            "change": 10000,
+            "reason": "Answered the call to the Knuckle Pass personally; performed ehn-varuu on Sol's body; restored him from death"
           }
         ],
         "unlocks": [
@@ -2070,6 +2125,59 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Aedwynn the Maker",
+        "type": "Dead God",
+        "category": "sovereigns",
+        "reputation": 11000,
+        "description": "She made the world the Leonin walked. She did not save them. She has not asked you to forgive that.",
+        "likes": [
+          "Carrying the names forward",
+          "Refusing to dissolve",
+          "Standing for a friend",
+          "Honouring what was made"
+        ],
+        "dislikes": [
+          "Letting names go quiet",
+          "Serving Sovereigns",
+          "Abandoning kin",
+          "Forgetting the made world"
+        ],
+        "history": [
+          {
+            "change": 11000,
+            "reason": "Attended the Basilica's nave while the 10,000 names were quiet for the first time; the Maker did not ask anything of him"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Aedwynn-figment recognition on second visit"
+          }
+        ]
+      },
+      {
+        "name": "Galheran the Unmoved",
+        "type": "Acquaintance",
+        "category": "npcs",
+        "reputation": 9500,
+        "description": "He let you back down the stairs. You did not engage him. He noticed.",
+        "likes": [
+          "Standing for the Witness",
+          "Honouring the Maker"
+        ],
+        "dislikes": [
+          "Sovereign-bound bodies",
+          "Void-touched intruders past the threshold"
+        ],
+        "history": [
+          {
+            "change": 9500,
+            "reason": "Did not attack the Unmoved; ran when the fight broke; stood with Sol after the door opened"
+          }
+        ],
+        "unlocks": []
       }
     ]
   },
@@ -2077,10 +2185,10 @@
     "relationships": [
       {
         "name": "Aral-Vyn the Bladed Saint",
-        "type": "Sovereign (Patron)",
+        "type": "Severed Pact",
         "category": "sovereigns",
-        "reputation": 15000,
-        "description": "You are being refined. The process continues.",
+        "reputation": -15000,
+        "description": "Pact severed. The Bladed Saint has lost his pact-bearer. What he does about that is unknown.",
         "likes": [
           "Efficient combat",
           "Using the Sculptor's Touch",
@@ -2097,6 +2205,10 @@
           {
             "change": 5000,
             "reason": "Accepted pact; received new face and blade"
+          },
+          {
+            "change": -30000,
+            "reason": "Renounced the pact aloud in the Maker's antechamber; tore off the grafted face; the Annual Correction is cancelled forever"
           }
         ],
         "unlocks": [
@@ -2546,6 +2658,79 @@
         ],
         "history": [],
         "unlocks": []
+      },
+      {
+        "name": "Aedwynn the Maker",
+        "type": "Patron",
+        "category": "sovereigns",
+        "reputation": 28000,
+        "description": "She remembers what the Shadar-kai are. She made them. She gave you back your face.",
+        "likes": [
+          "Acting from your own hand",
+          "Sheltering rather than correcting",
+          "Restoring rather than reshaping",
+          "Honouring what was made"
+        ],
+        "dislikes": [
+          "Returning to Sovereign service",
+          "Self-mutilation as devotion",
+          "Treating the boons as a contract",
+          "Acting as her instrument without thought"
+        ],
+        "history": [
+          {
+            "change": 28000,
+            "reason": "First Maker-bound hexblade in 2,000 years; the figment severed the Aral-Vyn pact, restored your original Shadar-kai face, and bound a new pact in pale gold light"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 33000,
+            "reward": "Replacement boons for Excision and Sinew Wrought begin to manifest"
+          },
+          {
+            "threshold": 45000,
+            "reward": "The Maker attends you in dream"
+          }
+        ]
+      },
+      {
+        "name": "Galheran the Unmoved",
+        "type": "Hostile",
+        "category": "npcs",
+        "reputation": 3000,
+        "description": "Powerless dog. He let you walk out anyway. The Maker asked it of him. He did not enjoy it.",
+        "likes": [
+          "Honouring the Maker",
+          "Renouncing Sovereigns",
+          "Standing for the Witness"
+        ],
+        "dislikes": [
+          "Aral-Vyn",
+          "Vortegas",
+          "Anything bearing a Sovereign pact, brand, or correction",
+          "Walking past the Maker's door without his leave"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Galheran rose against you on sight; Sol's intervention stayed his hand; you walked out of the chamber under his allowance, not with his blessing"
+          },
+          {
+            "change": 0,
+            "reason": "After the renunciation: the Unmoved stepped aside. Whatever changed, it is not friendship — but the door is no longer closed to you."
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 9000,
+            "reward": "Galheran ceases to consider you an active threat"
+          },
+          {
+            "threshold": 21000,
+            "reward": "Galheran will hear a question from you, once"
+          }
+        ]
       }
     ]
   }

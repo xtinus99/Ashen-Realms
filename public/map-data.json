@@ -4,165 +4,359 @@
     {
       "id": "cerebrax",
       "name": "Cerebrax",
-      "coords": [833, 605],
+      "coords": [
+        833,
+        605
+      ],
       "type": "sovereign",
       "sovereign": "Ismara the Pale Duchess",
       "description": "A realm of crystallized thought and living knowledge.",
-      "link": { "category": "Sovereigns", "id": "ismara-the-pale-duchess" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "ismara-the-pale-duchess"
+      }
     },
     {
       "id": "ossathar",
       "name": "Ossathar",
-      "coords": [779, 808],
+      "coords": [
+        779,
+        808
+      ],
       "type": "sovereign",
       "sovereign": "Vortegas the Bone-Warden",
       "description": "A fortress-realm of petrified bone and calcified law.",
-      "link": { "category": "Sovereigns", "id": "vortegas-the-bone-warden" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "vortegas-the-bone-warden"
+      }
     },
     {
       "id": "dominion-of-still-air",
       "name": "Dominion of Still Air",
-      "coords": [723, 605],
+      "coords": [
+        723,
+        605
+      ],
       "type": "sovereign",
       "sovereign": "Azerach the Whispered King",
       "description": "A suffocating expanse of dead air and enforced silence.",
-      "link": { "category": "Sovereigns", "id": "azerach-the-whispered-king" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "azerach-the-whispered-king"
+      }
     },
     {
       "id": "veinspire",
       "name": "Veinspire",
       "subtitle": "Sanguine Dominion",
-      "coords": [651, 734],
+      "coords": [
+        651,
+        734
+      ],
       "type": "sovereign",
       "sovereign": "Mareatha the Vein-Mother",
       "description": "Cathedral-city where blood is currency, prayer, and law. Campaign starting location.",
-      "link": { "category": "Locations", "id": "veinspire" }
+      "link": {
+        "category": "Locations",
+        "id": "veinspire"
+      }
     },
     {
       "id": "clockwork-sanctum",
       "name": "The Clockwork Sanctum",
-      "coords": [692, 880],
+      "coords": [
+        692,
+        880
+      ],
       "type": "sovereign",
       "sovereign": "Imhuran the Regent of Hours",
       "description": "A realm where time is literal and measured.",
-      "link": { "category": "Locations", "id": "the-clockwork-sanctum" }
+      "link": {
+        "category": "Locations",
+        "id": "the-clockwork-sanctum"
+      }
     },
     {
       "id": "crucible-of-flesh",
       "name": "The Crucible of Flesh",
-      "coords": [599, 563],
+      "coords": [
+        599,
+        563
+      ],
       "type": "sovereign",
       "sovereign": "Aral-Vyn the Bladed Saint",
       "description": "A forge-realm of living sculpture and relentless perfection.",
-      "link": { "category": "Sovereigns", "id": "aral-vyn-the-bladed-saint" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "aral-vyn-the-bladed-saint"
+      }
     },
     {
       "id": "blooming-rot",
       "name": "The Blooming Rot",
-      "coords": [568, 841],
+      "coords": [
+        568,
+        841
+      ],
       "type": "sovereign",
       "sovereign": "Talaris Bloomrend the Verdant King",
       "description": "A sentient forest where death feeds life and decay becomes growth.",
-      "link": { "category": "Locations", "id": "the-blooming-rot" }
+      "link": {
+        "category": "Locations",
+        "id": "the-blooming-rot"
+      }
     },
     {
       "id": "vor-khalem",
       "name": "Vor'Khalem",
-      "coords": [505, 731],
+      "coords": [
+        505,
+        731
+      ],
       "type": "sovereign",
       "sovereign": "Vor'Kael the Hollow Empress",
       "description": "A wasteland of consumed meaning surrounding the Mouth of the World.",
-      "link": { "category": "Sovereigns", "id": "vorkael-the-hollow-empress" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "vorkael-the-hollow-empress"
+      }
     },
     {
       "id": "bastion-of-fireblood",
       "name": "Bastion of Fireblood",
-      "coords": [369, 929],
+      "coords": [
+        369,
+        929
+      ],
       "type": "sovereign",
       "sovereign": "Kaedris the Crimson Matron",
       "description": "A volcanic realm of burning desire and consuming passion.",
-      "link": { "category": "Sovereigns", "id": "kaedris-the-crimson-matron" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "kaedris-the-crimson-matron"
+      }
     },
     {
       "id": "elyara",
       "name": "Elyara",
       "subtitle": "Shattered Gravitas",
-      "coords": [305, 591],
+      "coords": [
+        305,
+        591
+      ],
       "type": "sovereign",
       "sovereign": "Eredain the Choirless Monarch",
       "description": "A realm where sound itself is power.",
-      "link": { "category": "Sovereigns", "id": "eredain-the-choirless-monarch" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "eredain-the-choirless-monarch"
+      }
     },
     {
       "id": "umbrasseur-isles",
       "name": "Umbrasseur Isles",
-      "coords": [219, 797],
+      "coords": [
+        219,
+        797
+      ],
       "type": "sovereign",
       "sovereign": "Ultharion the Obsidian Shepherd",
       "description": "Shadowed isles where identity is fluid and faces are currency.",
-      "link": { "category": "Sovereigns", "id": "ultharion-the-obsidian-shepherd" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "ultharion-the-obsidian-shepherd"
+      }
     },
     {
       "id": "nhalyrian-depths",
       "name": "Nhalyrian Depths",
-      "coords": [187, 1233],
+      "coords": [
+        187,
+        1233
+      ],
       "type": "sovereign",
       "sovereign": "Nhalyra the Azure Queen",
       "description": "A submerged realm of living dreams and stolen consciousness.",
-      "link": { "category": "Sovereigns", "id": "nhalyra-the-azure-queen" }
+      "link": {
+        "category": "Sovereigns",
+        "id": "nhalyra-the-azure-queen"
+      }
     },
     {
       "id": "crownfall",
       "name": "Crownfall",
-      "coords": [430, 759],
+      "coords": [
+        430,
+        759
+      ],
       "type": "city",
       "description": "Independent city protected by a barrier that muffles divine sight.",
-      "link": { "category": "Locations", "id": "crownfall" }
+      "link": {
+        "category": "Locations",
+        "id": "crownfall"
+      }
     },
     {
       "id": "pallid-crossroads",
       "name": "The Pallid Crossroads",
-      "coords": [730, 790],
+      "coords": [
+        730,
+        790
+      ],
       "type": "landmark",
       "description": "A junction in The Unclaimed between Sovereign territories.",
-      "link": { "category": "Locations", "id": "the-pallid-crossroads" }
+      "link": {
+        "category": "Locations",
+        "id": "the-pallid-crossroads"
+      }
     },
     {
       "id": "ashford",
       "name": "Ashford",
-      "coords": [482, 859],
+      "coords": [
+        482,
+        859
+      ],
       "type": "city",
       "description": "Independent junction town in The Unclaimed."
     },
     {
       "id": "the-hand",
       "name": "The Hand",
-      "coords": [528, 980],
+      "coords": [
+        528,
+        980
+      ],
       "type": "landmark",
       "description": "Eastern landmass. Destination of the Arterial Texts."
     },
     {
       "id": "the-hollow",
       "name": "The Hollow",
-      "coords": [397, 783],
+      "coords": [
+        397,
+        783
+      ],
       "type": "landmark",
       "description": "Where the party fought the Smoldering Remnant. Jonas died here.",
-      "link": { "category": "Locations", "id": "the-hollow" }
+      "link": {
+        "category": "Locations",
+        "id": "the-hollow"
+      }
     },
     {
       "id": "gravenholm",
       "name": "Gravenholm",
-      "coords": [816, 1364],
+      "coords": [
+        816,
+        1364
+      ],
       "type": "landmark",
       "description": "A remote settlement on the eastern reaches."
     },
     {
       "id": "bone-graveyard",
       "name": "Bone Graveyard",
-      "coords": [510, 814],
+      "coords": [
+        510,
+        814
+      ],
       "type": "landmark",
       "description": "A vast field of ancient bones."
+    },
+    {
+      "id": "the-reach",
+      "name": "The Reach",
+      "coords": [
+        500,
+        600
+      ],
+      "type": "landmark",
+      "description": "Bone bridge spanning a deep chasm — the only practical crossing between the central Unclaimed and the Left Hand.",
+      "link": {
+        "category": "Locations",
+        "id": "the-reach"
+      }
+    },
+    {
+      "id": "hexwrights-tower",
+      "name": "The Hexwright's Tower",
+      "coords": [
+        510,
+        540
+      ],
+      "type": "landmark",
+      "description": "Floating spire of dimensional catastrophe. Abandoned mid-climb in Session 35; descending toward the earth.",
+      "link": {
+        "category": "Locations",
+        "id": "the-hexwrights-tower"
+      }
+    },
+    {
+      "id": "overgrown-ruin",
+      "name": "Overgrown Ruin",
+      "coords": [
+        460,
+        480
+      ],
+      "type": "landmark",
+      "description": "Pre-Usurpation pale-stone structure in the Left Hand. Used by the party as a long-rest waypoint after Sol's death and ehn-varuu."
+    },
+    {
+      "id": "knuckle-pass-east",
+      "name": "Knuckle Pass (East)",
+      "coords": [
+        460,
+        440
+      ],
+      "type": "landmark",
+      "description": "Bone corridor through Aedwynn's finger-ridges. Sol Raven was killed here by a Ridge-Stalker. The corridor was cleared in Session 36."
+    },
+    {
+      "id": "knuckle-pass-centre",
+      "name": "Knuckle Pass (Centre)",
+      "coords": [
+        430,
+        400
+      ],
+      "type": "landmark",
+      "description": "Bone corridor through Aedwynn's finger-ridges. Pack Hunter territory; crossed without combat in Session 36."
+    },
+    {
+      "id": "knuckle-pass-west",
+      "name": "Knuckle Pass (West)",
+      "coords": [
+        410,
+        360
+      ],
+      "type": "landmark",
+      "description": "Bone corridor through Aedwynn's finger-ridges. A third Ridge-Stalker still holds this corridor."
+    },
+    {
+      "id": "left-hand-southern-coast",
+      "name": "Left Hand — Southern Coast",
+      "coords": [
+        530,
+        420
+      ],
+      "type": "landmark",
+      "description": "Newly-discovered southern coastline of the Left Hand. Found by the party while retreating from the Knuckle Pass after Sol's death."
+    },
+    {
+      "id": "basilica-of-the-unincarnate",
+      "name": "Basilica of the Unincarnate",
+      "coords": [
+        370,
+        320
+      ],
+      "type": "landmark",
+      "description": "Pre-Usurpation Aedwynn-built temple in the deep Left Hand jungle. Found in Session 36. Still active — figment of the Maker beneath the nave; Galheran the Unmoved at the door.",
+      "link": {
+        "category": "Locations",
+        "id": "the-basilica-of-the-unincarnate"
+      }
     }
   ],
-  "partyLocation": "crownfall"
+  "partyLocation": "basilica-of-the-unincarnate"
 }

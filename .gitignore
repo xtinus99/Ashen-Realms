@@ -6,3 +6,9 @@ Thumbs.db
 node_modules/
 dist/
 .claude/
+
+# One-shot content-injection helper scripts (kept locally for re-runs, not deployed)
+add_*.py
+fix_*.py
+update_*.py
+convert_*.py
