@@ -138,8 +138,8 @@
       }
     },
     {
-      "id": "elyara",
-      "name": "Elyara",
+      "id": "elysra",
+      "name": "Elysra",
       "subtitle": "Shattered Gravitas",
       "coords": [
         305,
@@ -222,6 +222,16 @@
       "description": "Independent junction town in The Unclaimed."
     },
     {
+      "id": "thornwall",
+      "name": "Thornwall",
+      "coords": [
+        491,
+        655
+      ],
+      "type": "city",
+      "description": "Border trade town just outside Vor'Khalem's territory. Guild-governed."
+    },
+    {
       "id": "the-hand",
       "name": "The Hand",
       "coords": [
@@ -269,8 +279,8 @@
       "id": "the-reach",
       "name": "The Reach",
       "coords": [
-        500,
-        600
+        458,
+        563
       ],
       "type": "landmark",
       "description": "Bone bridge spanning a deep chasm — the only practical crossing between the central Unclaimed and the Left Hand.",
@@ -283,8 +293,8 @@
       "id": "hexwrights-tower",
       "name": "The Hexwright's Tower",
       "coords": [
-        510,
-        540
+        428,
+        591
       ],
       "type": "landmark",
       "description": "Floating spire of dimensional catastrophe. Abandoned mid-climb in Session 35; descending toward the earth.",
@@ -297,8 +307,8 @@
       "id": "overgrown-ruin",
       "name": "Overgrown Ruin",
       "coords": [
-        460,
-        480
+        445,
+        549
       ],
       "type": "landmark",
       "description": "Pre-Usurpation pale-stone structure in the Left Hand. Used by the party as a long-rest waypoint after Sol's death and ehn-varuu."
@@ -307,8 +317,8 @@
       "id": "knuckle-pass-east",
       "name": "Knuckle Pass (East)",
       "coords": [
-        460,
-        440
+        446,
+        519
       ],
       "type": "landmark",
       "description": "Bone corridor through Aedwynn's finger-ridges. Sol Raven was killed here by a Ridge-Stalker. The corridor was cleared in Session 36."
@@ -317,8 +327,8 @@
       "id": "knuckle-pass-centre",
       "name": "Knuckle Pass (Centre)",
       "coords": [
-        430,
-        400
+        440,
+        493
       ],
       "type": "landmark",
       "description": "Bone corridor through Aedwynn's finger-ridges. Pack Hunter territory; crossed without combat in Session 36."
@@ -327,8 +337,8 @@
       "id": "knuckle-pass-west",
       "name": "Knuckle Pass (West)",
       "coords": [
-        410,
-        360
+        446,
+        481
       ],
       "type": "landmark",
       "description": "Bone corridor through Aedwynn's finger-ridges. A third Ridge-Stalker still holds this corridor."
@@ -337,8 +347,8 @@
       "id": "left-hand-southern-coast",
       "name": "Left Hand — Southern Coast",
       "coords": [
-        530,
-        420
+        444,
+        532
       ],
       "type": "landmark",
       "description": "Newly-discovered southern coastline of the Left Hand. Found by the party while retreating from the Knuckle Pass after Sol's death."
@@ -347,8 +357,8 @@
       "id": "basilica-of-the-unincarnate",
       "name": "Basilica of the Unincarnate",
       "coords": [
-        370,
-        320
+        497,
+        503
       ],
       "type": "landmark",
       "description": "Pre-Usurpation Aedwynn-built temple in the deep Left Hand jungle. Found in Session 36. Still active — figment of the Maker beneath the nave; Galheran the Unmoved at the door.",
@@ -358,5 +368,5 @@
       }
     }
   ],
-  "partyLocation": "basilica-of-the-unincarnate"
+  "partyLocation": "crownfall"
 }
