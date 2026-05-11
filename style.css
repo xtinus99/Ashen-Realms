@@ -4102,6 +4102,14 @@ body {
     height: auto;
 }
 
+/* Landscape images (murals, scene art) — match the TOC column width
+   instead of the portrait cap. Add class="mural-image" to opt in. */
+.toc-image-wrapper img.mural-image {
+    max-width: none;
+    width: 100%;
+    flex: 1;
+}
+
 .toc-image-wrapper .npc-portrait img {
     width: 100%;
     height: auto;

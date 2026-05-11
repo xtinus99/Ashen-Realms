@@ -11,14 +11,23 @@ export function buildWikiIndex() {
     // Categories where first names should also be indexed
     const firstNameCategories = ['Party', 'NPCs', 'Sovereigns'];
 
+    // Helper: extract a clean first-name alias from a title.
+    // Strips trailing punctuation (e.g. "Galheran, the Unmoved" → "Galheran").
+    const firstNameFromTitle = (title) => {
+        const parts = title.split(' ');
+        if (parts.length < 2 || parts[0] === 'The') return null;
+        const cleaned = parts[0].replace(/[^A-Za-z'\-]+$/, '');
+        if (cleaned.length <= 2) return null;
+        return cleaned;
+    };
+
     // First pass: collect all first names to detect duplicates
     const firstNameCount = {};
     for (const [categoryName, categoryData] of Object.entries(state.data)) {
         if (firstNameCategories.includes(categoryName)) {
             for (const item of categoryData.items) {
-                const parts = item.title.split(' ');
-                if (parts.length >= 2 && parts[0] !== 'The' && parts[0].length > 2) {
-                    const firstName = parts[0];
+                const firstName = firstNameFromTitle(item.title);
+                if (firstName) {
                     firstNameCount[firstName] = (firstNameCount[firstName] || 0) + 1;
                 }
             }
@@ -36,9 +45,8 @@ export function buildWikiIndex() {
 
             // For Party and NPCs, also index first name as alias (only if unique)
             if (firstNameCategories.includes(categoryName)) {
-                const parts = item.title.split(' ');
-                if (parts.length >= 2 && parts[0] !== 'The' && parts[0].length > 2) {
-                    const firstName = parts[0];
+                const firstName = firstNameFromTitle(item.title);
+                if (firstName) {
                     // Only add if first name is unique (not shared by multiple characters)
                     if (firstName !== item.title && firstNameCount[firstName] === 1) {
                         wikiIndex.push({

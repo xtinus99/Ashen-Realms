@@ -947,6 +947,34 @@
             "reward": "Dawn's Edge will release to a hand the Witness vouches for"
           }
         ]
+      },
+      {
+        "name": "Rosa Solt",
+        "type": "Acquaintance",
+        "category": "npcs",
+        "description": "Has not met her directly. Knows her by name through the others.",
+        "likes": [
+          "Discretion",
+          "Operatives spending social capital on each other",
+          "Guests who arrive on their own initiative"
+        ],
+        "dislikes": [
+          "Being treated as a transaction",
+          "Pressure on her schedule",
+          "Indiscretion about House clients"
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Rosa confides House Drennan rumour"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Rosa names a Drennan client who matters"
+          }
+        ],
+        "reputation": 10000,
+        "history": []
       }
     ]
   },
@@ -1098,8 +1126,8 @@
         "name": "Flame of Passion",
         "type": "Companion",
         "category": "npcs",
-        "reputation": 23000,
-        "description": "Come back alive, Leonin.",
+        "reputation": 22000,
+        "description": "Come back when you're better, Leonin.",
         "likes": [
           "Genuine connection",
           "Staying the night",
@@ -1120,6 +1148,10 @@
           {
             "change": 1000,
             "reason": "Farewell message; Lirael confirms she will wait (Session 24)"
+          },
+          {
+            "change": -1000,
+            "reason": "Mid-intimacy vision left her shaken; she would not continue. Fursen apologised. Door held open for when he's better. (Session 37)"
           }
         ],
         "unlocks": [
@@ -2178,6 +2210,39 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Rosa Solt",
+        "type": "Acquaintance",
+        "category": "npcs",
+        "description": "Standing offer extended. Eighth-and-ninth-bell, any evening this week.",
+        "likes": [
+          "Discretion",
+          "Operatives spending social capital on each other",
+          "Guests who arrive on their own initiative"
+        ],
+        "dislikes": [
+          "Being treated as a transaction",
+          "Pressure on her schedule",
+          "Indiscretion about House clients"
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Rosa confides House Drennan rumour"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Rosa names a Drennan client who matters"
+          }
+        ],
+        "reputation": 12500,
+        "history": [
+          {
+            "change": 12500,
+            "reason": "Approached respectfully at her two-top; deflected to her jewellery; took her schedule seriously; left politely. Rosa later named him 'interesting' enough to keep the door open. (Session 37)"
+          }
+        ]
       }
     ]
   },
@@ -2729,6 +2794,39 @@
           {
             "threshold": 21000,
             "reward": "Galheran will hear a question from you, once"
+          }
+        ]
+      },
+      {
+        "name": "Rosa Solt",
+        "type": "Acquaintance",
+        "category": "npcs",
+        "description": "Standing offer extended. Eighth-and-ninth-bell, any evening this week.",
+        "likes": [
+          "Discretion",
+          "Operatives spending social capital on each other",
+          "Guests who arrive on their own initiative"
+        ],
+        "dislikes": [
+          "Being treated as a transaction",
+          "Pressure on her schedule",
+          "Indiscretion about House clients"
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Rosa confides House Drennan rumour"
+          },
+          {
+            "threshold": 33000,
+            "reward": "Rosa names a Drennan client who matters"
+          }
+        ],
+        "reputation": 12500,
+        "history": [
+          {
+            "change": 12500,
+            "reason": "Spent social capital on Fursen's behalf — moved her from 'not interested' to 'interested enough to extend the offer to both of you.' (Session 37)"
           }
         ]
       }

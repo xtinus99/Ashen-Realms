@@ -25,7 +25,9 @@ const REP_IMAGE_MAP = {
   "Kael's Echo": "Kael",
   "Aedwynn the Maker": "Aedwynn Fragment - Golden Tree",
   "Talaris Bloomrend": "Talaris Bloomrend the Verdant King",
-  "The Church of Mareatha": null
+  "The Church of Mareatha": null,
+  "Galheran the Unmoved": "Galheran",
+  "Seraphine Vale": "Seraphine - Returned"
 };
 
 // Character display names

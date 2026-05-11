@@ -232,6 +232,17 @@
       "description": "Border trade town just outside Vor'Khalem's territory. Guild-governed."
     },
     {
+      "id": "bloomhollow",
+      "name": "The Bloomhollow",
+      "subtitle": "Pre-Usurpation Greenwarder Grove",
+      "coords": [
+        577,
+        986
+      ],
+      "type": "landmark",
+      "description": "Pre-Usurpation Greenwarder grove on the high northern edge of the Right Hand. Heartwood-cure route."
+    },
+    {
       "id": "the-hand",
       "name": "The Hand",
       "coords": [
