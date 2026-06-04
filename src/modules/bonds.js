@@ -27,7 +27,11 @@ const REP_IMAGE_MAP = {
   "Talaris Bloomrend": "Talaris Bloomrend the Verdant King",
   "The Church of Mareatha": null,
   "Galheran the Unmoved": "Galheran",
-  "Seraphine Vale": "Seraphine - Returned"
+  "Seraphine Vale": "Seraphine - Returned",
+  // No portrait art yet — render initials instead of a broken image (card + hero)
+  "Captain Jawbone": null,
+  "Davan Holst": null,
+  "House Selvik": null
 };
 
 // Character display names
