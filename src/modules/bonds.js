@@ -28,10 +28,11 @@ const REP_IMAGE_MAP = {
   "The Church of Mareatha": null,
   "Galheran the Unmoved": "Galheran",
   "Seraphine Vale": "Seraphine - Returned",
+  // Bond display name differs from the image file name
+  "Captain Jawbone": "Jawbone",
+  "House Selvik": "Selvik Emblem",
   // No portrait art yet — render initials instead of a broken image (card + hero)
-  "Captain Jawbone": null,
-  "Davan Holst": null,
-  "House Selvik": null
+  "Davan Holst": null
 };
 
 // Character display names
