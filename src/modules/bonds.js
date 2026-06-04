@@ -17,7 +17,7 @@ const REP_TIERS = [
 ];
 
 let relationshipData = null;
-let currentRepCharacter = 'sol';
+let currentRepCharacter = 'ratsby';
 let currentRepFilter = 'all';
 
 // Image name mapping for NPCs whose file names don't match their display names
@@ -32,6 +32,9 @@ const REP_IMAGE_MAP = {
 
 // Character display names
 const CHAR_NAMES = {
+  ratsby: 'Ratsby',
+  farkas: 'Farkas',
+  anvil: 'Anvil',
   sol: 'Sol Raven',
   fursen: 'Fursen',
   teldryn: 'Teldryn'
@@ -159,13 +162,24 @@ function renderRelationshipsView() {
 
       <div class="bonds-controls">
         <div class="char-tabs">
-          <button class="char-tab ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">
+          <span class="char-group-label">Party</span>
+          <button class="char-tab ${currentRepCharacter === 'ratsby' ? 'active' : ''}" data-char="ratsby">
+            <span class="tab-name">Ratsby</span>
+          </button>
+          <button class="char-tab ${currentRepCharacter === 'farkas' ? 'active' : ''}" data-char="farkas">
+            <span class="tab-name">Farkas</span>
+          </button>
+          <button class="char-tab ${currentRepCharacter === 'anvil' ? 'active' : ''}" data-char="anvil">
+            <span class="tab-name">Anvil</span>
+          </button>
+          <span class="char-group-label char-group-fallen">Hall of the Dead</span>
+          <button class="char-tab fallen ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">
             <span class="tab-name">Sol</span>
           </button>
-          <button class="char-tab ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">
+          <button class="char-tab fallen ${currentRepCharacter === 'fursen' ? 'active' : ''}" data-char="fursen">
             <span class="tab-name">Fursen</span>
           </button>
-          <button class="char-tab ${currentRepCharacter === 'teldryn' ? 'active' : ''}" data-char="teldryn">
+          <button class="char-tab fallen ${currentRepCharacter === 'teldryn' ? 'active' : ''}" data-char="teldryn">
             <span class="tab-name">Teldryn</span>
           </button>
         </div>

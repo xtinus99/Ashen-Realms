@@ -2831,5 +2831,741 @@
         ]
       }
     ]
+  },
+  "ratsby": {
+    "relationships": [
+      {
+        "name": "Veshik",
+        "type": "Antagonist",
+        "category": "npcs",
+        "reputation": 6000,
+        "description": "Greenskin thief. I have your face now, and the Watch has your name.",
+        "likes": [
+          "Paying what you owe",
+          "Staying out of his shop",
+          "Honest custom"
+        ],
+        "dislikes": [
+          "Theft",
+          "Sleight of hand",
+          "Greenskins in his aisles"
+        ],
+        "history": [
+          {
+            "change": -2500,
+            "reason": "Stole the silver ring from his shop (S40)"
+          },
+          {
+            "change": -1500,
+            "reason": "Provoked the inconvenience-fee dispute at booking"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Korven Strake",
+        "type": "Hunter",
+        "category": "npcs",
+        "reputation": 6500,
+        "description": "No shortage of your kind in the Kennels. Game is game - and I have been let into one.",
+        "likes": [
+          "Paying the contract off",
+          "Leaving the city",
+          "Going quiet"
+        ],
+        "dislikes": [
+          "Running",
+          "Fencing Selvik goods",
+          "Drawing more eyes"
+        ],
+        "history": [
+          {
+            "change": -2000,
+            "reason": "House Selvik opened a recovery contract on him (S40)"
+          },
+          {
+            "change": -1500,
+            "reason": "Hunted down, caught one-handed, walked to the cells"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "House Selvik",
+        "type": "Faction",
+        "category": "factions",
+        "reputation": 6500,
+        "description": "A small thief with a Watch flag and a House mark. Filed. Not yet worth the ink.",
+        "likes": [
+          "Settling the debt",
+          "Useful work through the Roll",
+          "Staying clean"
+        ],
+        "dislikes": [
+          "Stealing from Selvik factors",
+          "Absconding with staked pots",
+          "Recidivism"
+        ],
+        "history": [
+          {
+            "change": -2500,
+            "reason": "Watch flag + House mark after the Salvager's Square pot (S40)"
+          },
+          {
+            "change": -1000,
+            "reason": "87 gp claimed against him at the Threshold House"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Captain Jawbone",
+        "type": "Watch",
+        "category": "npcs",
+        "reputation": 8500,
+        "description": "Called worse by smaller. You paid. You walk. Door's behind you.",
+        "likes": [
+          "Cooperating at booking",
+          "Paying fees without theatre",
+          "Not lying to his face"
+        ],
+        "dislikes": [
+          "Palming evidence",
+          "Lying under questioning",
+          "Insults at the desk"
+        ],
+        "history": [
+          {
+            "change": -1000,
+            "reason": "Caught palming the ring for a pebble at booking (S40)"
+          },
+          {
+            "change": -500,
+            "reason": "Called him a 'metal-jawed freak' on the way out"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Naya Selvik",
+        "type": "Antagonist",
+        "category": "npcs",
+        "reputation": 8500,
+        "description": "Interesting. Not pressing. Watch.",
+        "likes": [
+          "Becoming worth more bought than hunted",
+          "Discretion",
+          "Leverage she can use"
+        ],
+        "dislikes": [
+          "Costing her factors money",
+          "Public messes",
+          "Wasting her Striders' time"
+        ],
+        "history": [
+          {
+            "change": -1500,
+            "reason": "Logged on the Selvik file: 'interesting, not pressing. Watch.' (S40)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Vex",
+        "type": "Companion",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "They all say they'll be back. You'll mean it.",
+        "likes": [
+          "Honesty about what he wants",
+          "Returning",
+          "Respecting her cadence"
+        ],
+        "dislikes": [
+          "Pretending",
+          "Rushing",
+          "Breaking the frame"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "First session with Vex at the Silken Refuge (S41)"
+          },
+          {
+            "change": 1000,
+            "reason": "She extended a standing invitation"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Marek",
+        "type": "Merchant",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "The stone was good and you were almost polite. Bring me the next one.",
+        "likes": [
+          "Fair dealing",
+          "Polite haggling",
+          "Repeat custom"
+        ],
+        "dislikes": [
+          "Cut paste for real stones",
+          "Wasting his loupe",
+          "Haggling past reason"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Sold the emerald pendant fairly; Marek invited future business (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Marrek Voss",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "Six? All of them? Right. You ever need a place east, the byre's open.",
+        "likes": [
+          "Finishing the job",
+          "Protecting his flock",
+          "Plain dealing"
+        ],
+        "dislikes": [
+          "Half-measures",
+          "Lies about the kill count",
+          "Leaving threats alive"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Cleared the Brackish Pool den menacing his pastures (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Broma",
+        "type": "Merchant",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Stitching was gone at your back. Fixed it. Don't swing from the shoulder.",
+        "likes": [
+          "Paying for good work",
+          "Knowing what a blade is for",
+          "Repeat custom"
+        ],
+        "dislikes": [
+          "Time-wasting",
+          "Cheap stamps passed as steel",
+          "Haggling the floor"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Bought a fitted studded-leather set (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "The Dealer",
+        "type": "Merchant",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "Same question. What do you want, or what do you want me to find.",
+        "likes": [
+          "Knowing what he wants",
+          "Paying the campaign rate",
+          "Discretion"
+        ],
+        "dislikes": [
+          "Browsing without buying",
+          "Bringing the Watch to his door",
+          "Owing"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "First visit to the Green Door; bought the Dagger of Throwing (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Velvet Thorn",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "The mark's on your file. I won't turn you in. I won't protect you either.",
+        "likes": [
+          "Paying for the room",
+          "Causing no trouble",
+          "Discretion"
+        ],
+        "dislikes": [
+          "Bringing heat to her bar",
+          "Names she didn't ask for",
+          "Theatre"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Paying guest at the Velvet Thorn (third-floor suite) (S40-41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Lord Theron Vander",
+        "type": "Patron",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "You're the strangers who knocked. Bring my son back.",
+        "likes": [
+          "Discretion about the family shame",
+          "Protecting Tarrin",
+          "Honest accounts"
+        ],
+        "dislikes": [
+          "Spreading the Vander business",
+          "Endangering his son",
+          "Selvik games"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Among the crew that brought House Vander the Twin Reach discovery (S41)"
+          }
+        ],
+        "unlocks": []
+      }
+    ]
+  },
+  "farkas": {
+    "relationships": [
+      {
+        "name": "Broma",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 14000,
+        "description": "Won't sing for you the way the thing on your back does. But it's yours, and so am I now.",
+        "likes": [
+          "Honest custom",
+          "Respecting good steel",
+          "A fair handshake"
+        ],
+        "dislikes": [
+          "Haggling in bad faith",
+          "Mistreating a blade",
+          "Time-wasting"
+        ],
+        "history": [
+          {
+            "change": 4000,
+            "reason": "Won the hand-forged war-maul at 20 gp on a nat-20; Broma added free lifetime maintenance (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Velvet Thorn",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 13500,
+        "description": "The questions were worth the room.",
+        "likes": [
+          "Good questions",
+          "Honest curiosity",
+          "Talking about Ashford"
+        ],
+        "dislikes": [
+          "Wasting her time",
+          "Prying for free",
+          "Theatre"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Comped a room for the good Ashford questions (S40)"
+          },
+          {
+            "change": 1000,
+            "reason": "A returning face at the bar she has decided she likes"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Marrek Voss",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "Didn't ask what was in the canvas. Didn't need to. The byre's open.",
+        "likes": [
+          "Finishing the job",
+          "Strength used well",
+          "Plain dealing"
+        ],
+        "dislikes": [
+          "Half-measures",
+          "Lies about the work",
+          "Leaving threats alive"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Cleared the Brackish Pool den (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Captain Jawbone",
+        "type": "Watch",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "Half-giant's sat on my flagstones. Three strangers don't share an afternoon by accident.",
+        "likes": [
+          "Cooperation",
+          "Plain answers",
+          "Sitting still when told"
+        ],
+        "dislikes": [
+          "Public contests",
+          "Brawling in the square",
+          "Wasting his bad leg"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Accidentally exposed the goblin's lie; filed as a bystander (S40)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Lord Theron Vander",
+        "type": "Patron",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Bring my son back.",
+        "likes": [
+          "Protecting Tarrin",
+          "Strength on the road",
+          "Honest accounts"
+        ],
+        "dislikes": [
+          "Endangering his son",
+          "Vander business spread wide",
+          "Selvik games"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Among the crew that brought the Twin Reach discovery (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Kettleback",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "Change is clean. Rooms are up the stair.",
+        "likes": [
+          "Paying for the barrel",
+          "Quiet custom",
+          "Coin on the counter"
+        ],
+        "dislikes": [
+          "Breaking the furniture",
+          "Trouble in the Cup",
+          "Stiffing the tab"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Lodged and drank at the Common Cup (S40)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "House Selvik",
+        "type": "Faction",
+        "category": "factions",
+        "reputation": 11500,
+        "description": "Contract crew. Two closes in three days. Reliable enough.",
+        "likes": [
+          "Closing contracts",
+          "Bringing the head back",
+          "Climbing the Wall clean"
+        ],
+        "dislikes": [
+          "Failed contracts",
+          "Mess on the Roll's name",
+          "Absconding with stakes"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Closed two Roll contracts in three days (Bonefield, Brackish Pool) (S40-41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Torvin Drennan",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 9500,
+        "description": "Half-giant with a pre-Usurpation maul. Catalogued. I'll choose my moment.",
+        "likes": [
+          "Being useful to House Drennan",
+          "Spectacle that pays",
+          "Discretion"
+        ],
+        "dislikes": [
+          "Drawing Council eyes",
+          "Unpredictability",
+          "Wasted potential"
+        ],
+        "history": [
+          {
+            "change": -500,
+            "reason": "Catalogued in House Drennan's operational file (S40)"
+          }
+        ],
+        "unlocks": []
+      }
+    ]
+  },
+  "anvil": {
+    "relationships": [
+      {
+        "name": "Lord Theron Vander",
+        "type": "Patron",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "That's our mark. I can't pretend otherwise. Bring my son back.",
+        "likes": [
+          "Plain, honest reports",
+          "Protecting Tarrin",
+          "Discretion about the family"
+        ],
+        "dislikes": [
+          "Endangering his son",
+          "Spreading the Vander shame",
+          "Selvik games"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Delivered the Twin Reach discovery personally; Theron entrusted his son to the crew (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Broma",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 13000,
+        "description": "Back for another oil change, metal man?",
+        "likes": [
+          "Steady custom",
+          "Quiet professionalism",
+          "Knowing his own workings"
+        ],
+        "dislikes": [
+          "Neglecting maintenance",
+          "Wasting her time",
+          "Cheap fixes"
+        ],
+        "history": [
+          {
+            "change": 3000,
+            "reason": "Long-standing maintenance client of Broma's ('the metal man') (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Marrek Voss",
+        "type": "Ally",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "All of them? This creature won't be a problem any longer.",
+        "likes": [
+          "Finishing the job",
+          "Clean confirmation",
+          "Plain dealing"
+        ],
+        "dislikes": [
+          "Half-measures",
+          "Loose ends",
+          "Leaving threats alive"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Cleared the Brackish Pool den; confirmed the lineage terminated (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Captain Jawbone",
+        "type": "Watch",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Iron-man fought clean and won the upset. Gave a clean statement. Filed.",
+        "likes": [
+          "Honesty under questioning",
+          "Disavowing the thief plainly",
+          "Cooperation"
+        ],
+        "dislikes": [
+          "Lies",
+          "Public contests",
+          "Covering for a thief"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Gave a clean witness statement and disavowed the goblin honestly (S40)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "House Selvik",
+        "type": "Faction",
+        "category": "factions",
+        "reputation": 10500,
+        "description": "Warforged with pre-Usurpation chest-components. Interesting. Watch.",
+        "likes": [
+          "Closing contracts",
+          "Being worth studying",
+          "Reliability"
+        ],
+        "dislikes": [
+          "Failed contracts",
+          "Hiding what he is",
+          "Trouble on the Roll's name"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Closed two Roll contracts in three days (S40-41)"
+          },
+          {
+            "change": -1500,
+            "reason": "Selvik flagged his pre-Usurpation chest-glow for later interest"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Korven Strake",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 9500,
+        "description": "Your stare is not a thing I am impressed by. But your chest is worth a note.",
+        "likes": [
+          "Staying out of Selvik contracts",
+          "Plain dealing",
+          "Not interfering with a recovery"
+        ],
+        "dislikes": [
+          "Flanking him pointlessly",
+          "Hiding pre-Usurpation tech",
+          "Getting between him and a mark"
+        ],
+        "history": [
+          {
+            "change": -500,
+            "reason": "Korven filed his pre-Usurpation chest-glow for House Selvik (S40)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Velvet Thorn",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "The iron one sleeps in the corner and watches. Reads as quietly attentive.",
+        "likes": [
+          "Stillness",
+          "Paying his way",
+          "Causing no trouble"
+        ],
+        "dislikes": [
+          "Bringing heat",
+          "Prying for free",
+          "Theatre"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Sleeps in the corner of the bar; Velvet reads him as watchful (S40-41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Torvin Drennan",
+        "type": "Neutral",
+        "category": "npcs",
+        "reputation": 9500,
+        "description": "Warforged with pre-Usurpation chest-components. Catalogued. I'll choose my moment.",
+        "likes": [
+          "Being useful to House Drennan",
+          "Discretion",
+          "Quiet competence"
+        ],
+        "dislikes": [
+          "Drawing Council eyes",
+          "Unpredictability",
+          "Wasted potential"
+        ],
+        "history": [
+          {
+            "change": -500,
+            "reason": "Catalogued in House Drennan's operational file (S40)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Vex",
+        "type": "Companion",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "You. Iron one. You haven't moved. That's professional. Come learn, next time.",
+        "likes": [
+          "Professional stillness",
+          "Honesty about curiosity",
+          "Returning to learn"
+        ],
+        "dislikes": [
+          "Fidgeting",
+          "Pretending",
+          "Breaking the frame"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Observed the room at the Silken Refuge; Vex invited him to learn (S41)"
+          }
+        ],
+        "unlocks": []
+      }
+    ]
   }
 }

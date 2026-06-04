@@ -4455,6 +4455,35 @@ body {
     display: none;
 }
 
+/* Bonds: Party / Hall of the Dead grouping */
+.char-group-label {
+    align-self: center;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ash, #9a9088);
+    opacity: 0.65;
+    white-space: nowrap;
+    padding: 0 0.35rem;
+}
+.char-group-label.char-group-fallen {
+    opacity: 0.45;
+    margin-left: 0.5rem;
+    padding-left: 0.85rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+.char-tab.fallen {
+    opacity: 0.62;
+}
+.char-tab.fallen:hover {
+    opacity: 0.85;
+}
+.char-tab.fallen.active {
+    opacity: 1;
+    background: rgba(150, 150, 160, 0.16);
+    color: var(--bone, #e8e0d4);
+}
+
 .bonds-filters {
     display: flex;
     flex-wrap: wrap;
