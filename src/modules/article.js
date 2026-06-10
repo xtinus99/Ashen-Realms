@@ -262,6 +262,15 @@ export function showItem(categoryName, item, navElement = null, skipHash = false
     document.querySelectorAll('.nav-item.active').forEach(el => el.classList.remove('active'));
     if (navElement) {
         navElement.classList.add('active');
+        // Keep the active item's branch open in the sidebar so navigating never collapses it
+        for (let p = navElement.parentElement; p && p.id !== 'nav-categories'; p = p.parentElement) {
+            if (p.classList.contains('nav-region') || p.classList.contains('nav-subcategory') || p.classList.contains('nav-subgroup')) {
+                p.classList.add('expanded');
+            }
+            if (p.classList.contains('nav-category')) {
+                p.classList.add('open');
+            }
+        }
     }
 
     // Open the category if not already open
