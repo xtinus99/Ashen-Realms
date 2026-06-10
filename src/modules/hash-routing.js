@@ -1,10 +1,13 @@
 import state from './state.js';
 
 export function updateHash(category = null, itemId = null) {
+  const prefix = state.currentRealm === 'archive' ? 'archive/' : '';
   if (category && itemId) {
-    window.location.hash = `${encodeURIComponent(category)}/${encodeURIComponent(itemId)}`;
+    window.location.hash = `${prefix}${encodeURIComponent(category)}/${encodeURIComponent(itemId)}`;
   } else if (category) {
-    window.location.hash = encodeURIComponent(category);
+    window.location.hash = `${prefix}${encodeURIComponent(category)}`;
+  } else if (prefix) {
+    window.location.hash = 'archive';
   } else {
     history.replaceState(null, '', window.location.pathname);
   }
@@ -21,8 +24,19 @@ export function setHashHandlers(h) {
 }
 
 export function restoreFromHash() {
-  const hash = window.location.hash.slice(1);
+  let hash = window.location.hash.slice(1);
   if (!hash) return false;
+
+  // Handle the Archive of the Dead realm
+  if (hash === 'archive') {
+    if (handlers.enterArchiveSilent) handlers.enterArchiveSilent();
+    if (handlers.showArchiveLanding) handlers.showArchiveLanding();
+    return true;
+  }
+  if (hash.startsWith('archive/')) {
+    if (handlers.enterArchiveSilent) handlers.enterArchiveSilent();
+    hash = hash.slice('archive/'.length);
+  }
 
   // Handle bonds page
   if (hash === 'bonds') {

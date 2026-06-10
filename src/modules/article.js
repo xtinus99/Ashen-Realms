@@ -790,34 +790,38 @@ function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
 
 // Navigate to an item by title (used by wiki-links and relationship map)
 export function navigateToItem(targetName) {
-    const normalizedTarget = targetName.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const norm = (t) => (t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const normalizedTarget = norm(targetName);
 
+    // Flatten all entries (top-level + subcategories) so we can do a precise
+    // pass before a loose one.
+    const all = [];
     for (const [categoryName, categoryData] of Object.entries(state.data)) {
-        // Search top-level items
-        for (const item of categoryData.items) {
-            const normalizedItem = item.title.toLowerCase().replace(/[^a-z0-9]/g, '');
-            if (normalizedItem.includes(normalizedTarget) || normalizedTarget.includes(normalizedItem)) {
-                // Find the nav element
-                const navItem = document.querySelector(`.nav-item[data-id="${item.id}"]`);
-                showItem(categoryName, item, navItem);
-                return;
-            }
-        }
-
-        // Search subcategories (nested items like The Silken Refuge under Crownfall)
+        for (const item of categoryData.items || []) all.push([categoryName, item]);
         if (categoryData.subcategories) {
-            for (const [subName, subItems] of Object.entries(categoryData.subcategories)) {
-                for (const item of subItems) {
-                    const normalizedItem = item.title.toLowerCase().replace(/[^a-z0-9]/g, '');
-                    if (normalizedItem.includes(normalizedTarget) || normalizedTarget.includes(normalizedItem)) {
-                        const navItem = document.querySelector(`.nav-item[data-id="${item.id}"]`);
-                        showItem(categoryName, item, navItem);
-                        return;
-                    }
-                }
+            for (const subItems of Object.values(categoryData.subcategories)) {
+                for (const item of subItems) all.push([categoryName, item]);
             }
         }
     }
+
+    const go = ([categoryName, item]) => {
+        const navItem = document.querySelector(`.nav-item[data-id="${item.id}"]`);
+        showItem(categoryName, item, navItem);
+    };
+
+    // Pass 1 — exact id or exact (normalized) title. This stops short names like
+    // "Mor" from being swallowed by a longer substring match ("...Morrow").
+    let hit = all.find(([, item]) => item.id === targetName || norm(item.title) === normalizedTarget);
+    // Pass 2 — loose substring fallback (original behaviour) for partial mentions.
+    if (!hit) {
+        hit = all.find(([, item]) => {
+            const ni = norm(item.title);
+            return ni && (ni.includes(normalizedTarget) || normalizedTarget.includes(ni));
+        });
+    }
+
+    if (hit) { go(hit); return; }
 
     // Not found - show subtle notification
     showNotification(`"${targetName}" is not in the compendium — it may be hidden knowledge.`);

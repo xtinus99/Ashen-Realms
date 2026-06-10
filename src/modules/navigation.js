@@ -8,6 +8,97 @@ import { initSmoothScroll } from './smooth-scroll.js';
 let handlers = {};
 export function setNavigationHandlers(h) { handlers = h; }
 
+// Build the inner markup for a nav entry: small portrait (or monogram) + label.
+// Uses a regex (not DOM parse) so we never kick off full-size image loads for
+// every item at startup — only the small thumbnails actually render.
+function navEntryHTML(item) {
+    const m = (item.content || '').match(/<img[^>]+src="([^"]+)"/i);
+    let portrait;
+    if (m) {
+        portrait = `<span class="nav-item-portrait"><img src="${getThumbnailPath(m[1])}" alt="" loading="lazy" decoding="async"></span>`;
+    } else {
+        const glyph = item.unknownPortrait ? '?' : (item.title || '?').charAt(0);
+        portrait = `<span class="nav-item-portrait nav-item-monogram">${glyph}</span>`;
+    }
+    return `${portrait}<span class="nav-item-label">${item.title}</span>`;
+}
+
+// Partition a region's items into named subgroups (e.g. Houses) + loose items,
+// preserving first-seen order. Items opt in via an item.subgroup string.
+function groupBySubgroup(items) {
+    const groups = new Map();
+    const loose = [];
+    items.forEach(it => {
+        if (it.subgroup) {
+            if (!groups.has(it.subgroup)) groups.set(it.subgroup, []);
+            groups.get(it.subgroup).push(it);
+        } else {
+            loose.push(it);
+        }
+    });
+    return { groups, loose };
+}
+
+// Build a single sidebar child nav-item (portrait + label + click-through).
+function buildNavChild(categoryName, item) {
+    const navItem = document.createElement('div');
+    navItem.className = 'nav-item nav-item-child has-portrait';
+    navItem.dataset.id = item.id;
+    navItem.innerHTML = navEntryHTML(item);
+    wireToken(navItem, item);
+    navItem.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handlers.showItem(categoryName, item, navItem);
+    });
+    return navItem;
+}
+
+// Pop the full house crest into a lightbox when the small nav sigil is clicked
+// (the rest of the header bar still toggles the dropdown).
+function openCrestLightbox(src, name) {
+    const overlay = document.createElement('div');
+    overlay.className = 'crest-lightbox';
+    overlay.innerHTML = `<div class="crest-lightbox-inner">
+        <img src="${src}" alt="${name}">
+        <div class="crest-lightbox-name">${name}</div>
+    </div>`;
+    const close = () => { overlay.classList.remove('open'); setTimeout(() => overlay.remove(), 240); };
+    overlay.addEventListener('click', close);
+    const esc = (e) => { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); } };
+    document.addEventListener('keydown', esc);
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('open'));
+}
+window.openCrestLightbox = openCrestLightbox;
+
+// Pop the full portrait into the lightbox when the small nav token is clicked
+// (the rest of the nav-item still navigates to the entry). Mirrors the crest behaviour.
+function wireToken(navItem, item) {
+    const m = (item.content || '').match(/<img[^>]+src="([^"]+)"/i);
+    if (!m) return; // monogram — nothing to enlarge
+    const token = navItem.querySelector('.nav-item-portrait');
+    if (!token) return;
+    token.style.cursor = 'zoom-in';
+    token.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        openCrestLightbox(m[1], item.title);
+    });
+}
+
+// Icon for a region/section header, chosen by region name
+function regionIcon(region) {
+    const r = (region || '').toLowerCase();
+    if (r === 'world') return 'globe';
+    if (r === 'deceased') return 'skull';
+    if (r === 'crownfall') return 'castle';
+    if (r.includes('clockwork')) return 'clock';
+    if (r.includes('blooming')) return 'flower-2';
+    if (r.includes('ancient')) return 'landmark';
+    if (r === 'other') return 'help-circle';
+    if (r.includes('vein')) return 'heart';
+    return 'map-pin';
+}
+
 // ===== NAVIGATION =====
 export function buildNavigation() {
     const nav = document.getElementById('nav-categories');
@@ -26,30 +117,22 @@ export function buildNavigation() {
                 <span class="cat-name">${categoryName}</span>
                 <span class="cat-count">${categoryData.items.length}</span>
             </div>
-            <div class="cat-toggle">
-                <i data-lucide="chevron-down" class="chevron"></i>
-            </div>
         `;
 
-        // Clicking the name area opens the category page
-        const nameArea = header.querySelector('.cat-name-area');
-        nameArea.addEventListener('click', (e) => {
+        // The whole header bar toggles the category open/closed (no separate
+        // chevron — matches the house headers). Opening also shows the category
+        // page; accordion-closes any other open category.
+        header.addEventListener('click', (e) => {
             e.stopPropagation();
-            openCategory(categoryName);
-            // Also ensure the dropdown is open
-            if (!category.classList.contains('open')) {
+            if (category.classList.contains('open')) {
+                category.classList.remove('open');
+            } else {
                 document.querySelectorAll('.nav-category.open').forEach(c => {
                     if (c !== category) c.classList.remove('open');
                 });
                 category.classList.add('open');
+                openCategory(categoryName);
             }
-        });
-
-        // Clicking the chevron toggles the dropdown without changing pages
-        const toggleArea = header.querySelector('.cat-toggle');
-        toggleArea.addEventListener('click', (e) => {
-            e.stopPropagation();
-            category.classList.toggle('open');
         });
 
         const items = document.createElement('div');
@@ -104,10 +187,11 @@ export function buildNavigation() {
 
                 subData.forEach(item => {
                     const navItem = document.createElement('div');
-                    navItem.className = 'nav-item nav-item-child';
+                    navItem.className = 'nav-item nav-item-child has-portrait';
                     navItem.dataset.id = item.id;
                     navItem.dataset.subcategory = subName;
-                    navItem.textContent = item.title;
+                    navItem.innerHTML = navEntryHTML(item);
+                    wireToken(navItem, item);
                     navItem.addEventListener('click', (e) => {
                         e.stopPropagation();
                         handlers.showItem(categoryName, item, navItem);
@@ -176,18 +260,47 @@ export function buildNavigation() {
                     const regionItems = document.createElement('div');
                     regionItems.className = 'nav-subcategory-items';
 
-                    itemsByRegion[region].forEach(item => {
-                        const navItem = document.createElement('div');
-                        navItem.className = 'nav-item nav-item-child';
-                        navItem.dataset.id = item.id;
-                        navItem.dataset.region = region;
-                        navItem.textContent = item.title;
-                        navItem.addEventListener('click', (e) => {
+                    const { groups: sgGroups, loose: sgLoose } = groupBySubgroup(itemsByRegion[region]);
+                    const sgIcons = (categoryData.info && categoryData.info.subgroupIcons) || {};
+                    // Named subgroups (e.g. Houses) sit at the TOP of the region as
+                    // their own collapsible dropdowns
+                    sgGroups.forEach((sgItems, sgName) => {
+                        const sg = document.createElement('div');
+                        sg.className = 'nav-subgroup';
+                        const sgHeader = document.createElement('div');
+                        sgHeader.className = 'nav-subgroup-header';
+                        const sigil = sgIcons[sgName];
+                        const iconHTML = sigil
+                            ? `<img class="sub-sigil" src="${sigil}" alt="" loading="lazy" decoding="async">`
+                            : `<i data-lucide="users" class="sub-icon"></i>`;
+                        sgHeader.innerHTML = `
+                            ${iconHTML}
+                            <span class="sub-name">${sgName}</span>
+                            <span class="sub-count">${sgItems.length}</span>
+                        `;
+                        sgHeader.addEventListener('click', (e) => {
                             e.stopPropagation();
-                            handlers.showItem(categoryName, item, navItem);
+                            e.preventDefault();
+                            sg.classList.toggle('expanded');
+                            refreshIcons();
                         });
-                        regionItems.appendChild(navItem);
+                        const crestImg = sgHeader.querySelector('.sub-sigil');
+                        if (crestImg && sigil) {
+                            crestImg.style.cursor = 'zoom-in';
+                            crestImg.addEventListener('click', (ev) => {
+                                ev.stopPropagation();
+                                openCrestLightbox(sigil, sgName);
+                            });
+                        }
+                        const sgItemsEl = document.createElement('div');
+                        sgItemsEl.className = 'nav-subgroup-items';
+                        sgItems.forEach(item => sgItemsEl.appendChild(buildNavChild(categoryName, item)));
+                        sg.appendChild(sgHeader);
+                        sg.appendChild(sgItemsEl);
+                        regionItems.appendChild(sg);
                     });
+                    // Loose (unaffiliated) items follow, directly under the region
+                    sgLoose.forEach(item => regionItems.appendChild(buildNavChild(categoryName, item)));
 
                     regionSection.appendChild(regionHeader);
                     regionSection.appendChild(regionItems);
@@ -198,9 +311,10 @@ export function buildNavigation() {
             // Regular items (not in subcategories or regions)
             categoryData.items.forEach(item => {
                 const navItem = document.createElement('div');
-                navItem.className = 'nav-item';
+                navItem.className = 'nav-item has-portrait';
                 navItem.dataset.id = item.id;
-                navItem.textContent = item.title;
+                navItem.innerHTML = navEntryHTML(item);
+                wireToken(navItem, item);
                 navItem.addEventListener('click', (e) => {
                     e.stopPropagation();
                     handlers.showItem(categoryName, item, navItem);
@@ -253,48 +367,61 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
         <span class="breadcrumb-current">${categoryName}</span>
     `;
 
-    // Helper function to build a single item card
+    // Helper: build a portrait-forward roster card
     function buildItemCard(item) {
-        // Get a preview from the content (first paragraph or description)
-        let preview = '';
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = item.content;
-        const firstP = tempDiv.querySelector('p');
-        if (firstP) {
-            preview = firstP.textContent.substring(0, 120);
-            if (firstP.textContent.length > 120) preview += '...';
-        }
 
-        // Extract image from content for thumbnail
-        let thumbnailHtml = '';
         const firstImg = tempDiv.querySelector('img');
+        let portraitHtml;
         if (firstImg) {
-            const originalSrc = firstImg.getAttribute('src');
-            const thumbSrc = getThumbnailPath(originalSrc);
-            thumbnailHtml = `<div class="category-item-thumb"><img src="${thumbSrc}" alt="${item.title}" loading="lazy" decoding="async"></div>`;
+            const thumbSrc = getThumbnailPath(firstImg.getAttribute('src'));
+            portraitHtml = `<div class="roster-card-portrait"><img src="${thumbSrc}" alt="${item.title}" loading="lazy" decoding="async"></div>`;
+        } else {
+            portraitHtml = `<div class="roster-card-portrait roster-card-noimg"><span>${item.unknownPortrait ? '?' : (item.title || '?').charAt(0)}</span></div>`;
         }
 
-        // Get meta info
-        let metaText = '';
-        if (item.frontmatter) {
-            const fm = item.frontmatter;
-            if (fm.role) metaText = fm.role;
-            else if (fm.status) metaText = fm.status;
-            else if (fm.domain) metaText = fm.domain;
-            else if (fm.type) metaText = fm.type;
-            else if (fm.organ) metaText = fm.organ;
-        }
+        const fm = item.frontmatter || {};
+        const role = fm.role || fm.status || fm.domain || fm.type || fm.organ || '';
+        const loc = fm.location || '';
+        const tag = fm.allegiance || '';
+        const meta = [role, loc].filter(Boolean).join(' &middot; ');
 
         return `
-            <div class="category-item-card${thumbnailHtml ? ' has-thumb' : ''}" onclick="navigateToItemById('${categoryName}', '${item.id}')">
-                ${thumbnailHtml}
-                <div class="category-item-content">
-                    <h3 class="category-item-title">${item.title}</h3>
-                    ${metaText ? `<div class="category-item-meta">${metaText}</div>` : ''}
-                    ${preview ? `<p class="category-item-preview">${preview}</p>` : ''}
+            <div class="roster-card" data-name="${(item.title || '').toLowerCase()}" onclick="navigateToItemById('${categoryName}', '${item.id}')">
+                ${portraitHtml}
+                <div class="roster-card-body">
+                    <h3 class="roster-card-name">${item.title}</h3>
+                    ${meta ? `<div class="roster-card-meta">${meta}</div>` : ''}
+                    ${tag ? `<span class="roster-card-tag">${tag}</span>` : ''}
                 </div>
             </div>
         `;
+    }
+
+    // Render a region's contents: loose item cards first, then collapsible
+    // subgroup (e.g. House) sections that reuse the region toggle machinery.
+    const sgIcons = (categoryData.info && categoryData.info.subgroupIcons) || {};
+    function renderRegionInner(items) {
+        const { groups, loose } = groupBySubgroup(items);
+        let html = '';
+        // Subgroup (House) dropdowns sit at the TOP of the region
+        groups.forEach((sgItems, sgName) => {
+            const sigil = sgIcons[sgName];
+            const iconHTML = sigil
+                ? `<img class="subgroup-sigil" src="${sigil}" alt="" loading="lazy" decoding="async" style="cursor:zoom-in" onclick="event.stopPropagation(); openCrestLightbox('${sigil.replace(/'/g, "\\'")}', '${sgName.replace(/'/g, "\\'")}')">`
+                : `<i data-lucide="users" class="region-icon"></i>`;
+            html += `<div class="region-section subgroup-section" data-subgroup="${sgName}">
+                <button class="region-header subgroup-header" onclick="toggleRegion(this)">
+                    ${iconHTML}
+                    <span class="region-name">${sgName}</span>
+                    <span class="region-count">${sgItems.length}</span>
+                </button>
+                <div class="region-items">${sgItems.map(buildItemCard).join('')}</div>
+            </div>`;
+        });
+        html += loose.map(buildItemCard).join('');
+        return html;
     }
 
     // Build item cards - with region grouping if available
@@ -318,12 +445,12 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
                 itemsHtml += `<div class="region-section ${isOpen}" data-region="${region}">`;
                 itemsHtml += `<button class="region-header" onclick="toggleRegion(this)">
                     <i data-lucide="chevron-right" class="region-chevron"></i>
-                    <i data-lucide="map-pin" class="region-icon"></i>
+                    <i data-lucide="${regionIcon(region)}" class="region-icon"></i>
                     <span class="region-name">${region}</span>
                     <span class="region-count">${itemCount}</span>
                 </button>`;
                 itemsHtml += `<div class="region-items">`;
-                itemsHtml += itemsByRegion[region].map(buildItemCard).join('');
+                itemsHtml += renderRegionInner(itemsByRegion[region]);
                 itemsHtml += `</div></div>`;
             }
         });
@@ -335,12 +462,12 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
                 itemsHtml += `<div class="region-section" data-region="${region}">`;
                 itemsHtml += `<button class="region-header" onclick="toggleRegion(this)">
                     <i data-lucide="chevron-right" class="region-chevron"></i>
-                    <i data-lucide="map-pin" class="region-icon"></i>
+                    <i data-lucide="${regionIcon(region)}" class="region-icon"></i>
                     <span class="region-name">${region}</span>
                     <span class="region-count">${itemCount}</span>
                 </button>`;
                 itemsHtml += `<div class="region-items">`;
-                itemsHtml += itemsByRegion[region].map(buildItemCard).join('');
+                itemsHtml += renderRegionInner(itemsByRegion[region]);
                 itemsHtml += `</div></div>`;
             }
         });
@@ -366,6 +493,10 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
         `;
     }
 
+    const filterHtml = categoryName !== 'Sessions'
+        ? `<div class="category-filter"><i data-lucide="search"></i><input type="text" id="category-filter-input" placeholder="Filter ${categoryName}..." autocomplete="off"></div>`
+        : '';
+
     document.getElementById('content-body').innerHTML = `
         <div class="category-overview">
             <header class="category-header">
@@ -377,6 +508,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
                 ${relationshipMapBtn}
             </header>
             ${timelineHtml}
+            ${filterHtml}
             <div class="category-items-grid">
                 ${itemsHtml}
             </div>
@@ -384,6 +516,23 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
     `;
 
     refreshIcons();
+
+    // Filter-as-you-type within the category
+    const filterInput = document.getElementById('category-filter-input');
+    if (filterInput) {
+        filterInput.addEventListener('input', (e) => {
+            const q = e.target.value.trim().toLowerCase();
+            document.querySelectorAll('.roster-card').forEach((card) => {
+                card.style.display = !q || card.dataset.name.includes(q) ? '' : 'none';
+            });
+            document.querySelectorAll('.region-section').forEach((sec) => {
+                let vis = 0;
+                sec.querySelectorAll('.roster-card').forEach((c) => { if (c.style.display !== 'none') vis++; });
+                sec.style.display = q && vis === 0 ? 'none' : '';
+                if (q && vis > 0) sec.classList.add('open');
+            });
+        });
+    }
 
     // Close mobile sidebar
     document.getElementById('sidebar').classList.remove('open');

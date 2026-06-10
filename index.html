@@ -41,6 +41,8 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
 
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/archive.css">
+    <link rel="stylesheet" href="/codex-nav.css">
     <script type="module" src="/src/main.js"></script>
 </head>
 <body>
@@ -85,6 +87,10 @@
                 <a href="#" class="nav-special-link" id="spells-link">
                     <i data-lucide="sparkles"></i>
                     <span>Spell Compendium</span>
+                </a>
+                <a href="#" class="nav-special-link archive-portal-link" id="archive-link">
+                    <i data-lucide="skull"></i>
+                    <span>The Archive of the Dead<span class="portal-sub">What the fallen gathered</span></span>
                 </a>
             </div>
 
@@ -157,6 +163,14 @@
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
         <i data-lucide="chevron-up"></i>
     </button>
+
+    <!-- Realm crossing overlay (Archive of the Dead) -->
+    <div class="realm-transition" id="realm-transition">
+        <div class="realm-transition-inner">
+            <div class="realm-transition-title"></div>
+            <div class="realm-transition-sub"></div>
+        </div>
+    </div>
 
     <!-- Medium-Zoom handles image viewing now (no HTML needed) -->
 

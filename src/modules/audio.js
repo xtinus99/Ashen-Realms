@@ -1,6 +1,7 @@
 import { refreshIcons } from './icons.js';
 
-const audioTracks = [
+// Living-world playlist (full colour realm)
+const livingTracks = [
   { file: 'Track 1.mp3', name: 'Ashen Whispers' },
   { file: 'Track 2.mp3', name: "Sovereign's Lament" },
   { file: 'Track 3.mp3', name: 'The Hollow Throne' },
@@ -9,10 +10,22 @@ const audioTracks = [
   { file: 'Track 6.mp3', name: 'Twilight Dominion' },
 ];
 
+// Archive-of-the-Dead playlist (muted realm).
+// PLACEHOLDER: reuses an existing track until a dedicated dead-realm track is
+// dropped into /public — to swap, change the file/name below (e.g. 'Dead.mp3').
+const deadTracks = [
+  { file: 'Track 2.mp3', name: "Sovereign's Lament" },
+];
+
+let activeTracks = livingTracks;
 let audio = null;
 let currentTrackIndex = 0;
 let isMuted = false;
 let savedVolume = 0.3;
+
+// Realm bookkeeping so returning to the living world resumes where it left off
+let audioRealm = 'living';
+let savedLivingIndex = 0;
 
 export function initAudio() {
   const savedMuted = localStorage.getItem('audioMuted');
@@ -28,7 +41,7 @@ export function initAudio() {
 
   currentTrackIndex = 0;
 
-  audio = new Audio(audioTracks[currentTrackIndex].file);
+  audio = new Audio(activeTracks[currentTrackIndex].file);
   audio.volume = savedVolume;
   audio.muted = isMuted;
   audio.loop = false;
@@ -48,32 +61,55 @@ export function initAudio() {
 }
 
 function preloadNextTrack() {
-  const nextIndex = (currentTrackIndex + 1) % audioTracks.length;
+  const nextIndex = (currentTrackIndex + 1) % activeTracks.length;
   const preloadAudio = new Audio();
   preloadAudio.preload = 'auto';
-  preloadAudio.src = audioTracks[nextIndex].file;
+  preloadAudio.src = activeTracks[nextIndex].file;
 }
 
 function playNextTrack() {
-  currentTrackIndex = (currentTrackIndex + 1) % audioTracks.length;
-  audio.src = audioTracks[currentTrackIndex].file;
+  currentTrackIndex = (currentTrackIndex + 1) % activeTracks.length;
+  audio.src = activeTracks[currentTrackIndex].file;
   updateTrackName();
-  audio.play();
+  audio.play().catch(() => {});
   preloadNextTrack();
 }
 
 function playPrevTrack() {
-  currentTrackIndex = (currentTrackIndex - 1 + audioTracks.length) % audioTracks.length;
-  audio.src = audioTracks[currentTrackIndex].file;
+  currentTrackIndex = (currentTrackIndex - 1 + activeTracks.length) % activeTracks.length;
+  audio.src = activeTracks[currentTrackIndex].file;
   updateTrackName();
-  audio.play();
+  audio.play().catch(() => {});
+  preloadNextTrack();
+}
+
+// ===== REALM SWITCH =====
+// Swaps the active playlist when crossing into / out of the Archive of the Dead.
+export function setAudioRealm(realm) {
+  if (realm === audioRealm) return;
+  if (!audio) { audioRealm = realm; return; }
+
+  if (audioRealm === 'living') savedLivingIndex = currentTrackIndex;
+  audioRealm = realm;
+
+  if (realm === 'archive') {
+    activeTracks = deadTracks;
+    currentTrackIndex = 0;
+  } else {
+    activeTracks = livingTracks;
+    currentTrackIndex = Math.min(savedLivingIndex, livingTracks.length - 1);
+  }
+
+  audio.src = activeTracks[currentTrackIndex].file;
+  updateTrackName();
+  if (!isMuted) audio.play().catch(() => {});
   preloadNextTrack();
 }
 
 function updateTrackName() {
   const trackNameEl = document.getElementById('track-name');
   if (trackNameEl) {
-    trackNameEl.textContent = audioTracks[currentTrackIndex].name;
+    trackNameEl.textContent = activeTracks[currentTrackIndex].name;
   }
 }
 

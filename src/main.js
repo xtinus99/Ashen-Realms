@@ -35,6 +35,14 @@ import { initSmoothScroll } from './modules/smooth-scroll.js';
 import { updateHash, setHashHandlers, restoreFromHash } from './modules/hash-routing.js';
 import { buildWikiIndex } from './modules/wiki-links.js';
 import { buildNavigation, openCategory, navigateToItemById, setNavigationHandlers } from './modules/navigation.js';
+import {
+  setRealmHandlers,
+  setupArchiveEntries,
+  showArchiveLanding,
+  enterArchiveSilent,
+  filterDataForRealm,
+  getRealm,
+} from './modules/realm.js';
 import { showItem, navigateToItem, showRelationshipMap } from './modules/article.js';
 import { setupSearch, setSearchHandlers } from './modules/search.js';
 import { setupBondsLink, showRelationships } from './modules/bonds.js';
@@ -92,6 +100,11 @@ async function loadData() {
 
 // ===== WELCOME SCREEN =====
 function showWelcome() {
+  // In the Archive realm, "home" is the Archive landing, not the living welcome
+  if (getRealm() === 'archive') {
+    showArchiveLanding();
+    return;
+  }
   state.currentItem = null;
   state.currentCategory = null;
 
@@ -163,6 +176,13 @@ function showWelcome() {
       <div class="welcome-stats">
         ${statsHtml}
       </div>
+      <div class="archive-gate" onclick="enterArchiveRealm()">
+        <div class="gate-icon"><i data-lucide="skull"></i></div>
+        <div class="gate-text">
+          <div class="gate-title">The Archive of the Dead</div>
+          <div class="gate-sub">What the fallen gathered, before the maw. Cross over &rarr;</div>
+        </div>
+      </div>
     </div>
   `;
 
@@ -183,6 +203,8 @@ setHashHandlers({
   showWelcome,
   showNotFound,
   restoreScrollPosition,
+  enterArchiveSilent,
+  showArchiveLanding,
 });
 
 setNavigationHandlers({
@@ -224,8 +246,14 @@ document.head.appendChild(animStyle);
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
-  buildWikiIndex();
+  // Split the dataset into two realms (living + archive); render one filtered view at a time
+  state.allData = state.data;
+  buildWikiIndex(); // index every entity across both realms before filtering
+  state.data = filterDataForRealm(state.allData, 'living');
+  state.currentRealm = 'living';
+  setRealmHandlers({ buildNavigation, showWelcome });
   buildNavigation();
+  setupArchiveEntries();
   setupSearch();
   setupMobileMenu();
   setupKeyboardShortcuts();

@@ -56,7 +56,7 @@
       ],
       "type": "sovereign",
       "sovereign": "Mareatha the Vein-Mother",
-      "description": "Cathedral-city where blood is currency, prayer, and law. Campaign starting location.",
+      "description": "Cathedral-city where blood is currency, prayer, and law.",
       "link": {
         "category": "Locations",
         "id": "veinspire"
@@ -219,7 +219,7 @@
         859
       ],
       "type": "city",
-      "description": "Independent junction town in The Unclaimed."
+      "description": "Once an independent junction town in the Unclaimed — burned to the ground by Kaedris; its survivors fled to Crownfall's refugee quarter."
     },
     {
       "id": "thornwall",
@@ -240,7 +240,7 @@
         986
       ],
       "type": "landmark",
-      "description": "Pre-Usurpation Greenwarder grove on the high northern edge of the Right Hand. Heartwood-cure route."
+      "description": "Pre-Usurpation Greenwarder grove on the high northern edge of the Right Hand."
     },
     {
       "id": "the-hand",
@@ -250,7 +250,7 @@
         980
       ],
       "type": "landmark",
-      "description": "Eastern landmass. Destination of the Arterial Texts."
+      "description": "Eastern landmass reaching into the Shattered Sea."
     },
     {
       "id": "the-hollow",
@@ -260,7 +260,7 @@
         783
       ],
       "type": "landmark",
-      "description": "Where the party fought the Smoldering Remnant. Jonas died here.",
+      "description": "A cave system in the coastal cliffs of the Unclaimed, named for the deep hollow boom the waves drive through it. The last forge and resting place of a Bastion smith who defected from Kaedris — his smoldering remnant haunted the depths.",
       "link": {
         "category": "Locations",
         "id": "the-hollow"
@@ -308,7 +308,7 @@
         591
       ],
       "type": "landmark",
-      "description": "Floating spire of dimensional catastrophe. Abandoned mid-climb in Session 35; descending toward the earth.",
+      "description": "Fallen spire of dimensional catastrophe — a grounded derelict on the western Unclaimed plain. The tower nobody returns from.",
       "link": {
         "category": "Locations",
         "id": "the-hexwrights-tower"
@@ -322,7 +322,7 @@
         549
       ],
       "type": "landmark",
-      "description": "Pre-Usurpation pale-stone structure in the Left Hand. Used by the party as a long-rest waypoint after Sol's death and ehn-varuu."
+      "description": "Pre-Usurpation pale-stone structure in the Left Hand; a sheltered waypoint for those crossing the ridges."
     },
     {
       "id": "knuckle-pass-east",
@@ -332,7 +332,7 @@
         519
       ],
       "type": "landmark",
-      "description": "Bone corridor through Aedwynn's finger-ridges. Sol Raven was killed here by a Ridge-Stalker. The corridor was cleared in Session 36."
+      "description": "Bone corridor through Aedwynn's finger-ridges. Ridge-Stalker hunting-ground."
     },
     {
       "id": "knuckle-pass-centre",
@@ -342,7 +342,7 @@
         493
       ],
       "type": "landmark",
-      "description": "Bone corridor through Aedwynn's finger-ridges. Pack Hunter territory; crossed without combat in Session 36."
+      "description": "Bone corridor through Aedwynn's finger-ridges. Pack Hunter territory."
     },
     {
       "id": "knuckle-pass-west",
@@ -352,7 +352,7 @@
         481
       ],
       "type": "landmark",
-      "description": "Bone corridor through Aedwynn's finger-ridges. A third Ridge-Stalker still holds this corridor."
+      "description": "Bone corridor through Aedwynn's finger-ridges. A Ridge-Stalker holds this corridor."
     },
     {
       "id": "left-hand-southern-coast",
@@ -362,7 +362,7 @@
         532
       ],
       "type": "landmark",
-      "description": "Newly-discovered southern coastline of the Left Hand. Found by the party while retreating from the Knuckle Pass after Sol's death."
+      "description": "The southern coastline of the Left Hand, below the bone ridges."
     },
     {
       "id": "basilica-of-the-unincarnate",
@@ -372,10 +372,35 @@
         503
       ],
       "type": "landmark",
-      "description": "Pre-Usurpation Aedwynn-built temple in the deep Left Hand jungle. Found in Session 36. Still active — figment of the Maker beneath the nave; Galheran the Unmoved at the door.",
+      "description": "Pre-Usurpation Aedwynn-built temple in the deep Left Hand jungle. Still active — a figment of the Maker rests beneath the nave.",
       "link": {
         "category": "Locations",
         "id": "the-basilica-of-the-unincarnate"
+      }
+    },
+    {
+      "id": "thurrgath",
+      "name": "Thurr'gath",
+      "subtitle": "Giant Tribe-Hold",
+      "coords": [
+        590,
+        1121
+      ],
+      "type": "landmark",
+      "description": "Hidden remnant-hold of the giants in the deep eastern Unclaimed — what is left of the old giant kingdoms, off every census, where no Sovereign reaches. Farkas's homeland."
+    },
+    {
+      "id": "the-drowned-caravel",
+      "name": "The Drowned Caravel",
+      "coords": [
+        437,
+        702
+      ],
+      "type": "landmark",
+      "description": "A three-masted heartwood ship from before the Usurpation, run aground in the western Unclaimed and slowly swallowed by the divine flesh beneath it. Its drowned crew linger on, bound to the wreck.",
+      "link": {
+        "category": "Locations",
+        "id": "the-resolve"
       }
     }
   ],

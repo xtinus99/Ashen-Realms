@@ -1,0 +1,300 @@
+/* =====================================================
+   THE CODEX — ornate sidebar navigation
+   Loaded after style.css; .sidebar-scoped so it wins.
+   The unfurl (max-height) animation lives in style.css
+   and is intentionally left intact.
+   ===================================================== */
+
+/* Faint stone-and-gold field behind the chapters */
+.sidebar .nav-section {
+  background:
+    radial-gradient(120% 55% at 50% 0%, rgba(201, 162, 39, 0.05), transparent 65%),
+    linear-gradient(180deg, rgba(18, 16, 12, 0.35), rgba(8, 7, 6, 0.45));
+}
+
+/* ---------- Chapter heading (category) ---------- */
+.sidebar .nav-category {
+  border-bottom: none;
+}
+.sidebar .nav-category-header {
+  position: relative;
+}
+.sidebar .nav-category-header .cat-name-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 0.9rem 0.9rem;
+}
+/* gold flourish rules flanking the centered chapter title */
+.sidebar .nav-category-header .cat-name-area::before,
+.sidebar .nav-category-header .cat-name-area::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  transition: background var(--transition-normal), box-shadow var(--transition-normal);
+}
+.sidebar .nav-category-header .cat-name-area::before {
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.4));
+}
+.sidebar .nav-category-header .cat-name-area::after {
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0.4), transparent);
+}
+.sidebar .nav-category-header .cat-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  color: var(--gold-deep);
+  filter: drop-shadow(0 0 5px rgba(201, 162, 39, 0.4));
+  transition: color var(--transition-normal), filter var(--transition-normal);
+}
+.sidebar .nav-category-header .cat-name {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--bone);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  transition: color var(--transition-normal), letter-spacing var(--transition-normal), text-shadow var(--transition-normal);
+}
+.sidebar .nav-category-header .cat-count {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  color: var(--gold-deep);
+  background: none;
+  border: none;
+  padding: 0;
+  opacity: 0.85;
+}
+.sidebar .nav-category-header .cat-toggle { padding: 0.75rem 0.6rem; }
+.sidebar .nav-category-header .chevron {
+  width: 13px;
+  height: 13px;
+  color: var(--gold-deep);
+  opacity: 0.7;
+}
+
+/* hover / open: the chapter illuminates */
+.sidebar .nav-category-header:hover .cat-name,
+.sidebar .nav-category.open .cat-name {
+  color: var(--gold-bright);
+  letter-spacing: 0.25em;
+  text-shadow: 0 0 12px rgba(232, 192, 64, 0.35);
+}
+.sidebar .nav-category-header:hover .cat-icon,
+.sidebar .nav-category.open .cat-icon {
+  color: var(--gold-bright);
+  filter: drop-shadow(0 0 9px rgba(232, 192, 64, 0.6));
+}
+.sidebar .nav-category.open > .nav-category-header {
+  background: linear-gradient(180deg, rgba(201, 162, 39, 0.06), transparent);
+  box-shadow: none;
+}
+.sidebar .nav-category.open .cat-name-area::before {
+  background: linear-gradient(90deg, transparent, var(--gold-bright));
+  box-shadow: 0 0 8px rgba(201, 162, 39, 0.35);
+}
+.sidebar .nav-category.open .cat-name-area::after {
+  background: linear-gradient(90deg, var(--gold-bright), transparent);
+  box-shadow: 0 0 8px rgba(201, 162, 39, 0.35);
+}
+
+/* ---------- Entries: fleuron-marked chapter lines ---------- */
+.sidebar .nav-item {
+  position: relative;
+  padding: 0.42rem 1rem 0.42rem 2.6rem;
+  border-left: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-dim);
+}
+.sidebar .nav-item::before {
+  content: "\2767"; /* rotated floral heart bullet */
+  position: absolute;
+  left: 1.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-deep);
+  opacity: 0.5;
+  font-size: 0.8rem;
+  transition: color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+}
+.sidebar .nav-item:hover {
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0.07), transparent);
+  color: var(--bone);
+}
+.sidebar .nav-item:hover::before {
+  color: var(--gold-bright);
+  opacity: 1;
+  transform: translateY(-50%) translateX(2px);
+}
+.sidebar .nav-item.active {
+  color: var(--gold-bright);
+  background: linear-gradient(90deg, rgba(139, 26, 50, 0.22), rgba(201, 162, 39, 0.1) 60%, transparent);
+}
+.sidebar .nav-item.active::before {
+  color: var(--gold-bright);
+  opacity: 1;
+}
+
+/* ---------- Region sub-chapters ---------- */
+.sidebar .nav-subcategory {
+  margin: 0.1rem 0.5rem 0.1rem 1.3rem;
+}
+.sidebar .nav-subcategory-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.sidebar .nav-subcategory.expanded > .nav-subcategory-header {
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0.07), transparent);
+}
+.sidebar .nav-subcategory.expanded > .nav-subcategory-header::after {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-deep), transparent 75%);
+}
+.sidebar .nav-subcategory-header .sub-icon {
+  width: 13px;
+  height: 13px;
+  color: var(--gold-deep);
+  opacity: 0.85;
+  transition: color var(--transition-fast), filter var(--transition-fast);
+}
+.sidebar .nav-subcategory-header:hover .sub-icon,
+.sidebar .nav-subcategory.expanded > .nav-subcategory-header .sub-icon {
+  color: var(--gold-bright);
+  filter: drop-shadow(0 0 6px rgba(232, 192, 64, 0.5));
+}
+.sidebar .nav-subcategory-header .sub-name {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  transition: color var(--transition-fast), letter-spacing var(--transition-fast);
+}
+.sidebar .nav-subcategory-header:hover .sub-name,
+.sidebar .nav-subcategory.expanded > .nav-subcategory-header .sub-name {
+  color: var(--gold);
+  letter-spacing: 0.2em;
+}
+.sidebar .nav-subcategory-header .sub-count {
+  margin-left: auto;
+  font-family: var(--font-display);
+  color: var(--gold-deep);
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.7rem;
+}
+
+/* ---------- Gilded entry-spine (nested entries) ---------- */
+.sidebar .nav-subcategory-items,
+.sidebar .nav-item-children {
+  position: relative;
+  margin-left: 1.55rem;
+  padding-left: 0;
+}
+.sidebar .nav-subcategory.expanded .nav-subcategory-items::before,
+.sidebar .nav-item-parent.expanded .nav-item-children::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(201, 162, 39, 0.4) 12%, rgba(201, 162, 39, 0.4) 88%, transparent);
+}
+.sidebar .nav-subcategory-items .nav-item,
+.sidebar .nav-item-children .nav-item {
+  padding: 0.3rem 0.7rem 0.3rem 0.95rem;
+  font-size: 0.95rem;
+}
+/* branch-tick reaching from the spine to each portrait */
+.sidebar .nav-subcategory-items .nav-item::after,
+.sidebar .nav-item-children .nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.9rem;
+  height: 1px;
+  background: rgba(201, 162, 39, 0.3);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+.sidebar .nav-subcategory-items .nav-item:hover::after,
+.sidebar .nav-item-children .nav-item:hover::after {
+  background: rgba(232, 192, 64, 0.6);
+}
+
+/* ---------- Portrait entries — faces in the tree ---------- */
+.sidebar .nav-item.has-portrait {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sidebar .nav-item.has-portrait::before { content: none; } /* drop the fleuron */
+/* flat (top-level) portrait entries: no spine, a little more room */
+.sidebar .nav-category-items > .nav-item.has-portrait {
+  padding: 0.36rem 1rem 0.36rem 1.1rem;
+}
+.sidebar .nav-item-portrait {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 35%, rgba(40, 34, 24, 0.9), var(--abyss));
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+.sidebar .nav-item-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.sidebar .nav-item-monogram {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+}
+.sidebar .nav-item-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sidebar .nav-item.has-portrait:hover .nav-item-portrait {
+  border-color: var(--gold);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6), 0 0 8px rgba(232, 192, 64, 0.4);
+  transform: scale(1.06);
+}
+.sidebar .nav-item.has-portrait.active .nav-item-portrait {
+  border-color: var(--gold-bright);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(232, 192, 64, 0.6);
+}
+.sidebar .nav-item.has-portrait.active .nav-item-label {
+  color: var(--gold-bright);
+}

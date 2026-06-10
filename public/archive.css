@@ -1,0 +1,182 @@
+/* =====================================================
+   THE ARCHIVE OF THE DEAD
+   A muted, black-and-white realm holding what the fallen
+   party gathered. Loaded after style.css so it wins.
+   ===================================================== */
+
+/* --- The drain: full greyscale on the whole document --- */
+/* Filter lives on <html> (the initial containing block) so position:fixed
+   elements keep working — putting it on .app would break the sidebar. */
+html {
+  transition: filter 0.85s ease;
+}
+html.realm-archive {
+  filter: grayscale(1) contrast(1.04) brightness(0.97);
+}
+
+/* ===== THE CROSSING (cinematic transition overlay) ===== */
+.realm-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, #0b0b0e 0%, #000 80%);
+}
+.realm-transition.active { pointer-events: all; }
+.realm-transition-inner { padding: 2rem; max-width: 92vw; }
+.realm-transition-title {
+  font-family: var(--font-display, 'IM Fell English', serif);
+  font-size: clamp(1.8rem, 5.5vw, 3.6rem);
+  color: #d2ccc0;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-shadow: 0 0 28px rgba(190, 190, 190, 0.28);
+}
+.realm-transition-sub {
+  margin-top: 1.1rem;
+  font-family: var(--font-body, 'Spectral', serif);
+  font-style: italic;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #8b867d;
+  letter-spacing: 0.18em;
+}
+
+/* ===== SIDEBAR PORTAL ENTRY ===== */
+.archive-portal-link {
+  position: relative;
+  overflow: hidden;
+  filter: grayscale(1);
+  border: 1px solid rgba(160, 160, 170, 0.18) !important;
+  border-radius: var(--radius-md, 8px);
+  margin-top: 0.35rem;
+  background: linear-gradient(180deg, rgba(20, 20, 26, 0.55), rgba(8, 8, 12, 0.55));
+}
+.archive-portal-link:hover {
+  border-color: rgba(205, 205, 215, 0.4) !important;
+  box-shadow: inset 0 0 18px rgba(150, 150, 160, 0.16);
+}
+.archive-portal-link.returning {
+  border-color: rgba(210, 210, 220, 0.45) !important;
+  box-shadow: inset 0 0 16px rgba(170, 170, 180, 0.18);
+}
+.archive-portal-link .portal-sub {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  color: #6f6a60;
+  font-family: var(--font-ui, sans-serif);
+  margin-top: 0.1rem;
+}
+
+/* In the Archive realm the living-world tools have no meaning — hide them.
+   Only the portal link (now "Return to the Living") remains. */
+html.realm-archive #bonds-link,
+html.realm-archive #spells-link {
+  display: none;
+}
+
+/* ===== WELCOME-SCREEN GATE ===== */
+.archive-gate {
+  margin: 2.6rem auto 0;
+  max-width: 540px;
+  padding: 1.3rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  border: 1px solid rgba(160, 160, 170, 0.2);
+  border-radius: var(--radius-lg, 12px);
+  background: linear-gradient(180deg, rgba(16, 16, 22, 0.7), rgba(6, 6, 10, 0.7));
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
+  filter: grayscale(0.9);
+}
+.archive-gate:hover {
+  filter: grayscale(1);
+  border-color: rgba(210, 210, 220, 0.42);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.55);
+}
+.archive-gate .gate-icon { display: flex; color: #b9b3a6; }
+.archive-gate .gate-icon i { width: 34px; height: 34px; }
+.archive-gate .gate-text { text-align: left; }
+.archive-gate .gate-title {
+  font-family: var(--font-display, serif);
+  font-size: 1.18rem;
+  letter-spacing: 0.12em;
+  color: #d8d2c4;
+}
+.archive-gate .gate-sub {
+  font-family: var(--font-body, serif);
+  font-style: italic;
+  font-size: 0.86rem;
+  color: #7d786e;
+}
+
+/* ===== THE ARCHIVE LANDING ===== */
+.archive-landing .archive-sigil-large {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+  color: #cfc9bd;
+  filter: drop-shadow(0 0 18px rgba(160, 160, 170, 0.25));
+}
+.archive-landing .archive-sigil-large i { width: 64px; height: 64px; }
+.archive-landing .archive-title { letter-spacing: 0.1em; }
+.archive-rollcall {
+  margin: 1.6rem auto;
+  max-width: 560px;
+  padding: 1.2rem 1.5rem;
+  border-top: 1px solid rgba(160, 160, 170, 0.18);
+  border-bottom: 1px solid rgba(160, 160, 170, 0.18);
+}
+.archive-rollcall-label {
+  font-family: var(--font-ui, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  font-size: 0.7rem;
+  color: #6f6a60;
+  margin-bottom: 0.7rem;
+}
+.archive-rollcall ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  justify-content: center;
+}
+.archive-rollcall li {
+  font-family: var(--font-display, serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: #c4beb0;
+}
+.archive-rollcall li.unnamed {
+  color: #6a655c;
+  font-style: italic;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.archive-return-btn {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  background: transparent;
+  border: 1px solid rgba(180, 180, 190, 0.3);
+  border-radius: var(--radius-md, 8px);
+  color: #c4beb0;
+  font-family: var(--font-ui, sans-serif);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.archive-return-btn:hover { border-color: rgba(220, 220, 230, 0.6); color: #efe9db; }
+.archive-return-btn i { width: 16px; height: 16px; }
