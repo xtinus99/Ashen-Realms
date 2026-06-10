@@ -550,7 +550,7 @@
         },
         "content": "<h1>Gustave Mourir</h1>\n\n<div class=\"npc-portrait\">\n<img src=\"images/Gustave Mourir.webp\" alt=\"Gustave Mourir\">\n</div>\n\n<p><strong>Role:</strong> Traumatized Survivor | <strong>Location:</strong> The Last Bed, Ashford</p>\n\n<h2>Overview</h2>\n<p>A man in his early thirties who looks sixty. Gustave led a salvage expedition east and came back alone. He walked into the Last Bed, sat down, and stopped. That was weeks ago.</p>\n\n<h2>Appearance</h2>\n<p>Hollowed cheeks, sunken eyes that won't focus. Sits upright in bed, staring at the wall. Hands folded in his lap. His lips move constantly — one word, over and over: <em>Watching.</em></p>\n\n<h2>What He Said</h2>\n<blockquote><em>\"...Watching... Watching... Watching...\"</em></blockquote>\n\n<p>Teldryn sat with him. Patient. Clinical. Eventually, something behind his eyes stirred.</p>\n\n<blockquote><em>\"The ground was breathing.\"</em></blockquote>\n\n<blockquote><em>\"The bones... the ridges... they were pointing at us. All of them. Like fingers. And the sky was getting closer.\"</em></blockquote>\n\n<blockquote><em>\"People just stopped. Hanne stopped walking. Just stood there. Wouldn't move. Wouldn't speak. Then Krev. Then the others. Just... standing. Looking east.\"</em></blockquote>\n\n<blockquote><em>\"Don't go east.\"</em></blockquote>\n\n<p>His eyes focused for the first time. Looking directly at Teldryn.</p>\n\n<blockquote><em>\"Maybe it wanted someone to come back. Bait.\"</em></blockquote>\n\n<p>Then the light left his eyes. He didn't speak again.</p>",
         "raw": "Gustave Mourir. Traumatized survivor at the Last Bed hospice in Ashford. Led a salvage team east — came back alone. Sits staring at the wall repeating 'Watching.' When Teldryn drew him out, he described the ground breathing, bones pointing like fingers, people stopping and staring east. His warning: 'Don't go east.' His theory: 'Maybe it wanted someone to come back. Bait.'",
-        "region": "The Unclaimed"
+        "region": "Deceased"
       },
       {
         "id": "dalla-merrik",
@@ -583,7 +583,7 @@
         },
         "content": "<h1>Candleman</h1>\n\n<div class=\"npc-portrait\">\n<img src=\"images/Candleman.webp\" alt=\"Candleman\">\n</div>\n\n<p><strong>Role:</strong> Hospice Keeper | <strong>Location:</strong> The Last Bed, Ashford</p>\n\n<h2>Overview</h2>\n<p>Keeper of the Last Bed, Ashford's only hospice. A solid, middle-aged man with large calloused hands stained with wax. Lined face, steady brown eyes that have watched many people die without looking away.</p>\n\n<p>Tends to the dying and broken with no religious affiliation. Unsentimental but deeply compassionate.</p>\n\n<h2>The Candles</h2>\n<p>He lights one candle per patient. It burns while they heal. It burns until they die. He never reuses the wax. He can predict within a day or two how long each candle will last.</p>\n\n<h2>Quote</h2>\n<blockquote><em>\"I've seen broken before. I've seen shell-shock and grief and the thousand-yard stare. This isn't that. This is a man who saw something he can't survive having seen.\"</em></blockquote>",
         "raw": "Candleman. Keeper of the Last Bed hospice in Ashford. Tends to the dying with no religious affiliation. Lights one candle per patient — burns while they heal or until they die. Currently watching over Gustave Mourir. Unsentimental but deeply compassionate.",
-        "region": "The Unclaimed"
+        "region": "Deceased"
       },
       {
         "id": "captain-hael",
