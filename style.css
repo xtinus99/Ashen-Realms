@@ -1659,7 +1659,7 @@ body {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow:
-        0 0 40px -10px var(--glow-blood),
+        0 0 40px -10px rgba(0, 0, 0, 0.55),
         inset 0 0 60px -30px rgba(0,0,0,0.5);
 }
 
