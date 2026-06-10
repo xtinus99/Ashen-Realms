@@ -264,6 +264,7 @@
         "The Blooming Rot",
         "The Unclaimed",
         "Vor'Khalem",
+        "The Void",
         "Clockwork Sanctum",
         "Clockwork Caravanserai",
         "Ancient Sites",
@@ -671,7 +672,7 @@
           "location": "Kel'vahr, the Void",
           "status": "Active"
         },
-        "region": "Vor'Khalem",
+        "region": "The Void",
         "content": "<h1>Ashka Voidmane</h1>\n\n<div class=\"npc-portrait\"><img src=\"images/Ashka Voidmane.webp\" alt=\"Ashka Voidmane\"></div>\n<p><strong>Role:</strong> Dimensional Breacher of the Absent Pride | <strong>Location:</strong> Kel'vahr, the Void | <strong>Status:</strong> Active</p>\n\n<h2>Who She Is</h2>\n<p>Ashka Voidmane is a Void-Born Leonin — born in Karthayne's dimension, purple-furred from birth, mid-twenties, blazing gold eyes. She can tear holes between the Void and the material plane, portals that register as 9th-level magic. She has never left the Void, never seen the sun, never felt wind.</p>\n\n<h2>What She Did</h2>\n<p>Ashka saw Fursen fighting near the Hollow through a tear. She grabbed the Misremembered first because it felt wrong and threw it deep in the Void. Then she kept watching. When Fursen emerged, she saw gold fur — the colour Leonin are supposed to be — and grabbed him too.</p>\n\n<h2>Personality</h2>\n<p>Boundlessly energetic. Talks fast, moves fast, processes the world through action. Asks about wind, rain, sky — wants to know what the outside <em>feels</em> like. She watched a Void-predator kill Jassen thirty feet from the perimeter when she was eleven. She acknowledges the Void is honest about trying to kill them.</p>\n\n<h2>Key Quotes</h2>\n<blockquote><p>\"That's why I grabbed you, gold-fur. Not just because you were Leonin. Because you were the colour we're supposed to be.\"</p></blockquote>\n<blockquote><p>\"TELL ME ABOUT THE SUN!\"</p></blockquote>",
         "raw": "Ashka Voidmane. Void-Born Leonin dimensional breacher of the Absent Pride. Purple-furred, mid-twenties, blazing gold eyes. Can open tears between the Void and material plane (9th-level magic). Grabbed Fursen because she saw gold fur and had never seen it before. Lives in Kel'vahr in Karthayne's dimension."
       },
@@ -683,7 +684,7 @@
           "location": "Kel'vahr, the Void",
           "status": "Active"
         },
-        "region": "Vor'Khalem",
+        "region": "The Void",
         "content": "<h1>Korrath the Steady</h1>\n\n<div class=\"npc-portrait\"><img src=\"images/Korrath the Steady.webp\" alt=\"Korrath the Steady\"></div>\n<p><strong>Role:</strong> War-leader and Founder of the Absent Pride | <strong>Location:</strong> Kel'vahr, the Void | <strong>Status:</strong> Active</p>\n\n<h2>Who He Is</h2>\n<p>Korrath led sixty Leonin into the Void when Imhuran's net closed around their homeland over two thousand years ago. Deep violet fur with the ghost of gold at the roots. Scarred across the muzzle, shoulders, and forearms. He has stared into nothing for twenty centuries.</p>\n\n<h2>What He Told Fursen</h2>\n<p>When Fursen revealed the 10,000 names from Aedwynn, Korrath understood immediately: \"Those names are not a gift, boy. They are a task. Every one of them is someone who needs to be carried forward.\" He offered to teach Fursen the old ways — the Rite of Naming, the Breath of Remembrance, the Weight Ceremony.</p>\n\n<h2>Key Quotes</h2>\n<blockquote><p>\"When we left — when I led sixty through the tear — there were thousands. Cities. Prides across every continent.\"</p></blockquote>\n<blockquote><p>\"Good. A liar would have said yes. A fool would have pretended. You said no. That is the first step of the old ways.\"</p></blockquote>",
         "raw": "Korrath the Steady. War-leader and Founder of the Absent Pride. Led sixty Leonin into Karthayne's Void over 2,000 years ago. Deep violet fur, gold at the roots. Offered to teach Fursen the old Leonin ways of carrying the 10,000 names."
       },
@@ -695,7 +696,7 @@
           "location": "Kel'vahr, the Void",
           "status": "Active"
         },
-        "region": "Vor'Khalem",
+        "region": "The Void",
         "content": "<h1>Yira Duskmane</h1>\n\n<div class=\"npc-portrait\"><img src=\"images/Yira Duskmane.webp\" alt=\"Yira Duskmane\"></div>\n<p><strong>Role:</strong> Void art master, spiritual leader, Founder | <strong>Location:</strong> Kel'vahr, the Void | <strong>Status:</strong> Active</p>\n\n<h2>Who She Is</h2>\n<p>Yira Duskmane is a Founder of the Absent Pride, over 2,000 years old, and the master of Void art combat. Almost entirely purple-black fur. Quiet and deliberate — every word chosen with intent.</p>\n\n<h2>Training Fursen</h2>\n<p>Yira trained Fursen at the grounds beyond Kel'vahr's edge. She taught him to channel absence through his strikes. On Day 1, Fursen achieved in three minutes what a Void-Born student named Surra took three years to learn. She noted the 10,000 names accelerate his learning — and warned him this makes him dangerous to himself.</p>\n<p>She taught Void Strike (Day 4) and Absence Step (Day 13). Her philosophy: \"The Void unmakes. We unmake the Void. The difference is intent.\"</p>\n\n<h2>Key Quotes</h2>\n<blockquote><p>\"Control. Always control. The names are passengers. You are the one walking.\"</p></blockquote>",
         "raw": "Yira Duskmane. Void art master and Founder of the Absent Pride. Over 2,000 years old, purple-black fur. Trained Fursen in Void Strike and Absence Step. Warned him that the 10,000 names make him faster than he should be — and that their instincts are not his."
       },
@@ -707,7 +708,7 @@
           "location": "Kel'vahr, the Void",
           "status": "Active"
         },
-        "region": "Vor'Khalem",
+        "region": "The Void",
         "content": "<h1>Tharren Voidclaw</h1>\n\n<div class=\"npc-portrait\"><img src=\"images/Tharren Voidclaw.webp\" alt=\"Tharren Voidclaw\"></div>\n<p><strong>Role:</strong> Hunter, perimeter guard | <strong>Location:</strong> Kel'vahr, the Void | <strong>Status:</strong> Active</p>\n<p>Void-Born Leonin, mid-thirties, purple-black fur, lean hunter's frame. Communicates through gesture and position during hunts. Speaks only when necessary. Led the Day 10 hunt where Fursen killed his first Void-stalker.</p>\n<blockquote><p>\"It tried to take from you. It couldn't. The names held. Most outsiders don't survive the aura.\"</p></blockquote>",
         "raw": "Tharren Voidclaw. Void-Born Leonin hunter of the Absent Pride. Silent, communicates through gesture. Led the hunt where Fursen killed his first Void-stalker."
       },
