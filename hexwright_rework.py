@@ -2,7 +2,7 @@
 import json, os
 from PIL import Image
 
-VDIR = r"C:\Users\khali\Documents\DND Campaign\DND Campaign\11 - Dungeons\Hexwright's Tower"
+VDIR = r"C:\Users\khali\Documents\DND Campaign\DND Campaign\10 - Dungeons\Hexwright's Tower"
 OUT = "public/images"
 
 # convert tower exterior + floor images 6-15

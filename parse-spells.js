@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SPELL_LISTS_DIR = path.join(__dirname, '..', 'DND Campaign', '09 - Tables and References', 'Spell Lists');
+const SPELL_LISTS_DIR = path.join(__dirname, '..', 'DND Campaign', '08 - Tables and References', 'Spell Lists');
 
 const CLASSES = ['Artificer', 'Bard', 'Cleric', 'Druid', 'Paladin', 'Ranger', 'Sorcerer', 'Warlock', 'Wizard'];
 const LEVELS = ['Cantrips', '1st Level', '2nd Level', '3rd Level', '4th Level', '5th Level', '6th Level', '7th Level', '8th Level', '9th Level'];
