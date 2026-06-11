@@ -3074,7 +3074,7 @@
         "name": "The Dealer",
         "type": "Merchant",
         "category": "npcs",
-        "reputation": 10500,
+        "reputation": 11500,
         "description": "Same question. What do you want, or what do you want me to find.",
         "likes": [
           "Knowing what he wants",
@@ -3090,6 +3090,10 @@
           {
             "change": 500,
             "reason": "First visit to the Green Door; bought the Dagger of Throwing (S41)"
+          },
+          {
+            "change": 1000,
+            "reason": "Returning customer - 'the little knife that comes home again'; haggled the Cloak of Protection from 200 down to 180 gp and the Dealer let him (S42)"
           }
         ],
         "unlocks": []
@@ -3098,7 +3102,7 @@
         "name": "Velvet Thorn",
         "type": "Neutral",
         "category": "npcs",
-        "reputation": 10500,
+        "reputation": 10750,
         "description": "The mark's on your file. I won't turn you in. I won't protect you either.",
         "likes": [
           "Paying for the room",
@@ -3114,6 +3118,10 @@
           {
             "change": 500,
             "reason": "Paying guest at the Velvet Thorn (third-floor suite) (S40-41)"
+          },
+          {
+            "change": 250,
+            "reason": "Returned road-worn; keys set out without a word (S42)"
           }
         ],
         "unlocks": []
@@ -3138,6 +3146,97 @@
           {
             "change": 1000,
             "reason": "Among the crew that brought House Vander the Twin Reach discovery (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Tarrin Vander",
+        "type": "Vander scholar-heir",
+        "category": "npcs",
+        "reputation": 14000,
+        "description": "You showed me how the road is done.",
+        "likes": [
+          "Being shown how the road is done",
+          "Records and documentation",
+          "Straight answers about what was witnessed"
+        ],
+        "dislikes": [
+          "Being handled like a porcelain heir",
+          "The family's story kept buried"
+        ],
+        "history": [
+          {
+            "change": 4000,
+            "reason": "Completed the Twin Reach contract - opened the vault, faced Halric, and brought two of the family's dead home: Halric and the never-born child (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Veshra Coil",
+        "type": "Silken Refuge proprietor",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "This is a house with rules, dear. You kept them.",
+        "likes": [
+          "House rules respected",
+          "Honesty about what a guest wants",
+          "Her workers' consent honoured"
+        ],
+        "dislikes": [
+          "Trouble in her house",
+          "Disrespecting her workers"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Well-behaved paying client on the trio's first real Refuge night (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Mor",
+        "type": "Refuge companion",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "Come again.",
+        "likes": [
+          "Clients who let her set the pace",
+          "Goblins who know when to stop arguing"
+        ],
+        "dislikes": [
+          "Observers",
+          "Machines creaking in the corner",
+          "Being handed the pace"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "A client she enjoyed - she kept control of every second and meant the 'come again' (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Delvin",
+        "type": "Vander household guard",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "Brought the boy home. Obliged, sirs.",
+        "likes": [
+          "The young master kept safe",
+          "A competent pace on a road he does not know"
+        ],
+        "dislikes": [
+          "Detours that endanger the heir",
+          "Wasted time"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Shared the road and the vault fight; he spent the heir's medical supplies stabilising the downed; the boy came home (S42)"
           }
         ],
         "unlocks": []
@@ -3174,7 +3273,7 @@
         "name": "Velvet Thorn",
         "type": "Ally",
         "category": "npcs",
-        "reputation": 13500,
+        "reputation": 13750,
         "description": "The questions were worth the room.",
         "likes": [
           "Good questions",
@@ -3194,6 +3293,10 @@
           {
             "change": 1000,
             "reason": "A returning face at the bar she has decided she likes"
+          },
+          {
+            "change": 250,
+            "reason": "Returned road-worn; keys set out without a word (S42)"
           }
         ],
         "unlocks": []
@@ -3338,6 +3441,97 @@
           {
             "change": -500,
             "reason": "Catalogued in House Drennan's operational file (S40)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Tarrin Vander",
+        "type": "Vander scholar-heir",
+        "category": "npcs",
+        "reputation": 14000,
+        "description": "You showed me how the road is done.",
+        "likes": [
+          "Being shown how the road is done",
+          "Records and documentation",
+          "Straight answers about what was witnessed"
+        ],
+        "dislikes": [
+          "Being handled like a porcelain heir",
+          "The family's story kept buried"
+        ],
+        "history": [
+          {
+            "change": 4000,
+            "reason": "Completed the Twin Reach contract - opened the vault, faced Halric, and brought two of the family's dead home: Halric and the never-born child (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Veshra Coil",
+        "type": "Silken Refuge proprietor",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "This is a house with rules, dear. You kept them.",
+        "likes": [
+          "House rules respected",
+          "Honesty about what a guest wants",
+          "Her workers' consent honoured"
+        ],
+        "dislikes": [
+          "Trouble in her house",
+          "Disrespecting her workers"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "A first-timer who minded the house rules (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Veil",
+        "type": "Refuge companion",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "All patience and suggestion.",
+        "likes": [
+          "Patience",
+          "Quiet",
+          "First-timers who let the hour breathe"
+        ],
+        "dislikes": [
+          "Rushing",
+          "Loudness"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "His first session - masked, silent, patient; he left without words for it (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Delvin",
+        "type": "Vander household guard",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "Brought the boy home. Obliged, sirs.",
+        "likes": [
+          "The young master kept safe",
+          "A competent pace on a road he does not know"
+        ],
+        "dislikes": [
+          "Detours that endanger the heir",
+          "Wasted time"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Shared the road and the vault fight; he spent the heir's medical supplies stabilising the downed; the boy came home (S42)"
           }
         ],
         "unlocks": []
@@ -3498,7 +3692,7 @@
         "name": "Velvet Thorn",
         "type": "Neutral",
         "category": "npcs",
-        "reputation": 10500,
+        "reputation": 10750,
         "description": "The iron one sleeps in the corner and watches. Reads as quietly attentive.",
         "likes": [
           "Stillness",
@@ -3514,6 +3708,10 @@
           {
             "change": 500,
             "reason": "Sleeps in the corner of the bar; Velvet reads him as watchful (S40-41)"
+          },
+          {
+            "change": 250,
+            "reason": "Returned road-worn; keys set out without a word (S42)"
           }
         ],
         "unlocks": []
@@ -3562,6 +3760,97 @@
           {
             "change": 500,
             "reason": "Observed the room at the Silken Refuge; Vex invited him to learn (S41)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Tarrin Vander",
+        "type": "Vander scholar-heir",
+        "category": "npcs",
+        "reputation": 14000,
+        "description": "You showed me how the road is done.",
+        "likes": [
+          "Being shown how the road is done",
+          "Records and documentation",
+          "Straight answers about what was witnessed"
+        ],
+        "dislikes": [
+          "Being handled like a porcelain heir",
+          "The family's story kept buried"
+        ],
+        "history": [
+          {
+            "change": 4000,
+            "reason": "Completed the Twin Reach contract - opened the vault, faced Halric, and brought two of the family's dead home: Halric and the never-born child (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Veshra Coil",
+        "type": "Silken Refuge proprietor",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "This is a house with rules, dear. You kept them.",
+        "likes": [
+          "House rules respected",
+          "Honesty about what a guest wants",
+          "Her workers' consent honoured"
+        ],
+        "dislikes": [
+          "Trouble in her house",
+          "Disrespecting her workers"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Put an honest, unusual request to her - a standing leave to study her workers (2 gp); accepted her consent-rule and held to it the same night (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Mor",
+        "type": "Refuge companion",
+        "category": "npcs",
+        "reputation": 9500,
+        "description": "Park it in the parlour and let it rust where I don't have to hear it.",
+        "likes": [
+          "Clients who let her set the pace",
+          "Goblins who know when to stop arguing"
+        ],
+        "dislikes": [
+          "Observers",
+          "Machines creaking in the corner",
+          "Being handed the pace"
+        ],
+        "history": [
+          {
+            "change": -500,
+            "reason": "Tried to observe her session under the Veshra arrangement; refused flat (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Delvin",
+        "type": "Vander household guard",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "Brought the boy home. Obliged, sirs.",
+        "likes": [
+          "The young master kept safe",
+          "A competent pace on a road he does not know"
+        ],
+        "dislikes": [
+          "Detours that endanger the heir",
+          "Wasted time"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Shared the road and the vault fight; he spent the heir's medical supplies stabilising the downed; the boy came home (S42)"
           }
         ],
         "unlocks": []
