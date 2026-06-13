@@ -2894,8 +2894,8 @@
         "name": "House Selvik",
         "type": "Faction",
         "category": "factions",
-        "reputation": 6500,
-        "description": "A small thief with a Watch flag and a House mark. Filed. Not yet worth the ink.",
+        "reputation": 9000,
+        "description": "Old thief-flag, but two clean closes and now a third. A useful contract operator. The ink's earned.",
         "likes": [
           "Settling the debt",
           "Useful work through the Roll",
@@ -2914,6 +2914,10 @@
           {
             "change": -1000,
             "reason": "87 gp claimed against him at the Threshold House"
+          },
+          {
+            "change": 2500,
+            "reason": "Closed the lost-caravan Orange clean - found the cause, recovered the manifest, no survivors to fault them for (the Husk King; S43)"
           }
         ],
         "unlocks": []
@@ -3240,6 +3244,61 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Maren Thane",
+        "type": "Ancient Grave-Keeper",
+        "category": "npcs",
+        "reputation": 15000,
+        "description": "I reopened a door that closed before its time. You walked back through it. Mind that you were worth the reopening.",
+        "likes": [
+          "Bodies brought to her with respect",
+          "Honesty about how a death happened",
+          "Paying the offering without haggling the work",
+          "Deaths set right that were set wrong"
+        ],
+        "dislikes": [
+          "Treating the rites as a service to be bargained",
+          "Loud disrespect in the Threshold",
+          "Asking her to undo a death that was owed"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Maren judged his death 'not owed' (killed by the Husk King, a thing that should not have existed) and reopened the door - raised him from the dead for 500 gp + the account of the King (S43)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Maren shares a quiet truth of the Threshold"
+          }
+        ]
+      },
+      {
+        "name": "Captain Vask",
+        "type": "Salvage skipper",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Greedy and armed. I can work with greedy and armed. The pious ones get me killed.",
+        "likes": [
+          "Paying the fare",
+          "Minding her lines",
+          "Honest reasons - treasure and hunting",
+          "Being alive at the pickup"
+        ],
+        "dislikes": [
+          "Pilgrims and prophecy",
+          "Being asked to wait on a god's doorstep",
+          "Sickness on her deck"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Hired her one-way to the scatter-isles beneath Elysra - 'treasure and hunting' (S43)"
+          }
+        ],
+        "unlocks": []
       }
     ]
   },
@@ -3401,8 +3460,8 @@
         "name": "House Selvik",
         "type": "Faction",
         "category": "factions",
-        "reputation": 11500,
-        "description": "Contract crew. Two closes in three days. Reliable enough.",
+        "reputation": 14000,
+        "description": "Contract crew. Three closes. Reliable muscle on the Wall.",
         "likes": [
           "Closing contracts",
           "Bringing the head back",
@@ -3417,6 +3476,10 @@
           {
             "change": 2000,
             "reason": "Closed two Roll contracts in three days (Bonefield, Brackish Pool) (S40-41)"
+          },
+          {
+            "change": 2500,
+            "reason": "Closed the lost-caravan Orange clean - found the cause, recovered the manifest, no survivors to fault them for (the Husk King; S43)"
           }
         ],
         "unlocks": []
@@ -3535,6 +3598,91 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Maren Thane",
+        "type": "Ancient Grave-Keeper",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "You carried the small one to me and paid the work its due. The Threshold remembers a debt kept.",
+        "likes": [
+          "Bodies brought to her with respect",
+          "Honesty about how a death happened",
+          "Paying the offering without haggling the work",
+          "Deaths set right that were set wrong"
+        ],
+        "dislikes": [
+          "Treating the rites as a service to be bargained",
+          "Loud disrespect in the Threshold",
+          "Asking her to undo a death that was owed"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Helped bring Ratsby's body to the Threshold; paid the offering and gave the account; witnessed the rite (S43)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Maren shares a quiet truth of the Threshold"
+          }
+        ]
+      },
+      {
+        "name": "Captain Vask",
+        "type": "Salvage skipper",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Greedy and armed. I can work with greedy and armed. The pious ones get me killed.",
+        "likes": [
+          "Paying the fare",
+          "Minding her lines",
+          "Honest reasons - treasure and hunting",
+          "Being alive at the pickup"
+        ],
+        "dislikes": [
+          "Pilgrims and prophecy",
+          "Being asked to wait on a god's doorstep",
+          "Sickness on her deck"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Crossed to the scatter-isles on Vask's boat; an unexpectedly tireless hand for a passenger (S43)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Kira Vost",
+        "type": "Varn training master",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "You swing like the swing is the whole plan. But you made me work. Most don't. Come to the Garrison.",
+        "likes": [
+          "Strength used with discipline",
+          "Making her work for the win",
+          "Earning the lesson",
+          "Showing up to train properly"
+        ],
+        "dislikes": [
+          "Reckless swings that sell the guard",
+          "Charm in place of competence",
+          "Wasting her time"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Sparred the Varn training master at the Kennels yard - lost a good, hard bout; she named his flaw and opened a door to the Garrison (S43)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 17500,
+            "reward": "Kira offers Company training / a place to test himself"
+          }
+        ]
       }
     ]
   },
@@ -3640,8 +3788,8 @@
         "name": "House Selvik",
         "type": "Faction",
         "category": "factions",
-        "reputation": 10500,
-        "description": "Warforged with pre-Usurpation chest-components. Interesting. Watch.",
+        "reputation": 13000,
+        "description": "Contract crew, three closes. The pre-Usurpation chest stays an open note, but the work is good.",
         "likes": [
           "Closing contracts",
           "Being worth studying",
@@ -3660,6 +3808,10 @@
           {
             "change": -1500,
             "reason": "Selvik flagged his pre-Usurpation chest-glow for later interest"
+          },
+          {
+            "change": 2500,
+            "reason": "Closed the lost-caravan Orange clean - found the cause, recovered the manifest, no survivors to fault them for (the Husk King; S43)"
           }
         ],
         "unlocks": []
@@ -3851,6 +4003,61 @@
           {
             "change": 2500,
             "reason": "Shared the road and the vault fight; he spent the heir's medical supplies stabilising the downed; the boy came home (S42)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Maren Thane",
+        "type": "Ancient Grave-Keeper",
+        "category": "npcs",
+        "reputation": 12500,
+        "description": "You knew where the dead of this city go, and to whom. That is a rarer thing to know than most reckon.",
+        "likes": [
+          "Bodies brought to her with respect",
+          "Honesty about how a death happened",
+          "Paying the offering without haggling the work",
+          "Deaths set right that were set wrong"
+        ],
+        "dislikes": [
+          "Treating the rites as a service to be bargained",
+          "Loud disrespect in the Threshold",
+          "Asking her to undo a death that was owed"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Recalled the Mother-of-rites and led the party to her with Ratsby's body; paid the offering and gave the account (S43)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 21000,
+            "reward": "Maren shares a quiet truth of the Threshold"
+          }
+        ]
+      },
+      {
+        "name": "Captain Vask",
+        "type": "Salvage skipper",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Greedy and armed. I can work with greedy and armed. The pious ones get me killed.",
+        "likes": [
+          "Paying the fare",
+          "Minding her lines",
+          "Honest reasons - treasure and hunting",
+          "Being alive at the pickup"
+        ],
+        "dislikes": [
+          "Pilgrims and prophecy",
+          "Being asked to wait on a god's doorstep",
+          "Sickness on her deck"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Crossed to the scatter-isles on Vask's boat (S43)"
           }
         ],
         "unlocks": []
