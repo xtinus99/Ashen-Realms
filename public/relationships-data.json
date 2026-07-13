@@ -3305,6 +3305,102 @@
   "farkas": {
     "relationships": [
       {
+        "name": "Karusa",
+        "type": "Freed shadar-kai / companion",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "The big one. You were there when the iron came off. I'll keep up.",
+        "likes": [
+          "Being given clear purpose",
+          "Plain dealing, no pity",
+          "Competence that costs something"
+        ],
+        "dislikes": [
+          "Being pitied or handled",
+          "Questions about the Blackfold",
+          "Careless cruelty"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "One of the three who freed her from the Sallow Compound; she walks with the party and defers to him as she does the others (S46)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Inquisitor Marek",
+        "type": "Veinspire — Church of the Vein war-priest",
+        "category": "npcs",
+        "reputation": 13500,
+        "description": "Then we're the same, you and me. Best pull I've had in a year.",
+        "likes": [
+          "A real test of strength",
+          "Drinking with a worthy arm",
+          "The Mother's favour shown in muscle"
+        ],
+        "dislikes": [
+          "Weakness dressed up as cleverness",
+          "Being made to think",
+          "A poor sport"
+        ],
+        "history": [
+          {
+            "change": 3500,
+            "reason": "Beat Farkas at arm-wrestling in a Veinspire rest-house (a real contest), adopted him as a friend for life, and let him in on the guard's strength-worm (S47)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Sister Perla",
+        "type": "Veinspire — Church of the Vein cleric",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "A big heart like yours — she'd feel you a mile off. Come back and be kept.",
+        "likes": [
+          "Curiosity about the faith",
+          "A prospect for the baptism",
+          "Sincere questions"
+        ],
+        "dislikes": [
+          "Mockery of the Mother",
+          "Cynicism",
+          "Turning from the gift"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Farkas came to her church curious about the veins; she taught him gladly and offered to start him toward the arterial baptism (S47)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Jorik Stave",
+        "type": "Thornwall — smith",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "That's old work. Older than it looks.",
+        "likes": [
+          "Respect for good steel",
+          "Serious old weapon-work",
+          "No questions, fair custom"
+        ],
+        "dislikes": [
+          "Haggling in bad faith",
+          "Prying about the iron hand",
+          "Time-wasting"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Fair custom — bought Karusa's kit off him (40 gp); Jorik clocked the Skyfather's Reckoning as serious ancient work (S47)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
         "name": "Broma",
         "type": "Ally",
         "category": "npcs",
@@ -3683,6 +3779,143 @@
             "reward": "Kira offers Company training / a place to test himself"
           }
         ]
+      },
+      {
+        "name": "Oo'ro'vae",
+        "type": "Salvage-master",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "The three off the Span. Buyers, trouble, or chain-bait - I haven't decided which yet.",
+        "likes": [
+          "Bringing fuel for the town",
+          "Turning a hand to work unasked",
+          "Asking before casting",
+          "Competence that costs something"
+        ],
+        "dislikes": [
+          "Spending what the coast gives you on leaving it worse",
+          "Cheap flattery",
+          "Haggling his poor prices"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Fair first dealing at the Yard; clocked as 'the three off the Span' and given his standing salvage offer, no trouble (S45)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 17500,
+            "reward": "Oo'ro'vae opens the log - the route home and which wrecks are live"
+          }
+        ]
+      },
+      {
+        "name": "Oo'lha'ne",
+        "type": "Cliff-hermit",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "That's old work. Giant-work. And it answers to you - not your arm, you.",
+        "likes": [
+          "A conversation he finds interesting",
+          "First-hand word of the warm world above",
+          "Being listened to without being pushed",
+          "Patience with how he answers"
+        ],
+        "dislikes": [
+          "Being rushed or pressed",
+          "Treating his knowledge as a purchase",
+          "Coin and threats"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Climbed to his perch and listened; he read the Skyfather's Reckoning as ancient giant-work that answers to Farkas and holds half-words of a dead tongue (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Vassek Holloweye",
+        "type": "Caldwharf coin-keeper / ally",
+        "category": "npcs",
+        "reputation": 15000,
+        "description": "You saw a man buying people quietly and chose to stand with him. From that, I let you in.",
+        "likes": [
+          "Keeping the secret",
+          "Standing with the sheltered",
+          "Reading the work for what it is",
+          "Asking what a move does to the ones he hides"
+        ],
+        "dislikes": [
+          "Loud moves that risk exposure",
+          "Trading the hidden for a fast play",
+          "Drawing the Keeper's eye"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Read what Vassek really does - shelters slaves off the chain - and stood with him instead of blowing it open before the Keeper's town; he made the trio allies (S45)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 17500,
+            "reward": "Vassek moves people, papers, and quiet coin for the party"
+          },
+          {
+            "threshold": 25000,
+            "reward": "Vassek considers them for the thread of mercy he must one day hand on"
+          }
+        ]
+      },
+      {
+        "name": "The Hollowsong",
+        "type": "Faction",
+        "category": "factions",
+        "reputation": 12000,
+        "description": "The three off the Span came back from the floe. Welcomed at the Hearthhold now.",
+        "likes": [
+          "Bringing fuel and warmth to the town",
+          "Killing what the cast-down fear",
+          "Coming home alive",
+          "Not wasting the heat"
+        ],
+        "dislikes": [
+          "Singing about the drowned",
+          "Bringing the chains down on the town",
+          "Wasting a poor coast's little"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Returned to the Underkeel from the western floe and the Span dive; Vo'la'me gave them the warmer Welcomed greeting and asked no questions (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Sael",
+        "type": "Caldwharf forger",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "Came up the chain asking after books. Worth remembering.",
+        "likes": [
+          "Honest custom",
+          "Curiosity about what a paper really says",
+          "Discretion"
+        ],
+        "dislikes": [
+          "Drawing the Auditors' eye",
+          "Wasting the stall's time"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Fair trade at the Square; the trio bought the unreadable 'ledger' Sael couldn't place - a Sylvan journal (S45)"
+          }
+        ],
+        "unlocks": []
       }
     ]
   },
@@ -4058,6 +4291,371 @@
           {
             "change": 1000,
             "reason": "Crossed to the scatter-isles on Vask's boat (S43)"
+          }
+        ],
+        "unlocks": []
+      }
+    ]
+  },
+  "veezara": {
+    "relationships": [
+      {
+        "name": "Karusa",
+        "type": "Freed shadar-kai / companion",
+        "category": "npcs",
+        "reputation": 17500,
+        "description": "You paid full price and struck the iron in a back lane. That's not how buyers behave. I pay what I owe.",
+        "likes": [
+          "Being given clear purpose",
+          "Plain dealing, no pity",
+          "Competence that costs something",
+          "Paying and being paid in kind"
+        ],
+        "dislikes": [
+          "Being pitied or handled",
+          "Questions about the Blackfold",
+          "Careless cruelty",
+          "Broken arithmetic - a trust spent"
+        ],
+        "history": [
+          {
+            "change": 7500,
+            "reason": "Bought her off the Sallow Compound showroom for 350 gp and struck the collar off in a back lane, asking nothing in return; she walks with him by debt and cold arithmetic, not gratitude (S46)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 25000,
+            "reward": "Karusa opens what she knows of the Collar from the inside - pens, grading, routes, the Compound's rhythms"
+          },
+          {
+            "threshold": 35000,
+            "reward": "Karusa speaks of the Blackfold"
+          }
+        ]
+      },
+      {
+        "name": "Oo'ro'vae",
+        "type": "Salvage-master",
+        "category": "npcs",
+        "reputation": 10750,
+        "description": "Watched before he spoke. Reads as fair, and poor, and honest about both.",
+        "likes": [
+          "Bringing fuel for the town",
+          "Turning a hand to work unasked",
+          "Asking before casting",
+          "Competence that costs something"
+        ],
+        "dislikes": [
+          "Spending what the coast gives you on leaving it worse",
+          "Cheap flattery",
+          "Haggling his poor prices"
+        ],
+        "history": [
+          {
+            "change": 750,
+            "reason": "Fair first dealing at the Yard; bought a fish, made no trouble, and was clocked as one of 'the three off the Span' (S45)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 17500,
+            "reward": "Oo'ro'vae opens the log - the route home and which wrecks are live"
+          }
+        ]
+      },
+      {
+        "name": "Oo'lha'ne",
+        "type": "Cliff-hermit",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "Tell me about the warm place. The hot one. I'd like to hear what the other thing sounds like.",
+        "likes": [
+          "First-hand word of the warm world above",
+          "A conversation he finds interesting",
+          "Being listened to without being pushed",
+          "Patience with how he answers"
+        ],
+        "dislikes": [
+          "Being rushed or pressed",
+          "Treating his knowledge as a purchase",
+          "Coin and threats"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Paid the hermit in the only coin he wanted - a first-hand account of warm Aethkharul, told to a man who has known nothing but cold; he listened to all of it (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Vassek Holloweye",
+        "type": "Caldwharf coin-keeper / ally",
+        "category": "npcs",
+        "reputation": 18000,
+        "description": "Your oath flared at the collared folk - and you still didn't draw on the clamps in front of the Keeper's town. That told me what you were.",
+        "likes": [
+          "Standing with the sheltered",
+          "Keeping the secret",
+          "Reading the work for what it is",
+          "Asking what a move does to the ones he hides"
+        ],
+        "dislikes": [
+          "Loud moves that risk exposure",
+          "Trading the hidden for a fast play",
+          "Drawing the Keeper's eye"
+        ],
+        "history": [
+          {
+            "change": 8000,
+            "reason": "His Oath of Vengeance flared at the collared folk of the Ember; he held, read what Vassek truly does - shelters slaves off the chain - and stood with him. The work aligns with his oath; Vassek made him an ally (S45)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 25000,
+            "reward": "Vassek opens his rescue to Veezara's Crimson Chain arc - the ones in Renik Sallow's pens"
+          },
+          {
+            "threshold": 35000,
+            "reward": "Vassek offers him the thread of mercy to carry on"
+          }
+        ]
+      },
+      {
+        "name": "The Hollowsong",
+        "type": "Faction",
+        "category": "factions",
+        "reputation": 12500,
+        "description": "Stand by the bar, sun-blood. You're worth three lamps and you don't cost me oil.",
+        "likes": [
+          "Bringing warmth to a frozen coast",
+          "Killing what the cast-down fear",
+          "Coming home alive",
+          "Not wasting the heat"
+        ],
+        "dislikes": [
+          "Singing about the drowned",
+          "Bringing the chains down on the town",
+          "Wasting a poor coast's little"
+        ],
+        "history": [
+          {
+            "change": 2500,
+            "reason": "Returned to the Underkeel from the western floe; Vo'la'me leaned toward his heat, gave the warmer Welcomed greeting and poured for the sun-blood (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Sael",
+        "type": "Caldwharf forger",
+        "category": "npcs",
+        "reputation": 10250,
+        "description": "Came up the chain asking after books. One of the three.",
+        "likes": [
+          "Honest custom",
+          "Curiosity about what a paper really says",
+          "Discretion"
+        ],
+        "dislikes": [
+          "Drawing the Auditors' eye",
+          "Wasting the stall's time"
+        ],
+        "history": [
+          {
+            "change": 250,
+            "reason": "Present for the fair trade at the Square; the trio bought the Sylvan journal off the stall (S45)"
+          }
+        ],
+        "unlocks": []
+      }
+    ]
+  },
+  "viktor": {
+    "relationships": [
+      {
+        "name": "Karusa",
+        "type": "Freed shadar-kai / companion",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "The one with the stone that won't go quiet. You were there when the iron came off.",
+        "likes": [
+          "Being given clear purpose",
+          "Plain dealing, no pity",
+          "Competence that costs something"
+        ],
+        "dislikes": [
+          "Being pitied or handled",
+          "Questions about the Blackfold",
+          "Careless cruelty"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "One of the three who freed her from the Sallow Compound; she walks with the party and defers to him as she does the others (S46)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Thessaly",
+        "type": "Veinspire — the Frayed Codex, keeper of forbidden knowledge",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "Take it. Forty years it's sat there refusing me. I want it out of my store anyway.",
+        "likes": [
+          "Honest seekers of forbidden knowledge",
+          "A question worth trading for",
+          "Something she has never seen before"
+        ],
+        "dislikes": [
+          "Casual browsers",
+          "Wasting an old woman's time",
+          "Asking the wrong question"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Read the first page of her forty-year unreadable Abyssal book; she gave it to him — wanted it out of her store anyway (S47)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Oo'ro'vae",
+        "type": "Salvage-master",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "That's more than it's worth. The catch is poor and you're paying for wanting it. Your coin.",
+        "likes": [
+          "Asking before casting",
+          "Bringing fuel for the town",
+          "Turning a hand to work unasked",
+          "Competence that costs something"
+        ],
+        "dislikes": [
+          "Spending what the coast gives you on leaving it worse",
+          "Cheap flattery",
+          "Haggling his poor prices"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Bought three jars of deep-caught tentacle (14 gp) at the Yard; Oo'ro'vae read the Black Catalyst under his skin without flinching and told him plainly the catch was overpriced - honest against his own sale (S45)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 17500,
+            "reward": "Oo'ro'vae opens the log - the route home and which wrecks are live"
+          }
+        ]
+      },
+      {
+        "name": "Oo'lha'ne",
+        "type": "Cliff-hermit",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Read as a man carrying something wrong. Weighed it, decided it was Viktor's problem, and moved on.",
+        "likes": [
+          "A conversation he finds interesting",
+          "First-hand word of the warm world above",
+          "Being listened to without being pushed",
+          "Patience with how he answers"
+        ],
+        "dislikes": [
+          "Being rushed or pressed",
+          "Treating his knowledge as a purchase",
+          "Coin and threats"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Climbed to the cliff-perch and listened; the hermit weighed the Black Catalyst without alarm and read Farkas's maul for the party (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Vassek Holloweye",
+        "type": "Caldwharf coin-keeper / ally",
+        "category": "npcs",
+        "reputation": 15000,
+        "description": "You saw a man buying people quietly and chose to stand with him. From that, I let you in.",
+        "likes": [
+          "Keeping the secret",
+          "Standing with the sheltered",
+          "Reading the work for what it is",
+          "Asking what a move does to the ones he hides"
+        ],
+        "dislikes": [
+          "Loud moves that risk exposure",
+          "Trading the hidden for a fast play",
+          "Drawing the Keeper's eye"
+        ],
+        "history": [
+          {
+            "change": 5000,
+            "reason": "Read what Vassek really does - shelters slaves off the chain - and stood with him instead of exposing him before the Keeper's town; Vassek made the trio allies (S45)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 17500,
+            "reward": "Vassek moves people, papers, and quiet coin for the party"
+          },
+          {
+            "threshold": 25000,
+            "reward": "Vassek considers them for the thread of mercy he must one day hand on"
+          }
+        ]
+      },
+      {
+        "name": "The Hollowsong",
+        "type": "Faction",
+        "category": "factions",
+        "reputation": 11750,
+        "description": "Welcomed back from the floe - though Vo'la'me eyes the whispering stone he carries.",
+        "likes": [
+          "Bringing fuel and warmth to the town",
+          "Killing what the cast-down fear",
+          "Coming home alive",
+          "Not wasting the heat"
+        ],
+        "dislikes": [
+          "Singing about the drowned",
+          "The whispering stone",
+          "Bringing the chains down on the town"
+        ],
+        "history": [
+          {
+            "change": 1750,
+            "reason": "Returned to the Underkeel from the western floe; Vo'la'me gave the trio the warmer Welcomed greeting, though she stays warier of him and his whispering stone than of the sun-blood (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Sael",
+        "type": "Caldwharf forger",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Named my unreadable ledger for what it was. Come back when you can read it - I'm curious too.",
+        "likes": [
+          "Curiosity about what a paper really says",
+          "Honest custom",
+          "Discretion"
+        ],
+        "dislikes": [
+          "Drawing the Auditors' eye",
+          "Wasting the stall's time"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "Bought the unreadable 'ledger' for 20 gp and named it - a Sylvan homesick journal Sael could forge a hand from but not read; left a door open to the stall once it can be read (S45)"
           }
         ],
         "unlocks": []
