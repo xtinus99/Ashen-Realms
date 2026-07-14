@@ -3308,7 +3308,7 @@
         "name": "Karusa",
         "type": "Freed shadar-kai / companion",
         "category": "npcs",
-        "reputation": 11000,
+        "reputation": 11500,
         "description": "The big one. You were there when the iron came off. I'll keep up.",
         "likes": [
           "Being given clear purpose",
@@ -3324,6 +3324,10 @@
           {
             "change": 1000,
             "reason": "One of the three who freed her from the Sallow Compound; she walks with the party and defers to him as she does the others (S46)"
+          },
+          {
+            "change": 500,
+            "reason": "Helped outfit her at Jorik's Forge; she travels armed as one of the company now (S47)"
           }
         ],
         "unlocks": []
@@ -3811,7 +3815,7 @@
         ]
       },
       {
-        "name": "Oo'lha'ne",
+        "name": "The Cliff-Hermit",
         "type": "Cliff-hermit",
         "category": "npcs",
         "reputation": 11000,
@@ -3913,6 +3917,30 @@
           {
             "change": 500,
             "reason": "Fair trade at the Square; the trio bought the unreadable 'ledger' Sael couldn't place - a Sylvan journal (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Hesta Draal",
+        "type": "Innkeeper - the Thorn and Nail",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
+        "likes": [
+          "Paying before keys",
+          "Keeping the house rule",
+          "Quiet, no-trouble custom"
+        ],
+        "dislikes": [
+          "Guild business under her roof",
+          "Haggling a fixed price",
+          "Noise past tenth bell"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Based at the Thorn and Nail through S46-47 - kept her rule, paid fair, and left clean"
           }
         ],
         "unlocks": []
@@ -4303,7 +4331,7 @@
         "name": "Karusa",
         "type": "Freed shadar-kai / companion",
         "category": "npcs",
-        "reputation": 17500,
+        "reputation": 18000,
         "description": "You paid full price and struck the iron in a back lane. That's not how buyers behave. I pay what I owe.",
         "likes": [
           "Being given clear purpose",
@@ -4321,6 +4349,10 @@
           {
             "change": 7500,
             "reason": "Bought her off the Sallow Compound showroom for 350 gp and struck the collar off in a back lane, asking nothing in return; she walks with him by debt and cold arithmetic, not gratitude (S46)"
+          },
+          {
+            "change": 500,
+            "reason": "Bought her first real kit at Jorik's Forge; she rides north as one of their own (S47)"
           }
         ],
         "unlocks": [
@@ -4365,7 +4397,7 @@
         ]
       },
       {
-        "name": "Oo'lha'ne",
+        "name": "The Cliff-Hermit",
         "type": "Cliff-hermit",
         "category": "npcs",
         "reputation": 11500,
@@ -4470,6 +4502,30 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Hesta Draal",
+        "type": "Innkeeper - the Thorn and Nail",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
+        "likes": [
+          "Paying before keys",
+          "Keeping the house rule",
+          "Quiet, no-trouble custom"
+        ],
+        "dislikes": [
+          "Guild business under her roof",
+          "Haggling a fixed price",
+          "Noise past tenth bell"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Based at the Thorn and Nail through S46-47 - kept her rule, paid fair, and left clean"
+          }
+        ],
+        "unlocks": []
       }
     ]
   },
@@ -4479,7 +4535,7 @@
         "name": "Karusa",
         "type": "Freed shadar-kai / companion",
         "category": "npcs",
-        "reputation": 11000,
+        "reputation": 11500,
         "description": "The one with the stone that won't go quiet. You were there when the iron came off.",
         "likes": [
           "Being given clear purpose",
@@ -4495,6 +4551,10 @@
           {
             "change": 1000,
             "reason": "One of the three who freed her from the Sallow Compound; she walks with the party and defers to him as she does the others (S46)"
+          },
+          {
+            "change": 500,
+            "reason": "Party outfitted her at Jorik's Forge; she keeps pace as one of the company now (S47)"
           }
         ],
         "unlocks": []
@@ -4554,7 +4614,7 @@
         ]
       },
       {
-        "name": "Oo'lha'ne",
+        "name": "The Cliff-Hermit",
         "type": "Cliff-hermit",
         "category": "npcs",
         "reputation": 11000,
@@ -4656,6 +4716,54 @@
           {
             "change": 1000,
             "reason": "Bought the unreadable 'ledger' for 20 gp and named it - a Sylvan homesick journal Sael could forge a hand from but not read; left a door open to the stall once it can be read (S45)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Hesta Draal",
+        "type": "Innkeeper - the Thorn and Nail",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
+        "likes": [
+          "Paying before keys",
+          "Keeping the house rule",
+          "Quiet, no-trouble custom"
+        ],
+        "dislikes": [
+          "Guild business under her roof",
+          "Haggling a fixed price",
+          "Noise past tenth bell"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Based at the Thorn and Nail through S46-47 - kept her rule, paid fair, and left clean"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Inquisitor Marek",
+        "type": "Church-of-the-Vein war-priest",
+        "category": "npcs",
+        "reputation": 9000,
+        "description": "Black in the veins. That's not the Mother's work. Keep your distance, warlock.",
+        "likes": [
+          "Raw strength",
+          "Loud devotion to the vein",
+          "A good arm-wrestle"
+        ],
+        "dislikes": [
+          "Corrupted blood",
+          "Heresy",
+          "Cleverness where strength should be"
+        ],
+        "history": [
+          {
+            "change": -1000,
+            "reason": "Recoiled from the black veins under Viktor's skin and called it near heresy (S47)"
           }
         ],
         "unlocks": []
