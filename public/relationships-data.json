@@ -265,16 +265,14 @@
         "reputation": 13000,
         "description": "The Witness... yes, you would seek knowledge.",
         "likes": [
-          "Bringing rare books",
-          "Asking thoughtful questions",
-          "Sharing discoveries",
-          "Honest conversation"
+          "Honest seekers of forbidden knowledge",
+          "A question worth trading for",
+          "Something she has never seen before"
         ],
         "dislikes": [
-          "Destroying books",
-          "Lying to her",
-          "Refusing to learn",
-          "Wasting her time"
+          "Idle browsers",
+          "Time-wasters",
+          "The wrong question asked carelessly"
         ],
         "history": [
           {
@@ -331,16 +329,14 @@
         "reputation": 10000,
         "description": "Another customer. Professional enough.",
         "likes": [
-          "Bringing quality materials",
-          "Fair payment",
-          "Reasonable requests",
-          "Patience with her craft"
+          "Honest custom",
+          "Gear that's cared for",
+          "A fair, quick deal"
         ],
         "dislikes": [
-          "Bringing cursed items",
-          "Rushing her work",
-          "Unreasonable demands",
-          "Haggling aggressively"
+          "Bad-faith haggling",
+          "Mistreated equipment",
+          "Time-wasters"
         ],
         "history": [],
         "unlocks": [
@@ -378,16 +374,14 @@
         "reputation": 22000,
         "description": "You keep coming back with fewer people and more scars. At least you come back.",
         "likes": [
-          "Being discreet",
-          "Bringing good referrals",
-          "Sharing useful information",
-          "Respecting her rules"
+          "Honest curiosity",
+          "A good, dry conversation",
+          "Guests who don't perform"
         ],
         "dislikes": [
-          "Lying to her",
-          "Refusing to pay",
-          "Causing trouble",
-          "Making scenes"
+          "Prying for free",
+          "Theatrics",
+          "Having her time wasted"
         ],
         "history": [
           {
@@ -624,16 +618,14 @@
         "reputation": 13000,
         "description": "Eat. Don't pay. Don't argue.",
         "likes": [
-          "Not making a fuss",
-          "Paying fairly",
-          "Being honest",
-          "Coming back alive"
+          "Coin on the counter",
+          "Quiet, paying custom",
+          "A tab settled"
         ],
         "dislikes": [
-          "Drama in her inn",
-          "Lying to her face",
-          "Not eating",
-          "Causing trouble for Ashford"
+          "Broken furniture",
+          "Trouble in his taproom",
+          "A skipped tab"
         ],
         "history": [
           {
@@ -880,14 +872,14 @@
         "reputation": 10000,
         "description": "Quiet one. Paid for a room and went upstairs.",
         "likes": [
-          "Paying on time",
-          "Not causing trouble",
-          "Minding your business"
+          "Paying before keys",
+          "Keeping her house rule",
+          "Quiet, no-trouble custom"
         ],
         "dislikes": [
-          "Causing scenes",
-          "Not paying",
-          "Asking too many questions"
+          "Deals struck under her roof",
+          "Haggling a fixed price",
+          "Noise past tenth bell"
         ],
         "history": [],
         "unlocks": []
@@ -1078,16 +1070,14 @@
         "reputation": 29000,
         "description": "You are always welcome here, lion. Always.",
         "likes": [
-          "Treating workers kindly",
-          "Sharing useful information",
-          "Opposing exploitation",
-          "Protecting the vulnerable"
+          "Her house rules respected",
+          "Her workers treated well",
+          "Honesty about what a guest wants"
         ],
         "dislikes": [
-          "Disrespecting workers",
-          "Aiding slavers",
-          "Working with House Keth",
-          "Abusing the vulnerable"
+          "Trouble in her house",
+          "Disrespect toward her workers",
+          "Coercion"
         ],
         "history": [
           {
@@ -1359,16 +1349,14 @@
         "reputation": 20000,
         "description": "A living Leonin... I thought your people were gone. The Ledger is yours.",
         "likes": [
-          "Bringing rare books",
-          "Asking thoughtful questions",
-          "Sharing discoveries",
-          "Honest conversation"
+          "Honest seekers of forbidden knowledge",
+          "A question worth trading for",
+          "Something she has never seen before"
         ],
         "dislikes": [
-          "Destroying books",
-          "Lying to her",
-          "Refusing to learn",
-          "Wasting her time"
+          "Idle browsers",
+          "Time-wasters",
+          "The wrong question asked carelessly"
         ],
         "history": [
           {
@@ -1459,16 +1447,14 @@
         "reputation": 10000,
         "description": "Customer. Professional.",
         "likes": [
-          "Bringing quality materials",
-          "Fair payment",
-          "Reasonable requests",
-          "Patience with her craft"
+          "Honest custom",
+          "Gear that's cared for",
+          "A fair, quick deal"
         ],
         "dislikes": [
-          "Bringing cursed items",
-          "Rushing her work",
-          "Unreasonable demands",
-          "Haggling aggressively"
+          "Bad-faith haggling",
+          "Mistreated equipment",
+          "Time-wasters"
         ],
         "history": [],
         "unlocks": []
@@ -1649,16 +1635,14 @@
         "reputation": 11000,
         "description": "NOT OUTSIDE MY INN!",
         "likes": [
-          "Not making a fuss",
-          "Paying fairly",
-          "Being honest",
-          "Coming back alive"
+          "Coin on the counter",
+          "Quiet, paying custom",
+          "A tab settled"
         ],
         "dislikes": [
-          "Drama in her inn",
-          "Lying to her face",
-          "Not eating",
-          "Causing trouble for Ashford"
+          "Broken furniture",
+          "Trouble in his taproom",
+          "A skipped tab"
         ],
         "history": [
           {
@@ -1758,16 +1742,14 @@
         "reputation": 20000,
         "description": "Where's the paladin?",
         "likes": [
-          "Being discreet",
-          "Bringing good referrals",
-          "Sharing useful information",
-          "Respecting her rules"
+          "Honest curiosity",
+          "A good, dry conversation",
+          "Guests who don't perform"
         ],
         "dislikes": [
-          "Lying to her",
-          "Refusing to pay",
-          "Causing trouble",
-          "Making scenes"
+          "Prying for free",
+          "Theatrics",
+          "Having her time wasted"
         ],
         "history": [
           {
@@ -2117,14 +2099,14 @@
         "reputation": 11000,
         "description": "Paid for information. Asked about Edrik. No trouble.",
         "likes": [
-          "Paying for her time",
-          "Practical questions",
-          "Not causing trouble"
+          "Paying before keys",
+          "Keeping her house rule",
+          "Quiet, no-trouble custom"
         ],
         "dislikes": [
-          "Causing scenes",
-          "Not paying",
-          "Wasting her time"
+          "Deals struck under her roof",
+          "Haggling a fixed price",
+          "Noise past tenth bell"
         ],
         "history": [
           {
@@ -2141,14 +2123,14 @@
         "reputation": 10500,
         "description": "Interesting piece. Can't work it here. Try the Crucible.",
         "likes": [
-          "Bringing interesting materials",
-          "Respecting the craft",
-          "Professional conduct"
+          "Respect for good steel",
+          "Fair custom without haggling games",
+          "Knowing what a weapon is for"
         ],
         "dislikes": [
-          "Rushing",
-          "Demanding impossible work",
-          "Disrespecting tools"
+          "Bad-faith haggling",
+          "Careless handling of a blade",
+          "Prying into a man's past"
         ],
         "history": [
           {
@@ -2436,16 +2418,14 @@
         "reputation": 10500,
         "description": "New face. Didn't cause the trouble. Didn't stop it either.",
         "likes": [
-          "Not making a fuss",
-          "Paying fairly",
-          "Being honest",
-          "Coming back alive"
+          "Coin on the counter",
+          "Quiet, paying custom",
+          "A tab settled"
         ],
         "dislikes": [
-          "Drama in her inn",
-          "Lying to her face",
-          "Not eating",
-          "Causing trouble for Ashford"
+          "Broken furniture",
+          "Trouble in his taproom",
+          "A skipped tab"
         ],
         "history": [
           {
@@ -2462,16 +2442,14 @@
         "reputation": 12000,
         "description": "New one gets the single at the end of the hall.",
         "likes": [
-          "Being discreet",
-          "Bringing good referrals",
-          "Sharing useful information",
-          "Respecting her rules"
+          "Honest curiosity",
+          "A good, dry conversation",
+          "Guests who don't perform"
         ],
         "dislikes": [
-          "Lying to her",
-          "Refusing to pay",
-          "Causing trouble",
-          "Making scenes"
+          "Prying for free",
+          "Theatrics",
+          "Having her time wasted"
         ],
         "history": [
           {
@@ -2714,12 +2692,14 @@
         "reputation": 10000,
         "description": "Poured ale on his arm instead of drinking it. Didn't ask.",
         "likes": [
-          "Paying on time",
-          "Not causing trouble"
+          "Paying before keys",
+          "Keeping her house rule",
+          "Quiet, no-trouble custom"
         ],
         "dislikes": [
-          "Causing scenes",
-          "Not paying"
+          "Deals struck under her roof",
+          "Haggling a fixed price",
+          "Noise past tenth bell"
         ],
         "history": [],
         "unlocks": []
@@ -2897,14 +2877,14 @@
         "reputation": 9000,
         "description": "Old thief-flag, but two clean closes and now a third. A useful contract operator. The ink's earned.",
         "likes": [
-          "Settling the debt",
-          "Useful work through the Roll",
-          "Staying clean"
+          "Contracts closed clean",
+          "Professionalism",
+          "Discretion"
         ],
         "dislikes": [
-          "Stealing from Selvik factors",
-          "Absconding with staked pots",
-          "Recidivism"
+          "Failed or abandoned contracts",
+          "A mess made of the House name",
+          "Absconding with stakes"
         ],
         "history": [
           {
@@ -2929,14 +2909,14 @@
         "reputation": 8500,
         "description": "Called worse by smaller. You paid. You walk. Door's behind you.",
         "likes": [
-          "Cooperating at booking",
-          "Paying fees without theatre",
-          "Not lying to his face"
+          "Cooperation with the Watch",
+          "Plain, straight answers",
+          "Order kept in the streets"
         ],
         "dislikes": [
-          "Palming evidence",
-          "Lying under questioning",
-          "Insults at the desk"
+          "Brawling in public",
+          "Grandstanding",
+          "Being lied to"
         ],
         "history": [
           {
@@ -3033,14 +3013,14 @@
         "reputation": 12500,
         "description": "Six? All of them? Right. You ever need a place east, the byre's open.",
         "likes": [
-          "Finishing the job",
-          "Protecting his flock",
+          "A job seen through to the end",
+          "Strength put to good use",
           "Plain dealing"
         ],
         "dislikes": [
           "Half-measures",
-          "Lies about the kill count",
-          "Leaving threats alive"
+          "Lies about the work",
+          "Loose ends left alive"
         ],
         "history": [
           {
@@ -3057,14 +3037,14 @@
         "reputation": 11000,
         "description": "Stitching was gone at your back. Fixed it. Don't swing from the shoulder.",
         "likes": [
-          "Paying for good work",
-          "Knowing what a blade is for",
-          "Repeat custom"
+          "Honest custom",
+          "Gear that's cared for",
+          "A fair, quick deal"
         ],
         "dislikes": [
-          "Time-wasting",
-          "Cheap stamps passed as steel",
-          "Haggling the floor"
+          "Bad-faith haggling",
+          "Mistreated equipment",
+          "Time-wasters"
         ],
         "history": [
           {
@@ -3109,14 +3089,14 @@
         "reputation": 10750,
         "description": "The mark's on your file. I won't turn you in. I won't protect you either.",
         "likes": [
-          "Paying for the room",
-          "Causing no trouble",
-          "Discretion"
+          "Honest curiosity",
+          "A good, dry conversation",
+          "Guests who don't perform"
         ],
         "dislikes": [
-          "Bringing heat to her bar",
-          "Names she didn't ask for",
-          "Theatre"
+          "Prying for free",
+          "Theatrics",
+          "Having her time wasted"
         ],
         "history": [
           {
@@ -3137,14 +3117,14 @@
         "reputation": 11000,
         "description": "You're the strangers who knocked. Bring my son back.",
         "likes": [
-          "Discretion about the family shame",
-          "Protecting Tarrin",
-          "Honest accounts"
+          "Discretion in House matters",
+          "Competence he can trust",
+          "Honest accounting"
         ],
         "dislikes": [
-          "Spreading the Vander business",
-          "Endangering his son",
-          "Selvik games"
+          "Recklessness with what he values",
+          "House business aired in public",
+          "Rival scheming"
         ],
         "history": [
           {
@@ -3161,13 +3141,14 @@
         "reputation": 14000,
         "description": "You showed me how the road is done.",
         "likes": [
-          "Being shown how the road is done",
-          "Records and documentation",
-          "Straight answers about what was witnessed"
+          "Being treated as capable",
+          "Careful records and documentation",
+          "Straight answers"
         ],
         "dislikes": [
-          "Being handled like a porcelain heir",
-          "The family's story kept buried"
+          "Being coddled like a fragile heir",
+          "Secrets kept from him",
+          "Condescension"
         ],
         "history": [
           {
@@ -3184,13 +3165,14 @@
         "reputation": 10500,
         "description": "This is a house with rules, dear. You kept them.",
         "likes": [
-          "House rules respected",
-          "Honesty about what a guest wants",
-          "Her workers' consent honoured"
+          "Her house rules respected",
+          "Her workers treated well",
+          "Honesty about what a guest wants"
         ],
         "dislikes": [
           "Trouble in her house",
-          "Disrespecting her workers"
+          "Disrespect toward her workers",
+          "Coercion"
         ],
         "history": [
           {
@@ -3230,11 +3212,13 @@
         "reputation": 12500,
         "description": "Brought the boy home. Obliged, sirs.",
         "likes": [
-          "The young master kept safe",
-          "A competent pace on a road he does not know"
+          "A charge kept safe",
+          "Competence on the road",
+          "A steady, sensible pace"
         ],
         "dislikes": [
-          "Detours that endanger the heir",
+          "Reckless detours",
+          "Endangering those in his care",
           "Wasted time"
         ],
         "history": [
@@ -3252,15 +3236,14 @@
         "reputation": 15000,
         "description": "I reopened a door that closed before its time. You walked back through it. Mind that you were worth the reopening.",
         "likes": [
-          "Bodies brought to her with respect",
-          "Honesty about how a death happened",
-          "Paying the offering without haggling the work",
-          "Deaths set right that were set wrong"
+          "The dead treated with respect",
+          "Honesty about how a death came",
+          "The offering paid without haggling"
         ],
         "dislikes": [
-          "Treating the rites as a service to be bargained",
-          "Loud disrespect in the Threshold",
-          "Asking her to undo a death that was owed"
+          "The rites treated as a mere service",
+          "Disrespect in the Threshold",
+          "Bargaining over the dead"
         ],
         "history": [
           {
@@ -3282,15 +3265,14 @@
         "reputation": 11000,
         "description": "Greedy and armed. I can work with greedy and armed. The pious ones get me killed.",
         "likes": [
-          "Paying the fare",
-          "Minding her lines",
-          "Honest reasons - treasure and hunting",
-          "Being alive at the pickup"
+          "The fare paid",
+          "Passengers who mind her lines",
+          "Plain, honest reasons"
         ],
         "dislikes": [
-          "Pilgrims and prophecy",
-          "Being asked to wait on a god's doorstep",
-          "Sickness on her deck"
+          "Superstition and prophecy",
+          "Being asked to linger somewhere dangerous",
+          "Trouble on her deck"
         ],
         "history": [
           {
@@ -3311,14 +3293,14 @@
         "reputation": 11500,
         "description": "The big one. You were there when the iron came off. I'll keep up.",
         "likes": [
-          "Being given clear purpose",
-          "Plain dealing, no pity",
-          "Competence that costs something"
+          "Plain dealing without pity",
+          "Competence that's been earned",
+          "Being treated as a person, not a rescue"
         ],
         "dislikes": [
           "Being pitied or handled",
-          "Questions about the Blackfold",
-          "Careless cruelty"
+          "Careless cruelty",
+          "Prying into a past she won't discuss"
         ],
         "history": [
           {
@@ -3340,12 +3322,12 @@
         "description": "Then we're the same, you and me. Best pull I've had in a year.",
         "likes": [
           "A real test of strength",
-          "Drinking with a worthy arm",
-          "The Mother's favour shown in muscle"
+          "Loud, simple devotion",
+          "Drinking with someone he respects"
         ],
         "dislikes": [
-          "Weakness dressed up as cleverness",
-          "Being made to think",
+          "Cleverness used to dodge a fair fight",
+          "Tainted or corrupted blood",
           "A poor sport"
         ],
         "history": [
@@ -3363,14 +3345,14 @@
         "reputation": 11000,
         "description": "A big heart like yours — she'd feel you a mile off. Come back and be kept.",
         "likes": [
-          "Curiosity about the faith",
-          "A prospect for the baptism",
-          "Sincere questions"
+          "Sincere curiosity about the faith",
+          "A soul open to the Mother",
+          "Honest questions"
         ],
         "dislikes": [
           "Mockery of the Mother",
-          "Cynicism",
-          "Turning from the gift"
+          "Cynicism toward the blood",
+          "Refusing the gift out of hand"
         ],
         "history": [
           {
@@ -3388,13 +3370,13 @@
         "description": "That's old work. Older than it looks.",
         "likes": [
           "Respect for good steel",
-          "Serious old weapon-work",
-          "No questions, fair custom"
+          "Fair custom without haggling games",
+          "Knowing what a weapon is for"
         ],
         "dislikes": [
-          "Haggling in bad faith",
-          "Prying about the iron hand",
-          "Time-wasting"
+          "Bad-faith haggling",
+          "Careless handling of a blade",
+          "Prying into a man's past"
         ],
         "history": [
           {
@@ -3412,13 +3394,13 @@
         "description": "Won't sing for you the way the thing on your back does. But it's yours, and so am I now.",
         "likes": [
           "Honest custom",
-          "Respecting good steel",
-          "A fair handshake"
+          "Gear that's cared for",
+          "A fair, quick deal"
         ],
         "dislikes": [
-          "Haggling in bad faith",
-          "Mistreating a blade",
-          "Time-wasting"
+          "Bad-faith haggling",
+          "Mistreated equipment",
+          "Time-wasters"
         ],
         "history": [
           {
@@ -3435,14 +3417,14 @@
         "reputation": 13750,
         "description": "The questions were worth the room.",
         "likes": [
-          "Good questions",
           "Honest curiosity",
-          "Talking about Ashford"
+          "A good, dry conversation",
+          "Guests who don't perform"
         ],
         "dislikes": [
-          "Wasting her time",
           "Prying for free",
-          "Theatre"
+          "Theatrics",
+          "Having her time wasted"
         ],
         "history": [
           {
@@ -3467,14 +3449,14 @@
         "reputation": 12500,
         "description": "Didn't ask what was in the canvas. Didn't need to. The byre's open.",
         "likes": [
-          "Finishing the job",
-          "Strength used well",
+          "A job seen through to the end",
+          "Strength put to good use",
           "Plain dealing"
         ],
         "dislikes": [
           "Half-measures",
           "Lies about the work",
-          "Leaving threats alive"
+          "Loose ends left alive"
         ],
         "history": [
           {
@@ -3491,14 +3473,14 @@
         "reputation": 10500,
         "description": "Half-giant's sat on my flagstones. Three strangers don't share an afternoon by accident.",
         "likes": [
-          "Cooperation",
-          "Plain answers",
-          "Sitting still when told"
+          "Cooperation with the Watch",
+          "Plain, straight answers",
+          "Order kept in the streets"
         ],
         "dislikes": [
-          "Public contests",
-          "Brawling in the square",
-          "Wasting his bad leg"
+          "Brawling in public",
+          "Grandstanding",
+          "Being lied to"
         ],
         "history": [
           {
@@ -3515,14 +3497,14 @@
         "reputation": 11000,
         "description": "Bring my son back.",
         "likes": [
-          "Protecting Tarrin",
-          "Strength on the road",
-          "Honest accounts"
+          "Discretion in House matters",
+          "Competence he can trust",
+          "Honest accounting"
         ],
         "dislikes": [
-          "Endangering his son",
-          "Vander business spread wide",
-          "Selvik games"
+          "Recklessness with what he values",
+          "House business aired in public",
+          "Rival scheming"
         ],
         "history": [
           {
@@ -3539,14 +3521,14 @@
         "reputation": 10500,
         "description": "Change is clean. Rooms are up the stair.",
         "likes": [
-          "Paying for the barrel",
-          "Quiet custom",
-          "Coin on the counter"
+          "Coin on the counter",
+          "Quiet, paying custom",
+          "A tab settled"
         ],
         "dislikes": [
-          "Breaking the furniture",
-          "Trouble in the Cup",
-          "Stiffing the tab"
+          "Broken furniture",
+          "Trouble in his taproom",
+          "A skipped tab"
         ],
         "history": [
           {
@@ -3563,13 +3545,13 @@
         "reputation": 14000,
         "description": "Contract crew. Three closes. Reliable muscle on the Wall.",
         "likes": [
-          "Closing contracts",
-          "Bringing the head back",
-          "Climbing the Wall clean"
+          "Contracts closed clean",
+          "Professionalism",
+          "Discretion"
         ],
         "dislikes": [
-          "Failed contracts",
-          "Mess on the Roll's name",
+          "Failed or abandoned contracts",
+          "A mess made of the House name",
           "Absconding with stakes"
         ],
         "history": [
@@ -3591,13 +3573,13 @@
         "reputation": 9500,
         "description": "Half-giant with a pre-Usurpation maul. Catalogued. I'll choose my moment.",
         "likes": [
-          "Being useful to House Drennan",
-          "Spectacle that pays",
-          "Discretion"
+          "A profitable spectacle",
+          "Discretion",
+          "Being made useful"
         ],
         "dislikes": [
-          "Drawing Council eyes",
-          "Unpredictability",
+          "Drawing Council scrutiny",
+          "Unpredictable people",
           "Wasted potential"
         ],
         "history": [
@@ -3615,13 +3597,14 @@
         "reputation": 14000,
         "description": "You showed me how the road is done.",
         "likes": [
-          "Being shown how the road is done",
-          "Records and documentation",
-          "Straight answers about what was witnessed"
+          "Being treated as capable",
+          "Careful records and documentation",
+          "Straight answers"
         ],
         "dislikes": [
-          "Being handled like a porcelain heir",
-          "The family's story kept buried"
+          "Being coddled like a fragile heir",
+          "Secrets kept from him",
+          "Condescension"
         ],
         "history": [
           {
@@ -3638,13 +3621,14 @@
         "reputation": 10500,
         "description": "This is a house with rules, dear. You kept them.",
         "likes": [
-          "House rules respected",
-          "Honesty about what a guest wants",
-          "Her workers' consent honoured"
+          "Her house rules respected",
+          "Her workers treated well",
+          "Honesty about what a guest wants"
         ],
         "dislikes": [
           "Trouble in her house",
-          "Disrespecting her workers"
+          "Disrespect toward her workers",
+          "Coercion"
         ],
         "history": [
           {
@@ -3662,12 +3646,13 @@
         "description": "All patience and suggestion.",
         "likes": [
           "Patience",
-          "Quiet",
-          "First-timers who let the hour breathe"
+          "A quiet, unhurried hour",
+          "Gentleness"
         ],
         "dislikes": [
-          "Rushing",
-          "Loudness"
+          "Being rushed",
+          "Loudness",
+          "Roughness"
         ],
         "history": [
           {
@@ -3684,11 +3669,13 @@
         "reputation": 12500,
         "description": "Brought the boy home. Obliged, sirs.",
         "likes": [
-          "The young master kept safe",
-          "A competent pace on a road he does not know"
+          "A charge kept safe",
+          "Competence on the road",
+          "A steady, sensible pace"
         ],
         "dislikes": [
-          "Detours that endanger the heir",
+          "Reckless detours",
+          "Endangering those in his care",
           "Wasted time"
         ],
         "history": [
@@ -3706,15 +3693,14 @@
         "reputation": 12000,
         "description": "You carried the small one to me and paid the work its due. The Threshold remembers a debt kept.",
         "likes": [
-          "Bodies brought to her with respect",
-          "Honesty about how a death happened",
-          "Paying the offering without haggling the work",
-          "Deaths set right that were set wrong"
+          "The dead treated with respect",
+          "Honesty about how a death came",
+          "The offering paid without haggling"
         ],
         "dislikes": [
-          "Treating the rites as a service to be bargained",
-          "Loud disrespect in the Threshold",
-          "Asking her to undo a death that was owed"
+          "The rites treated as a mere service",
+          "Disrespect in the Threshold",
+          "Bargaining over the dead"
         ],
         "history": [
           {
@@ -3736,15 +3722,14 @@
         "reputation": 11000,
         "description": "Greedy and armed. I can work with greedy and armed. The pious ones get me killed.",
         "likes": [
-          "Paying the fare",
-          "Minding her lines",
-          "Honest reasons - treasure and hunting",
-          "Being alive at the pickup"
+          "The fare paid",
+          "Passengers who mind her lines",
+          "Plain, honest reasons"
         ],
         "dislikes": [
-          "Pilgrims and prophecy",
-          "Being asked to wait on a god's doorstep",
-          "Sickness on her deck"
+          "Superstition and prophecy",
+          "Being asked to linger somewhere dangerous",
+          "Trouble on her deck"
         ],
         "history": [
           {
@@ -3762,14 +3747,13 @@
         "description": "You swing like the swing is the whole plan. But you made me work. Most don't. Come to the Garrison.",
         "likes": [
           "Strength used with discipline",
-          "Making her work for the win",
-          "Earning the lesson",
-          "Showing up to train properly"
+          "A student who earns the lesson",
+          "Being made to work for a win"
         ],
         "dislikes": [
-          "Reckless swings that sell the guard",
-          "Charm in place of competence",
-          "Wasting her time"
+          "Reckless, undisciplined fighting",
+          "Charm in place of skill",
+          "Wasted training time"
         ],
         "history": [
           {
@@ -3791,15 +3775,14 @@
         "reputation": 11000,
         "description": "The three off the Span. Buyers, trouble, or chain-bait - I haven't decided which yet.",
         "likes": [
-          "Bringing fuel for the town",
-          "Turning a hand to work unasked",
-          "Asking before casting",
-          "Competence that costs something"
+          "Pulling your weight unasked",
+          "Manners before magic",
+          "Taking no more than the coast can give"
         ],
         "dislikes": [
-          "Spending what the coast gives you on leaving it worse",
+          "Freeloaders who give nothing back",
           "Cheap flattery",
-          "Haggling his poor prices"
+          "Haggling an already-poor price"
         ],
         "history": [
           {
@@ -3821,15 +3804,14 @@
         "reputation": 11000,
         "description": "That's old work. Giant-work. And it answers to you - not your arm, you.",
         "likes": [
-          "A conversation he finds interesting",
-          "First-hand word of the warm world above",
-          "Being listened to without being pushed",
-          "Patience with how he answers"
+          "A conversation that interests him",
+          "News of the world above",
+          "Being heard without being hurried"
         ],
         "dislikes": [
           "Being rushed or pressed",
-          "Treating his knowledge as a purchase",
-          "Coin and threats"
+          "Knowledge treated as a purchase",
+          "Coin or threats in place of patience"
         ],
         "history": [
           {
@@ -3846,15 +3828,14 @@
         "reputation": 15000,
         "description": "You saw a man buying people quietly and chose to stand with him. From that, I let you in.",
         "likes": [
-          "Keeping the secret",
+          "Discretion that protects the vulnerable",
           "Standing with the sheltered",
-          "Reading the work for what it is",
-          "Asking what a move does to the ones he hides"
+          "Weighing what a move costs the powerless"
         ],
         "dislikes": [
           "Loud moves that risk exposure",
-          "Trading the hidden for a fast play",
-          "Drawing the Keeper's eye"
+          "Trading the weak for a fast gain",
+          "Recklessness that draws the wrong eyes"
         ],
         "history": [
           {
@@ -3880,15 +3861,14 @@
         "reputation": 12000,
         "description": "The three off the Span came back from the floe. Welcomed at the Hearthhold now.",
         "likes": [
-          "Bringing fuel and warmth to the town",
-          "Killing what the cast-down fear",
-          "Coming home alive",
-          "Not wasting the heat"
+          "Warmth and fuel shared with the town",
+          "Standing against what preys on the cast-down",
+          "Respect for how little the coast gives"
         ],
         "dislikes": [
-          "Singing about the drowned",
-          "Bringing the chains down on the town",
-          "Wasting a poor coast's little"
+          "Drawing the chains down on them",
+          "Wasting the town's scarce heat",
+          "Betraying the town's trust"
         ],
         "history": [
           {
@@ -3910,8 +3890,9 @@
           "Discretion"
         ],
         "dislikes": [
-          "Drawing the Auditors' eye",
-          "Wasting the stall's time"
+          "Drawing the authorities' eye",
+          "Time-wasters",
+          "Carelessness that exposes the trade"
         ],
         "history": [
           {
@@ -3929,11 +3910,11 @@
         "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
         "likes": [
           "Paying before keys",
-          "Keeping the house rule",
+          "Keeping her house rule",
           "Quiet, no-trouble custom"
         ],
         "dislikes": [
-          "Guild business under her roof",
+          "Deals struck under her roof",
           "Haggling a fixed price",
           "Noise past tenth bell"
         ],
@@ -3956,14 +3937,14 @@
         "reputation": 13000,
         "description": "That's our mark. I can't pretend otherwise. Bring my son back.",
         "likes": [
-          "Plain, honest reports",
-          "Protecting Tarrin",
-          "Discretion about the family"
+          "Discretion in House matters",
+          "Competence he can trust",
+          "Honest accounting"
         ],
         "dislikes": [
-          "Endangering his son",
-          "Spreading the Vander shame",
-          "Selvik games"
+          "Recklessness with what he values",
+          "House business aired in public",
+          "Rival scheming"
         ],
         "history": [
           {
@@ -3980,14 +3961,14 @@
         "reputation": 13000,
         "description": "Back for another oil change, metal man?",
         "likes": [
-          "Steady custom",
-          "Quiet professionalism",
-          "Knowing his own workings"
+          "Honest custom",
+          "Gear that's cared for",
+          "A fair, quick deal"
         ],
         "dislikes": [
-          "Neglecting maintenance",
-          "Wasting her time",
-          "Cheap fixes"
+          "Bad-faith haggling",
+          "Mistreated equipment",
+          "Time-wasters"
         ],
         "history": [
           {
@@ -4004,14 +3985,14 @@
         "reputation": 12500,
         "description": "All of them? This creature won't be a problem any longer.",
         "likes": [
-          "Finishing the job",
-          "Clean confirmation",
+          "A job seen through to the end",
+          "Strength put to good use",
           "Plain dealing"
         ],
         "dislikes": [
           "Half-measures",
-          "Loose ends",
-          "Leaving threats alive"
+          "Lies about the work",
+          "Loose ends left alive"
         ],
         "history": [
           {
@@ -4028,14 +4009,14 @@
         "reputation": 11000,
         "description": "Iron-man fought clean and won the upset. Gave a clean statement. Filed.",
         "likes": [
-          "Honesty under questioning",
-          "Disavowing the thief plainly",
-          "Cooperation"
+          "Cooperation with the Watch",
+          "Plain, straight answers",
+          "Order kept in the streets"
         ],
         "dislikes": [
-          "Lies",
-          "Public contests",
-          "Covering for a thief"
+          "Brawling in public",
+          "Grandstanding",
+          "Being lied to"
         ],
         "history": [
           {
@@ -4052,14 +4033,14 @@
         "reputation": 13000,
         "description": "Contract crew, three closes. The pre-Usurpation chest stays an open note, but the work is good.",
         "likes": [
-          "Closing contracts",
-          "Being worth studying",
-          "Reliability"
+          "Contracts closed clean",
+          "Professionalism",
+          "Discretion"
         ],
         "dislikes": [
-          "Failed contracts",
-          "Hiding what he is",
-          "Trouble on the Roll's name"
+          "Failed or abandoned contracts",
+          "A mess made of the House name",
+          "Absconding with stakes"
         ],
         "history": [
           {
@@ -4108,14 +4089,14 @@
         "reputation": 10750,
         "description": "The iron one sleeps in the corner and watches. Reads as quietly attentive.",
         "likes": [
-          "Stillness",
-          "Paying his way",
-          "Causing no trouble"
+          "Honest curiosity",
+          "A good, dry conversation",
+          "Guests who don't perform"
         ],
         "dislikes": [
-          "Bringing heat",
           "Prying for free",
-          "Theatre"
+          "Theatrics",
+          "Having her time wasted"
         ],
         "history": [
           {
@@ -4136,13 +4117,13 @@
         "reputation": 9500,
         "description": "Warforged with pre-Usurpation chest-components. Catalogued. I'll choose my moment.",
         "likes": [
-          "Being useful to House Drennan",
+          "A profitable spectacle",
           "Discretion",
-          "Quiet competence"
+          "Being made useful"
         ],
         "dislikes": [
-          "Drawing Council eyes",
-          "Unpredictability",
+          "Drawing Council scrutiny",
+          "Unpredictable people",
           "Wasted potential"
         ],
         "history": [
@@ -4184,13 +4165,14 @@
         "reputation": 14000,
         "description": "You showed me how the road is done.",
         "likes": [
-          "Being shown how the road is done",
-          "Records and documentation",
-          "Straight answers about what was witnessed"
+          "Being treated as capable",
+          "Careful records and documentation",
+          "Straight answers"
         ],
         "dislikes": [
-          "Being handled like a porcelain heir",
-          "The family's story kept buried"
+          "Being coddled like a fragile heir",
+          "Secrets kept from him",
+          "Condescension"
         ],
         "history": [
           {
@@ -4207,13 +4189,14 @@
         "reputation": 11500,
         "description": "This is a house with rules, dear. You kept them.",
         "likes": [
-          "House rules respected",
-          "Honesty about what a guest wants",
-          "Her workers' consent honoured"
+          "Her house rules respected",
+          "Her workers treated well",
+          "Honesty about what a guest wants"
         ],
         "dislikes": [
           "Trouble in her house",
-          "Disrespecting her workers"
+          "Disrespect toward her workers",
+          "Coercion"
         ],
         "history": [
           {
@@ -4253,11 +4236,13 @@
         "reputation": 12500,
         "description": "Brought the boy home. Obliged, sirs.",
         "likes": [
-          "The young master kept safe",
-          "A competent pace on a road he does not know"
+          "A charge kept safe",
+          "Competence on the road",
+          "A steady, sensible pace"
         ],
         "dislikes": [
-          "Detours that endanger the heir",
+          "Reckless detours",
+          "Endangering those in his care",
           "Wasted time"
         ],
         "history": [
@@ -4275,15 +4260,14 @@
         "reputation": 12500,
         "description": "You knew where the dead of this city go, and to whom. That is a rarer thing to know than most reckon.",
         "likes": [
-          "Bodies brought to her with respect",
-          "Honesty about how a death happened",
-          "Paying the offering without haggling the work",
-          "Deaths set right that were set wrong"
+          "The dead treated with respect",
+          "Honesty about how a death came",
+          "The offering paid without haggling"
         ],
         "dislikes": [
-          "Treating the rites as a service to be bargained",
-          "Loud disrespect in the Threshold",
-          "Asking her to undo a death that was owed"
+          "The rites treated as a mere service",
+          "Disrespect in the Threshold",
+          "Bargaining over the dead"
         ],
         "history": [
           {
@@ -4305,15 +4289,14 @@
         "reputation": 11000,
         "description": "Greedy and armed. I can work with greedy and armed. The pious ones get me killed.",
         "likes": [
-          "Paying the fare",
-          "Minding her lines",
-          "Honest reasons - treasure and hunting",
-          "Being alive at the pickup"
+          "The fare paid",
+          "Passengers who mind her lines",
+          "Plain, honest reasons"
         ],
         "dislikes": [
-          "Pilgrims and prophecy",
-          "Being asked to wait on a god's doorstep",
-          "Sickness on her deck"
+          "Superstition and prophecy",
+          "Being asked to linger somewhere dangerous",
+          "Trouble on her deck"
         ],
         "history": [
           {
@@ -4334,16 +4317,14 @@
         "reputation": 18000,
         "description": "You paid full price and struck the iron in a back lane. That's not how buyers behave. I pay what I owe.",
         "likes": [
-          "Being given clear purpose",
-          "Plain dealing, no pity",
-          "Competence that costs something",
-          "Paying and being paid in kind"
+          "Plain dealing without pity",
+          "Competence that's been earned",
+          "Being treated as a person, not a rescue"
         ],
         "dislikes": [
           "Being pitied or handled",
-          "Questions about the Blackfold",
           "Careless cruelty",
-          "Broken arithmetic - a trust spent"
+          "Prying into a past she won't discuss"
         ],
         "history": [
           {
@@ -4373,15 +4354,14 @@
         "reputation": 10750,
         "description": "Watched before he spoke. Reads as fair, and poor, and honest about both.",
         "likes": [
-          "Bringing fuel for the town",
-          "Turning a hand to work unasked",
-          "Asking before casting",
-          "Competence that costs something"
+          "Pulling your weight unasked",
+          "Manners before magic",
+          "Taking no more than the coast can give"
         ],
         "dislikes": [
-          "Spending what the coast gives you on leaving it worse",
+          "Freeloaders who give nothing back",
           "Cheap flattery",
-          "Haggling his poor prices"
+          "Haggling an already-poor price"
         ],
         "history": [
           {
@@ -4403,15 +4383,14 @@
         "reputation": 11500,
         "description": "Tell me about the warm place. The hot one. I'd like to hear what the other thing sounds like.",
         "likes": [
-          "First-hand word of the warm world above",
-          "A conversation he finds interesting",
-          "Being listened to without being pushed",
-          "Patience with how he answers"
+          "A conversation that interests him",
+          "News of the world above",
+          "Being heard without being hurried"
         ],
         "dislikes": [
           "Being rushed or pressed",
-          "Treating his knowledge as a purchase",
-          "Coin and threats"
+          "Knowledge treated as a purchase",
+          "Coin or threats in place of patience"
         ],
         "history": [
           {
@@ -4428,15 +4407,14 @@
         "reputation": 18000,
         "description": "Your oath flared at the collared folk - and you still didn't draw on the clamps in front of the Keeper's town. That told me what you were.",
         "likes": [
+          "Discretion that protects the vulnerable",
           "Standing with the sheltered",
-          "Keeping the secret",
-          "Reading the work for what it is",
-          "Asking what a move does to the ones he hides"
+          "Weighing what a move costs the powerless"
         ],
         "dislikes": [
           "Loud moves that risk exposure",
-          "Trading the hidden for a fast play",
-          "Drawing the Keeper's eye"
+          "Trading the weak for a fast gain",
+          "Recklessness that draws the wrong eyes"
         ],
         "history": [
           {
@@ -4462,15 +4440,14 @@
         "reputation": 12500,
         "description": "Stand by the bar, sun-blood. You're worth three lamps and you don't cost me oil.",
         "likes": [
-          "Bringing warmth to a frozen coast",
-          "Killing what the cast-down fear",
-          "Coming home alive",
-          "Not wasting the heat"
+          "Warmth and fuel shared with the town",
+          "Standing against what preys on the cast-down",
+          "Respect for how little the coast gives"
         ],
         "dislikes": [
-          "Singing about the drowned",
-          "Bringing the chains down on the town",
-          "Wasting a poor coast's little"
+          "Drawing the chains down on them",
+          "Wasting the town's scarce heat",
+          "Betraying the town's trust"
         ],
         "history": [
           {
@@ -4492,8 +4469,9 @@
           "Discretion"
         ],
         "dislikes": [
-          "Drawing the Auditors' eye",
-          "Wasting the stall's time"
+          "Drawing the authorities' eye",
+          "Time-wasters",
+          "Carelessness that exposes the trade"
         ],
         "history": [
           {
@@ -4511,11 +4489,11 @@
         "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
         "likes": [
           "Paying before keys",
-          "Keeping the house rule",
+          "Keeping her house rule",
           "Quiet, no-trouble custom"
         ],
         "dislikes": [
-          "Guild business under her roof",
+          "Deals struck under her roof",
           "Haggling a fixed price",
           "Noise past tenth bell"
         ],
@@ -4538,14 +4516,14 @@
         "reputation": 11500,
         "description": "The one with the stone that won't go quiet. You were there when the iron came off.",
         "likes": [
-          "Being given clear purpose",
-          "Plain dealing, no pity",
-          "Competence that costs something"
+          "Plain dealing without pity",
+          "Competence that's been earned",
+          "Being treated as a person, not a rescue"
         ],
         "dislikes": [
           "Being pitied or handled",
-          "Questions about the Blackfold",
-          "Careless cruelty"
+          "Careless cruelty",
+          "Prying into a past she won't discuss"
         ],
         "history": [
           {
@@ -4571,9 +4549,9 @@
           "Something she has never seen before"
         ],
         "dislikes": [
-          "Casual browsers",
-          "Wasting an old woman's time",
-          "Asking the wrong question"
+          "Idle browsers",
+          "Time-wasters",
+          "The wrong question asked carelessly"
         ],
         "history": [
           {
@@ -4590,15 +4568,14 @@
         "reputation": 11500,
         "description": "That's more than it's worth. The catch is poor and you're paying for wanting it. Your coin.",
         "likes": [
-          "Asking before casting",
-          "Bringing fuel for the town",
-          "Turning a hand to work unasked",
-          "Competence that costs something"
+          "Pulling your weight unasked",
+          "Manners before magic",
+          "Taking no more than the coast can give"
         ],
         "dislikes": [
-          "Spending what the coast gives you on leaving it worse",
+          "Freeloaders who give nothing back",
           "Cheap flattery",
-          "Haggling his poor prices"
+          "Haggling an already-poor price"
         ],
         "history": [
           {
@@ -4620,15 +4597,14 @@
         "reputation": 11000,
         "description": "Read as a man carrying something wrong. Weighed it, decided it was Viktor's problem, and moved on.",
         "likes": [
-          "A conversation he finds interesting",
-          "First-hand word of the warm world above",
-          "Being listened to without being pushed",
-          "Patience with how he answers"
+          "A conversation that interests him",
+          "News of the world above",
+          "Being heard without being hurried"
         ],
         "dislikes": [
           "Being rushed or pressed",
-          "Treating his knowledge as a purchase",
-          "Coin and threats"
+          "Knowledge treated as a purchase",
+          "Coin or threats in place of patience"
         ],
         "history": [
           {
@@ -4645,15 +4621,14 @@
         "reputation": 15000,
         "description": "You saw a man buying people quietly and chose to stand with him. From that, I let you in.",
         "likes": [
-          "Keeping the secret",
+          "Discretion that protects the vulnerable",
           "Standing with the sheltered",
-          "Reading the work for what it is",
-          "Asking what a move does to the ones he hides"
+          "Weighing what a move costs the powerless"
         ],
         "dislikes": [
           "Loud moves that risk exposure",
-          "Trading the hidden for a fast play",
-          "Drawing the Keeper's eye"
+          "Trading the weak for a fast gain",
+          "Recklessness that draws the wrong eyes"
         ],
         "history": [
           {
@@ -4679,15 +4654,14 @@
         "reputation": 11750,
         "description": "Welcomed back from the floe - though Vo'la'me eyes the whispering stone he carries.",
         "likes": [
-          "Bringing fuel and warmth to the town",
-          "Killing what the cast-down fear",
-          "Coming home alive",
-          "Not wasting the heat"
+          "Warmth and fuel shared with the town",
+          "Standing against what preys on the cast-down",
+          "Respect for how little the coast gives"
         ],
         "dislikes": [
-          "Singing about the drowned",
-          "The whispering stone",
-          "Bringing the chains down on the town"
+          "Drawing the chains down on them",
+          "Wasting the town's scarce heat",
+          "Betraying the town's trust"
         ],
         "history": [
           {
@@ -4704,13 +4678,14 @@
         "reputation": 11000,
         "description": "Named my unreadable ledger for what it was. Come back when you can read it - I'm curious too.",
         "likes": [
-          "Curiosity about what a paper really says",
           "Honest custom",
+          "Curiosity about what a paper really says",
           "Discretion"
         ],
         "dislikes": [
-          "Drawing the Auditors' eye",
-          "Wasting the stall's time"
+          "Drawing the authorities' eye",
+          "Time-wasters",
+          "Carelessness that exposes the trade"
         ],
         "history": [
           {
@@ -4728,11 +4703,11 @@
         "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
         "likes": [
           "Paying before keys",
-          "Keeping the house rule",
+          "Keeping her house rule",
           "Quiet, no-trouble custom"
         ],
         "dislikes": [
-          "Guild business under her roof",
+          "Deals struck under her roof",
           "Haggling a fixed price",
           "Noise past tenth bell"
         ],
@@ -4751,14 +4726,14 @@
         "reputation": 9000,
         "description": "Black in the veins. That's not the Mother's work. Keep your distance, warlock.",
         "likes": [
-          "Raw strength",
-          "Loud devotion to the vein",
-          "A good arm-wrestle"
+          "A real test of strength",
+          "Loud, simple devotion",
+          "Drinking with someone he respects"
         ],
         "dislikes": [
-          "Corrupted blood",
-          "Heresy",
-          "Cleverness where strength should be"
+          "Cleverness used to dodge a fair fight",
+          "Tainted or corrupted blood",
+          "A poor sport"
         ],
         "history": [
           {
