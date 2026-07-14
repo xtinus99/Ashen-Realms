@@ -3861,19 +3861,19 @@
         "reputation": 12000,
         "description": "The three off the Span came back from the floe. Welcomed at the Hearthhold now.",
         "likes": [
-          "Warmth and fuel shared with the town",
           "Standing against what preys on the cast-down",
-          "Respect for how little the coast gives"
+          "Strangers who ask no questions",
+          "Respect for how little the coast has"
         ],
         "dislikes": [
-          "Drawing the chains down on them",
-          "Wasting the town's scarce heat",
+          "Drawing the chains down on the town",
+          "Loud outsiders who draw the sky's eye",
           "Betraying the town's trust"
         ],
         "history": [
           {
             "change": 2000,
-            "reason": "Returned to the Underkeel from the western floe and the Span dive; Vo'la'me gave them the warmer Welcomed greeting and asked no questions (S45)"
+            "reason": "Returned to the Underkeel from the western floe and the Span dive; Vo'la'me welcomed them at the Hearthhold and asked no questions (S45)"
           }
         ],
         "unlocks": []
@@ -4438,21 +4438,21 @@
         "type": "Faction",
         "category": "factions",
         "reputation": 12500,
-        "description": "Stand by the bar, sun-blood. You're worth three lamps and you don't cost me oil.",
+        "description": "The sun-blood came back off the floe. Vo'la'me pours for him without being asked.",
         "likes": [
-          "Warmth and fuel shared with the town",
           "Standing against what preys on the cast-down",
-          "Respect for how little the coast gives"
+          "Strangers who ask no questions",
+          "Respect for how little the coast has"
         ],
         "dislikes": [
-          "Drawing the chains down on them",
-          "Wasting the town's scarce heat",
+          "Drawing the chains down on the town",
+          "Loud outsiders who draw the sky's eye",
           "Betraying the town's trust"
         ],
         "history": [
           {
             "change": 2500,
-            "reason": "Returned to the Underkeel from the western floe; Vo'la'me leaned toward his heat, gave the warmer Welcomed greeting and poured for the sun-blood (S45)"
+            "reason": "Returned to the Underkeel from the western floe; Vo'la'me welcomed the sun-blood and poured for him unasked (S45)"
           }
         ],
         "unlocks": []
@@ -4652,21 +4652,21 @@
         "type": "Faction",
         "category": "factions",
         "reputation": 11750,
-        "description": "Welcomed back from the floe - though Vo'la'me eyes the whispering stone he carries.",
+        "description": "Welcomed back from the floe - though Vo'la'me eyes the stone he carries.",
         "likes": [
-          "Warmth and fuel shared with the town",
           "Standing against what preys on the cast-down",
-          "Respect for how little the coast gives"
+          "Strangers who ask no questions",
+          "Respect for how little the coast has"
         ],
         "dislikes": [
-          "Drawing the chains down on them",
-          "Wasting the town's scarce heat",
+          "Drawing the chains down on the town",
+          "Loud outsiders who draw the sky's eye",
           "Betraying the town's trust"
         ],
         "history": [
           {
             "change": 1750,
-            "reason": "Returned to the Underkeel from the western floe; Vo'la'me gave the trio the warmer Welcomed greeting, though she stays warier of him and his whispering stone than of the sun-blood (S45)"
+            "reason": "Returned to the Underkeel from the western floe; Vo'la'me welcomed the trio but stays warier of him and the stone he carries (S45)"
           }
         ],
         "unlocks": []
