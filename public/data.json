@@ -287,6 +287,8 @@
         "Crownfall",
         "The Blooming Rot",
         "The Unclaimed",
+        "Thornwall",
+        "The Sunkland",
         "Vor'Khalem",
         "The Void",
         "Clockwork Sanctum",
@@ -1045,6 +1047,210 @@
         "region": "Crownfall",
         "subgroup": "House Vander",
         "era": "living"
+      },
+      {
+        "id": "maren-thane",
+        "title": "Maren Thane",
+        "era": "living",
+        "frontmatter": {
+          "role": "Keeper of the Threshold's death-rites",
+          "status": "Active",
+          "location": "The Threshold, Crownfall"
+        },
+        "content": "<h1>Maren Thane</h1>\n<div class=\"npc-portrait\"><img src=\"images/Maren Thane.webp\" alt=\"Maren Thane\"></div>\n<p><strong>Role:</strong> Keeper of the Threshold's death-rites | <strong>Status:</strong> Active | <strong>Location:</strong> The Threshold, Crownfall</p>\n<h2>Who She Is</h2>\n<p>Maren Thane keeps the death-rites at the Threshold, at Sister Varen's shrine on the lawless edge of Crownfall. She reads a corpse the way most people read a face &mdash; she named the thing that had killed Ratsby off the body alone, before the party finished explaining it. Where endings are the trade, she is the one name the whisper always comes back to.</p>\n<h2>The Party's Dealing</h2>\n<p>When the Husk King killed Ratsby out on the Vor'Khalem fringe, the party carried the body to her. She judged the death a wrong one &mdash; a man killed by a thing that should never have existed &mdash; and worked the rite through the night in the old tongue, for 500 gold and the full account of the Husk King as a trade. Ratsby drew breath again at dawn.</p>\n<blockquote><em>\"Husks. Many, grown into one. The fringe is making doors it cannot close.\"</em></blockquote>",
+        "raw": "Maren Thane keeps the Threshold's death-rites at Sister Varen's shrine in Crownfall; reads a corpse at a glance. She resurrected Ratsby after the Husk King killed him, for 500 gold and the full account of the creature.",
+        "region": "Crownfall"
+      },
+      {
+        "id": "captain-vask",
+        "title": "Captain Vask",
+        "era": "living",
+        "frontmatter": {
+          "role": "Salvage skipper",
+          "status": "Active"
+        },
+        "content": "<h1>Captain Vask</h1>\n<div class=\"npc-portrait\"><img src=\"images/Captain Vask.webp\" alt=\"Captain Vask\"></div>\n<p><strong>Role:</strong> Salvage skipper | <strong>Status:</strong> Active</p>\n<h2>Who He Is</h2>\n<p>An old salvage skipper with a hard mouth and a harder route &mdash; one of the few who will run a boat past the Caesura, out to the cold scatter-isles beneath Elysra. He deals plainly and never pretends the crossing is safe.</p>\n<h2>The Party's Dealing</h2>\n<p>Farkas pitched him a run west as treasure and hunting, and Vask named his terms and would not move off them: sixty gold for a one-way drop at Tidebreak, and nothing for the trip back. He set the party down on the frozen shore and left. Whether he comes back for them is his own affair.</p>\n<blockquote><em>\"Sixty buys there, not home.\"</em></blockquote>",
+        "raw": "Captain Vask, an old salvage skipper, one of the few who will run past the Caesura to the cold isles beneath Elysra. Dropped the party at Tidebreak for 60 gold, one way, nothing for the return.",
+        "region": "Crownfall"
+      },
+      {
+        "id": "kira-vost",
+        "title": "Kira \"Blackhand\" Vost",
+        "era": "living",
+        "frontmatter": {
+          "role": "House Varn training master",
+          "status": "Active",
+          "location": "Crownfall"
+        },
+        "content": "<h1>Kira \"Blackhand\" Vost</h1>\n<div class=\"npc-portrait\"><img src=\"images/Kira Vost.webp\" alt=\"Kira Vost\"></div>\n<p><strong>Role:</strong> House Varn training master | <strong>Status:</strong> Active | <strong>Location:</strong> Crownfall</p>\n<h2>Who She Is</h2>\n<p>House Varn's training master, in Crownfall on an inspection sweep. She gives a hard, honest bout and names your flaw while she wins it.</p>\n<h2>The Party's Dealing</h2>\n<p>Farkas took his Watch token to the Kennels yard for a supervised fight and drew her. She beat him, cleanly, and told him why. Behind the lesson she left a door open: an invitation to the Garrison in the Crown District. Farkas brushed it, and did not close it.</p>\n<blockquote><em>\"You swing like the swing is the whole plan.\"</em></blockquote>",
+        "raw": "Kira 'Blackhand' Vost, House Varn's training master. Beat Farkas in a supervised bout in Crownfall and left the Garrison invitation open.",
+        "region": "Crownfall"
+      },
+      {
+        "id": "vo-la-me",
+        "title": "Vo'la'me",
+        "era": "living",
+        "frontmatter": {
+          "role": "Keeper of the Hearthhold",
+          "status": "Active",
+          "location": "The Underkeel"
+        },
+        "content": "<h1>Vo'la'me</h1>\n<div class=\"npc-portrait\"><img src=\"images/Vo'la'me.webp\" alt=\"Vo'la'me\"></div>\n<p><strong>Role:</strong> Keeper of the Hearthhold | <strong>Status:</strong> Active | <strong>Location:</strong> The Underkeel</p>\n<h2>Who She Is</h2>\n<p>She keeps the Hearthhold, the warm common-room at the heart of the Underkeel, where the cold that climbs the coast finally stops. She greets newcomers sung, in the coast's braided tongue, and feeds the grieving for nothing. She runs warm to Veezara's sun-blood and a shade cooler to the whispering stone at Viktor's belt.</p>\n<h2>The Party's Dealing</h2>\n<p>She took the trio in off the ice, fed them, and asked after Anvil when they came back one short &mdash; \"the grey one, the one who laughs.\" She holds their promise to find out what became of North.</p>\n<blockquote><em>\"Ho'la'e vae'su'é.\"</em> &mdash; you are welcome</blockquote>",
+        "raw": "Vo'la'me keeps the Hearthhold at the Underkeel, where the climbing cold stops. Warm to Veezara's sun-blood; feeds the grieving free. Holds the party's promise to find out what became of North.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "north",
+        "title": "North",
+        "era": "living",
+        "frontmatter": {
+          "role": "Death-priest of the cold coast",
+          "status": "Vanished"
+        },
+        "content": "<h1>North</h1>\n<div class=\"npc-portrait\"><img src=\"images/Nor'tha'lui.webp\" alt=\"North\"></div>\n<p><strong>Role:</strong> Death-priest of the cold coast (Nor'tha'lui, \"North for short\") | <strong>Status:</strong> Vanished</p>\n<h2>Who He Is</h2>\n<p>A warm, easy, jolly death-priest who tends the coast's unburied &mdash; usually well into his cups, and no worse a companion for it. He walked out to the frozen Anvil with the party, named him one of the Still, and let slip the name of the thing under the ice before moving cheerfully on.</p>\n<h2>What Happened at the Span</h2>\n<p>He came with them into the Fallen Span and was downed when the Gravity Elemental overwhelmed the party. They ran. Behind them the elemental cried out, a wave of wrongness rolled over them, and then silence. When they came back the elemental was gone, North was gone, and a shattered mirror stood where he had been. No death-priest does what was just done. What he is, no one can say, and the broken glass is the only clue they have.</p>\n<blockquote><em>\"Ah. And I was having so much fun.\"</em></blockquote>",
+        "raw": "North (Nor'tha'lui), a jolly, half-drunk death-priest of the cold coast. Named Anvil one of the Still and let slip the name Thuun'garoth. At the Fallen Span he unmade the Gravity Elemental that had downed the party and vanished, leaving only a shattered mirror. What he is, no one can say.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "kae-le-tha",
+        "title": "Kae'le'tha",
+        "era": "living",
+        "frontmatter": {
+          "role": "The Hollowsong, singer of the dead",
+          "status": "Active",
+          "location": "The Underkeel"
+        },
+        "content": "<h1>Kae'le'tha</h1>\n<div class=\"npc-portrait\"><img src=\"images/Kae'le'tha.webp\" alt=\"Kae'le'tha\"></div>\n<p><strong>Role:</strong> The Hollowsong &mdash; singer of the town's dead | <strong>Status:</strong> Active | <strong>Location:</strong> The Underkeel</p>\n<h2>Who She Is</h2>\n<p>She sings the Underkeel's dead into the town's long chorus, the braided song that hangs over the grounded ships. To be sung in is the coast's rite for the lost.</p>\n<h2>The Party's Dealing</h2>\n<p>When the party came back with Anvil frozen out on the ice, she offered to sing him in with the town's dead. They declined the rite and kept their own quiet over him, unwilling to count him gone.</p>",
+        "raw": "Kae'le'tha, the Hollowsong, sings the Underkeel's dead into the town's chorus. Offered to sing the frozen Anvil in; the party declined.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "oo-ro-vae",
+        "title": "Oo'ro'vae",
+        "era": "living",
+        "frontmatter": {
+          "role": "Salvage-master, the Yard",
+          "status": "Active",
+          "location": "The Underkeel"
+        },
+        "content": "<h1>Oo'ro'vae</h1>\n<div class=\"npc-portrait\"><img src=\"images/Oo'ro'vae.webp\" alt=\"Oo'ro'vae\"></div>\n<p><strong>Role:</strong> Salvage-master, the Yard | <strong>Status:</strong> Active | <strong>Location:</strong> The Underkeel</p>\n<h2>Who He Is</h2>\n<p>Gruff and watchful, he runs the salvage Yard at the Underkeel and buys what the coast coughs up at honest, poor prices &mdash; and says so to your face. He clocked the black shard at Viktor's belt without a flicker of fear.</p>\n<h2>The Party's Dealing</h2>\n<p>He sold Viktor deep-caught tentacle, told him flatly it was overpriced, and laid out his standing offer for their salvage. The one thing he keeps back is the route home; that stays for men he trusts, and the party has not yet earned it.</p>\n<blockquote><em>\"There's worse men to know than me.\"</em></blockquote>",
+        "raw": "Oo'ro'vae runs the salvage Yard at the Underkeel; gruff, fair, poor prices, honest about it. Holds the route home behind trust the party hasn't yet earned.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "the-cliff-hermit",
+        "title": "The Cliff-Hermit",
+        "era": "living",
+        "frontmatter": {
+          "status": "Active",
+          "location": "The Tidebreak rib-cliffs"
+        },
+        "content": "<h1>The Cliff-Hermit</h1>\n<div class=\"npc-portrait\"><img src=\"images/Oo'lha'ne.webp\" alt=\"The cliff-hermit\"></div>\n<p><strong>Status:</strong> Active | <strong>Location:</strong> The Tidebreak rib-cliffs</p>\n<h2>Who He Is</h2>\n<p>An old man who keeps a perch high in the bone-rib cliffs above Tidebreak, alone on the coldest edge of the coast. The party climbed to him and asked who he was; he would say only that he was a hermit, and gave nothing else away &mdash; not why he stays out here, nor what he watches for.</p>\n<h2>The Party's Dealing</h2>\n<p>He heard them out, handed them a warmth stone for the road, and let them go on their way. Whatever else he is, he kept it to himself.</p>",
+        "raw": "The cliff-hermit, an old man alone in the Tidebreak rib-cliffs who would only call himself a hermit and gave the party a warmth stone. He kept his name and his reasons to himself.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "maldwin-crale",
+        "title": "Maldwin Crale",
+        "era": "living",
+        "frontmatter": {
+          "role": "Liftworks foreman",
+          "status": "Active"
+        },
+        "content": "<h1>Maldwin Crale</h1>\n<div class=\"npc-portrait\"><img src=\"images/Maldwin Crale.webp\" alt=\"Maldwin Crale\"></div>\n<p><strong>Role:</strong> Liftworks foreman | <strong>Status:</strong> Active</p>\n<h2>Who He Is</h2>\n<p>The foreman of the Liftworks, the chain-foot rig that hauls collared cargo up to Caldwharf. He does lawful, ugly work and is long past being ashamed of it; judged for it, he judges right back.</p>\n<h2>The Party's Dealing</h2>\n<p>Veezara came at him with his oath already up, and Crale gave the paladin a cold answer and nothing more of himself. Rather than quarrel with three armed strangers, he waved them onto a returning cradle for free, to be rid of them. They rode his chain up to Caldwharf, and later trailed his carriage down to Thornwall.</p>\n<blockquote><em>\"I sign for the weight, not the names.\"</em></blockquote>",
+        "raw": "Maldwin Crale, foreman of the Liftworks chain that hauls collared cargo up to Caldwharf. Rude but fair when Veezara came at him hot; waved the party up the chain free. Rode the road to Thornwall.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "vassek-holloweye",
+        "title": "Vassek Holloweye",
+        "era": "living",
+        "frontmatter": {
+          "role": "Counting-House coin-keeper",
+          "status": "Active — ally",
+          "location": "Caldwharf"
+        },
+        "content": "<h1>Vassek Holloweye</h1>\n<div class=\"npc-portrait\"><img src=\"images/Vassek Holloweye.webp\" alt=\"Vassek Holloweye\"></div>\n<p><strong>Role:</strong> Counting-House coin-keeper | <strong>Status:</strong> Active &mdash; ally | <strong>Location:</strong> Caldwharf</p>\n<h2>Who He Is</h2>\n<p>Caldwharf's coin-keeper, and quietly its conscience. Through his own ledger he shelters slaves &mdash; buying who he can off the chain, losing their entries between the pages, and placing them into decent bonded lives instead of the cold pens. It is a deadly secret; exposure would mean death for him and everyone he has saved.</p>\n<h2>The Party's Dealing</h2>\n<p>The party went digging for what was really going on in the free-port and found his work instead. He is the answer the collared folk at the Ember would not give Veezara: that the mercy is already being done, quietly, by a man who cannot be loud about it. They made themselves his friends &mdash; an ally inside the slave machinery, and a model of how to win the war without burning down the people it means to save.</p>",
+        "raw": "Vassek Holloweye, Caldwharf's coin-keeper, secretly shelters slaves through his own ledger, placing them in decent bonded lives. A deadly secret. The party made themselves his allies.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "sael",
+        "title": "Sael",
+        "era": "living",
+        "frontmatter": {
+          "role": "Forger and fence",
+          "status": "Active",
+          "location": "Caldwharf"
+        },
+        "content": "<h1>Sael</h1>\n<div class=\"npc-portrait\"><img src=\"images/Sael.webp\" alt=\"Sael\"></div>\n<p><strong>Role:</strong> Forger and fence | <strong>Status:</strong> Active | <strong>Location:</strong> Caldwharf</p>\n<h2>Who They Are</h2>\n<p>A changeling forger and fence who works a stall in Caldwharf's Square, dealing in papers, curiosities, and the occasional thing that should not be for sale. Curious about what a document really says, and discreet about who is asking.</p>\n<h2>The Party's Dealing</h2>\n<p>Among the stock sat an unreadable \"ledger\" that Viktor named as Sylvan &mdash; a personal journal, not accounts. He bought it for twenty gold. Sael left a standing offer on the table: forged papers, or passage into Elysra, for anyone who needs to be somewhere they are not supposed to be.</p>",
+        "raw": "Sael, a changeling forger and fence in Caldwharf's Square. Sold Viktor the Sylvan journal for 20 gold; standing offer of forged papers or passage into Elysra.",
+        "region": "The Sunkland"
+      },
+      {
+        "id": "rennick-bryce",
+        "title": "Rennick Bryce",
+        "era": "living",
+        "frontmatter": {
+          "role": "Guild Warden",
+          "status": "Active",
+          "location": "Thornwall"
+        },
+        "content": "<h1>Rennick Bryce</h1>\n<div class=\"npc-portrait\"><img src=\"images/Rennick Bryce.webp\" alt=\"Rennick Bryce\"></div>\n<p><strong>Role:</strong> Guild Warden | <strong>Status:</strong> Active | <strong>Location:</strong> Thornwall</p>\n<h2>Who He Is</h2>\n<p>The Guild Warden of Thornwall, who runs the town through procedure from the Guildhall at its centre. The paperwork of the trade passes across his desk.</p>\n<h2>The Party's Dealing</h2>\n<p>The party followed Maldwin Crale into the Guildhall and eavesdropped as he reported the chain-run closed to Bryce. They did not deal with him directly &mdash; only watched the machinery of Thornwall's trade sign itself off, one clerk to another.</p>",
+        "raw": "Rennick Bryce, Guild Warden of Thornwall, runs the town through procedure. Crale reported the chain-run closed to him; the party only watched from a distance.",
+        "region": "Thornwall"
+      },
+      {
+        "id": "halick-pell",
+        "title": "Halick Pell",
+        "era": "living",
+        "frontmatter": {
+          "role": "Factor, the Sallow Compound",
+          "status": "Active",
+          "location": "Thornwall"
+        },
+        "content": "<h1>Halick Pell</h1>\n<div class=\"npc-portrait\"><img src=\"images/Halick Pell.webp\" alt=\"Halick Pell\"></div>\n<p><strong>Role:</strong> Factor, the Sallow Compound | <strong>Status:</strong> Active | <strong>Location:</strong> Thornwall</p>\n<h2>Who He Is</h2>\n<p>The factor who runs viewings at the Sallow Compound, the Gilded Collar's trade-house. Smooth, appraising, entirely at ease selling people as ordinary commerce.</p>\n<h2>The Party's Dealing</h2>\n<p>Posing as buyers, the party was received by Pell past the gate-blades. He clocked Veezara's gold scales with a flicker of appraisal and walked the trio through the trade &mdash; the graded exotics, the bulk holding hall, and the rare room where Veezara's own sun-line sat priced with a number for a name.</p>",
+        "raw": "Halick Pell, the factor who runs viewings at the Sallow Compound in Thornwall. Received the party as buyers and walked them through the trade, including the rare room where R-11 was priced.",
+        "region": "Thornwall"
+      },
+      {
+        "id": "orro-the-white-omen",
+        "title": "Orro, the White Omen",
+        "era": "living",
+        "frontmatter": {
+          "role": "The Sallows' enforcer",
+          "status": "Active — never met",
+          "location": "The Sallow Compound, Thornwall"
+        },
+        "content": "<h1>Orro, the White Omen</h1>\n<div class=\"npc-portrait\"><img src=\"images/Orro the White Omen.webp\" alt=\"Orro\"></div>\n<p><strong>Role:</strong> The Sallows' enforcer | <strong>Status:</strong> Active &mdash; never met | <strong>Location:</strong> The Sallow Compound, Thornwall</p>\n<h2>Heard, and Glimpsed</h2>\n<p>Behind a locked door off the Sallow Compound's reception is Orro &mdash; the thing the Sallows keep, and never explain. The party never met him. They heard a huge wet voice come through the door (<em>\"NOT ENOUGH. BRING MORE!\"</em>), watched a fist-sized chunk of wood punch through it from the inside, and saw an attendant run a barrel of wine and a collared slave in to him.</p>\n<p>When the door opened to drag the slave through, Veezara looked in: dead women strewn across the wine-soaked floor, and a vast shape in the dark. Then it slammed shut. Asked about it, the attendant only shrugged &mdash; <em>\"That's just Orro. The stock's expendable.\"</em> He is the wall behind the Sallows: named, glimpsed, and never to be tested.</p>",
+        "raw": "Orro, the White Omen, the Sallows' enforcer kept behind a locked door in the Compound. The party never met him; they heard him roar, saw a chunk of wood punch through the door, and glimpsed dead women on the floor when it opened. The untouchable wall behind the Gilded Collar.",
+        "region": "Thornwall"
+      },
+      {
+        "id": "inquisitor-marek",
+        "title": "Inquisitor Marek",
+        "era": "living",
+        "frontmatter": {
+          "role": "Church-of-the-Vein war-priest",
+          "status": "Active — Farkas's friend",
+          "location": "Veinspire"
+        },
+        "content": "<h1>Inquisitor Marek</h1>\n<div class=\"npc-portrait\"><img src=\"images/Inquisitor Marek.webp\" alt=\"Inquisitor Marek\"></div>\n<p><strong>Role:</strong> Church-of-the-Vein war-priest | <strong>Status:</strong> Active &mdash; Farkas's friend | <strong>Location:</strong> Veinspire</p>\n<h2>Who He Is</h2>\n<p>A rank-and-file war-priest of Veinspire's Church of the Vein &mdash; dumb, immensely strong, and pleased with himself, forever going on about how the veins make a man powerful. He is generous in his thick way and easy to like.</p>\n<h2>The Party's Dealing</h2>\n<p>Farkas called him on his boasting and put an arm on the table; Marek edged the wrestle out and decided the half-giant was the best thing to happen to him in a year. In his generosity he let Farkas in on a guard-circle cheat &mdash; a strength-worm &mdash; and sold him one for twenty gold. Viktor got the opposite reception: Marek was revolted by the black veins under the warlock's skin, called it near heresy, and told him off.</p>",
+        "raw": "Inquisitor Marek, a dumb, strong, jolly war-priest of Veinspire's Church of the Vein. Beat Farkas at arm-wrestling, became his friend, and sold him a strength-worm for 20 gold. Recoiled at Viktor's black veins as near heresy. (Not the Crownfall gem-dealer of the same name.)",
+        "region": "Veinspire"
+      },
+      {
+        "id": "sister-perla",
+        "title": "Sister Perla",
+        "era": "living",
+        "frontmatter": {
+          "role": "Cleric of the vein-faith",
+          "status": "Active",
+          "location": "Veinspire"
+        },
+        "content": "<h1>Sister Perla</h1>\n<div class=\"npc-portrait\"><img src=\"images/Sister Perla.webp\" alt=\"Sister Perla\"></div>\n<p><strong>Role:</strong> Cleric of the vein-faith | <strong>Status:</strong> Active | <strong>Location:</strong> Veinspire</p>\n<h2>Who She Is</h2>\n<p>A warm young true-believer, a cleric of Veinspire's blood-faith who teaches the public doctrine with real, uncomplicated sincerity &mdash; which is the unsettling part.</p>\n<h2>The Party's Dealing</h2>\n<p>Farkas wandered into her small church curious about the veins, and she gave him the whole welcome: one circulation, the Mother's; the gate-tithe a hello; and arterial baptism the thing that joins your blood to hers so you are <em>\"never alone in your own head.\"</em> She offered to start him toward it. Farkas let it wash past him. Her offer still stands, un-taken.</p>",
+        "raw": "Sister Perla, a warm young true-believer cleric of Veinspire's blood-faith. Gave Farkas the baptism pitch; her offer to start him toward arterial baptism stands, un-taken.",
+        "region": "Veinspire"
       }
     ]
   },
