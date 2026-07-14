@@ -126,7 +126,7 @@
           },
           {
             "threshold": 51000,
-            "reward": "Soulbound - Kael lives on through you"
+            "reward": "Soulbound: Kael lives on through you"
           }
         ]
       },
@@ -1260,7 +1260,7 @@
           },
           {
             "threshold": 51000,
-            "reward": "Soulbound - Brothers in name and spirit"
+            "reward": "Soulbound: Brothers in name and spirit"
           }
         ]
       },
@@ -3316,7 +3316,7 @@
       },
       {
         "name": "Inquisitor Marek",
-        "type": "Veinspire — Church of the Vein war-priest",
+        "type": "Veinspire, Church of the Vein war-priest",
         "category": "npcs",
         "reputation": 13500,
         "description": "Then we're the same, you and me. Best pull I've had in a year.",
@@ -3340,10 +3340,10 @@
       },
       {
         "name": "Sister Perla",
-        "type": "Veinspire — Church of the Vein cleric",
+        "type": "Veinspire, Church of the Vein cleric",
         "category": "npcs",
         "reputation": 11000,
-        "description": "A big heart like yours — she'd feel you a mile off. Come back and be kept.",
+        "description": "A big heart like yours. She'd feel you a mile off. Come back and be kept.",
         "likes": [
           "Sincere curiosity about the faith",
           "A soul open to the Mother",
@@ -3364,7 +3364,7 @@
       },
       {
         "name": "Jorik Stave",
-        "type": "Thornwall — smith",
+        "type": "Thornwall, smith",
         "category": "npcs",
         "reputation": 11500,
         "description": "That's old work. Older than it looks.",
@@ -3381,7 +3381,7 @@
         "history": [
           {
             "change": 1500,
-            "reason": "Fair custom — bought Karusa's kit off him (40 gp); Jorik clocked the Skyfather's Reckoning as serious ancient work (S47)"
+            "reason": "Fair custom, bought Karusa's kit off him (40 gp); Jorik clocked the Skyfather's Reckoning as serious ancient work (S47)"
           }
         ],
         "unlocks": []
@@ -3561,7 +3561,7 @@
           },
           {
             "change": 2500,
-            "reason": "Closed the lost-caravan Orange clean - found the cause, recovered the manifest, no survivors to fault them for (the Husk King; S43)"
+            "reason": "Closed the lost-caravan Orange clean, found the cause, recovered the manifest, no survivors to fault them for (the Husk King; S43)"
           }
         ],
         "unlocks": []
@@ -3609,7 +3609,7 @@
         "history": [
           {
             "change": 4000,
-            "reason": "Completed the Twin Reach contract - opened the vault, faced Halric, and brought two of the family's dead home: Halric and the never-born child (S42)"
+            "reason": "Completed the Twin Reach contract, opened the vault, faced Halric, and brought two of the family's dead home: Halric and the never-born child (S42)"
           }
         ],
         "unlocks": []
@@ -3657,7 +3657,7 @@
         "history": [
           {
             "change": 1000,
-            "reason": "His first session - masked, silent, patient; he left without words for it (S42)"
+            "reason": "His first session, masked, silent, patient; he left without words for it (S42)"
           }
         ],
         "unlocks": []
@@ -3758,7 +3758,7 @@
         "history": [
           {
             "change": 1000,
-            "reason": "Sparred the Varn training master at the Kennels yard - lost a good, hard bout; she named his flaw and opened a door to the Garrison (S43)"
+            "reason": "Sparred the Varn training master at the Kennels yard, lost a good, hard bout; she named his flaw and opened a door to the Garrison (S43)"
           }
         ],
         "unlocks": [
@@ -3773,7 +3773,7 @@
         "type": "Salvage-master",
         "category": "npcs",
         "reputation": 11000,
-        "description": "The three off the Span. Buyers, trouble, or chain-bait - I haven't decided which yet.",
+        "description": "The three off the Span. Buyers, trouble, or chain-bait. I haven't decided which yet.",
         "likes": [
           "Pulling your weight unasked",
           "Manners before magic",
@@ -3793,7 +3793,7 @@
         "unlocks": [
           {
             "threshold": 17500,
-            "reward": "Oo'ro'vae opens the log - the route home and which wrecks are live"
+            "reward": "Oo'ro'vae opens the log: the route home and which wrecks are live"
           }
         ]
       },
@@ -3802,7 +3802,7 @@
         "type": "Cliff-hermit",
         "category": "npcs",
         "reputation": 11000,
-        "description": "That's old work. Giant-work. And it answers to you - not your arm, you.",
+        "description": "That's old work. Giant-work. And it answers to you, not your arm, you.",
         "likes": [
           "A conversation that interests him",
           "News of the world above",
@@ -3840,7 +3840,7 @@
         "history": [
           {
             "change": 5000,
-            "reason": "Read what Vassek really does - shelters slaves off the chain - and stood with him instead of blowing it open before the Keeper's town; he made the trio allies (S45)"
+            "reason": "Read what Vassek really does, shelters slaves off the chain, and stood with him instead of blowing it open before the Keeper's town; he made the trio allies (S45)"
           }
         ],
         "unlocks": [
@@ -3897,14 +3897,14 @@
         "history": [
           {
             "change": 500,
-            "reason": "Fair trade at the Square; the trio bought the unreadable 'ledger' Sael couldn't place - a Sylvan journal (S45)"
+            "reason": "Fair trade at the Square; the trio bought the unreadable 'ledger' Sael couldn't place, a Sylvan journal (S45)"
           }
         ],
         "unlocks": []
       },
       {
         "name": "Hesta Draal",
-        "type": "Innkeeper - the Thorn and Nail",
+        "type": "Innkeeper, the Thorn and Nail",
         "category": "npcs",
         "reputation": 11500,
         "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
@@ -3921,7 +3921,7 @@
         "history": [
           {
             "change": 1500,
-            "reason": "Based at the Thorn and Nail through S46-47 - kept her rule, paid fair, and left clean"
+            "reason": "Based at the Thorn and Nail through S46-47, kept her rule, paid fair, and left clean"
           }
         ],
         "unlocks": []
@@ -4339,7 +4339,7 @@
         "unlocks": [
           {
             "threshold": 25000,
-            "reward": "Karusa opens what she knows of the Collar from the inside - pens, grading, routes, the Compound's rhythms"
+            "reward": "Karusa opens what she knows of the Collar from the inside: pens, grading, routes, the Compound's rhythms"
           },
           {
             "threshold": 35000,
@@ -4372,7 +4372,7 @@
         "unlocks": [
           {
             "threshold": 17500,
-            "reward": "Oo'ro'vae opens the log - the route home and which wrecks are live"
+            "reward": "Oo'ro'vae opens the log: the route home and which wrecks are live"
           }
         ]
       },
@@ -4395,7 +4395,7 @@
         "history": [
           {
             "change": 1500,
-            "reason": "Paid the hermit in the only coin he wanted - a first-hand account of warm Aethkharul, told to a man who has known nothing but cold; he listened to all of it (S45)"
+            "reason": "Paid the hermit in the only coin he wanted, a first-hand account of warm Aethkharul, told to a man who has known nothing but cold; he listened to all of it (S45)"
           }
         ],
         "unlocks": []
@@ -4405,7 +4405,7 @@
         "type": "Caldwharf coin-keeper / ally",
         "category": "npcs",
         "reputation": 18000,
-        "description": "Your oath flared at the collared folk - and you still didn't draw on the clamps in front of the Keeper's town. That told me what you were.",
+        "description": "Your oath flared at the collared folk, and you still didn't draw on the clamps in front of the Keeper's town. That told me what you were.",
         "likes": [
           "Discretion that protects the vulnerable",
           "Standing with the sheltered",
@@ -4419,13 +4419,13 @@
         "history": [
           {
             "change": 8000,
-            "reason": "His Oath of Vengeance flared at the collared folk of the Ember; he held, read what Vassek truly does - shelters slaves off the chain - and stood with him. The work aligns with his oath; Vassek made him an ally (S45)"
+            "reason": "His Oath of Vengeance flared at the collared folk of the Ember; he held, read what Vassek truly does, shelters slaves off the chain, and stood with him. The work aligns with his oath; Vassek made him an ally (S45)"
           }
         ],
         "unlocks": [
           {
             "threshold": 25000,
-            "reward": "Vassek opens his rescue to Veezara's Crimson Chain arc - the ones in Renik Sallow's pens"
+            "reward": "Vassek opens his rescue to Veezara's Crimson Chain arc: the ones in Renik Sallow's pens"
           },
           {
             "threshold": 35000,
@@ -4483,7 +4483,7 @@
       },
       {
         "name": "Hesta Draal",
-        "type": "Innkeeper - the Thorn and Nail",
+        "type": "Innkeeper, the Thorn and Nail",
         "category": "npcs",
         "reputation": 11500,
         "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
@@ -4500,7 +4500,7 @@
         "history": [
           {
             "change": 1500,
-            "reason": "Based at the Thorn and Nail through S46-47 - kept her rule, paid fair, and left clean"
+            "reason": "Based at the Thorn and Nail through S46-47, kept her rule, paid fair, and left clean"
           }
         ],
         "unlocks": []
@@ -4539,7 +4539,7 @@
       },
       {
         "name": "Thessaly",
-        "type": "Veinspire — the Frayed Codex, keeper of forbidden knowledge",
+        "type": "Veinspire, the Frayed Codex, keeper of forbidden knowledge",
         "category": "npcs",
         "reputation": 10500,
         "description": "Take it. Forty years it's sat there refusing me. I want it out of my store anyway.",
@@ -4556,7 +4556,7 @@
         "history": [
           {
             "change": 500,
-            "reason": "Read the first page of her forty-year unreadable Abyssal book; she gave it to him — wanted it out of her store anyway (S47)"
+            "reason": "Read the first page of her forty-year unreadable Abyssal book; she gave it to him, wanted it out of her store anyway (S47)"
           }
         ],
         "unlocks": []
@@ -4580,13 +4580,13 @@
         "history": [
           {
             "change": 1500,
-            "reason": "Bought three jars of deep-caught tentacle (14 gp) at the Yard; Oo'ro'vae read the Black Catalyst under his skin without flinching and told him plainly the catch was overpriced - honest against his own sale (S45)"
+            "reason": "Bought three jars of deep-caught tentacle (14 gp) at the Yard; Oo'ro'vae read the Black Catalyst under his skin without flinching and told him plainly the catch was overpriced, honest against his own sale (S45)"
           }
         ],
         "unlocks": [
           {
             "threshold": 17500,
-            "reward": "Oo'ro'vae opens the log - the route home and which wrecks are live"
+            "reward": "Oo'ro'vae opens the log: the route home and which wrecks are live"
           }
         ]
       },
@@ -4633,7 +4633,7 @@
         "history": [
           {
             "change": 5000,
-            "reason": "Read what Vassek really does - shelters slaves off the chain - and stood with him instead of exposing him before the Keeper's town; Vassek made the trio allies (S45)"
+            "reason": "Read what Vassek really does, shelters slaves off the chain, and stood with him instead of exposing him before the Keeper's town; Vassek made the trio allies (S45)"
           }
         ],
         "unlocks": [
@@ -4652,7 +4652,7 @@
         "type": "Faction",
         "category": "factions",
         "reputation": 11750,
-        "description": "Welcomed back from the floe - though Vo'la'me eyes the stone he carries.",
+        "description": "Welcomed back from the floe, though Vo'la'me eyes the stone he carries.",
         "likes": [
           "Standing against what preys on the cast-down",
           "Strangers who ask no questions",
@@ -4676,7 +4676,7 @@
         "type": "Caldwharf forger",
         "category": "npcs",
         "reputation": 11000,
-        "description": "Named my unreadable ledger for what it was. Come back when you can read it - I'm curious too.",
+        "description": "Named my unreadable ledger for what it was. Come back when you can read it. I'm curious too.",
         "likes": [
           "Honest custom",
           "Curiosity about what a paper really says",
@@ -4690,14 +4690,14 @@
         "history": [
           {
             "change": 1000,
-            "reason": "Bought the unreadable 'ledger' for 20 gp and named it - a Sylvan homesick journal Sael could forge a hand from but not read; left a door open to the stall once it can be read (S45)"
+            "reason": "Bought the unreadable 'ledger' for 20 gp and named it, a Sylvan homesick journal Sael could forge a hand from but not read; left a door open to the stall once it can be read (S45)"
           }
         ],
         "unlocks": []
       },
       {
         "name": "Hesta Draal",
-        "type": "Innkeeper - the Thorn and Nail",
+        "type": "Innkeeper, the Thorn and Nail",
         "category": "npcs",
         "reputation": 11500,
         "description": "Four who paid on time and kept the rule. That's rarer than it should be.",
@@ -4714,7 +4714,7 @@
         "history": [
           {
             "change": 1500,
-            "reason": "Based at the Thorn and Nail through S46-47 - kept her rule, paid fair, and left clean"
+            "reason": "Based at the Thorn and Nail through S46-47, kept her rule, paid fair, and left clean"
           }
         ],
         "unlocks": []

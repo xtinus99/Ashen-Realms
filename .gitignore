@@ -12,3 +12,4 @@ add_*.py
 fix_*.py
 update_*.py
 convert_*.py
+humanize_*.py
