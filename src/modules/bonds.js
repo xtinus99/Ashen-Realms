@@ -17,7 +17,7 @@ const REP_TIERS = [
 ];
 
 let relationshipData = null;
-let currentRepCharacter = 'ratsby';
+let currentRepCharacter = 'farkas';
 let currentRepFilter = 'all';
 
 // Image name mapping for NPCs whose file names don't match their display names
@@ -32,13 +32,16 @@ const REP_IMAGE_MAP = {
   "Captain Jawbone": "Jawbone",
   "House Selvik": "Selvik Emblem",
   // No portrait art yet — render initials instead of a broken image (card + hero)
-  "Davan Holst": null
+  "Davan Holst": null,
+  "The Hollowsong": null
 };
 
 // Character display names
 const CHAR_NAMES = {
-  ratsby: 'Ratsby',
   farkas: 'Farkas',
+  veezara: 'Veezara',
+  viktor: 'Viktor',
+  ratsby: 'Ratsby',
   anvil: 'Anvil',
   sol: 'Sol Raven',
   fursen: 'Fursen',
@@ -168,14 +171,14 @@ function renderRelationshipsView() {
       <div class="bonds-controls">
         <div class="char-tabs">
           <span class="char-group-label">Party</span>
-          <button class="char-tab ${currentRepCharacter === 'ratsby' ? 'active' : ''}" data-char="ratsby">
-            <span class="tab-name">Ratsby</span>
-          </button>
           <button class="char-tab ${currentRepCharacter === 'farkas' ? 'active' : ''}" data-char="farkas">
             <span class="tab-name">Farkas</span>
           </button>
-          <button class="char-tab ${currentRepCharacter === 'anvil' ? 'active' : ''}" data-char="anvil">
-            <span class="tab-name">Anvil</span>
+          <button class="char-tab ${currentRepCharacter === 'veezara' ? 'active' : ''}" data-char="veezara">
+            <span class="tab-name">Veezara</span>
+          </button>
+          <button class="char-tab ${currentRepCharacter === 'viktor' ? 'active' : ''}" data-char="viktor">
+            <span class="tab-name">Viktor</span>
           </button>
           <span class="char-group-label char-group-fallen">Hall of the Dead</span>
           <button class="char-tab fallen ${currentRepCharacter === 'sol' ? 'active' : ''}" data-char="sol">
