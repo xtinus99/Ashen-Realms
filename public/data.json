@@ -1152,14 +1152,14 @@
         "region": "The Sunkland"
       },
       {
-        "id": "the-cliff-hermit",
-        "title": "The Cliff-Hermit",
+        "id": "oo-lha-ne",
+        "title": "Oo'lha'ne",
         "era": "living",
         "frontmatter": {
           "status": "Active",
           "location": "The Tidebreak rib-cliffs"
         },
-        "content": "<h1>The Cliff-Hermit</h1>\n<div class=\"npc-portrait\"><img src=\"images/Oo'lha'ne.webp\" alt=\"The cliff-hermit\"></div>\n<p><strong>Status:</strong> Active | <strong>Location:</strong> The Tidebreak rib-cliffs</p>\n<h2>Who He Is</h2>\n<p>An old man who keeps a perch high in the bone-rib cliffs above Tidebreak, alone on the coldest edge of the coast. The party climbed to him and asked who he was; he would say only that he was a hermit, and gave nothing else away &mdash; not why he stays out here, nor what he watches for.</p>\n<h2>The Party's Dealing</h2>\n<p>He heard them out, handed them a warmth stone for the road, and let them go on their way. Whatever else he is, he kept it to himself.</p>",
+        "content": "<h1>Oo'lha'ne</h1>\n<div class=\"npc-portrait\"><img src=\"images/Oo'lha'ne.webp\" alt=\"Oo'lha'ne\"></div>\n<p><strong>Status:</strong> Active | <strong>Location:</strong> The Tidebreak rib-cliffs</p>\n<h2>Who He Is</h2>\n<p>An old man who keeps a perch high in the bone-rib cliffs above Tidebreak, alone on the coldest edge of the coast. The party climbed to him and asked who he was; he named himself Oo'lha'ne and heard them out, but gave little else away &mdash; not why he stays out here, nor what he watches for.</p>\n<h2>The Party's Dealing</h2>\n<p>He read Farkas's maul on sight, calling it old giant-work that answers to Farkas himself and not just his arm, and said it holds the half-words of a dead tongue. Then he handed them a warmth stone for the road and let them go on their way. Whatever else he is, he kept it to himself.</p>",
         "raw": "The cliff-hermit, an old man alone in the Tidebreak rib-cliffs who would only call himself a hermit and gave the party a warmth stone. He kept his name and his reasons to himself.",
         "region": "The Sunkland"
       },
@@ -1739,13 +1739,13 @@
         "era": "living"
       },
       {
-        "id": "the-unseen-working",
-        "title": "The Unseen Working",
+        "id": "wakeholt",
+        "title": "Wakeholt",
         "frontmatter": {
-          "type": "Unexplained enchantment",
+          "type": "Conquest-era village",
           "region": "The Unclaimed"
         },
-        "content": "<h1>The Unseen Working</h1>\n<p><strong>Type:</strong> Unexplained enchantment &middot; <strong>Region:</strong> The Unclaimed &mdash; the western bone-plain, on the road to Veinspire</p>\n\n<h2>Nothing There, and Something Enormous</h2>\n<p>On the long trek northeast to Veinspire the party made camp one night on an empty stretch of the western bone-plain. There was nothing to see &mdash; grey ground, wind, an open horizon in every direction. But Viktor's Detect Magic caught something the eye could not: a vast working laid over the empty plain, edgeless, with no shape and no centre he could find and no source he could point to. An enormous enchantment over ground where nothing stood.</p>\n<p>They kept their watch, rested, and rode on in the morning. Nothing showed itself. Nothing came. What the working was, and what it was doing out on empty plain, they never learned. It sits in the ledger as a question with no answer yet.</p>",
+        "content": "<h1>Wakeholt</h1>\n<img src=\"images/Wakeholt.webp\" alt=\"Wakeholt\" class=\"content-image\">\n<p><strong>Type:</strong> Conquest-era village &middot; <strong>Region:</strong> The Unclaimed &mdash; the western bone-plain, on the road to Veinspire</p>\n\n<h2>The Working Over Empty Plain</h2>\n<p>On the long trek northeast to Veinspire the party made camp one night on an empty stretch of the western bone-plain. There was nothing to see &mdash; grey ground, wind, an open horizon in every direction &mdash; but Viktor's Detect Magic caught something the eye could not: a vast working laid over the empty plain, edgeless, with no shape and no centre he could find. An enormous enchantment pouring off ground where nothing stood.</p>\n\n<h2>What Viktor Named It</h2>\n<p>He put a name to it out of the old records: Wakeholt, a village from the Conquests era out in the western signal-country, the kind of place the histories say has never once been forgotten &mdash; a village that is always watched, or always watching, depending on who tells it. Whatever holds it there was heavy on the plain in front of them, and still the village never resolved to the eye. They kept their watch, rested, and rode on in the morning. Nothing showed itself and nothing came. What Wakeholt is, and why it would not let itself be seen, is a thread left hanging.</p>",
         "region": "The Unclaimed",
         "era": "living"
       }
