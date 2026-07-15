@@ -1926,6 +1926,7 @@ body {
 
 .article-body blockquote {
     position: relative;
+    clear: both;
     margin: var(--spacing-lg) 0;
     padding: var(--spacing-md) var(--spacing-lg);
     background: rgba(139, 30, 63, 0.1);
