@@ -162,6 +162,7 @@ body.modal-open {
 .nav-category-header,
 .nav-item,
 .nav-subgroup-header,
+.nav-subcategory-header,
 .nav-subcategory-header > button,
 .roster-card,
 .timeline-item,
@@ -183,7 +184,8 @@ body.modal-open {
 
 .nav-category-header,
 .nav-item,
-.nav-subgroup-header {
+.nav-subgroup-header,
+button.nav-subcategory-header {
     width: 100%;
     border: 0;
     background: none;
