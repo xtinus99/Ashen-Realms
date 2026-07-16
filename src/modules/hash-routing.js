@@ -23,7 +23,7 @@ export function setHashHandlers(h) {
   handlers = h;
 }
 
-export function restoreFromHash() {
+export async function restoreFromHash() {
   let hash = window.location.hash.slice(1);
   if (!hash) return false;
 
@@ -40,13 +40,13 @@ export function restoreFromHash() {
 
   // Handle bonds page
   if (hash === 'bonds') {
-    handlers.showRelationships();
+    await handlers.showRelationships();
     return true;
   }
 
   // Handle spells page
   if (hash === 'spells') {
-    handlers.showSpells();
+    await handlers.showSpells();
     return true;
   }
 
@@ -74,7 +74,7 @@ export function restoreFromHash() {
 
     if (item) {
       const navItem = document.querySelector(`.nav-item[data-id="${itemId}"]`);
-      handlers.showItem(categoryName, item, navItem, true, true); // skip hash update, skip scroll to top
+      await handlers.showItem(categoryName, item, navItem, true, true); // skip hash update, skip scroll to top
       // Restore scroll position after content loads
       handlers.restoreScrollPosition();
       return true;

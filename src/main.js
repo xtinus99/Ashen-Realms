@@ -3,30 +3,17 @@
 // Entry Point — Vite ES Module Build
 // =====================================================
 
-// Fonts (WOFF2 via @fontsource)
-import '@fontsource/im-fell-english/400.css';
-import '@fontsource/im-fell-english/400-italic.css';
-import '@fontsource/spectral/400.css';
-import '@fontsource/spectral/400-italic.css';
-import '@fontsource/spectral/500.css';
-import '@fontsource/spectral/600.css';
-import '@fontsource/spectral/700.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
+// Latin-only WOFF2 font faces.
+import './fonts.css';
 
 // Vendor CSS
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
-import 'leaflet/dist/leaflet.css';
-
 // App CSS loaded via <link> in index.html to prevent FOUC
-
-// Leaflet marker icon fix
-import L from 'leaflet';
 
 // Modules
 import state from './modules/state.js';
+import { loadCampaignNow } from './modules/data-store.js';
 import { refreshIcons } from './modules/icons.js';
 import { initAudio, setupAudioControls } from './modules/audio.js';
 import { setupLightbox, attachImageZoom } from './modules/images.js';
@@ -45,8 +32,6 @@ import {
 } from './modules/realm.js';
 import { showItem, navigateToItem, showRelationshipMap } from './modules/article.js';
 import { setupSearch, setSearchHandlers } from './modules/search.js';
-import { setupBondsLink, showRelationships } from './modules/bonds.js';
-import { setupSpellsLink, showSpells } from './modules/spells.js';
 import { toggleBookmark, showBookmarksList, updateBookmarkButton, setBookmarkHandlers } from './modules/bookmarks.js';
 import { setupKeyboardShortcuts, setKeyboardHandlers } from './modules/keyboard.js';
 import {
@@ -84,8 +69,8 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
 // ===== DATA LOADING =====
 async function loadData() {
   try {
-    const cacheBuster = Date.now();
-    const response = await fetch(`data.json?v=${cacheBuster}`);
+    const response = await fetch('data-index.json');
+    if (!response.ok) throw new Error(`Compendium index returned ${response.status}`);
     state.data = await response.json();
   } catch (error) {
     console.error('Failed to load compendium data:', error);
@@ -98,6 +83,42 @@ async function loadData() {
   }
 }
 
+let bondsModulePromise;
+let spellsModulePromise;
+
+function getBondsModule() {
+  bondsModulePromise ||= import('./modules/bonds.js');
+  return bondsModulePromise;
+}
+
+function getSpellsModule() {
+  spellsModulePromise ||= import('./modules/spells.js');
+  return spellsModulePromise;
+}
+
+async function showRelationships() {
+  const module = await getBondsModule();
+  return module.showRelationships();
+}
+
+async function showSpells() {
+  const module = await getSpellsModule();
+  return module.showSpells();
+}
+
+function setupSpecialLinks() {
+  document.getElementById('bonds-link')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    showRelationships();
+    document.getElementById('sidebar').classList.remove('open');
+  });
+  document.getElementById('spells-link')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    showSpells();
+    document.getElementById('sidebar').classList.remove('open');
+  });
+}
+
 // ===== WELCOME SCREEN =====
 function showWelcome() {
   // In the Archive realm, "home" is the Archive landing, not the living welcome
@@ -107,6 +128,8 @@ function showWelcome() {
   }
   state.currentItem = null;
   state.currentCategory = null;
+  document.title = 'The Ashen Realms — Player Compendium';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'A chronicle of thirteen thrones built on the corpse of a murdered god, and those who dare to walk between them.');
 
   initSmoothScroll();
   document.getElementById('content-body').classList.remove('full-width');
@@ -154,13 +177,35 @@ function showWelcome() {
   const statsHtml = Object.entries(stats)
     .map(
       ([name, count]) => `
-    <div class="stat-card" data-category="${name}" onclick="openCategory('${name}')" style="cursor: pointer;">
+    <button class="stat-card" type="button" data-category="${name}" onclick="openCategory('${name}')">
       <div class="stat-number">${count}</div>
       <div class="stat-label">${name}</div>
-    </div>
+    </button>
   `
     )
     .join('');
+
+  const campaign = state.campaignNow || {};
+  const latest = campaign.latestSession;
+  const location = campaign.currentLocation;
+  let recent = [];
+  try {
+    const storedRecent = JSON.parse(localStorage.getItem('recentArticles') || '[]');
+    recent = Array.isArray(storedRecent) ? storedRecent.slice(0, 3) : [];
+  } catch {
+    localStorage.removeItem('recentArticles');
+  }
+  const partyHtml = (campaign.party || []).map((member) => `
+    <button class="now-party-member" type="button" onclick="navigateToItemById('${member.category}', '${member.id}')">
+      ${member.image ? `<img src="${member.image}" alt="" loading="lazy" decoding="async">` : ''}
+      <span>${member.title}</span>
+    </button>
+  `).join('');
+  const recentHtml = recent.length ? recent.map((entry) => `
+    <button class="now-recent-link" type="button" onclick="navigateToItemById('${entry.category}', '${entry.id}')">
+      <span>${entry.title}</span><small>${entry.category}</small>
+    </button>
+  `).join('') : '<p class="now-empty">Recently opened entries will appear here.</p>';
 
   document.getElementById('content-body').innerHTML = `
     <div class="welcome-container">
@@ -173,16 +218,33 @@ function showWelcome() {
       <div class="welcome-quote">
         <p>${footerQuotes[Math.floor(Math.random() * footerQuotes.length)]}</p>
       </div>
+      <section class="campaign-now" aria-labelledby="campaign-now-title">
+        <div class="campaign-now-heading">
+          <span class="campaign-now-kicker">The living chronicle</span>
+          <h2 id="campaign-now-title">Campaign Now</h2>
+        </div>
+        <div class="campaign-now-grid">
+          ${latest ? `<button class="now-primary-card" type="button" onclick="navigateToItemById('${latest.category}', '${latest.id}')">
+            <i data-lucide="scroll-text"></i><span><small>Latest session</small><strong>${latest.title}</strong></span><i data-lucide="arrow-right"></i>
+          </button>` : ''}
+          ${location ? `<button class="now-primary-card" type="button" ${location.category && location.id ? `onclick="navigateToItemById('${location.category}', '${location.id}')"` : 'disabled'}>
+            <i data-lucide="map-pin"></i><span><small>Party location</small><strong>${location.name}</strong></span><i data-lucide="arrow-right"></i>
+          </button>` : ''}
+          <div class="now-panel"><h3>Current party</h3><div class="now-party">${partyHtml}</div></div>
+          <div class="now-panel"><h3>Continue reading</h3><div class="now-recent">${recentHtml}</div></div>
+        </div>
+      </section>
+      <div class="welcome-section-label">Browse the compendium</div>
       <div class="welcome-stats">
         ${statsHtml}
       </div>
-      <div class="archive-gate" onclick="enterArchiveRealm()">
+      <button class="archive-gate" type="button" onclick="enterArchiveRealm()">
         <div class="gate-icon"><i data-lucide="skull"></i></div>
         <div class="gate-text">
           <div class="gate-title">The Archive of the Dead</div>
           <div class="gate-sub">What the fallen gathered, before the maw. Cross over &rarr;</div>
         </div>
-      </div>
+      </button>
     </div>
   `;
 
@@ -245,7 +307,10 @@ document.head.appendChild(animStyle);
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', async () => {
-  await loadData();
+  await Promise.all([
+    loadData(),
+    loadCampaignNow().then((summary) => { state.campaignNow = summary; }).catch(() => { state.campaignNow = null; }),
+  ]);
   // Split the dataset into two realms (living + archive); render one filtered view at a time
   state.allData = state.data;
   buildWikiIndex(); // index every entity across both realms before filtering
@@ -262,33 +327,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupBackToTop();
   setupTopBarActions(toggleBookmark);
   setupDynamicQuotes();
-  setupBondsLink();
-  setupSpellsLink();
+  setupSpecialLinks();
   initAudio();
   setupAudioControls();
-  initParticles();
+  const scheduleParticles = () => initParticles().catch(() => {});
+  if ('requestIdleCallback' in window) window.requestIdleCallback(scheduleParticles, { timeout: 1800 });
+  else setTimeout(scheduleParticles, 500);
   initSmoothScroll();
   setupSwipeGestures();
   refreshIcons();
 
-  // Fix Leaflet marker icon paths
-  if (typeof L !== 'undefined') {
-    delete L.Icon.Default.prototype._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: 'vendor/images/marker-icon-2x.png',
-      iconUrl: 'vendor/images/marker-icon.png',
-      shadowUrl: 'vendor/images/marker-shadow.png',
-    });
-  }
-
   // Check for URL hash to restore state
-  if (!restoreFromHash()) {
+  if (!await restoreFromHash()) {
     showWelcome();
   }
 
   // Listen for back/forward navigation
-  window.addEventListener('hashchange', () => {
-    if (!restoreFromHash()) {
+  window.addEventListener('hashchange', async () => {
+    if (!await restoreFromHash()) {
       showWelcome();
     }
   });

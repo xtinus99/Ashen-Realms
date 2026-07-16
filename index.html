@@ -3,17 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-    // Unregister old service worker from pre-Vite site
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for (var r of registrations) { r.unregister(); }
-      });
-      caches.keys().then(function(names) {
-        for (var name of names) { caches.delete(name); }
-      });
-    }
-    </script>
     <title>The Ashen Realms</title>
     <meta name="description" content="A chronicle of thirteen thrones built on the corpse of a murdered god, and those who dare to walk between them.">
     <meta name="theme-color" content="#0a0a12">
@@ -46,6 +35,7 @@
     <script type="module" src="/src/main.js"></script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to compendium content</a>
     <!-- Background Effects - Divine Battlefield Shrine -->
     <div class="bg-effects">
         <div class="bg-gradient"></div>
@@ -65,7 +55,7 @@
                         <img src="Assets/Sigil.webp" alt="Divine Sigil" class="sigil-img">
                     </div>
                     <div class="logo-text">
-                        <h1>The Ashen Realms</h1>
+                        <div class="logo-title">The Ashen Realms</div>
                         <span class="subtitle">Player Compendium</span>
                     </div>
                 </div>
@@ -74,7 +64,8 @@
             <div class="search-wrapper">
                 <div class="search-container">
                     <i data-lucide="search" class="search-icon"></i>
-                    <input type="text" id="search" placeholder="Search..." autocomplete="off">
+                    <label class="sr-only" for="search">Search the compendium</label>
+                    <input type="text" id="search" placeholder="Search..." autocomplete="off" aria-haspopup="dialog" aria-controls="search-modal">
                     <kbd class="search-hint">Ctrl+K</kbd>
                 </div>
             </div>
@@ -105,7 +96,7 @@
             </div>
         </nav>
 
-        <main class="main-content">
+        <main class="main-content" id="main-content" tabindex="-1">
             <div class="reading-progress" id="reading-progress"></div>
             <header class="top-bar">
                 <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
@@ -135,7 +126,8 @@
                     <button id="next-track-btn" class="audio-btn" aria-label="Next track">
                         <i data-lucide="skip-forward"></i>
                     </button>
-                    <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="30">
+                    <label class="sr-only" for="volume-slider">Ambient audio volume</label>
+                    <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="30" aria-label="Ambient audio volume">
                     <span id="track-name" class="track-name"></span>
                 </div>
             </header>
@@ -146,11 +138,16 @@
         </main>
     </div>
 
-    <div class="search-modal" id="search-modal">
+    <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" aria-hidden="true">
         <div class="search-modal-backdrop"></div>
         <div class="search-modal-content">
+            <div class="search-modal-header">
+                <h2 id="search-modal-title">Search the chronicles</h2>
+                <button class="search-modal-close" type="button" aria-label="Close search"><i data-lucide="x"></i></button>
+            </div>
             <div class="search-modal-input">
                 <i data-lucide="search"></i>
+                <label class="sr-only" for="modal-search">Search terms</label>
                 <input type="text" id="modal-search" placeholder="Search..." autocomplete="off">
                 <kbd>Esc</kbd>
             </div>

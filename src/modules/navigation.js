@@ -12,10 +12,9 @@ export function setNavigationHandlers(h) { handlers = h; }
 // Uses a regex (not DOM parse) so we never kick off full-size image loads for
 // every item at startup — only the small thumbnails actually render.
 function navEntryHTML(item) {
-    const m = (item.content || '').match(/<img[^>]+src="([^"]+)"/i);
     let portrait;
-    if (m) {
-        portrait = `<span class="nav-item-portrait"><img src="${getThumbnailPath(m[1])}" alt="" loading="lazy" decoding="async"></span>`;
+    if (item.image) {
+        portrait = `<span class="nav-item-portrait"><img data-src="${getThumbnailPath(item.image)}" alt="" decoding="async"></span>`;
     } else {
         const glyph = item.unknownPortrait ? '?' : (item.title || '?').charAt(0);
         portrait = `<span class="nav-item-portrait nav-item-monogram">${glyph}</span>`;
@@ -41,7 +40,8 @@ function groupBySubgroup(items) {
 
 // Build a single sidebar child nav-item (portrait + label + click-through).
 function buildNavChild(categoryName, item) {
-    const navItem = document.createElement('div');
+    const navItem = document.createElement('button');
+    navItem.type = 'button';
     navItem.className = 'nav-item nav-item-child has-portrait';
     navItem.dataset.id = item.id;
     navItem.innerHTML = navEntryHTML(item);
@@ -74,7 +74,7 @@ window.openCrestLightbox = openCrestLightbox;
 // Pop the full portrait into the lightbox when the small nav token is clicked
 // (the rest of the nav-item still navigates to the entry). Mirrors the crest behaviour.
 function wireToken(navItem, item) {
-    const m = (item.content || '').match(/<img[^>]+src="([^"]+)"/i);
+    const m = item.image ? [null, item.image] : null;
     if (!m) return; // monogram — nothing to enlarge
     const token = navItem.querySelector('.nav-item-portrait');
     if (!token) return;
@@ -86,6 +86,44 @@ function wireToken(navItem, item) {
 }
 
 // Icon for a region/section header, chosen by region name
+function hydrateNavImages(category) {
+    category?.querySelectorAll('img[data-src]').forEach((img) => {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+    });
+}
+
+function setNavCategoryOpen(category, isOpen) {
+    if (!category) return;
+    category.classList.toggle('open', isOpen);
+    const toggle = category.querySelector('.cat-toggle');
+    const name = category.dataset.category || 'category';
+    if (toggle) {
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', `${isOpen ? 'Collapse' : 'Expand'} ${name}`);
+    }
+}
+
+function wireCardImageFallbacks(container) {
+    container?.querySelectorAll('.roster-card-portrait img[data-fallback-src]').forEach((img) => {
+        img.addEventListener('error', () => {
+            const fallbackSrc = img.dataset.fallbackSrc;
+            if (fallbackSrc && img.getAttribute('src') !== fallbackSrc) {
+                img.src = fallbackSrc;
+                return;
+            }
+
+            const portrait = img.closest('.roster-card-portrait');
+            const glyph = img.dataset.fallbackGlyph || '?';
+            img.remove();
+            if (portrait) {
+                portrait.classList.add('roster-card-noimg');
+                portrait.innerHTML = `<span>${glyph}</span>`;
+            }
+        });
+    });
+}
+
 function regionIcon(region) {
     const r = (region || '').toLowerCase();
     if (r === 'world') return 'globe';
@@ -111,32 +149,44 @@ export function buildNavigation() {
 
         const header = document.createElement('div');
         header.className = 'nav-category-header';
+        const itemsId = `nav-category-${categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-items`;
+        const categoryHref = `#${encodeURIComponent(categoryName)}`;
         header.innerHTML = `
-            <div class="cat-name-area">
+            <a class="cat-name-area" href="${categoryHref}" aria-label="Open ${categoryName} overview">
                 <i data-lucide="${categoryData.info.icon || 'folder'}" class="cat-icon"></i>
                 <span class="cat-name">${categoryName}</span>
                 <span class="cat-count">${categoryData.items.length}</span>
-            </div>
+            </a>
+            <button type="button" class="cat-toggle" aria-expanded="false" aria-controls="${itemsId}" aria-label="Expand ${categoryName}">
+                <i data-lucide="chevron-down" class="chevron"></i>
+            </button>
         `;
 
-        // The whole header bar toggles the category open/closed (no separate
-        // chevron — matches the house headers). Opening also shows the category
-        // page; accordion-closes any other open category.
-        header.addEventListener('click', (e) => {
+        // The label opens the overview and remains a real link for middle-click.
+        // The adjacent chevron controls only the sidebar dropdown.
+        header.querySelector('.cat-name-area').addEventListener('click', (e) => {
+            if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+            e.preventDefault();
             e.stopPropagation();
-            if (category.classList.contains('open')) {
-                category.classList.remove('open');
-            } else {
+            openCategory(categoryName);
+        });
+
+        header.querySelector('.cat-toggle').addEventListener('click', (e) => {
+            e.stopPropagation();
+            const shouldOpen = !category.classList.contains('open');
+            if (shouldOpen) {
                 document.querySelectorAll('.nav-category.open').forEach(c => {
-                    if (c !== category) c.classList.remove('open');
+                    if (c !== category) setNavCategoryOpen(c, false);
                 });
-                category.classList.add('open');
-                openCategory(categoryName);
+                hydrateNavImages(category);
             }
+            setNavCategoryOpen(category, shouldOpen);
+            refreshIcons();
         });
 
         const items = document.createElement('div');
         items.className = 'nav-category-items';
+        items.id = itemsId;
 
         // Check for subcategories (e.g., Locations -> Crownfall -> items)
         if (categoryData.subcategories) {
@@ -157,8 +207,8 @@ export function buildNavigation() {
 
                 subHeader.innerHTML = `
                     <i data-lucide="${subIcon}" class="sub-icon"></i>
-                    <span class="sub-name">${subName}</span>
-                    <span class="sub-toggle"><i data-lucide="chevron-right" class="nav-item-chevron"></i></span>
+                    <button type="button" class="sub-name">${subName}</button>
+                    <button type="button" class="sub-toggle" aria-label="Expand ${subName}"><i data-lucide="chevron-right" class="nav-item-chevron"></i></button>
                 `;
 
                 // Click on chevron toggles expand/collapse
@@ -186,7 +236,8 @@ export function buildNavigation() {
                 subItems.className = 'nav-subcategory-items';
 
                 subData.forEach(item => {
-                    const navItem = document.createElement('div');
+                    const navItem = document.createElement('button');
+                    navItem.type = 'button';
                     navItem.className = 'nav-item nav-item-child has-portrait';
                     navItem.dataset.id = item.id;
                     navItem.dataset.subcategory = subName;
@@ -230,7 +281,8 @@ export function buildNavigation() {
                     const regionSection = document.createElement('div');
                     regionSection.className = 'nav-subcategory nav-region';
 
-                    const regionHeader = document.createElement('div');
+                    const regionHeader = document.createElement('button');
+                    regionHeader.type = 'button';
                     regionHeader.className = 'nav-subcategory-header';
 
                     // Choose icon based on region name
@@ -267,7 +319,8 @@ export function buildNavigation() {
                     sgGroups.forEach((sgItems, sgName) => {
                         const sg = document.createElement('div');
                         sg.className = 'nav-subgroup';
-                        const sgHeader = document.createElement('div');
+                        const sgHeader = document.createElement('button');
+                        sgHeader.type = 'button';
                         sgHeader.className = 'nav-subgroup-header';
                         const sigil = sgIcons[sgName];
                         const iconHTML = sigil
@@ -310,7 +363,8 @@ export function buildNavigation() {
         } else {
             // Regular items (not in subcategories or regions)
             categoryData.items.forEach(item => {
-                const navItem = document.createElement('div');
+                const navItem = document.createElement('button');
+                navItem.type = 'button';
                 navItem.className = 'nav-item has-portrait';
                 navItem.dataset.id = item.id;
                 navItem.innerHTML = navEntryHTML(item);
@@ -351,10 +405,11 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
     }
 
     // Open the sidebar category
-    document.querySelectorAll('.nav-category.open').forEach(c => c.classList.remove('open'));
+    document.querySelectorAll('.nav-category.open').forEach(c => setNavCategoryOpen(c, false));
     const sidebarCategory = document.querySelector(`.nav-category[data-category="${categoryName}"]`);
     if (sidebarCategory) {
-        sidebarCategory.classList.add('open');
+        setNavCategoryOpen(sidebarCategory, true);
+        hydrateNavImages(sidebarCategory);
     }
 
     // Clear active nav items
@@ -362,40 +417,38 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
 
     // Update breadcrumb
     document.getElementById('breadcrumb').innerHTML = `
-        <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+        <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
         <span class="breadcrumb-sep">/</span>
         <span class="breadcrumb-current">${categoryName}</span>
     `;
 
     // Helper: build a portrait-forward roster card
     function buildItemCard(item) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = item.content;
-
-        const firstImg = tempDiv.querySelector('img');
         let portraitHtml;
-        if (firstImg) {
-            const thumbSrc = getThumbnailPath(firstImg.getAttribute('src'));
-            portraitHtml = `<div class="roster-card-portrait"><img src="${thumbSrc}" alt="${item.title}" loading="lazy" decoding="async"></div>`;
+        if (item.image) {
+            const thumbSrc = getThumbnailPath(item.image);
+            const glyph = item.unknownPortrait ? '?' : (item.title || '?').charAt(0);
+            portraitHtml = `<div class="roster-card-portrait"><img src="${thumbSrc}" data-fallback-src="${item.image}" data-fallback-glyph="${glyph}" alt="${item.title}" loading="lazy" decoding="async"></div>`;
         } else {
             portraitHtml = `<div class="roster-card-portrait roster-card-noimg"><span>${item.unknownPortrait ? '?' : (item.title || '?').charAt(0)}</span></div>`;
         }
 
         const fm = item.frontmatter || {};
-        const role = fm.role || fm.status || fm.domain || fm.type || fm.organ || '';
-        const loc = fm.location || '';
-        const tag = fm.allegiance || '';
-        const meta = [role, loc].filter(Boolean).join(' &middot; ');
+        const role = fm.role || fm.domain || fm.type || fm.organ || '';
+        const loc = fm.location || fm.parent || '';
+        const status = fm.status || '';
+        const tag = fm.allegiance || fm.faction || '';
+        const meta = [role, loc, status].filter(Boolean).join(' &middot; ');
 
         return `
-            <div class="roster-card" data-name="${(item.title || '').toLowerCase()}" onclick="navigateToItemById('${categoryName}', '${item.id}')">
+            <button type="button" class="roster-card" data-name="${(item.title || '').toLowerCase()}" onclick="navigateToItemById('${categoryName}', '${item.id}')">
                 ${portraitHtml}
                 <div class="roster-card-body">
                     <h3 class="roster-card-name">${item.title}</h3>
                     ${meta ? `<div class="roster-card-meta">${meta}</div>` : ''}
                     ${tag ? `<span class="roster-card-tag">${tag}</span>` : ''}
                 </div>
-            </div>
+            </button>
         `;
     }
 
@@ -494,7 +547,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
     }
 
     const filterHtml = categoryName !== 'Sessions'
-        ? `<div class="category-filter"><i data-lucide="search"></i><input type="text" id="category-filter-input" placeholder="Filter ${categoryName}..." autocomplete="off"></div>`
+        ? `<div class="category-filter"><i data-lucide="search"></i><label class="sr-only" for="category-filter-input">Filter ${categoryName}</label><input type="text" id="category-filter-input" placeholder="Filter ${categoryName}..." autocomplete="off"></div>`
         : '';
 
     document.getElementById('content-body').innerHTML = `
@@ -515,6 +568,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
         </div>
     `;
 
+    wireCardImageFallbacks(document.getElementById('content-body'));
     refreshIcons();
 
     // Filter-as-you-type within the category
@@ -552,29 +606,7 @@ export function generateSessionTimeline(sessions) {
         const sessionNum = match ? match[1] : (index + 1).toString().padStart(2, '0');
         const sessionTitle = match ? match[2] : session.title;
 
-        // Extract key events from raw content (look for significant items)
-        const keyEvents = [];
-        const raw = session.raw || '';
-
-        // Look for deaths
-        if (raw.match(/\bdied\b|\bdeath\b|\bkilled\b|\bfell\b/i)) {
-            const deathMatch = raw.match(/(\w+(?:\s+\w+)?)\s+(?:died|was killed|fell)/i);
-            if (deathMatch) keyEvents.push({ type: 'death', text: deathMatch[0] });
-        }
-
-        // Look for major discoveries or acquisitions
-        if (raw.match(/\bacquired\b|\bdiscovered\b|\bfound\b|\brevealed\b/i)) {
-            keyEvents.push({ type: 'discovery', text: 'Major discovery' });
-        }
-
-        // Look for Sovereign encounters
-        const sovereigns = ['Mareatha', 'Azerach', 'Talaris', 'Vor\'Kael', 'Imhuran', 'Kaedris', 'Karthayne', 'Ismara', 'Vortegas', 'Eredain', 'Ultharion', 'Nhalyra', 'Aral-Vyn'];
-        for (const sov of sovereigns) {
-            if (raw.includes(sov)) {
-                keyEvents.push({ type: 'sovereign', text: sov });
-                break;
-            }
-        }
+        const keyEvents = session.timelineEvents || [];
 
         return {
             id: session.id,
@@ -590,7 +622,7 @@ export function generateSessionTimeline(sessions) {
             <div class="timeline-container">
                 <div class="timeline-line"></div>
                 ${timelineEvents.map((event, i) => `
-                    <div class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}" onclick="navigateToItemById('Sessions', '${event.id}')">
+                    <button type="button" class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}" onclick="navigateToItemById('Sessions', '${event.id}')">
                         <div class="timeline-marker">
                             <span class="timeline-num">${event.num}</span>
                         </div>
@@ -604,7 +636,7 @@ export function generateSessionTimeline(sessions) {
                                 </div>
                             ` : ''}
                         </div>
-                    </div>
+                    </button>
                 `).join('')}
             </div>
         </div>
@@ -616,7 +648,13 @@ export function navigateToItemById(categoryName, itemId) {
     const categoryData = state.data[categoryName];
     if (!categoryData) return;
 
-    const item = categoryData.items.find(i => i.id === itemId);
+    let item = categoryData.items.find(i => i.id === itemId);
+    if (!item && categoryData.subcategories) {
+        for (const items of Object.values(categoryData.subcategories)) {
+            item = items.find((candidate) => candidate.id === itemId);
+            if (item) break;
+        }
+    }
     if (item) {
         const navItem = document.querySelector(`.nav-item[data-id="${itemId}"]`);
         handlers.showItem(categoryName, item, navItem);

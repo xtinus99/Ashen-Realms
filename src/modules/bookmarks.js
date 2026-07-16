@@ -80,6 +80,10 @@ export function showBookmarksList() {
   const modal = document.createElement('div');
   modal.id = 'bookmarks-modal';
   modal.className = 'bookmarks-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'bookmarks-modal-title');
+  const previousFocus = document.activeElement;
 
   let bookmarksHtml = '';
   if (bookmarks.length === 0) {
@@ -91,11 +95,13 @@ export function showBookmarksList() {
       const icon = categoryInfo?.icon || 'file-text';
       bookmarksHtml += `
         <li class="bookmarks-item" data-category="${bookmark.category}" data-id="${bookmark.id}">
-          <i data-lucide="${icon}"></i>
-          <div class="bookmarks-item-info">
-            <span class="bookmarks-item-title">${bookmark.title}</span>
-            <span class="bookmarks-item-category">${bookmark.category}</span>
-          </div>
+          <button type="button" class="bookmarks-open">
+            <i data-lucide="${icon}"></i>
+            <span class="bookmarks-item-info">
+              <span class="bookmarks-item-title">${bookmark.title}</span>
+              <span class="bookmarks-item-category">${bookmark.category}</span>
+            </span>
+          </button>
           <button class="bookmarks-remove" data-category="${bookmark.category}" data-id="${bookmark.id}" title="Remove bookmark">
             <i data-lucide="x"></i>
           </button>
@@ -109,7 +115,7 @@ export function showBookmarksList() {
     <div class="bookmarks-modal-backdrop"></div>
     <div class="bookmarks-modal-content">
       <div class="bookmarks-modal-header">
-        <h3><i data-lucide="bookmark"></i> Bookmarks</h3>
+        <h2 id="bookmarks-modal-title"><i data-lucide="bookmark"></i> Bookmarks</h2>
         <button class="bookmarks-modal-close" aria-label="Close">
           <i data-lucide="x"></i>
         </button>
@@ -123,14 +129,18 @@ export function showBookmarksList() {
   document.body.appendChild(modal);
   refreshIcons();
 
-  // Close handlers
-  modal.querySelector('.bookmarks-modal-backdrop').addEventListener('click', () => modal.remove());
-  modal.querySelector('.bookmarks-modal-close').addEventListener('click', () => modal.remove());
+  const close = () => {
+    modal.remove();
+    if (previousFocus && document.contains(previousFocus)) previousFocus.focus();
+  };
+  modal.querySelector('.bookmarks-modal-backdrop').addEventListener('click', close);
+  modal.querySelector('.bookmarks-modal-close').addEventListener('click', close);
+  modal.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+  modal.querySelector('.bookmarks-modal-close').focus();
 
   // Navigate to bookmark on click
   modal.querySelectorAll('.bookmarks-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-      if (e.target.closest('.bookmarks-remove')) return;
+    item.querySelector('.bookmarks-open').addEventListener('click', () => {
       const category = item.dataset.category;
       const id = item.dataset.id;
       const categoryData = state.data[category];

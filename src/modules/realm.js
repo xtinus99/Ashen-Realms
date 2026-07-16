@@ -4,9 +4,9 @@
 // and the muted archive of what the fallen party gathered.
 // =====================================================
 import state from './state.js';
-import gsap from 'gsap';
 import { refreshIcons } from './icons.js';
 import { setAudioRealm } from './audio.js';
+import { prefersReducedMotion, scrollBehavior } from './smooth-scroll.js';
 
 let currentRealm = 'living';
 let handlers = {}; // { buildNavigation, showWelcome }
@@ -75,8 +75,8 @@ function eraVisible(era, realm) {
 function stripTags(html) {
   return (html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }
-function realmContent(item, realm) {
-  if (realm === 'living' && (item.contentLiving || item.frontmatterLiving)) {
+export function realmContent(item, realm) {
+  if (realm === 'living' && (item.contentLiving || item.hasLivingContent || item.frontmatterLiving)) {
     const out = { ...item };
     if (item.contentLiving) {
       out.content = item.contentLiving;
@@ -165,17 +165,52 @@ function playCrossing(toRealm, onMidpoint) {
   let fired = false;
   const fire = () => { if (!fired && onMidpoint) { fired = true; onMidpoint(); } };
 
-  gsap.killTweensOf([overlay, titleEl, subEl]);
-  const tl = gsap.timeline({ onComplete: fire });
-  tl.set(overlay, { display: 'flex', opacity: 0 })
-    .set([titleEl, subEl], { opacity: 0, y: 16, letterSpacing: '0.08em' })
-    .to(overlay, { opacity: 1, duration: 0.55, ease: 'power2.in' })
-    .add(fire) // swap the world at full black
-    .to(titleEl, { opacity: 1, y: 0, letterSpacing: '0.28em', duration: 0.8, ease: 'power2.out' }, '-=0.1')
-    .to(subEl, { opacity: 1, y: 0, letterSpacing: '0.18em', duration: 0.7, ease: 'power2.out' }, '-=0.55')
-    .to([titleEl, subEl], { opacity: 0, duration: 0.5, ease: 'power2.in' }, '+=0.9')
-    .to(overlay, { opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.1')
-    .set(overlay, { display: 'none' });
+  if (prefersReducedMotion()) {
+    fire();
+    return;
+  }
+
+  overlay.getAnimations().forEach((animation) => animation.cancel());
+  titleEl.getAnimations().forEach((animation) => animation.cancel());
+  subEl.getAnimations().forEach((animation) => animation.cancel());
+  overlay.style.display = 'flex';
+
+  (async () => {
+    await overlay.animate(
+      [{ opacity: 0 }, { opacity: 1 }],
+      { duration: 550, easing: 'ease-in', fill: 'forwards' }
+    ).finished;
+    fire();
+
+    await Promise.all([
+      titleEl.animate(
+        [
+          { opacity: 0, transform: 'translateY(16px)', letterSpacing: '0.08em' },
+          { opacity: 1, transform: 'translateY(0)', letterSpacing: '0.28em' },
+        ],
+        { duration: 800, easing: 'ease-out', fill: 'forwards' }
+      ).finished,
+      subEl.animate(
+        [
+          { opacity: 0, transform: 'translateY(16px)', letterSpacing: '0.08em' },
+          { opacity: 1, transform: 'translateY(0)', letterSpacing: '0.18em' },
+        ],
+        { duration: 700, delay: 250, easing: 'ease-out', fill: 'forwards' }
+      ).finished,
+    ]);
+
+    await new Promise((resolve) => setTimeout(resolve, 900));
+    await Promise.all([
+      titleEl.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 500, fill: 'forwards' }).finished,
+      subEl.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 500, fill: 'forwards' }).finished,
+    ]);
+    await overlay.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 600, fill: 'forwards' }).finished;
+    overlay.style.display = 'none';
+    fire();
+  })().catch(() => {
+    overlay.style.display = 'none';
+    fire();
+  });
 }
 
 // ===== ENTER / EXIT =====
@@ -212,7 +247,7 @@ export function showArchiveLanding() {
   document.getElementById('content-body').classList.remove('full-width');
 
   document.getElementById('breadcrumb').innerHTML = `
-    <span class="breadcrumb-home" style="cursor:pointer" onclick="exitArchiveRealm()">Compendium</span>
+    <button type="button" class="breadcrumb-home" onclick="exitArchiveRealm()">Compendium</button>
     <span class="breadcrumb-sep">/</span>
     <span class="breadcrumb-current">The Archive of the Dead</span>
   `;
@@ -223,10 +258,10 @@ export function showArchiveLanding() {
   const statsHtml = Object.entries(state.data)
     .map(
       ([name, cat]) => `
-    <div class="stat-card" data-category="${name}" onclick="openCategory('${name}')" style="cursor: pointer;">
+    <button type="button" class="stat-card" data-category="${name}" onclick="openCategory('${name}')">
       <div class="stat-number">${cat.items.length}</div>
       <div class="stat-label">${name}</div>
-    </div>`
+    </button>`
     )
     .join('');
 
@@ -256,7 +291,7 @@ export function showArchiveLanding() {
   `;
 
   refreshIcons();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: scrollBehavior() });
 }
 
 // ===== ENTRY WIRING =====

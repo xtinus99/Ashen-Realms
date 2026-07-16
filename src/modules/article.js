@@ -1,10 +1,12 @@
 import state from './state.js';
 import { refreshIcons } from './icons.js';
 import { updateHash } from './hash-routing.js';
+import { loadItem } from './data-store.js';
+import { realmContent } from './realm.js';
 import { optimizeContentImages, attachImageZoom } from './images.js';
 import { autoLinkWikiReferences, initWikiLinkTooltips } from './wiki-links.js';
-import { initSmoothScroll } from './smooth-scroll.js';
-import { showNotification } from './ui.js';
+import { initSmoothScroll, scrollBehavior } from './smooth-scroll.js';
+import { showLoadingSkeleton, showNotification } from './ui.js';
 import { updateBookmarkButton } from './bookmarks.js';
 
 // ===== RELATIONSHIP MAP =====
@@ -19,6 +21,7 @@ export function showRelationshipMap() {
     // Build nodes from Party, NPCs, and Sovereigns
     const nodes = [];
     const nodeMap = new Map();
+    const nodeByKey = new Map();
     const categories = ['Party', 'NPCs', 'Sovereigns'];
 
     for (const cat of categories) {
@@ -29,9 +32,11 @@ export function showRelationshipMap() {
                     title: item.title,
                     category: cat,
                     raw: item.raw || '',
+                    mentions: item.mentions || [],
                     connections: []
                 };
                 nodes.push(node);
+                nodeByKey.set(`${cat}/${item.id}`, node);
                 nodeMap.set(item.title, node);
                 // Also map first name
                 const firstName = item.title.split(' ')[0];
@@ -47,8 +52,9 @@ export function showRelationshipMap() {
     const edgeSet = new Set();
 
     for (const node of nodes) {
-        for (const [name, targetNode] of nodeMap) {
-            if (targetNode.id !== node.id && node.raw.includes(name)) {
+        for (const targetKey of node.mentions) {
+            const targetNode = nodeByKey.get(targetKey);
+            if (targetNode && targetNode.id !== node.id) {
                 const edgeKey = [node.id, targetNode.id].sort().join('-');
                 if (!edgeSet.has(edgeKey)) {
                     edgeSet.add(edgeKey);
@@ -67,32 +73,67 @@ export function showRelationshipMap() {
     const modal = document.createElement('div');
     modal.id = 'relationship-map-modal';
     modal.className = 'relationship-map-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'relationship-map-title');
+    const previousFocus = document.activeElement;
+    const textList = connectedNodes.map((node) => `
+        <button type="button" class="relationship-list-item" data-id="${node.id}">
+            <span>${node.title}</span><small>${node.category} · ${node.connections.length} connections</small>
+        </button>
+    `).join('');
     modal.innerHTML = `
         <div class="relationship-map-backdrop"></div>
         <div class="relationship-map-content">
             <div class="relationship-map-header">
-                <h3><i data-lucide="git-merge"></i> Character Relationships</h3>
+                <h2 id="relationship-map-title"><i data-lucide="git-merge"></i> Character Relationships</h2>
                 <div class="relationship-map-legend">
                     <span class="legend-item legend-party"><span class="legend-dot"></span> Party</span>
                     <span class="legend-item legend-npc"><span class="legend-dot"></span> NPCs</span>
                     <span class="legend-item legend-sovereign"><span class="legend-dot"></span> Sovereigns</span>
+                    <span class="legend-item legend-connection"><span class="legend-line"></span> Recorded connection</span>
                 </div>
                 <button class="relationship-map-close" aria-label="Close">
                     <i data-lucide="x"></i>
                 </button>
             </div>
-            <div class="relationship-map-container">
-                <svg id="relationship-svg"></svg>
+            <p class="relationship-map-help">Select a node to inspect it. Use Tab to move between nodes; press Enter to open an entry.</p>
+            <div class="relationship-map-workspace">
+                <div class="relationship-map-container">
+                    <svg id="relationship-svg" role="group" aria-label="Interactive character relationship graph"></svg>
+                </div>
+                <aside class="relationship-map-details" id="relationship-map-details" aria-live="polite">
+                    <span class="relationship-details-kicker">Selected connection</span>
+                    <h3>Choose a character</h3>
+                    <p>The graph will show their recorded connections here.</p>
+                </aside>
             </div>
+            <details class="relationship-text-alternative">
+                <summary>Browse as a text list</summary>
+                <div class="relationship-list">${textList}</div>
+            </details>
         </div>
     `;
 
     document.body.appendChild(modal);
     refreshIcons();
 
-    // Close handlers
-    modal.querySelector('.relationship-map-backdrop').addEventListener('click', () => modal.remove());
-    modal.querySelector('.relationship-map-close').addEventListener('click', () => modal.remove());
+    const closeModal = () => {
+        modal.remove();
+        if (previousFocus && document.contains(previousFocus)) previousFocus.focus();
+    };
+    modal.querySelector('.relationship-map-backdrop').addEventListener('click', closeModal);
+    modal.querySelector('.relationship-map-close').addEventListener('click', closeModal);
+    modal.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeModal();
+    });
+    modal.querySelectorAll('.relationship-list-item').forEach((button) => {
+        button.addEventListener('click', () => {
+            closeModal();
+            navigateToItem(button.dataset.id);
+        });
+    });
+    modal.querySelector('.relationship-map-close').focus();
 
     // Initialize the graph
     initRelationshipGraph(connectedNodes, edges);
@@ -224,17 +265,45 @@ function initRelationshipGraph(nodes, edges) {
         text.setAttribute('dy', radius + 14);
         text.classList.add('node-label');
         // Truncate long names
-        const displayName = node.title.length > 15 ? node.title.substring(0, 12) + '...' : node.title;
+        const displayName = node.title.length > 21 ? node.title.substring(0, 18) + '…' : node.title;
         text.textContent = displayName;
+
+        const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+        title.textContent = `${node.title}, ${node.category}, ${node.connections.length} recorded connections`;
+        g.appendChild(title);
 
         g.appendChild(circle);
         g.appendChild(text);
 
-        // Click to navigate
+        g.setAttribute('tabindex', '0');
+        g.setAttribute('role', 'button');
+        g.setAttribute('aria-label', title.textContent);
         g.style.cursor = 'pointer';
-        g.addEventListener('click', () => {
-            document.getElementById('relationship-map-modal').remove();
-            navigateToItem(node.id);
+        const selectNode = () => {
+            document.querySelectorAll('.node-group.selected').forEach((selected) => selected.classList.remove('selected'));
+            g.classList.add('selected');
+            const connectionNames = node.connections
+                .map((id) => nodes.find((candidate) => candidate.id === id)?.title)
+                .filter(Boolean);
+            document.getElementById('relationship-map-details').innerHTML = `
+                <span class="relationship-details-kicker">${node.category}</span>
+                <h3>${node.title}</h3>
+                <p>${connectionNames.length ? connectionNames.join(' · ') : 'No named connections.'}</p>
+                <button type="button" class="relationship-open-entry">Open compendium entry <span aria-hidden="true">→</span></button>
+            `;
+            document.querySelector('.relationship-open-entry').addEventListener('click', () => {
+                document.getElementById('relationship-map-modal')?.remove();
+                navigateToItem(node.id);
+            });
+        };
+        g.addEventListener('click', selectNode);
+        g.addEventListener('focus', selectNode);
+        g.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                document.getElementById('relationship-map-modal')?.remove();
+                navigateToItem(node.id);
+            }
         });
 
         nodesGroup.appendChild(g);
@@ -243,7 +312,16 @@ function initRelationshipGraph(nodes, edges) {
 }
 
 // ===== ARTICLE DISPLAY =====
-export function showItem(categoryName, item, navElement = null, skipHash = false, skipScrollToTop = false) {
+export async function showItem(categoryName, itemStub, navElement = null, skipHash = false, skipScrollToTop = false) {
+    if (!itemStub?.content) showLoadingSkeleton();
+    let item;
+    try {
+        item = realmContent(await loadItem(itemStub), state.currentRealm || 'living');
+    } catch (error) {
+        console.error(error);
+        showNotification(`The entry "${itemStub?.title || 'Unknown'}" could not be loaded.`);
+        return;
+    }
     state.currentItem = item;
     state.currentCategory = categoryName;
 
@@ -282,9 +360,9 @@ export function showItem(categoryName, item, navElement = null, skipHash = false
     // Update breadcrumb
     const categoryInfo = state.data[categoryName]?.info || {};
     document.getElementById('breadcrumb').innerHTML = `
-        <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+        <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
         <span class="breadcrumb-sep">/</span>
-        <span class="breadcrumb-category" style="cursor:pointer" onclick="openCategory('${categoryName}')">${categoryName}</span>
+        <button type="button" class="breadcrumb-category" onclick="openCategory('${categoryName}')">${categoryName}</button>
         <span class="breadcrumb-sep">/</span>
         <span class="breadcrumb-current">${item.title}</span>
     `;
@@ -337,13 +415,22 @@ export function showItem(categoryName, item, navElement = null, skipHash = false
         </article>
     `;
 
-    // Remove duplicate H1 if it matches the article title, insert easter egg in its place
-    // Remove duplicate H1 if it matches the article title
+    // The renderer supplies the page H1; source-document H1s are always redundant.
     const articleBody = contentBody.querySelector('.article-body');
     const firstH1 = articleBody?.querySelector('h1:first-child');
-    if (firstH1 && firstH1.textContent.trim().toLowerCase() === item.title.toLowerCase()) {
-        firstH1.remove();
-    }
+    if (firstH1) firstH1.remove();
+
+    // Wide rules tables remain usable on narrow screens.
+    articleBody?.querySelectorAll('table').forEach((table) => {
+        if (table.parentElement?.classList.contains('table-scroll')) return;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-scroll';
+        wrapper.tabIndex = 0;
+        wrapper.setAttribute('role', 'region');
+        wrapper.setAttribute('aria-label', 'Scrollable table');
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
 
     // Setup easter egg click handler if present
     const easterEgg = articleBody?.querySelector('.easter-egg');
@@ -353,7 +440,7 @@ export function showItem(categoryName, item, navElement = null, skipHash = false
             overlay.className = 'easter-egg-overlay';
             overlay.innerHTML = `
                 <div class="easter-egg-modal">
-                    <img src="images/fragment-aedwynn.png" alt="Fragment of Aedwynn">
+                    <img src="images/fragment-aedwynn.webp" alt="Fragment of Aedwynn">
                     <p>Screenshot this and put it in the DND section</p>
                 </div>
             `;
@@ -411,8 +498,16 @@ export function showItem(categoryName, item, navElement = null, skipHash = false
 
     // Scroll to top (unless restoring from hash with saved scroll position)
     if (!skipScrollToTop) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: scrollBehavior() });
     }
+
+    document.title = `${item.title} — The Ashen Realms`;
+    const description = (item.raw || '').replace(/\s+/g, ' ').trim().slice(0, 155);
+    document.querySelector('meta[name="description"]')?.setAttribute('content', description || 'The Ashen Realms Player Compendium');
+    const recent = JSON.parse(localStorage.getItem('recentArticles') || '[]')
+        .filter((entry) => !(entry.category === categoryName && entry.id === item.id));
+    recent.unshift({ category: categoryName, id: item.id, title: item.title, visitedAt: Date.now() });
+    localStorage.setItem('recentArticles', JSON.stringify(recent.slice(0, 8)));
 }
 
 // ===== INTERACTIVE WORLD MAP =====
@@ -573,14 +668,15 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
         return regex.test(text);
     }
 
-    // Search through all categories and items
+    const currentKey = `${currentCategory}/${currentId}`;
+
+    // Search the precomputed mention graph from the lightweight index.
     for (const [categoryName, categoryData] of Object.entries(state.data)) {
         for (const item of categoryData.items) {
             // Skip self
             if (item.id === currentId) continue;
 
-            // Check if this item's content mentions the current item (full title only)
-            if (item.raw && containsName(item.raw, currentTitle)) {
+            if ((item.mentions || []).includes(currentKey)) {
                 incomingLinks.push({
                     category: categoryName,
                     item: item,
@@ -588,8 +684,7 @@ function addRelatedArticles(contentBody, currentCategory, currentItem) {
                 });
             }
 
-            // Check if current item mentions this item (full title only)
-            if (currentItem.raw && containsName(currentItem.raw, item.title)) {
+            if ((currentItem.mentions || []).includes(`${categoryName}/${item.id}`)) {
                 outgoingLinks.push({
                     category: categoryName,
                     item: item,
@@ -758,22 +853,24 @@ function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
         }
     }
 
+    const isCompact = headings.length <= 4;
     const tocHtml = `
-        <div class="article-toc">
-            <div class="toc-header">
+        <details class="article-toc ${isCompact ? 'compact-toc' : ''}" open>
+            <summary class="toc-header">
                 <i data-lucide="list"></i>
                 <span>Contents</span>
-            </div>
+                <i data-lucide="chevron-down" class="toc-disclosure"></i>
+            </summary>
             <nav class="toc-nav">
                 ${tocItems}
             </nav>
-        </div>
+        </details>
     `;
 
     // If we have an image and should wrap, create a flex container
     if (firstImage && shouldWrapWithImage) {
         const wrapper = document.createElement('div');
-        wrapper.className = 'toc-image-wrapper';
+        wrapper.className = `toc-image-wrapper ${isCompact ? 'is-compact' : ''}`;
         wrapper.innerHTML = tocHtml;
         wrapper.appendChild(firstImage);
         articleBody.insertBefore(wrapper, articleBody.firstChild);
@@ -789,10 +886,14 @@ function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
             const targetId = link.dataset.target;
             const target = document.getElementById(targetId);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
             }
         });
     });
+
+    if (isCompact && window.matchMedia('(max-width: 768px)').matches) {
+        articleBody.querySelector('.compact-toc')?.removeAttribute('open');
+    }
 
     refreshIcons();
 }

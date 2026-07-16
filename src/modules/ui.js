@@ -217,7 +217,7 @@ export function showNotFound(searchTerm = '') {
   state.currentCategory = null;
 
   document.getElementById('breadcrumb').innerHTML = `
-    <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+    <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
     <span class="breadcrumb-sep">/</span>
     <span class="breadcrumb-current">Not Found</span>
   `;
