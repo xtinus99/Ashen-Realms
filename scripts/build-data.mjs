@@ -23,8 +23,10 @@ function stripTags(html = '') {
 }
 
 function firstImage(html = '') {
-  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match?.[1] || null;
+  // Match the closing quote against the quote that opened src. The previous
+  // character class stopped at apostrophes inside valid double-quoted paths.
+  const match = html.match(/<img[^>]+src=(["'])(.*?)\1/i);
+  return match?.[2] || null;
 }
 
 function sessionEvents(item) {

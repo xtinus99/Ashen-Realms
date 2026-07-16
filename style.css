@@ -1727,7 +1727,10 @@ body {
     align-items: center;
     gap: var(--spacing-md);
     flex: 1;
+    min-width: 0;
     padding: var(--spacing-md) var(--spacing-lg);
+    color: inherit;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -1736,12 +1739,24 @@ body {
 }
 
 .nav-category-header .cat-toggle {
+    appearance: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: stretch;
+    min-width: 48px;
     padding: var(--spacing-md);
     padding-left: var(--spacing-sm);
+    border: 0;
+    background: none;
+    color: inherit;
     cursor: pointer;
+}
+
+.nav-category-header .cat-name-area:focus-visible,
+.nav-category-header .cat-toggle:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
 }
 
 .nav-category-header .cat-toggle:hover {

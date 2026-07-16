@@ -93,6 +93,37 @@ function hydrateNavImages(category) {
     });
 }
 
+function setNavCategoryOpen(category, isOpen) {
+    if (!category) return;
+    category.classList.toggle('open', isOpen);
+    const toggle = category.querySelector('.cat-toggle');
+    const name = category.dataset.category || 'category';
+    if (toggle) {
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', `${isOpen ? 'Collapse' : 'Expand'} ${name}`);
+    }
+}
+
+function wireCardImageFallbacks(container) {
+    container?.querySelectorAll('.roster-card-portrait img[data-fallback-src]').forEach((img) => {
+        img.addEventListener('error', () => {
+            const fallbackSrc = img.dataset.fallbackSrc;
+            if (fallbackSrc && img.getAttribute('src') !== fallbackSrc) {
+                img.src = fallbackSrc;
+                return;
+            }
+
+            const portrait = img.closest('.roster-card-portrait');
+            const glyph = img.dataset.fallbackGlyph || '?';
+            img.remove();
+            if (portrait) {
+                portrait.classList.add('roster-card-noimg');
+                portrait.innerHTML = `<span>${glyph}</span>`;
+            }
+        });
+    });
+}
+
 function regionIcon(region) {
     const r = (region || '').toLowerCase();
     if (r === 'world') return 'globe';
@@ -116,36 +147,46 @@ export function buildNavigation() {
         category.className = 'nav-category';
         category.dataset.category = categoryName;
 
-        const header = document.createElement('button');
-        header.type = 'button';
+        const header = document.createElement('div');
         header.className = 'nav-category-header';
+        const itemsId = `nav-category-${categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-items`;
+        const categoryHref = `#${encodeURIComponent(categoryName)}`;
         header.innerHTML = `
-            <div class="cat-name-area">
+            <a class="cat-name-area" href="${categoryHref}" aria-label="Open ${categoryName} overview">
                 <i data-lucide="${categoryData.info.icon || 'folder'}" class="cat-icon"></i>
                 <span class="cat-name">${categoryName}</span>
                 <span class="cat-count">${categoryData.items.length}</span>
-            </div>
+            </a>
+            <button type="button" class="cat-toggle" aria-expanded="false" aria-controls="${itemsId}" aria-label="Expand ${categoryName}">
+                <i data-lucide="chevron-down" class="chevron"></i>
+            </button>
         `;
 
-        // The whole header bar toggles the category open/closed (no separate
-        // chevron — matches the house headers). Opening also shows the category
-        // page; accordion-closes any other open category.
-        header.addEventListener('click', (e) => {
+        // The label opens the overview and remains a real link for middle-click.
+        // The adjacent chevron controls only the sidebar dropdown.
+        header.querySelector('.cat-name-area').addEventListener('click', (e) => {
+            if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+            e.preventDefault();
             e.stopPropagation();
-            if (category.classList.contains('open')) {
-                category.classList.remove('open');
-            } else {
+            openCategory(categoryName);
+        });
+
+        header.querySelector('.cat-toggle').addEventListener('click', (e) => {
+            e.stopPropagation();
+            const shouldOpen = !category.classList.contains('open');
+            if (shouldOpen) {
                 document.querySelectorAll('.nav-category.open').forEach(c => {
-                    if (c !== category) c.classList.remove('open');
+                    if (c !== category) setNavCategoryOpen(c, false);
                 });
-                category.classList.add('open');
                 hydrateNavImages(category);
-                openCategory(categoryName);
             }
+            setNavCategoryOpen(category, shouldOpen);
+            refreshIcons();
         });
 
         const items = document.createElement('div');
         items.className = 'nav-category-items';
+        items.id = itemsId;
 
         // Check for subcategories (e.g., Locations -> Crownfall -> items)
         if (categoryData.subcategories) {
@@ -364,10 +405,10 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
     }
 
     // Open the sidebar category
-    document.querySelectorAll('.nav-category.open').forEach(c => c.classList.remove('open'));
+    document.querySelectorAll('.nav-category.open').forEach(c => setNavCategoryOpen(c, false));
     const sidebarCategory = document.querySelector(`.nav-category[data-category="${categoryName}"]`);
     if (sidebarCategory) {
-        sidebarCategory.classList.add('open');
+        setNavCategoryOpen(sidebarCategory, true);
         hydrateNavImages(sidebarCategory);
     }
 
@@ -386,7 +427,8 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
         let portraitHtml;
         if (item.image) {
             const thumbSrc = getThumbnailPath(item.image);
-            portraitHtml = `<div class="roster-card-portrait"><img src="${thumbSrc}" alt="${item.title}" loading="lazy" decoding="async"></div>`;
+            const glyph = item.unknownPortrait ? '?' : (item.title || '?').charAt(0);
+            portraitHtml = `<div class="roster-card-portrait"><img src="${thumbSrc}" data-fallback-src="${item.image}" data-fallback-glyph="${glyph}" alt="${item.title}" loading="lazy" decoding="async"></div>`;
         } else {
             portraitHtml = `<div class="roster-card-portrait roster-card-noimg"><span>${item.unknownPortrait ? '?' : (item.title || '?').charAt(0)}</span></div>`;
         }
@@ -526,6 +568,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
         </div>
     `;
 
+    wireCardImageFallbacks(document.getElementById('content-body'));
     refreshIcons();
 
     // Filter-as-you-type within the category
