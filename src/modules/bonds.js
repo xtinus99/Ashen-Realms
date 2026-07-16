@@ -2,7 +2,7 @@
 import state from './state.js';
 import { refreshIcons } from './icons.js';
 import { attachImageZoom } from './images.js';
-import gsap from 'gsap';
+import { prefersReducedMotion } from './smooth-scroll.js';
 
 const REP_TIERS = [
   { name: 'Hostile', min: 0, max: 5000, class: 'hostile' },
@@ -19,6 +19,7 @@ const REP_TIERS = [
 let relationshipData = null;
 let currentRepCharacter = 'farkas';
 let currentRepFilter = 'all';
+let currentBondSearch = '';
 
 // Image name mapping for NPCs whose file names don't match their display names
 const REP_IMAGE_MAP = {
@@ -66,7 +67,7 @@ function setupBondsLink() {
 async function loadRelationshipData() {
   if (relationshipData) return relationshipData;
   try {
-    const response = await fetch('relationships-data.json?v=' + Date.now());
+    const response = await fetch('relationships-data.json');
     relationshipData = await response.json();
     return relationshipData;
   } catch (error) {
@@ -113,7 +114,7 @@ async function showRelationships() {
 
   // Update breadcrumb
   document.getElementById('breadcrumb').innerHTML = `
-    <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+    <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
     <span class="breadcrumb-sep">/</span>
     <span class="breadcrumb-current">Bonds & Standing</span>
   `;
@@ -132,6 +133,12 @@ function renderRelationshipsView() {
   let relationships = characterData.relationships;
   if (currentRepFilter !== 'all') {
     relationships = relationships.filter(r => r.category === currentRepFilter);
+  }
+  if (currentBondSearch) {
+    const query = currentBondSearch.toLowerCase();
+    relationships = relationships.filter((relationship) =>
+      relationship.name.toLowerCase().includes(query) || relationship.type.toLowerCase().includes(query)
+    );
   }
 
   // Sort based on current sort mode and direction
@@ -207,6 +214,15 @@ function renderRelationshipsView() {
         </div>
       </div>
 
+      <div class="bonds-search-row">
+        <div class="bonds-search">
+          <i data-lucide="search"></i>
+          <label class="sr-only" for="bonds-search-input">Search relationships</label>
+          <input id="bonds-search-input" type="search" placeholder="Find a person or faction..." value="${currentBondSearch}">
+        </div>
+        <span class="bonds-result-count" aria-live="polite">${relationships.length} relationships</span>
+      </div>
+
       <div class="bonds-layout">
         <div class="bonds-list">
           ${relationships.map((rel, index) => renderBondCard(rel, index)).join('')}
@@ -221,6 +237,13 @@ function renderRelationshipsView() {
   // Setup event listeners
   document.getElementById('bonds-back-btn').addEventListener('click', () => {
     window.location.hash = '';
+  });
+
+  let searchTimer;
+  document.getElementById('bonds-search-input').addEventListener('input', (event) => {
+    currentBondSearch = event.target.value;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => renderRelationshipsView(), 120);
   });
 
   document.querySelectorAll('.char-tab').forEach(tab => {
@@ -258,8 +281,12 @@ function renderRelationshipsView() {
       selectedEntry = card.dataset.name;
       // Update detail panel without full re-render for smoother feel
       const rel = relationships.find(r => r.name === selectedEntry);
-      document.querySelectorAll('.bond-card').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.bond-card').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
       card.classList.add('selected');
+      card.setAttribute('aria-pressed', 'true');
       const detailPanel = document.getElementById('bonds-detail');
       detailPanel.innerHTML = renderBondDetail(rel);
       detailPanel.classList.add('mobile-active');
@@ -273,6 +300,7 @@ function renderRelationshipsView() {
 
   // Animate cards on initial load
   animateBondCards();
+  animateDetailPanel();
 }
 
 function renderBondCard(rel, index) {
@@ -285,10 +313,10 @@ function renderBondCard(rel, index) {
   const isEnemy = rel.permanentEnemy;
 
   return `
-    <div class="bond-card ${isSelected ? 'selected' : ''} ${isEnemy ? 'enemy' : ''} tier-${tier.class}"
-         data-name="${rel.name}" data-index="${index}">
+    <button type="button" class="bond-card ${isSelected ? 'selected' : ''} ${isEnemy ? 'enemy' : ''} tier-${tier.class}"
+         data-name="${rel.name}" data-index="${index}" aria-pressed="${isSelected}">
       <div class="card-portrait">
-        ${imageName ? `<img src="thumbnails/${imageName}.webp" alt="${rel.name}" onerror="this.style.display='none'">` : ''}
+        ${imageName ? `<img src="thumbnails/${imageName}.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">` : ''}
         <span class="card-initial">${rel.name.charAt(0)}</span>
         ${isEnemy ? '<div class="enemy-overlay"><i data-lucide="skull"></i></div>' : ''}
         ${tier.class === 'soulbound' || tier.class === 'devoted' ? '<div class="card-glow"></div>' : ''}
@@ -310,7 +338,7 @@ function renderBondCard(rel, index) {
       <div class="card-indicator">
         <i data-lucide="chevron-right"></i>
       </div>
-    </div>
+    </button>
   `;
 }
 
@@ -441,28 +469,19 @@ function renderBondDetail(rel) {
 }
 
 function animateBondCards() {
-  // Animate cards appearing with stagger using GSAP
-  gsap.fromTo('.bond-card',
-    { opacity: 0, y: 20 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.4,
-      stagger: 0.05,
-      delay: 0.1,
-      ease: 'power2.out'
-    }
-  );
-
-  // Animate mini standing bars filling
-  gsap.delayedCall(0.3, () => {
-    document.querySelectorAll('.standing-fill-mini').forEach(bar => {
-      const targetWidth = bar.dataset.width;
-      gsap.fromTo(bar,
-        { width: '0%' },
-        { width: targetWidth + '%', duration: 0.8, ease: 'power3.out' }
+  const reduced = prefersReducedMotion();
+  document.querySelectorAll('.bond-card').forEach((card, index) => {
+    if (!reduced) {
+      card.animate(
+        [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 280, delay: 35 * index, easing: 'ease-out', fill: 'both' }
       );
-    });
+    }
+  });
+  document.querySelectorAll('.standing-fill-mini').forEach((bar) => {
+    const width = `${bar.dataset.width}%`;
+    if (reduced) bar.style.width = width;
+    else bar.animate([{ width: 0 }, { width }], { duration: 600, delay: 180, easing: 'ease-out', fill: 'forwards' });
   });
 }
 
@@ -477,60 +496,30 @@ function closeMobileDetail() {
 window.closeMobileDetail = closeMobileDetail;
 
 function animateDetailPanel() {
-  // Animate the detail panel content using GSAP
-  gsap.fromTo('.detail-panel',
-    { opacity: 0, x: 20 },
-    { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' }
-  );
+  const panel = document.querySelector('.detail-panel');
+  if (!panel) return;
+  panel.style.opacity = '1';
+  if (prefersReducedMotion()) {
+    document.querySelectorAll('.standing-fill-large').forEach((bar) => { bar.style.width = `${bar.dataset.width}%`; });
+    return;
+  }
 
-  // Animate the large standing bar
-  gsap.delayedCall(0.2, () => {
-    document.querySelectorAll('.standing-fill-large').forEach(bar => {
-      const targetWidth = bar.dataset.width;
-      gsap.fromTo(bar,
-        { width: '0%' },
-        { width: targetWidth + '%', duration: 1, ease: 'power3.out' }
-      );
-    });
+  panel.animate(
+    [{ opacity: 0, transform: 'translateX(18px)' }, { opacity: 1, transform: 'translateX(0)' }],
+    { duration: 260, easing: 'ease-out' }
+  );
+  document.querySelectorAll('.standing-fill-large').forEach((bar) => {
+    bar.animate([{ width: 0 }, { width: `${bar.dataset.width}%` }], { duration: 700, delay: 150, easing: 'ease-out', fill: 'forwards' });
   });
-
-  // Animate tier nodes
-  gsap.fromTo('.tier-node',
-    { scale: 0 },
-    {
-      scale: 1,
-      duration: 0.3,
-      stagger: 0.04,
-      delay: 0.4,
-      ease: 'back.out(1.7)'
-    }
-  );
-
-  // Animate history entries
-  gsap.fromTo('.history-entry',
-    { opacity: 0, x: -10 },
-    {
-      opacity: 1,
-      x: 0,
-      duration: 0.3,
-      stagger: 0.06,
-      delay: 0.6,
-      ease: 'power2.out'
-    }
-  );
-
-  // Animate unlock rows
-  gsap.fromTo('.unlock-row',
-    { opacity: 0, x: -10 },
-    {
-      opacity: 1,
-      x: 0,
-      duration: 0.3,
-      stagger: 0.06,
-      delay: 0.7,
-      ease: 'power2.out'
-    }
-  );
+  document.querySelectorAll('.tier-node').forEach((node, index) => {
+    node.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 220, delay: 220 + index * 30, easing: 'ease-out' });
+  });
+  [...document.querySelectorAll('.history-entry, .unlock-row')].forEach((row, index) => {
+    row.animate(
+      [{ opacity: 0, transform: 'translateX(-8px)' }, { opacity: 1, transform: 'translateX(0)' }],
+      { duration: 220, delay: 350 + index * 35, easing: 'ease-out', fill: 'both' }
+    );
+  });
 }
 
 export { setupBondsLink, showRelationships };

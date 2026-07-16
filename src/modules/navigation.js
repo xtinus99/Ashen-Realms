@@ -12,10 +12,9 @@ export function setNavigationHandlers(h) { handlers = h; }
 // Uses a regex (not DOM parse) so we never kick off full-size image loads for
 // every item at startup — only the small thumbnails actually render.
 function navEntryHTML(item) {
-    const m = (item.content || '').match(/<img[^>]+src="([^"]+)"/i);
     let portrait;
-    if (m) {
-        portrait = `<span class="nav-item-portrait"><img src="${getThumbnailPath(m[1])}" alt="" loading="lazy" decoding="async"></span>`;
+    if (item.image) {
+        portrait = `<span class="nav-item-portrait"><img data-src="${getThumbnailPath(item.image)}" alt="" decoding="async"></span>`;
     } else {
         const glyph = item.unknownPortrait ? '?' : (item.title || '?').charAt(0);
         portrait = `<span class="nav-item-portrait nav-item-monogram">${glyph}</span>`;
@@ -41,7 +40,8 @@ function groupBySubgroup(items) {
 
 // Build a single sidebar child nav-item (portrait + label + click-through).
 function buildNavChild(categoryName, item) {
-    const navItem = document.createElement('div');
+    const navItem = document.createElement('button');
+    navItem.type = 'button';
     navItem.className = 'nav-item nav-item-child has-portrait';
     navItem.dataset.id = item.id;
     navItem.innerHTML = navEntryHTML(item);
@@ -74,7 +74,7 @@ window.openCrestLightbox = openCrestLightbox;
 // Pop the full portrait into the lightbox when the small nav token is clicked
 // (the rest of the nav-item still navigates to the entry). Mirrors the crest behaviour.
 function wireToken(navItem, item) {
-    const m = (item.content || '').match(/<img[^>]+src="([^"]+)"/i);
+    const m = item.image ? [null, item.image] : null;
     if (!m) return; // monogram — nothing to enlarge
     const token = navItem.querySelector('.nav-item-portrait');
     if (!token) return;
@@ -86,6 +86,13 @@ function wireToken(navItem, item) {
 }
 
 // Icon for a region/section header, chosen by region name
+function hydrateNavImages(category) {
+    category?.querySelectorAll('img[data-src]').forEach((img) => {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+    });
+}
+
 function regionIcon(region) {
     const r = (region || '').toLowerCase();
     if (r === 'world') return 'globe';
@@ -109,7 +116,8 @@ export function buildNavigation() {
         category.className = 'nav-category';
         category.dataset.category = categoryName;
 
-        const header = document.createElement('div');
+        const header = document.createElement('button');
+        header.type = 'button';
         header.className = 'nav-category-header';
         header.innerHTML = `
             <div class="cat-name-area">
@@ -131,6 +139,7 @@ export function buildNavigation() {
                     if (c !== category) c.classList.remove('open');
                 });
                 category.classList.add('open');
+                hydrateNavImages(category);
                 openCategory(categoryName);
             }
         });
@@ -157,8 +166,8 @@ export function buildNavigation() {
 
                 subHeader.innerHTML = `
                     <i data-lucide="${subIcon}" class="sub-icon"></i>
-                    <span class="sub-name">${subName}</span>
-                    <span class="sub-toggle"><i data-lucide="chevron-right" class="nav-item-chevron"></i></span>
+                    <button type="button" class="sub-name">${subName}</button>
+                    <button type="button" class="sub-toggle" aria-label="Expand ${subName}"><i data-lucide="chevron-right" class="nav-item-chevron"></i></button>
                 `;
 
                 // Click on chevron toggles expand/collapse
@@ -186,7 +195,8 @@ export function buildNavigation() {
                 subItems.className = 'nav-subcategory-items';
 
                 subData.forEach(item => {
-                    const navItem = document.createElement('div');
+                    const navItem = document.createElement('button');
+                    navItem.type = 'button';
                     navItem.className = 'nav-item nav-item-child has-portrait';
                     navItem.dataset.id = item.id;
                     navItem.dataset.subcategory = subName;
@@ -230,7 +240,8 @@ export function buildNavigation() {
                     const regionSection = document.createElement('div');
                     regionSection.className = 'nav-subcategory nav-region';
 
-                    const regionHeader = document.createElement('div');
+                    const regionHeader = document.createElement('button');
+                    regionHeader.type = 'button';
                     regionHeader.className = 'nav-subcategory-header';
 
                     // Choose icon based on region name
@@ -267,7 +278,8 @@ export function buildNavigation() {
                     sgGroups.forEach((sgItems, sgName) => {
                         const sg = document.createElement('div');
                         sg.className = 'nav-subgroup';
-                        const sgHeader = document.createElement('div');
+                        const sgHeader = document.createElement('button');
+                        sgHeader.type = 'button';
                         sgHeader.className = 'nav-subgroup-header';
                         const sigil = sgIcons[sgName];
                         const iconHTML = sigil
@@ -310,7 +322,8 @@ export function buildNavigation() {
         } else {
             // Regular items (not in subcategories or regions)
             categoryData.items.forEach(item => {
-                const navItem = document.createElement('div');
+                const navItem = document.createElement('button');
+                navItem.type = 'button';
                 navItem.className = 'nav-item has-portrait';
                 navItem.dataset.id = item.id;
                 navItem.innerHTML = navEntryHTML(item);
@@ -355,6 +368,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
     const sidebarCategory = document.querySelector(`.nav-category[data-category="${categoryName}"]`);
     if (sidebarCategory) {
         sidebarCategory.classList.add('open');
+        hydrateNavImages(sidebarCategory);
     }
 
     // Clear active nav items
@@ -362,40 +376,37 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
 
     // Update breadcrumb
     document.getElementById('breadcrumb').innerHTML = `
-        <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+        <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
         <span class="breadcrumb-sep">/</span>
         <span class="breadcrumb-current">${categoryName}</span>
     `;
 
     // Helper: build a portrait-forward roster card
     function buildItemCard(item) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = item.content;
-
-        const firstImg = tempDiv.querySelector('img');
         let portraitHtml;
-        if (firstImg) {
-            const thumbSrc = getThumbnailPath(firstImg.getAttribute('src'));
+        if (item.image) {
+            const thumbSrc = getThumbnailPath(item.image);
             portraitHtml = `<div class="roster-card-portrait"><img src="${thumbSrc}" alt="${item.title}" loading="lazy" decoding="async"></div>`;
         } else {
             portraitHtml = `<div class="roster-card-portrait roster-card-noimg"><span>${item.unknownPortrait ? '?' : (item.title || '?').charAt(0)}</span></div>`;
         }
 
         const fm = item.frontmatter || {};
-        const role = fm.role || fm.status || fm.domain || fm.type || fm.organ || '';
-        const loc = fm.location || '';
-        const tag = fm.allegiance || '';
-        const meta = [role, loc].filter(Boolean).join(' &middot; ');
+        const role = fm.role || fm.domain || fm.type || fm.organ || '';
+        const loc = fm.location || fm.parent || '';
+        const status = fm.status || '';
+        const tag = fm.allegiance || fm.faction || '';
+        const meta = [role, loc, status].filter(Boolean).join(' &middot; ');
 
         return `
-            <div class="roster-card" data-name="${(item.title || '').toLowerCase()}" onclick="navigateToItemById('${categoryName}', '${item.id}')">
+            <button type="button" class="roster-card" data-name="${(item.title || '').toLowerCase()}" onclick="navigateToItemById('${categoryName}', '${item.id}')">
                 ${portraitHtml}
                 <div class="roster-card-body">
                     <h3 class="roster-card-name">${item.title}</h3>
                     ${meta ? `<div class="roster-card-meta">${meta}</div>` : ''}
                     ${tag ? `<span class="roster-card-tag">${tag}</span>` : ''}
                 </div>
-            </div>
+            </button>
         `;
     }
 
@@ -494,7 +505,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
     }
 
     const filterHtml = categoryName !== 'Sessions'
-        ? `<div class="category-filter"><i data-lucide="search"></i><input type="text" id="category-filter-input" placeholder="Filter ${categoryName}..." autocomplete="off"></div>`
+        ? `<div class="category-filter"><i data-lucide="search"></i><label class="sr-only" for="category-filter-input">Filter ${categoryName}</label><input type="text" id="category-filter-input" placeholder="Filter ${categoryName}..." autocomplete="off"></div>`
         : '';
 
     document.getElementById('content-body').innerHTML = `
@@ -552,29 +563,7 @@ export function generateSessionTimeline(sessions) {
         const sessionNum = match ? match[1] : (index + 1).toString().padStart(2, '0');
         const sessionTitle = match ? match[2] : session.title;
 
-        // Extract key events from raw content (look for significant items)
-        const keyEvents = [];
-        const raw = session.raw || '';
-
-        // Look for deaths
-        if (raw.match(/\bdied\b|\bdeath\b|\bkilled\b|\bfell\b/i)) {
-            const deathMatch = raw.match(/(\w+(?:\s+\w+)?)\s+(?:died|was killed|fell)/i);
-            if (deathMatch) keyEvents.push({ type: 'death', text: deathMatch[0] });
-        }
-
-        // Look for major discoveries or acquisitions
-        if (raw.match(/\bacquired\b|\bdiscovered\b|\bfound\b|\brevealed\b/i)) {
-            keyEvents.push({ type: 'discovery', text: 'Major discovery' });
-        }
-
-        // Look for Sovereign encounters
-        const sovereigns = ['Mareatha', 'Azerach', 'Talaris', 'Vor\'Kael', 'Imhuran', 'Kaedris', 'Karthayne', 'Ismara', 'Vortegas', 'Eredain', 'Ultharion', 'Nhalyra', 'Aral-Vyn'];
-        for (const sov of sovereigns) {
-            if (raw.includes(sov)) {
-                keyEvents.push({ type: 'sovereign', text: sov });
-                break;
-            }
-        }
+        const keyEvents = session.timelineEvents || [];
 
         return {
             id: session.id,
@@ -590,7 +579,7 @@ export function generateSessionTimeline(sessions) {
             <div class="timeline-container">
                 <div class="timeline-line"></div>
                 ${timelineEvents.map((event, i) => `
-                    <div class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}" onclick="navigateToItemById('Sessions', '${event.id}')">
+                    <button type="button" class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}" onclick="navigateToItemById('Sessions', '${event.id}')">
                         <div class="timeline-marker">
                             <span class="timeline-num">${event.num}</span>
                         </div>
@@ -604,7 +593,7 @@ export function generateSessionTimeline(sessions) {
                                 </div>
                             ` : ''}
                         </div>
-                    </div>
+                    </button>
                 `).join('')}
             </div>
         </div>
@@ -616,7 +605,13 @@ export function navigateToItemById(categoryName, itemId) {
     const categoryData = state.data[categoryName];
     if (!categoryData) return;
 
-    const item = categoryData.items.find(i => i.id === itemId);
+    let item = categoryData.items.find(i => i.id === itemId);
+    if (!item && categoryData.subcategories) {
+        for (const items of Object.values(categoryData.subcategories)) {
+            item = items.find((candidate) => candidate.id === itemId);
+            if (item) break;
+        }
+    }
     if (item) {
         const navItem = document.querySelector(`.nav-item[data-id="${itemId}"]`);
         handlers.showItem(categoryName, item, navItem);

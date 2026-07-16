@@ -41,7 +41,8 @@ export function initAudio() {
 
   currentTrackIndex = 0;
 
-  audio = new Audio(activeTracks[currentTrackIndex].file);
+  audio = new Audio();
+  audio.preload = 'none';
   audio.volume = savedVolume;
   audio.muted = isMuted;
   audio.loop = false;
@@ -57,14 +58,13 @@ export function initAudio() {
 
   updateMuteIcon();
   updateTrackName();
-  preloadNextTrack();
 }
 
-function preloadNextTrack() {
-  const nextIndex = (currentTrackIndex + 1) % activeTracks.length;
-  const preloadAudio = new Audio();
-  preloadAudio.preload = 'auto';
-  preloadAudio.src = activeTracks[nextIndex].file;
+function ensureAudioSource() {
+  const nextSource = activeTracks[currentTrackIndex].file;
+  if (!audio.src.endsWith(encodeURI(nextSource)) && !audio.src.endsWith(nextSource)) {
+    audio.src = nextSource;
+  }
 }
 
 function playNextTrack() {
@@ -72,7 +72,6 @@ function playNextTrack() {
   audio.src = activeTracks[currentTrackIndex].file;
   updateTrackName();
   audio.play().catch(() => {});
-  preloadNextTrack();
 }
 
 function playPrevTrack() {
@@ -80,7 +79,6 @@ function playPrevTrack() {
   audio.src = activeTracks[currentTrackIndex].file;
   updateTrackName();
   audio.play().catch(() => {});
-  preloadNextTrack();
 }
 
 // ===== REALM SWITCH =====
@@ -100,10 +98,9 @@ export function setAudioRealm(realm) {
     currentTrackIndex = Math.min(savedLivingIndex, livingTracks.length - 1);
   }
 
-  audio.src = activeTracks[currentTrackIndex].file;
+  if (audio.src) audio.src = activeTracks[currentTrackIndex].file;
   updateTrackName();
   if (!isMuted) audio.play().catch(() => {});
-  preloadNextTrack();
 }
 
 function updateTrackName() {
@@ -149,6 +146,10 @@ export function setupAudioControls() {
     audio.muted = isMuted;
     localStorage.setItem('audioMuted', isMuted);
     updateMuteIcon();
+    if (!isMuted) {
+      ensureAudioSource();
+      audio.play().catch(() => {});
+    }
   });
 
   prevBtn.addEventListener('click', () => {
@@ -162,6 +163,7 @@ export function setupAudioControls() {
   let audioStarted = false;
   const startAudio = () => {
     if (!audioStarted && audio.paused && !isMuted) {
+      ensureAudioSource();
       audio.play().then(() => {
         audioStarted = true;
         document.removeEventListener('click', startAudio);

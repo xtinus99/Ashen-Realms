@@ -1,14 +1,15 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v70';
+const CACHE_NAME = 'ashen-realms-v71';
 
 // Core assets to cache immediately on install
 // JS/CSS are hashed by Vite — the network-first strategy handles them dynamically
 const CORE_ASSETS = [
     '/',
     '/index.html',
-    '/data.json',
+    '/data-index.json',
+    '/campaign-now.json',
     '/Assets/Sigil.webp',
     '/Assets/Dark Marble.webp',
     '/Assets/Weeping Statue.webp'
@@ -65,9 +66,28 @@ self.addEventListener('fetch', (event) => {
 
     // For same-origin requests
     if (url.origin === location.origin) {
-        // Dynamic content (JSON, JS, CSS) - use network-first strategy
-        // This ensures updates are immediate without needing cache version bumps
-        if (url.pathname.endsWith('.json') || url.pathname.endsWith('.js') || url.pathname.endsWith('.css')) {
+        // JSON uses stale-while-revalidate: instant repeat visits with a background refresh.
+        if (url.pathname.endsWith('.json')) {
+            event.respondWith(
+                caches.match(cacheUrl).then((cachedResponse) => {
+                    const networkUpdate = fetch(event.request)
+                        .then((networkResponse) => {
+                            if (networkResponse?.status === 200) {
+                                caches.open(CACHE_NAME).then((cache) => cache.put(cacheUrl, networkResponse.clone()));
+                            }
+                            return networkResponse;
+                        })
+                        .catch(() => null);
+                    return cachedResponse || networkUpdate.then((response) => (
+                        response || new Response('Offline', { status: 503 })
+                    ));
+                })
+            );
+            return;
+        }
+
+        // Hashed JS/CSS use network-first with an offline fallback.
+        if (url.pathname.endsWith('.js') || url.pathname.endsWith('.css')) {
             event.respondWith(
                 fetch(event.request)
                     .then((networkResponse) => {

@@ -1,5 +1,6 @@
 import state from './state.js';
 import { refreshIcons } from './icons.js';
+import { loadSearchIndex } from './data-store.js';
 
 // Handler injection to avoid circular imports (showItem lives in article.js)
 let handlers = {};
@@ -10,6 +11,7 @@ let selectedSearchIndex = -1;
 
 // Track active search filters
 let activeSearchFilters = new Set();
+let previouslyFocused = null;
 
 export function setupSearch() {
     const searchInput = document.getElementById('search');
@@ -33,6 +35,11 @@ export function setupSearch() {
 
     // Keyboard navigation in search
     modalSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            closeSearchModal();
+            return;
+        }
         const results = document.querySelectorAll('.search-result-item');
         const chips = document.querySelectorAll('.search-filter-chip');
 
@@ -71,6 +78,22 @@ export function setupSearch() {
 
     // Close modal on backdrop click
     document.querySelector('.search-modal-backdrop').addEventListener('click', closeSearchModal);
+    document.querySelector('.search-modal-close').addEventListener('click', closeSearchModal);
+
+    searchModal.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const focusable = [...searchModal.querySelectorAll('button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    });
 }
 
 function updateSearchSelection(results) {
@@ -99,7 +122,10 @@ function clearAllFilters() {
 export function openSearchModal() {
     const modal = document.getElementById('search-modal');
     const input = document.getElementById('modal-search');
+    previouslyFocused = document.activeElement;
     modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
     input.focus();
     input.value = '';
     activeSearchFilters.clear();
@@ -153,11 +179,16 @@ export function openSearchModal() {
 }
 
 export function closeSearchModal() {
-    document.getElementById('search-modal').classList.remove('open');
+    const modal = document.getElementById('search-modal');
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
     document.getElementById('search').blur();
+    if (previouslyFocused && document.contains(previouslyFocused)) previouslyFocused.focus();
+    previouslyFocused = null;
 }
 
-function performModalSearch(query) {
+async function performModalSearch(query) {
     const resultsContainer = document.getElementById('modal-search-results');
 
     if (!query || query.length < 2) {
@@ -169,44 +200,29 @@ function performModalSearch(query) {
 
     const results = [];
     const queryLower = query.toLowerCase();
+    const searchable = await loadSearchIndex().catch(() => []);
+    const visibleItems = new Map();
     for (const [categoryName, categoryData] of Object.entries(state.data)) {
+        for (const item of categoryData.items || []) visibleItems.set(`${categoryName}/${item.id}`, item);
+        for (const items of Object.values(categoryData.subcategories || {})) {
+            for (const item of items) visibleItems.set(`${categoryName}/${item.id}`, item);
+        }
+    }
+
+    for (const row of searchable) {
+        const categoryName = row.category;
+        const item = visibleItems.get(`${categoryName}/${row.id}`);
+        if (!item) continue;
         // Skip categories that aren't selected (if filters have been set up)
         if (activeSearchFilters.size > 0 && !activeSearchFilters.has(categoryName)) {
             continue;
         }
 
-        // Search main items
-        if (categoryData.items) {
-            for (const item of categoryData.items) {
-                const titleMatch = item.title.toLowerCase().includes(queryLower);
-                const contentMatch = (item.raw || '').toLowerCase().includes(queryLower);
-
-                if (titleMatch || contentMatch) {
-                    results.push({
-                        category: categoryName,
-                        item: item,
-                        score: titleMatch ? 2 : 1
-                    });
-                }
-            }
-        }
-
-        // Search subcategories
-        if (categoryData.subcategories) {
-            for (const [subName, subItems] of Object.entries(categoryData.subcategories)) {
-                for (const item of subItems) {
-                    const titleMatch = item.title.toLowerCase().includes(queryLower);
-                    const contentMatch = (item.raw || '').toLowerCase().includes(queryLower);
-
-                    if (titleMatch || contentMatch) {
-                        results.push({
-                            category: categoryName,
-                            item: item,
-                            score: titleMatch ? 2 : 1
-                        });
-                    }
-                }
-            }
+        const searchableRaw = state.currentRealm === 'living' && row.rawLiving ? row.rawLiving : row.raw;
+        const titleMatch = row.title.toLowerCase().includes(queryLower);
+        const contentMatch = (searchableRaw || '').toLowerCase().includes(queryLower);
+        if (titleMatch || contentMatch) {
+            results.push({ category: categoryName, item, raw: searchableRaw || '', score: titleMatch ? 2 : 1 });
         }
     }
 
@@ -221,11 +237,11 @@ function performModalSearch(query) {
     }
 
     resultsContainer.innerHTML = results.slice(0, 15).map(r => `
-        <div class="search-result-item" data-category="${r.category}" data-id="${r.item.id}">
+        <button type="button" class="search-result-item" data-category="${r.category}" data-id="${r.item.id}">
             <div class="search-result-title">${highlightMatch(r.item.title, query)}</div>
             <div class="search-result-category">${r.category}</div>
-            <div class="search-result-preview">${getPreview(r.item.raw || '', query)}</div>
-        </div>
+            <div class="search-result-preview">${getPreview(r.raw, query)}</div>
+        </button>
     `).join('');
 
     // Add click handlers

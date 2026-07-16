@@ -1,7 +1,9 @@
-import { tsParticles } from '@tsparticles/engine';
-import { loadSlim } from '@tsparticles/slim';
-
 export async function initParticles() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const [{ tsParticles }, { loadSlim }] = await Promise.all([
+    import('@tsparticles/engine'),
+    import('@tsparticles/slim'),
+  ]);
   await loadSlim(tsParticles);
 
   tsParticles.load({

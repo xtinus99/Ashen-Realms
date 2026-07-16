@@ -85,7 +85,7 @@ function setupSpellsLink() {
 async function loadSpellsData() {
   if (spellsData) return spellsData;
   try {
-    const response = await fetch('spells-data.json?v=2');
+    const response = await fetch('spells-data.json');
     spellsData = await response.json();
     return spellsData;
   } catch (error) {
@@ -115,7 +115,7 @@ async function showSpells() {
 
   // Update breadcrumb
   document.getElementById('breadcrumb').innerHTML = `
-    <span class="breadcrumb-home" style="cursor:pointer" onclick="showWelcome()">Compendium</span>
+    <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
     <span class="breadcrumb-sep">/</span>
     <span class="breadcrumb-current">Spell Compendium</span>
   `;
@@ -168,18 +168,21 @@ function getFilteredSpells() {
 function renderSpellsView() {
   const spells = getFilteredSpells();
 
-  // Select first spell if none selected or current selection is filtered out
-  if (!selectedSpell || !spells.find(s => s.name === selectedSpell)) {
-    selectedSpell = spells[0]?.name || null;
-  }
-
-  const selectedSpellData = spells.find(s => s.name === selectedSpell);
-
   // Group spells by level
   const spellsByLevel = {};
   for (const level of SPELL_LEVEL_ORDER) {
     spellsByLevel[level] = spells.filter(s => s.level === level);
   }
+
+  // Keep selection and the visible accordion in sync.
+  if (!selectedSpell || !spells.find(s => s.name === selectedSpell)) {
+    const firstVisibleLevel = currentSpellLevel === 'all'
+      ? SPELL_LEVEL_ORDER.find((level) => spellsByLevel[level].length)
+      : currentSpellLevel;
+    selectedSpell = (spellsByLevel[firstVisibleLevel] || spells)[0]?.name || null;
+  }
+
+  const selectedSpellData = spells.find(s => s.name === selectedSpell);
 
   document.getElementById('content-body').innerHTML = `
     <div class="spells-container">
@@ -197,36 +200,44 @@ function renderSpellsView() {
       <div class="spells-controls">
         <div class="spells-search-wrapper">
           <i data-lucide="search"></i>
+          <label class="sr-only" for="spell-search">Search spells</label>
           <input type="text" id="spell-search" placeholder="Search spells..." value="${currentSpellSearch}">
         </div>
 
         <div class="spells-filters">
-          <select id="filter-class" class="spell-filter-select">
+          <label class="sr-only" for="filter-class">Filter by class</label>
+          <select id="filter-class" class="spell-filter-select" aria-label="Filter spells by class">
             <option value="all" ${currentSpellClass === 'all' ? 'selected' : ''}>All Classes</option>
             ${Object.keys(spellsData.classes).map(c => `
               <option value="${c}" ${currentSpellClass === c ? 'selected' : ''}>${c}</option>
             `).join('')}
           </select>
 
-          <select id="filter-level" class="spell-filter-select">
+          <label class="sr-only" for="filter-level">Filter by level</label>
+          <select id="filter-level" class="spell-filter-select" aria-label="Filter spells by level">
             <option value="all" ${currentSpellLevel === 'all' ? 'selected' : ''}>All Levels</option>
             ${SPELL_LEVEL_ORDER.map(l => `
               <option value="${l}" ${currentSpellLevel === l ? 'selected' : ''}>${l}</option>
             `).join('')}
           </select>
 
-          <select id="filter-school" class="spell-filter-select">
+          <label class="sr-only" for="filter-school">Filter by school</label>
+          <select id="filter-school" class="spell-filter-select" aria-label="Filter spells by school">
             <option value="all" ${currentSpellSchool === 'all' ? 'selected' : ''}>All Schools</option>
             ${spellsData.schools.map(s => `
               <option value="${s}" ${currentSpellSchool === s ? 'selected' : ''}>${s}</option>
             `).join('')}
           </select>
 
-          <select id="filter-source" class="spell-filter-select">
+          <label class="sr-only" for="filter-source">Filter by source</label>
+          <select id="filter-source" class="spell-filter-select" aria-label="Filter spells by source">
             <option value="all" ${currentSpellSource === 'all' ? 'selected' : ''}>All Sources</option>
             <option value="standard" ${currentSpellSource === 'standard' ? 'selected' : ''}>Standard</option>
             <option value="ashen-realms" ${currentSpellSource === 'ashen-realms' ? 'selected' : ''}>Ashen Realms</option>
           </select>
+          <button type="button" class="ashen-spells-toggle ${currentSpellSource === 'ashen-realms' ? 'active' : ''}" id="ashen-spells-toggle" aria-pressed="${currentSpellSource === 'ashen-realms'}">
+            <i data-lucide="flame"></i> Ashen Realms only
+          </button>
         </div>
       </div>
 
@@ -236,17 +247,16 @@ function renderSpellsView() {
             SPELL_LEVEL_ORDER.map((level, levelIndex) => {
               const levelSpells = spellsByLevel[level];
               if (levelSpells.length === 0) return '';
-              // First level (Cantrips) starts open
-              const isOpen = levelIndex === 0;
+              const isOpen = selectedSpellData?.level === level;
               return `
                 <div class="spell-level-section ${isOpen ? 'open' : ''}" data-level="${level}">
-                  <button class="spell-level-header" type="button">
+                  <button class="spell-level-header" type="button" aria-expanded="${isOpen}">
                     <span class="level-name">${level}</span>
                     <span class="level-count">${levelSpells.length}</span>
                     <svg class="level-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                   </button>
-                  <div class="spell-level-spells">
-                    ${levelSpells.map((spell, index) => renderSpellCard(spell, index)).join('')}
+                  <div class="spell-level-spells" data-rendered="${isOpen}">
+                    ${isOpen ? levelSpells.map((spell, index) => renderSpellCard(spell, index)).join('') : ''}
                   </div>
                 </div>
               `;
@@ -311,6 +321,13 @@ function renderSpellsView() {
     renderSpellsView();
   });
 
+  document.getElementById('ashen-spells-toggle').addEventListener('click', () => {
+    currentSpellSource = currentSpellSource === 'ashen-realms' ? 'all' : 'ashen-realms';
+    selectedSpell = null;
+    selectedSpellCard = null;
+    renderSpellsView();
+  });
+
   // Create spell lookup map for O(1) access
   const spellMap = new Map(spells.map(s => [s.name, s]));
   const detailPanel = document.getElementById('spells-detail');
@@ -323,7 +340,16 @@ function renderSpellsView() {
     if (header) {
       const section = header.closest('.spell-level-section');
       if (section) {
-        section.classList.toggle('open');
+        const opening = !section.classList.contains('open');
+        section.classList.toggle('open', opening);
+        header.setAttribute('aria-expanded', String(opening));
+        const levelContainer = section.querySelector('.spell-level-spells');
+        if (opening && levelContainer?.dataset.rendered !== 'true') {
+          const levelSpells = spellsByLevel[section.dataset.level] || [];
+          levelContainer.innerHTML = levelSpells.map((spell, index) => renderSpellCard(spell, index)).join('');
+          levelContainer.dataset.rendered = 'true';
+          refreshIcons();
+        }
       }
       return;
     }
@@ -338,8 +364,10 @@ function renderSpellsView() {
     // Fast deselection - only touch the previously selected card
     if (selectedSpellCard && selectedSpellCard !== card) {
       selectedSpellCard.classList.remove('selected');
+      selectedSpellCard.setAttribute('aria-pressed', 'false');
     }
     card.classList.add('selected');
+    card.setAttribute('aria-pressed', 'true');
     selectedSpellCard = card;
 
     detailPanel.innerHTML = renderSpellDetail(spell);
@@ -356,8 +384,8 @@ function renderSpellCard(spell, index) {
   const isAshen = spell.source === 'ashen' || spell.source === 'ashen-realms';
 
   return `
-    <div class="spell-card ${isSelected ? 'selected' : ''} ${isAshen ? 'ashen-realms' : ''} school-${spell.school?.toLowerCase()}"
-         data-name="${spell.name}" data-index="${index}">
+    <button type="button" class="spell-card ${isSelected ? 'selected' : ''} ${isAshen ? 'ashen-realms' : ''} school-${spell.school?.toLowerCase()}"
+         data-name="${spell.name}" data-index="${index}" aria-pressed="${isSelected}">
       <div class="spell-card-icon">
         <i data-lucide="${schoolIcon}"></i>
       </div>
@@ -373,7 +401,7 @@ function renderSpellCard(spell, index) {
       <div class="spell-card-indicator">
         <i data-lucide="chevron-right"></i>
       </div>
-    </div>
+    </button>
   `;
 }
 

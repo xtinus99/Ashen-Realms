@@ -19,7 +19,7 @@ import 'leaflet/dist/leaflet.css';
   map.fitBounds(bounds);
   map.setMaxBounds([[-100, -100], [IMG_H + 100, IMG_W + 100]]);
 
-  fetch('map-data.json?v=' + Date.now())
+  fetch('map-data.json')
     .then((r) => r.json())
     .then((data) => {
       const partyId = data.partyLocation;

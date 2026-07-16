@@ -14,6 +14,13 @@ function setKeyboardHandlers(h) {
 
 function setupKeyboardShortcuts() {
   document.addEventListener('keydown', (e) => {
+    // Escape must work while focus is inside search or another modal input.
+    if (e.key === 'Escape') {
+      closeSearchModal();
+      document.getElementById('keyboard-help')?.remove();
+      return;
+    }
+
     // Don't trigger if user is typing in an input
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
       return;
@@ -23,11 +30,6 @@ function setupKeyboardShortcuts() {
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
       e.preventDefault();
       openSearchModal();
-    }
-
-    // Escape to close modal
-    if (e.key === 'Escape') {
-      closeSearchModal();
     }
 
     // J = Next article, K = Previous article
@@ -89,12 +91,16 @@ function showKeyboardHelp() {
   }
 
   const helpModal = document.createElement('div');
+  const previousFocus = document.activeElement;
   helpModal.id = 'keyboard-help';
   helpModal.className = 'keyboard-help-modal';
+  helpModal.setAttribute('role', 'dialog');
+  helpModal.setAttribute('aria-modal', 'true');
+  helpModal.setAttribute('aria-labelledby', 'keyboard-help-title');
   helpModal.innerHTML = `
     <div class="keyboard-help-backdrop"></div>
     <div class="keyboard-help-content">
-      <h3>Keyboard Shortcuts</h3>
+      <h2 id="keyboard-help-title">Keyboard Shortcuts</h2>
       <div class="keyboard-help-sections">
         <div class="keyboard-help-section">
           <h4>Navigation</h4>
@@ -161,14 +167,22 @@ function showKeyboardHelp() {
           </div>
         </div>
       </div>
-      <button class="keyboard-help-close" onclick="document.getElementById('keyboard-help').remove()">Close</button>
+      <button class="keyboard-help-close" type="button">Close</button>
     </div>
   `;
   document.body.appendChild(helpModal);
 
+  const close = () => {
+    helpModal.remove();
+    if (previousFocus && document.contains(previousFocus)) previousFocus.focus();
+  };
+  helpModal.querySelector('.keyboard-help-close').addEventListener('click', close);
+  helpModal.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+  helpModal.querySelector('.keyboard-help-close').focus();
+
   // Close on backdrop click
   helpModal.querySelector('.keyboard-help-backdrop').addEventListener('click', () => {
-    helpModal.remove();
+    close();
   });
 }
 
