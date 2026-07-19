@@ -237,7 +237,7 @@ function renderFeatEntry(feat) {
   ].filter(Boolean).join('');
 
   return `
-    <article class="ledger-entry ruleset-${feat.ruleset} requirement-${requirementKey}" id="feat-${escapeHtml(feat.id)}">
+    <article class="ledger-entry ruleset-${feat.ruleset} requirement-${requirementKey}" id="feat-${escapeHtml(feat.id)}" data-reference="${escapeHtml(reference)}">
       <span class="ledger-entry-ruleline" aria-hidden="true"></span>
       <header class="ledger-entry-banner">
         <span class="ledger-entry-icon" aria-hidden="true"><i data-lucide="${requirement.icon}"></i></span>
