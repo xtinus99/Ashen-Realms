@@ -34,7 +34,8 @@ const REP_IMAGE_MAP = {
   "House Selvik": "Selvik Emblem",
   // No portrait art yet — render initials instead of a broken image (card + hero)
   "Davan Holst": null,
-  "The Hollowsong": null
+  "The Hollowsong": null,
+  "The Ivory Innkeeper": null
 };
 
 // Character display names
@@ -88,11 +89,11 @@ function getRepTier(reputation) {
 function getRepProgress(reputation) {
   const tier = getRepTier(reputation);
   const tierRange = tier.max - tier.min;
-  const progress = reputation - tier.min;
+  const progress = Math.max(0, reputation - tier.min);
   return {
     current: progress,
     needed: tierRange,
-    percentage: Math.min(100, (progress / tierRange) * 100)
+    percentage: Math.max(0, Math.min(100, (progress / tierRange) * 100))
   };
 }
 
