@@ -6,6 +6,7 @@
   "scripts": {
     "predev": "node scripts/build-data.mjs",
     "dev": "vite",
+    "build:feats": "node scripts/build-feats.mjs",
     "prebuild": "node scripts/build-data.mjs",
     "build": "vite build",
     "preview": "vite preview"

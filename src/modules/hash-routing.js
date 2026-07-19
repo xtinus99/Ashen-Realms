@@ -13,7 +13,7 @@ export function updateHash(category = null, itemId = null) {
   }
 }
 
-// restoreFromHash needs callbacks for showRelationships, showSpells, showItem,
+// restoreFromHash needs callbacks for showRelationships, showSpells, showFeats, showItem,
 // openCategory, showWelcome, showNotFound, restoreScrollPosition.
 // These are injected from main.js to avoid circular imports.
 
@@ -47,6 +47,12 @@ export async function restoreFromHash() {
   // Handle spells page
   if (hash === 'spells') {
     await handlers.showSpells();
+    return true;
+  }
+
+  // Handle feats page
+  if (hash === 'feats') {
+    await handlers.showFeats();
     return true;
   }
 

@@ -85,6 +85,7 @@ async function loadData() {
 
 let bondsModulePromise;
 let spellsModulePromise;
+let featsModulePromise;
 
 function getBondsModule() {
   bondsModulePromise ||= import('./modules/bonds.js');
@@ -94,6 +95,11 @@ function getBondsModule() {
 function getSpellsModule() {
   spellsModulePromise ||= import('./modules/spells.js');
   return spellsModulePromise;
+}
+
+function getFeatsModule() {
+  featsModulePromise ||= import('./modules/feats.js');
+  return featsModulePromise;
 }
 
 async function showRelationships() {
@@ -106,6 +112,11 @@ async function showSpells() {
   return module.showSpells();
 }
 
+async function showFeats() {
+  const module = await getFeatsModule();
+  return module.showFeats();
+}
+
 function setupSpecialLinks() {
   document.getElementById('bonds-link')?.addEventListener('click', (event) => {
     event.preventDefault();
@@ -115,6 +126,11 @@ function setupSpecialLinks() {
   document.getElementById('spells-link')?.addEventListener('click', (event) => {
     event.preventDefault();
     showSpells();
+    document.getElementById('sidebar').classList.remove('open');
+  });
+  document.getElementById('feats-link')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    showFeats();
     document.getElementById('sidebar').classList.remove('open');
   });
 }
@@ -260,6 +276,7 @@ window.showWelcome = showWelcome;
 setHashHandlers({
   showRelationships,
   showSpells,
+  showFeats,
   showItem,
   openCategory,
   showWelcome,

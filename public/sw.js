@@ -1,7 +1,7 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v73';
+const CACHE_NAME = 'ashen-realms-v74';
 
 // Core assets to cache immediately on install
 // JS/CSS are hashed by Vite — the network-first strategy handles them dynamically
@@ -10,6 +10,7 @@ const CORE_ASSETS = [
     '/index.html',
     '/data-index.json',
     '/campaign-now.json',
+    '/feats-data.json',
     '/Assets/Sigil.webp',
     '/Assets/Dark Marble.webp',
     '/Assets/Weeping Statue.webp'
@@ -66,6 +67,24 @@ self.addEventListener('fetch', (event) => {
 
     // For same-origin requests
     if (url.origin === location.origin) {
+        // Navigations must be network-first. A cache-first HTML shell can point at
+        // hashed bundles from an older deployment and leave the app unable to boot.
+        if (event.request.mode === 'navigate' || url.pathname.endsWith('.html')) {
+            event.respondWith(
+                fetch(event.request)
+                    .then((networkResponse) => {
+                        if (networkResponse?.status === 200) {
+                            caches.open(CACHE_NAME).then((cache) => cache.put(cacheUrl, networkResponse.clone()));
+                        }
+                        return networkResponse;
+                    })
+                    .catch(() => caches.match(cacheUrl).then(async (cachedResponse) => (
+                        cachedResponse || await caches.match('/index.html') || new Response('Offline', { status: 503 })
+                    )))
+            );
+            return;
+        }
+
         // JSON uses stale-while-revalidate: instant repeat visits with a background refresh.
         if (url.pathname.endsWith('.json')) {
             event.respondWith(
