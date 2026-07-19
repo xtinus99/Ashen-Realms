@@ -10116,21 +10116,6 @@ body {
     line-height: 1.76;
 }
 
-.ledger-entry-rules::after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.ledger-entry-rules > p:first-child::first-letter {
-    float: left;
-    margin: 0.08em 0.12em 0 0;
-    color: var(--entry-deep);
-    font-family: var(--font-display);
-    font-size: 3.25rem;
-    line-height: 0.76;
-}
-
 .ledger-entry-rules.feat-rules strong,
 .ledger-entry-rules .feat-rule-section h3 {
     color: #17120f;
@@ -10470,10 +10455,6 @@ body {
     .ledger-entry-rules.feat-rules {
         font-size: 0.86rem;
         line-height: 1.62;
-    }
-
-    .ledger-entry-rules > p:first-child::first-letter {
-        font-size: 2.65rem;
     }
 
 }
