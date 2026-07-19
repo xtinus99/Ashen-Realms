@@ -1,7 +1,7 @@
-// ===== FEAT COMPENDIUM =====
+// ===== FEAT LEDGER =====
 import state from './state.js';
 import { refreshIcons } from './icons.js';
-import { destroySmoothScroll } from './smooth-scroll.js';
+import { initSmoothScroll } from './smooth-scroll.js';
 
 let featPayload = null;
 let currentRuleset = 'all';
@@ -9,25 +9,48 @@ let currentCategory = 'all';
 let currentLevel = 'all';
 let currentSource = 'all';
 let currentSearch = '';
-let selectedFeatId = null;
-const openGroups = new Set(['ashen', '2024', '2014']);
+const featReferenceCache = new Map();
 
 const RULESET_ORDER = ['ashen', '2024', '2014'];
 const RULESET_META = {
-  ashen: { short: 'AR', title: 'Ashen Realms', subtitle: 'Campaign-exclusive feats' },
-  '2024': { short: '24', title: '2024 Rules', subtitle: 'Modern official rules' },
-  '2014': { short: '14', title: '2014 Rules', subtitle: 'Legacy official rules' },
+  ashen: {
+    code: 'AR',
+    title: 'Ashen Realms',
+    shelf: 'Campaign Catalogue',
+    label: 'Campaign Exclusive',
+    description: 'Original feats and Epic Boons written for this campaign.',
+  },
+  '2024': {
+    code: '24',
+    title: 'Official 2024',
+    shelf: 'Current Rules',
+    label: 'Official · 2024',
+    description: 'Origin, General, Fighting Style, Dragonmark, and Epic Boon feats.',
+  },
+  '2014': {
+    code: '14',
+    title: 'Official 2014',
+    shelf: 'Legacy Rules',
+    label: 'Official · 2014',
+    description: 'The complete legacy feat catalogue from the indexed sourcebooks.',
+  },
 };
 const CATEGORY_ORDER = [
   'Open', 'Earned', 'General', 'Origin', 'Lineage', 'Sideways',
   'Fighting Style', 'Dragonmark', 'Legacy Feat', 'Epic', 'Epic Boon',
 ];
-
-const ICONS = {
-  badge: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 7.8 5.1 3.2 5.8l.7 4.6-.7 4.6 4.6.7L12 18l4.2-2.3 4.6-.7-.7-4.6.7-4.6-4.6-.7L12 3Z"/><path d="m8.8 10.8 2 2 4.5-4.5"/></svg>',
-  chevron: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
-  book: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2Z"/><path d="M4 21a2 2 0 0 1 2-2h14"/></svg>',
-  spark: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.6 5a3 3 0 0 1-2 2L3 12l5.4 1.8a3 3 0 0 1 2 2L12 21l1.6-5.2a3 3 0 0 1 2-2L21 12l-5.4-2a3 3 0 0 1-2-2L12 3Z"/></svg>',
+const CATEGORY_ICONS = {
+  Open: 'book-open',
+  Earned: 'award',
+  General: 'shield',
+  Origin: 'sparkles',
+  Lineage: 'dna',
+  Sideways: 'route',
+  'Fighting Style': 'swords',
+  Dragonmark: 'flame',
+  'Legacy Feat': 'scroll-text',
+  Epic: 'crown',
+  'Epic Boon': 'gem',
 };
 
 function escapeHtml(value = '') {
@@ -44,32 +67,38 @@ async function loadFeatData() {
   const response = await fetch('feats-data.json');
   if (!response.ok) throw new Error(`Feat compendium returned ${response.status}`);
   featPayload = await response.json();
+  RULESET_ORDER.forEach((ruleset) => {
+    featPayload.feats
+      .filter((feat) => feat.ruleset === ruleset)
+      .sort((a, b) => a.name.localeCompare(b.name) || a.source.localeCompare(b.source))
+      .forEach((feat, index) => {
+        featReferenceCache.set(feat.id, `${RULESET_META[ruleset].code}-${String(index + 1).padStart(3, '0')}`);
+      });
+  });
   return featPayload;
 }
 
-function sortCategories(a, b) {
+function categorySort(a, b) {
   const aIndex = CATEGORY_ORDER.indexOf(a);
   const bIndex = CATEGORY_ORDER.indexOf(b);
-  if (aIndex !== -1 || bIndex !== -1) {
-    if (aIndex === -1) return 1;
-    if (bIndex === -1) return -1;
-    return aIndex - bIndex;
-  }
-  return a.localeCompare(b);
+  if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+  if (aIndex === -1) return 1;
+  if (bIndex === -1) return -1;
+  return aIndex - bIndex;
+}
+
+function getSourceRecords() {
+  return [...new Map(featPayload.feats.map((feat) => [feat.source, feat])).values()]
+    .sort((a, b) => (
+      RULESET_ORDER.indexOf(a.ruleset) - RULESET_ORDER.indexOf(b.ruleset)
+      || a.sourceName.localeCompare(b.sourceName)
+    ));
 }
 
 function sourceOptions() {
-  const feats = featPayload.feats;
-  const sources = [...new Map(feats.map((feat) => [feat.source, feat])).values()]
-    .sort((a, b) => RULESET_ORDER.indexOf(a.ruleset) - RULESET_ORDER.indexOf(b.ruleset) || a.sourceName.localeCompare(b.sourceName));
-  return sources.map((feat) => (
-    `<option value="${escapeHtml(feat.source)}">${escapeHtml(RULESET_META[feat.ruleset].short)} · ${escapeHtml(feat.sourceName)}</option>`
+  return getSourceRecords().map((feat) => (
+    `<option value="${escapeHtml(feat.source)}">${escapeHtml(RULESET_META[feat.ruleset].code)} · ${escapeHtml(feat.sourceName)}</option>`
   )).join('');
-}
-
-function categoryOptions() {
-  const categories = [...new Set(featPayload.feats.map((feat) => feat.category))].sort(sortCategories);
-  return categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join('');
 }
 
 function levelOptions() {
@@ -80,90 +109,111 @@ function levelOptions() {
 function renderRulesetTabs() {
   const counts = featPayload.meta.counts;
   const tabs = [
-    ['all', 'All Feats', counts.total],
-    ['ashen', 'Ashen Realms', counts.ashen],
-    ['2024', '2024 Rules', counts['2024']],
-    ['2014', '2014 Rules', counts['2014']],
+    ['all', 'Everything', counts.total, 'Complete index'],
+    ['ashen', 'Ashen Realms', counts.ashen, 'Campaign exclusive'],
+    ['2024', 'Official 2024', counts['2024'], 'Current rules'],
+    ['2014', 'Official 2014', counts['2014'], 'Legacy rules'],
   ];
 
-  return tabs.map(([value, label, count]) => `
-    <button type="button" class="feat-ruleset-tab ${currentRuleset === value ? 'active' : ''}" data-ruleset="${value}" aria-pressed="${currentRuleset === value}">
-      <span class="feat-tab-mark ${value}">${value === 'all' ? 'ALL' : RULESET_META[value].short}</span>
-      <span class="feat-tab-copy"><strong>${label}</strong><small>${count} entries</small></span>
+  return tabs.map(([value, title, count, subtitle]) => `
+    <button type="button" class="ledger-tab ${currentRuleset === value ? 'active' : ''}" data-ruleset="${value}" aria-pressed="${currentRuleset === value}">
+      <span><strong>${title}</strong><small>${subtitle}</small></span>
+      <b>${count}</b>
     </button>
   `).join('');
 }
 
+function recordsForCategoryCounts() {
+  return featPayload.feats.filter((feat) => (
+    (currentRuleset === 'all' || feat.ruleset === currentRuleset)
+    && (currentSource === 'all' || feat.source === currentSource)
+  ));
+}
+
+function renderCategoryChips() {
+  const records = recordsForCategoryCounts();
+  const counts = new Map();
+  records.forEach((feat) => counts.set(feat.category, (counts.get(feat.category) || 0) + 1));
+  const categories = [...counts.keys()].sort(categorySort);
+
+  return [
+    `<button type="button" class="ledger-category-chip ${currentCategory === 'all' ? 'active' : ''}" data-category="all" aria-pressed="${currentCategory === 'all'}">All types <span>${records.length}</span></button>`,
+    ...categories.map((category) => `
+      <button type="button" class="ledger-category-chip ${currentCategory === category ? 'active' : ''}" data-category="${escapeHtml(category)}" aria-pressed="${currentCategory === category}">
+        ${escapeHtml(category)} <span>${counts.get(category)}</span>
+      </button>
+    `),
+  ].join('');
+}
+
 function renderShell() {
-  const content = document.getElementById('content-body');
-  content.innerHTML = `
-    <div class="feats-container">
-      <header class="feats-header">
-        <button type="button" class="feats-back-btn" id="feats-back-btn">
-          <i data-lucide="arrow-left"></i><span>Back</span>
+  document.getElementById('content-body').innerHTML = `
+    <div class="feat-ledger-page">
+      <header class="ledger-hero">
+        <button type="button" class="ledger-back" id="feats-back-btn" aria-label="Return to compendium">
+          <i data-lucide="arrow-left"></i><span>Compendium</span>
         </button>
-        <div class="feats-title-area">
-          <span class="feats-kicker">Character Options</span>
-          <h1 class="feats-title">Feat Compendium</h1>
-          <p class="feats-subtitle">Official 2014 and 2024 rules beside the complete Ashen Realms catalogue.</p>
+        <div class="ledger-hero-icon" aria-hidden="true"><i data-lucide="scroll-text"></i></div>
+        <div class="ledger-hero-copy">
+          <span class="ledger-kicker">Player Index · Character Options</span>
+          <h1>The Feat Ledger</h1>
+          <p>Every prerequisite and complete rule is printed directly in the catalogue. Search, filter, and read without opening anything.</p>
         </div>
-        <div class="feats-ledger" aria-label="Compendium total">
-          <strong>${featPayload.meta.counts.total}</strong>
-          <span>feats &amp; boons</span>
+        <div class="ledger-totals" aria-label="Feat catalogue totals">
+          <span><strong>${featPayload.meta.counts.ashen}</strong>Ashen</span>
+          <span><strong>${featPayload.meta.counts['2024']}</strong>2024</span>
+          <span><strong>${featPayload.meta.counts['2014']}</strong>2014</span>
         </div>
       </header>
 
-      <nav class="feat-ruleset-tabs" id="feat-ruleset-tabs" aria-label="Choose a feat ruleset">
+      <nav class="ledger-tabs" id="feat-ruleset-tabs" aria-label="Choose a feat catalogue">
         ${renderRulesetTabs()}
       </nav>
 
-      <section class="feats-controls" aria-label="Feat filters">
-        <div class="feats-search-wrapper">
-          <i data-lucide="search"></i>
-          <label class="sr-only" for="feat-search">Search feats</label>
-          <input type="search" id="feat-search" placeholder="Search names, rules, or prerequisites…" autocomplete="off" value="${escapeHtml(currentSearch)}">
-          <kbd>/</kbd>
-        </div>
-        <div class="feats-filters">
-          <label class="sr-only" for="feat-category-filter">Filter by type</label>
-          <select id="feat-category-filter" class="feat-filter-select">
-            <option value="all">All Types</option>
-            ${categoryOptions()}
-          </select>
-          <label class="sr-only" for="feat-level-filter">Filter by required level</label>
-          <select id="feat-level-filter" class="feat-filter-select">
-            <option value="all">Any Level</option>
-            <option value="none">No Level Requirement</option>
-            ${levelOptions()}
-          </select>
-          <label class="sr-only" for="feat-source-filter">Filter by source book</label>
-          <select id="feat-source-filter" class="feat-filter-select feat-source-select">
-            <option value="all">All Sources</option>
-            ${sourceOptions()}
-          </select>
-          <button type="button" class="feat-clear-btn" id="feat-clear-btn">
+      <section class="ledger-filter-dock" aria-label="Search and filter feats">
+        <div class="ledger-filter-row">
+          <div class="ledger-search">
+            <i data-lucide="search"></i>
+            <label class="sr-only" for="feat-search">Search feats</label>
+            <input type="search" id="feat-search" placeholder="Search a name, prerequisite, or rule…" autocomplete="off" value="${escapeHtml(currentSearch)}">
+            <kbd>/</kbd>
+          </div>
+          <label class="ledger-select-wrap">
+            <span>Required level</span>
+            <select id="feat-level-filter" class="ledger-select">
+              <option value="all">Any level</option>
+              <option value="none">No level requirement</option>
+              ${levelOptions()}
+            </select>
+          </label>
+          <label class="ledger-select-wrap source">
+            <span>Source book</span>
+            <select id="feat-source-filter" class="ledger-select">
+              <option value="all">All sources</option>
+              ${sourceOptions()}
+            </select>
+          </label>
+          <button type="button" class="ledger-reset" id="feat-clear-btn">
             <i data-lucide="rotate-ccw"></i><span>Reset</span>
           </button>
         </div>
+        <div class="ledger-category-strip" id="feat-category-strip" aria-label="Filter by feat type">
+          ${renderCategoryChips()}
+        </div>
       </section>
 
-      <div class="feats-status-row">
-        <p id="feats-result-count" role="status" aria-live="polite"></p>
-        <div class="feats-legend" aria-label="Ruleset key">
-          <span><i class="legend-dot ashen"></i>Campaign exclusive</span>
-          <span><i class="legend-dot rules-2024"></i>2024 rules</span>
-          <span><i class="legend-dot rules-2014"></i>2014 rules</span>
+      <div class="ledger-results-heading">
+        <div>
+          <span>Indexed results</span>
+          <h2 id="ledger-results-title">All Feats</h2>
         </div>
+        <p id="feats-result-count" role="status" aria-live="polite"></p>
       </div>
 
-      <div class="feats-layout">
-        <aside class="feats-list" id="feats-list" aria-label="Feat results"></aside>
-        <article class="feats-detail" id="feats-detail" aria-live="polite"></article>
-      </div>
+      <main class="ledger-catalog" id="feat-catalog" aria-labelledby="ledger-results-title"></main>
     </div>
   `;
 
-  document.getElementById('feat-category-filter').value = currentCategory;
   document.getElementById('feat-level-filter').value = currentLevel;
   document.getElementById('feat-source-filter').value = currentSource;
 }
@@ -184,169 +234,138 @@ function getFilteredFeats() {
   ));
 }
 
-function shortPrerequisite(feat) {
-  if (feat.prerequisite === 'None') return 'No prerequisite';
-  if (feat.level) return `Level ${feat.level}+`;
-  return feat.prerequisite;
+function prerequisiteLabel(feat) {
+  return feat.prerequisite === 'None' ? 'No prerequisite' : feat.prerequisite;
 }
 
-function renderFeatCard(feat) {
+function renderFeatEntry(feat) {
   const meta = RULESET_META[feat.ruleset];
+  const categoryIcon = CATEGORY_ICONS[feat.category] || 'scroll-text';
+  const reference = featReferenceCache.get(feat.id) || meta.code;
+  const facts = [
+    feat.abilityIncrease ? `
+      <div><small>Ability Score Increase</small><p>${escapeHtml(feat.abilityIncrease)}</p></div>` : '',
+    feat.repeatable ? `
+      <div><small>Repeatable</small><p>This feat can be taken more than once.</p></div>` : '',
+    feat.campaign && feat.ruleset !== 'ashen' ? `
+      <div><small>Campaign Requirement</small><p>${escapeHtml(feat.campaign)}</p></div>` : '',
+  ].filter(Boolean).join('');
+
   return `
-    <button type="button" class="feat-card ruleset-${feat.ruleset} ${selectedFeatId === feat.id ? 'selected' : ''}" data-feat-id="${escapeHtml(feat.id)}" aria-pressed="${selectedFeatId === feat.id}">
-      <span class="feat-card-edition">${meta.short}</span>
-      <span class="feat-card-copy">
-        <strong class="feat-card-name">${escapeHtml(feat.name)}</strong>
-        <span class="feat-card-meta">
-          <span>${escapeHtml(feat.category)}</span>
-          <i aria-hidden="true"></i>
-          <span title="${escapeHtml(feat.prerequisite)}">${escapeHtml(shortPrerequisite(feat))}</span>
-        </span>
-      </span>
-      <span class="feat-card-source">${escapeHtml(feat.source)}</span>
-    </button>
+    <article class="ledger-entry ruleset-${feat.ruleset}" id="feat-${escapeHtml(feat.id)}">
+      <span class="ledger-entry-ruleline" aria-hidden="true"></span>
+      <aside class="ledger-entry-rail">
+        <span class="ledger-entry-icon" aria-hidden="true"><i data-lucide="${categoryIcon}"></i></span>
+        <div class="ledger-entry-kind">
+          <small>Feat type</small>
+          <strong>${escapeHtml(feat.category)}</strong>
+        </div>
+        <b>${escapeHtml(reference)}</b>
+      </aside>
+
+      <div class="ledger-entry-sheet">
+        <header class="ledger-entry-header">
+          <div class="ledger-entry-topline">
+            <span class="ledger-entry-origin">${escapeHtml(meta.label)}</span>
+            <span class="ledger-entry-source-code">${escapeHtml(feat.source)}</span>
+          </div>
+          <h3>${escapeHtml(feat.name)}</h3>
+          <div class="ledger-entry-tags">
+            ${feat.level ? `<em>Level ${feat.level}+</em>` : ''}
+            ${feat.abilityIncrease ? '<em>Ability increase</em>' : ''}
+            ${feat.repeatable ? '<em>Repeatable</em>' : ''}
+          </div>
+        </header>
+
+        <section class="ledger-entry-prerequisite ${feat.prerequisite === 'None' ? 'none' : ''}">
+          <div><i data-lucide="key-round"></i><small>Prerequisite</small></div>
+          <p>${escapeHtml(prerequisiteLabel(feat))}</p>
+        </section>
+
+        ${facts ? `<div class="ledger-entry-facts">${facts}</div>` : ''}
+
+        <div class="ledger-entry-section-title"><span>Feat rules</span><i></i></div>
+        <section class="ledger-entry-rules feat-rules" aria-label="${escapeHtml(feat.name)} rules">
+          ${feat.bodyHtml}
+        </section>
+
+        ${feat.reprintedAs?.length ? `
+          <aside class="ledger-entry-reprint">Also printed as ${escapeHtml(feat.reprintedAs.join(', '))}.</aside>
+        ` : ''}
+
+        <footer class="ledger-entry-source">
+          <i data-lucide="book-open" aria-hidden="true"></i>
+          <div>${renderSourceLine(feat)}</div>
+        </footer>
+      </div>
+    </article>
   `;
 }
 
-function renderFeatGroups(feats) {
+function renderShelf(ruleset, feats) {
+  const meta = RULESET_META[ruleset];
+  return `
+    <section class="ledger-shelf ruleset-${ruleset}" aria-labelledby="shelf-${ruleset}">
+      <header class="ledger-shelf-header">
+        <span class="ledger-shelf-code">${meta.code}</span>
+        <div>
+          <small>${meta.shelf}</small>
+          <h2 id="shelf-${ruleset}">${meta.title}</h2>
+          <p>${meta.description}</p>
+        </div>
+        <strong>${feats.length}<span>entries</span></strong>
+      </header>
+      <div class="ledger-entry-list">${feats.map(renderFeatEntry).join('')}</div>
+    </section>
+  `;
+}
+
+function renderCatalog(feats) {
   if (!feats.length) {
     return `
-      <div class="feats-empty-list">
-        ${ICONS.spark}
-        <strong>No feats found</strong>
-        <p>Try removing a filter or using a broader search.</p>
-        <button type="button" data-reset-feats>Clear all filters</button>
+      <div class="ledger-empty">
+        <i data-lucide="scroll-text"></i>
+        <h2>No matching feats</h2>
+        <p>Try a broader search or clear the current filters.</p>
+        <button type="button" data-reset-feats>Clear filters</button>
       </div>
     `;
   }
 
   return RULESET_ORDER.map((ruleset) => {
-    const groupFeats = feats.filter((feat) => feat.ruleset === ruleset);
-    if (!groupFeats.length) return '';
-    const meta = RULESET_META[ruleset];
-    const isOpen = openGroups.has(ruleset) || Boolean(currentSearch);
-    return `
-      <section class="feat-library ruleset-${ruleset} ${isOpen ? 'open' : ''}" data-library="${ruleset}">
-        <button type="button" class="feat-library-header" aria-expanded="${isOpen}">
-          <span class="feat-library-sigil">${meta.short}</span>
-          <span class="feat-library-title"><strong>${meta.title}</strong><small>${meta.subtitle}</small></span>
-          <span class="feat-library-count">${groupFeats.length}</span>
-          <span class="feat-library-chevron">${ICONS.chevron}</span>
-        </button>
-        <div class="feat-library-items">${groupFeats.map(renderFeatCard).join('')}</div>
-      </section>
-    `;
+    const shelfFeats = feats.filter((feat) => feat.ruleset === ruleset);
+    return shelfFeats.length ? renderShelf(ruleset, shelfFeats) : '';
   }).join('');
 }
 
-function renderSourceLine(feat) {
-  const page = feat.page ? ` · p. ${feat.page}` : '';
-  if (feat.ruleset === 'ashen') {
-    return '<strong>Ashen Realms original</strong> · Final campaign catalogue';
-  }
-  return `<strong>${escapeHtml(feat.sourceName)}</strong>${page} · Local 5etools corpus`;
+function activeResultsTitle() {
+  if (currentCategory !== 'all') return currentCategory;
+  if (currentRuleset !== 'all') return RULESET_META[currentRuleset].title;
+  return 'All Feats';
 }
 
-function renderFeatDetail(feat) {
-  if (!feat) {
-    return `
-      <div class="feat-detail-empty">
-        ${ICONS.badge}
-        <h2>Choose a feat</h2>
-        <p>Select an entry to read its prerequisites and complete rules.</p>
-      </div>
-    `;
-  }
-
-  const meta = RULESET_META[feat.ruleset];
-  const extras = [
-    feat.abilityIncrease ? `
-      <div class="feat-fact ability">
-        <span class="feat-fact-icon"><i data-lucide="trending-up"></i></span>
-        <div><small>Ability Score Increase</small><p>${escapeHtml(feat.abilityIncrease)}</p></div>
-      </div>` : '',
-    feat.repeatable ? `
-      <div class="feat-fact repeatable">
-        <span class="feat-fact-icon"><i data-lucide="repeat-2"></i></span>
-        <div><small>Repeatable</small><p>This feat can be taken more than once.</p></div>
-      </div>` : '',
-    feat.campaign && feat.ruleset !== 'ashen' ? `
-      <div class="feat-fact campaign">
-        <span class="feat-fact-icon"><i data-lucide="map"></i></span>
-        <div><small>Campaign Requirement</small><p>${escapeHtml(feat.campaign)}</p></div>
-      </div>` : '',
-  ].filter(Boolean).join('');
-
-  return `
-    <button type="button" class="feat-mobile-back" onclick="closeMobileFeatDetail()">
-      <i data-lucide="arrow-left"></i>Back to feats
-    </button>
-    <div class="feat-detail-panel ruleset-${feat.ruleset}">
-      <header class="feat-detail-header">
-        <div class="feat-detail-seal">${ICONS.badge}<span>${meta.short}</span></div>
-        <div class="feat-detail-heading">
-          <div class="feat-detail-eyebrow">${escapeHtml(meta.title)} · ${escapeHtml(feat.category)}</div>
-          <h2>${escapeHtml(feat.name)}</h2>
-          <div class="feat-badges">
-            <span class="feat-badge ruleset-${feat.ruleset}">${escapeHtml(meta.title)}</span>
-            <span class="feat-badge category">${escapeHtml(feat.category)}</span>
-            <span class="feat-badge source">${escapeHtml(feat.source)}</span>
-          </div>
-        </div>
-      </header>
-
-      <section class="feat-prerequisite ${feat.prerequisite === 'None' ? 'none' : ''}">
-        <span class="feat-prerequisite-label"><i data-lucide="key-round"></i>Prerequisite</span>
-        <p>${escapeHtml(feat.prerequisite)}</p>
-      </section>
-
-      ${extras ? `<div class="feat-facts">${extras}</div>` : ''}
-
-      <section class="feat-rules">
-        <div class="feat-section-label"><span>Rules</span><i></i></div>
-        ${feat.bodyHtml}
-      </section>
-
-      ${feat.reprintedAs?.length ? `
-        <aside class="feat-reprint-note"><i data-lucide="copy-check"></i><span>Also printed as ${escapeHtml(feat.reprintedAs.join(', '))}.</span></aside>
-      ` : ''}
-
-      <footer class="feat-source-note ruleset-${feat.ruleset}">
-        ${ICONS.book}
-        <div><small>Source</small><p>${renderSourceLine(feat)}</p></div>
-      </footer>
-    </div>
-  `;
-}
-
-function updateRulesetTabs() {
-  document.querySelectorAll('.feat-ruleset-tab').forEach((tab) => {
+function updateTabsAndCategories() {
+  document.querySelectorAll('.ledger-tab').forEach((tab) => {
     const active = tab.dataset.ruleset === currentRuleset;
     tab.classList.toggle('active', active);
     tab.setAttribute('aria-pressed', String(active));
   });
+  document.getElementById('feat-category-strip').innerHTML = renderCategoryChips();
 }
 
-function updateView({ moveFocus = false } = {}) {
+function updateCatalog() {
   const feats = getFilteredFeats();
-  if (!feats.some((feat) => feat.id === selectedFeatId)) selectedFeatId = feats[0]?.id || null;
-  const selected = feats.find((feat) => feat.id === selectedFeatId) || null;
-  if (selected) openGroups.add(selected.ruleset);
-
-  const list = document.getElementById('feats-list');
-  const detail = document.getElementById('feats-detail');
-  list.innerHTML = renderFeatGroups(feats);
-  detail.innerHTML = renderFeatDetail(selected);
-
-  const count = document.getElementById('feats-result-count');
-  count.innerHTML = `<strong>${feats.length}</strong> of ${featPayload.meta.counts.total} feats shown`;
-  updateRulesetTabs();
+  document.getElementById('feat-catalog').innerHTML = renderCatalog(feats);
+  document.getElementById('feats-result-count').innerHTML = `<strong>${feats.length}</strong><span>of ${featPayload.meta.counts.total} shown</span>`;
+  document.getElementById('ledger-results-title').textContent = activeResultsTitle();
+  updateTabsAndCategories();
   refreshIcons();
+}
 
-  if (moveFocus && selected && window.matchMedia('(max-width: 1150px)').matches) {
-    detail.classList.add('mobile-active');
-    detail.querySelector('.feat-mobile-back')?.focus();
-  }
+function renderSourceLine(feat) {
+  if (feat.ruleset === 'ashen') return '<strong>Ashen Realms original</strong><span>Campaign catalogue</span>';
+  const page = feat.page ? `, page ${feat.page}` : '';
+  return `<strong>${escapeHtml(feat.sourceName)}${page}</strong><span>Official ${feat.ruleset} rules · 5etools index</span>`;
 }
 
 function resetFilters() {
@@ -355,12 +374,10 @@ function resetFilters() {
   currentLevel = 'all';
   currentSource = 'all';
   currentSearch = '';
-  selectedFeatId = null;
   document.getElementById('feat-search').value = '';
-  document.getElementById('feat-category-filter').value = 'all';
   document.getElementById('feat-level-filter').value = 'all';
   document.getElementById('feat-source-filter').value = 'all';
-  updateView();
+  updateCatalog();
 }
 
 function bindEvents() {
@@ -369,13 +386,20 @@ function bindEvents() {
   });
 
   document.getElementById('feat-ruleset-tabs').addEventListener('click', (event) => {
-    const tab = event.target.closest('.feat-ruleset-tab');
+    const tab = event.target.closest('.ledger-tab');
     if (!tab) return;
     currentRuleset = tab.dataset.ruleset;
     currentSource = 'all';
-    selectedFeatId = null;
+    currentCategory = 'all';
     document.getElementById('feat-source-filter').value = 'all';
-    updateView();
+    updateCatalog();
+  });
+
+  document.getElementById('feat-category-strip').addEventListener('click', (event) => {
+    const chip = event.target.closest('.ledger-category-chip');
+    if (!chip) return;
+    currentCategory = chip.dataset.category;
+    updateCatalog();
   });
 
   let searchTimer;
@@ -383,66 +407,32 @@ function bindEvents() {
   search.addEventListener('input', () => {
     currentSearch = search.value;
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => {
-      selectedFeatId = null;
-      updateView();
-    }, 100);
+    searchTimer = setTimeout(updateCatalog, 100);
   });
 
-  document.getElementById('feat-category-filter').addEventListener('change', (event) => {
-    currentCategory = event.target.value;
-    selectedFeatId = null;
-    updateView();
-  });
   document.getElementById('feat-level-filter').addEventListener('change', (event) => {
     currentLevel = event.target.value;
-    selectedFeatId = null;
-    updateView();
+    updateCatalog();
   });
+
   document.getElementById('feat-source-filter').addEventListener('change', (event) => {
     currentSource = event.target.value;
-    const selectedSourceFeat = featPayload.feats.find((feat) => feat.source === currentSource);
-    if (selectedSourceFeat) currentRuleset = selectedSourceFeat.ruleset;
-    selectedFeatId = null;
-    updateView();
+    const sourceFeat = featPayload.feats.find((feat) => feat.source === currentSource);
+    if (sourceFeat) currentRuleset = sourceFeat.ruleset;
+    if (currentCategory !== 'all' && !featPayload.feats.some((feat) => (
+      (currentRuleset === 'all' || feat.ruleset === currentRuleset)
+      && (currentSource === 'all' || feat.source === currentSource)
+      && feat.category === currentCategory
+    ))) currentCategory = 'all';
+    updateCatalog();
   });
+
   document.getElementById('feat-clear-btn').addEventListener('click', resetFilters);
 
-  document.getElementById('feats-list').addEventListener('click', (event) => {
+  document.getElementById('feat-catalog').addEventListener('click', (event) => {
     const reset = event.target.closest('[data-reset-feats]');
     if (reset) {
       resetFilters();
-      return;
-    }
-
-    const header = event.target.closest('.feat-library-header');
-    if (header) {
-      const library = header.closest('.feat-library');
-      const ruleset = library.dataset.library;
-      const opening = !library.classList.contains('open');
-      library.classList.toggle('open', opening);
-      header.setAttribute('aria-expanded', String(opening));
-      if (opening) openGroups.add(ruleset);
-      else openGroups.delete(ruleset);
-      return;
-    }
-
-    const card = event.target.closest('.feat-card');
-    if (!card) return;
-    selectedFeatId = card.dataset.featId;
-    document.querySelectorAll('.feat-card.selected').forEach((selectedCard) => {
-      selectedCard.classList.remove('selected');
-      selectedCard.setAttribute('aria-pressed', 'false');
-    });
-    card.classList.add('selected');
-    card.setAttribute('aria-pressed', 'true');
-    const feat = featPayload.feats.find((candidate) => candidate.id === selectedFeatId);
-    const detail = document.getElementById('feats-detail');
-    detail.innerHTML = renderFeatDetail(feat);
-    refreshIcons();
-    if (window.matchMedia('(max-width: 1150px)').matches) {
-      detail.classList.add('mobile-active');
-      detail.querySelector('.feat-mobile-back')?.focus();
     }
   });
 
@@ -452,38 +442,27 @@ function bindEvents() {
 
 function handleFeatKeyboard(event) {
   if (window.location.hash !== '#feats') return;
-  if (event.key === 'Escape' && document.getElementById('feats-detail')?.classList.contains('mobile-active')) {
-    closeMobileFeatDetail();
-    return;
-  }
-  if (event.key !== '/' || ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+  if (event.key !== '/') return;
+  if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
   event.preventDefault();
   document.getElementById('feat-search')?.focus();
 }
 
-function closeMobileFeatDetail() {
-  const detail = document.getElementById('feats-detail');
-  detail?.classList.remove('mobile-active');
-  document.querySelector(`.feat-card[data-feat-id="${CSS.escape(selectedFeatId || '')}"]`)?.focus();
-}
-
-window.closeMobileFeatDetail = closeMobileFeatDetail;
-
 async function showFeats() {
   state.currentItem = null;
   state.currentCategory = null;
-  destroySmoothScroll();
+  initSmoothScroll();
 
   const content = document.getElementById('content-body');
   content.classList.add('full-width');
   content.innerHTML = '<div class="feats-loading"><span></span><p>Opening the feat ledger…</p></div>';
   window.location.hash = 'feats';
-  document.title = 'Feat Compendium — The Ashen Realms';
-  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Browse every 2014, 2024, and Ashen Realms feat in one searchable compendium.');
+  document.title = 'The Feat Ledger — The Ashen Realms';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Compare every official 2014, official 2024, and Ashen Realms feat in one searchable player index.');
   document.getElementById('breadcrumb').innerHTML = `
     <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
     <span class="breadcrumb-sep">/</span>
-    <span class="breadcrumb-current">Feat Compendium</span>
+    <span class="breadcrumb-current">The Feat Ledger</span>
   `;
   document.querySelectorAll('.nav-item.active').forEach((item) => item.classList.remove('active'));
 
@@ -491,8 +470,9 @@ async function showFeats() {
     await loadFeatData();
     renderShell();
     bindEvents();
-    updateView();
+    updateCatalog();
     refreshIcons();
+    window.scrollTo({ top: 0, behavior: 'auto' });
   } catch (error) {
     console.error('Failed to load feat data:', error);
     content.innerHTML = `
