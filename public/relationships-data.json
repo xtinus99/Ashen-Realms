@@ -3925,6 +3925,78 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Azalea Hemm",
+        "type": "Healer of the Pallid Crossroads",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "He stood in the doorway and let Karusa decide for herself. Good.",
+        "likes": [
+          "Patients who tell the truth about what hurts",
+          "Being asked, not ordered",
+          "People who look after their own"
+        ],
+        "dislikes": [
+          "Wounds hidden until they turn",
+          "Being pressed about Mira",
+          "Wasted salves"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Brought Karusa to the clinic door and waited outside without being told twice (S48)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "The Ivory Innkeeper",
+        "type": "Keeper of the Ivory Inn, the Pallid Crossroads",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "They went east for two of ours and came back with the truth. That's worth more than the rooms.",
+        "likes": [
+          "News brought straight, even when it's bad",
+          "Guests who close the door against the dark",
+          "Anyone who helps the town keep its people known"
+        ],
+        "dislikes": [
+          "Empty reassurance",
+          "Trouble under her roof",
+          "Waste"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Took the search for the missing two when nobody else could, and brought the truth back (S48)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Bjarnok the Weather-Eater",
+        "type": "Bearfolk hunter of the giant forest",
+        "category": "npcs",
+        "reputation": 11000,
+        "description": "Loud. Loud found her when quiet couldn't.",
+        "likes": [
+          "A loud, honest fight",
+          "Meat earned",
+          "Deliveries that send word ahead"
+        ],
+        "dislikes": [
+          "Weak things wandering the deep forest",
+          "Prey that sneaks",
+          "A kill wasted"
+        ],
+        "history": [
+          {
+            "change": 1000,
+            "reason": "His rage-yells handed Bjarnok the hunt her stealth had always denied him; refused the paw first, which a hunter respects (S48)"
+          }
+        ],
+        "unlocks": []
       }
     ]
   },
@@ -4504,6 +4576,78 @@
           }
         ],
         "unlocks": []
+      },
+      {
+        "name": "Azalea Hemm",
+        "type": "Healer of the Pallid Crossroads",
+        "category": "npcs",
+        "reputation": 11250,
+        "description": "He knocked after dark with a monster's paw and asked politely. Manners survive out here.",
+        "likes": [
+          "Patients who tell the truth about what hurts",
+          "Being asked, not ordered",
+          "People who look after their own"
+        ],
+        "dislikes": [
+          "Wounds hidden until they turn",
+          "Being pressed about Mira",
+          "Wasted salves"
+        ],
+        "history": [
+          {
+            "change": 1250,
+            "reason": "Came to the clinic honestly, twice, and let her work the paw her own way (S48)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "The Ivory Innkeeper",
+        "type": "Keeper of the Ivory Inn, the Pallid Crossroads",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "They went east for two of ours and came back with the truth. That's worth more than the rooms.",
+        "likes": [
+          "News brought straight, even when it's bad",
+          "Guests who close the door against the dark",
+          "Anyone who helps the town keep its people known"
+        ],
+        "dislikes": [
+          "Empty reassurance",
+          "Trouble under her roof",
+          "Waste"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Took the search for the missing two and brought the truth back with proof (S48)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Bjarnok the Weather-Eater",
+        "type": "Bearfolk hunter of the giant forest",
+        "category": "npcs",
+        "reputation": 10500,
+        "description": "Carries the paw. Proof is proof.",
+        "likes": [
+          "A loud, honest fight",
+          "Meat earned",
+          "Deliveries that send word ahead"
+        ],
+        "dislikes": [
+          "Weak things wandering the deep forest",
+          "Prey that sneaks",
+          "A kill wasted"
+        ],
+        "history": [
+          {
+            "change": 500,
+            "reason": "Stood in the fight and now carries the paw as token and proof (S48)"
+          }
+        ],
+        "unlocks": []
       }
     ]
   },
@@ -4739,6 +4883,83 @@
           {
             "change": -1000,
             "reason": "Recoiled from the black veins under Viktor's skin and called it near heresy (S47)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Azalea Hemm",
+        "type": "Healer of the Pallid Crossroads",
+        "category": "npcs",
+        "reputation": 11500,
+        "description": "He let me take the blood. Whatever is in him, it isn't in anything Mira left me.",
+        "likes": [
+          "Patients who tell the truth about what hurts",
+          "Being asked, not ordered",
+          "People who look after their own"
+        ],
+        "dislikes": [
+          "Wounds hidden until they turn",
+          "Being pressed about Mira",
+          "Wasted salves"
+        ],
+        "history": [
+          {
+            "change": 1500,
+            "reason": "Showed her the blackened veins without flinching and consented to the vial; she is studying his curse (S48)"
+          }
+        ],
+        "unlocks": [
+          {
+            "threshold": 15000,
+            "reward": "Azalea shares whatever her study of the vial has found"
+          }
+        ]
+      },
+      {
+        "name": "The Ivory Innkeeper",
+        "type": "Keeper of the Ivory Inn, the Pallid Crossroads",
+        "category": "npcs",
+        "reputation": 12000,
+        "description": "They went east for two of ours and came back with the truth. That's worth more than the rooms.",
+        "likes": [
+          "News brought straight, even when it's bad",
+          "Guests who close the door against the dark",
+          "Anyone who helps the town keep its people known"
+        ],
+        "dislikes": [
+          "Empty reassurance",
+          "Trouble under her roof",
+          "Waste"
+        ],
+        "history": [
+          {
+            "change": 2000,
+            "reason": "Took the search for the missing two and brought the truth back (S48)"
+          }
+        ],
+        "unlocks": []
+      },
+      {
+        "name": "Bjarnok the Weather-Eater",
+        "type": "Bearfolk hunter of the giant forest",
+        "category": "npcs",
+        "reputation": 10750,
+        "description": "Fixed the wagon. Ore moves. Fine.",
+        "likes": [
+          "A loud, honest fight",
+          "Meat earned",
+          "Deliveries that send word ahead"
+        ],
+        "dislikes": [
+          "Weak things wandering the deep forest",
+          "Prey that sneaks",
+          "A kill wasted"
+        ],
+        "history": [
+          {
+            "change": 750,
+            "reason": "His Mending put the ore wagon back on its wheels, which is why the delivery could be finished at all (S48)"
           }
         ],
         "unlocks": []
