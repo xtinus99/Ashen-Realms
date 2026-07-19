@@ -465,12 +465,19 @@ function parseAshenFeats(markdown) {
     const rawBody = current.lines.join('\n').trim();
     const bodyLines = rawBody.split(/\r?\n/);
     let prerequisiteValue = '';
+    let abilityIncreaseValue = '';
 
     if (bodyLines[0]?.match(/^\*Prerequisites?:\s*(.+)\*$/i)) {
       prerequisiteValue = bodyLines.shift().match(/^\*Prerequisites?:\s*(.+)\*$/i)[1];
     }
+    if (bodyLines[0]?.match(/^\*Ability Score Increase:\s*(.+)\*$/i)) {
+      abilityIncreaseValue = bodyLines.shift().match(/^\*Ability Score Increase:\s*(.+)\*$/i)[1];
+    }
 
     const prerequisite = normalizeAshenPrerequisite(prerequisiteValue, category);
+    const abilityIncrease = category === 'Epic Boon'
+      ? 'Increase one ability score by 1, to a maximum of 30.'
+      : abilityIncreaseValue || null;
     const bodyMarkdown = bodyLines.join('\n').trim();
     const bodyHtml = renderAshenMarkdown(bodyMarkdown);
     const id = `${slugify(current.name)}-ashen`;
@@ -487,12 +494,12 @@ function parseAshenFeats(markdown) {
       category,
       prerequisite,
       level: extractAshenLevel(prerequisite, category),
-      abilityIncrease: category === 'Epic Boon' ? 'Increase one ability score by 1, to a maximum of 30.' : null,
+      abilityIncrease,
       repeatable: false,
       campaign: 'Ashen Realms',
       reprintedAs: [],
       bodyHtml,
-      searchText: [current.name, 'Ashen Realms', category, prerequisite, stripHtml(bodyHtml)].filter(Boolean).join(' ').toLowerCase(),
+      searchText: [current.name, 'Ashen Realms', category, prerequisite, abilityIncrease, stripHtml(bodyHtml)].filter(Boolean).join(' ').toLowerCase(),
     });
     current = null;
   };
