@@ -5,7 +5,7 @@ import { initSmoothScroll } from './smooth-scroll.js';
 
 let featPayload = null;
 let currentRuleset = 'all';
-let currentCategory = 'all';
+let currentRequirement = 'all';
 let currentLevel = 'all';
 let currentSource = 'all';
 let currentSearch = '';
@@ -18,39 +18,26 @@ const RULESET_META = {
     title: 'Ashen Realms',
     shelf: 'Campaign Catalogue',
     label: 'Campaign Exclusive',
-    description: 'Original feats and Epic Boons written for this campaign.',
+    description: 'Campaign-exclusive feats written for the Ashen Realms.',
   },
   '2024': {
     code: '24',
     title: 'Official 2024',
     shelf: 'Current Rules',
     label: 'Official · 2024',
-    description: 'Origin, General, Fighting Style, Dragonmark, and Epic Boon feats.',
+    description: 'Official feats indexed from the current 2024 rules.',
   },
   '2014': {
     code: '14',
     title: 'Official 2014',
     shelf: 'Legacy Rules',
     label: 'Official · 2014',
-    description: 'The complete legacy feat catalogue from the indexed sourcebooks.',
+    description: 'Official feats indexed from legacy sourcebooks.',
   },
 };
-const CATEGORY_ORDER = [
-  'Open', 'Earned', 'General', 'Origin', 'Lineage', 'Sideways',
-  'Fighting Style', 'Dragonmark', 'Legacy Feat', 'Epic', 'Epic Boon',
-];
-const CATEGORY_ICONS = {
-  Open: 'book-open',
-  Earned: 'award',
-  General: 'shield',
-  Origin: 'sparkles',
-  Lineage: 'dna',
-  Sideways: 'route',
-  'Fighting Style': 'swords',
-  Dragonmark: 'flame',
-  'Legacy Feat': 'scroll-text',
-  Epic: 'crown',
-  'Epic Boon': 'gem',
+const REQUIREMENT_META = {
+  required: { label: 'Requirements', icon: 'key-round' },
+  none: { label: 'No requirements', icon: 'check-circle' },
 };
 
 function escapeHtml(value = '') {
@@ -78,13 +65,8 @@ async function loadFeatData() {
   return featPayload;
 }
 
-function categorySort(a, b) {
-  const aIndex = CATEGORY_ORDER.indexOf(a);
-  const bIndex = CATEGORY_ORDER.indexOf(b);
-  if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
-  if (aIndex === -1) return 1;
-  if (bIndex === -1) return -1;
-  return aIndex - bIndex;
+function requirementState(feat) {
+  return feat.prerequisite === 'None' ? 'none' : 'required';
 }
 
 function getSourceRecords() {
@@ -123,27 +105,28 @@ function renderRulesetTabs() {
   `).join('');
 }
 
-function recordsForCategoryCounts() {
+function recordsForRequirementCounts() {
   return featPayload.feats.filter((feat) => (
     (currentRuleset === 'all' || feat.ruleset === currentRuleset)
     && (currentSource === 'all' || feat.source === currentSource)
   ));
 }
 
-function renderCategoryChips() {
-  const records = recordsForCategoryCounts();
-  const counts = new Map();
-  records.forEach((feat) => counts.set(feat.category, (counts.get(feat.category) || 0) + 1));
-  const categories = [...counts.keys()].sort(categorySort);
+function renderRequirementChips() {
+  const records = recordsForRequirementCounts();
+  const requiredCount = records.filter((feat) => requirementState(feat) === 'required').length;
+  const noRequirementCount = records.length - requiredCount;
+  const options = [
+    ['all', 'All feats', records.length, 'list'],
+    ['required', 'Requirements', requiredCount, 'key-round'],
+    ['none', 'No requirements', noRequirementCount, 'check-circle'],
+  ];
 
-  return [
-    `<button type="button" class="ledger-category-chip ${currentCategory === 'all' ? 'active' : ''}" data-category="all" aria-pressed="${currentCategory === 'all'}">All types <span>${records.length}</span></button>`,
-    ...categories.map((category) => `
-      <button type="button" class="ledger-category-chip ${currentCategory === category ? 'active' : ''}" data-category="${escapeHtml(category)}" aria-pressed="${currentCategory === category}">
-        ${escapeHtml(category)} <span>${counts.get(category)}</span>
-      </button>
-    `),
-  ].join('');
+  return options.map(([value, label, count, icon]) => `
+    <button type="button" class="ledger-requirement-chip ${currentRequirement === value ? 'active' : ''}" data-requirement="${value}" aria-pressed="${currentRequirement === value}">
+      <i data-lucide="${icon}"></i>${label} <span>${count}</span>
+    </button>
+  `).join('');
 }
 
 function renderShell() {
@@ -197,8 +180,8 @@ function renderShell() {
             <i data-lucide="rotate-ccw"></i><span>Reset</span>
           </button>
         </div>
-        <div class="ledger-category-strip" id="feat-category-strip" aria-label="Filter by feat type">
-          ${renderCategoryChips()}
+        <div class="ledger-requirement-strip" id="feat-requirement-strip" aria-label="Filter by requirement">
+          ${renderRequirementChips()}
         </div>
       </section>
 
@@ -222,7 +205,7 @@ function getFilteredFeats() {
   const terms = currentSearch.toLowerCase().trim().split(/\s+/).filter(Boolean);
   return featPayload.feats.filter((feat) => {
     if (currentRuleset !== 'all' && feat.ruleset !== currentRuleset) return false;
-    if (currentCategory !== 'all' && feat.category !== currentCategory) return false;
+    if (currentRequirement !== 'all' && requirementState(feat) !== currentRequirement) return false;
     if (currentSource !== 'all' && feat.source !== currentSource) return false;
     if (currentLevel === 'none' && feat.level !== null) return false;
     if (currentLevel !== 'all' && currentLevel !== 'none' && feat.level !== Number(currentLevel)) return false;
@@ -235,12 +218,12 @@ function getFilteredFeats() {
 }
 
 function prerequisiteLabel(feat) {
-  return feat.prerequisite === 'None' ? 'No prerequisite' : feat.prerequisite;
+  return feat.prerequisite === 'None' ? 'No requirements' : feat.prerequisite;
 }
 
 function renderFeatEntry(feat) {
   const meta = RULESET_META[feat.ruleset];
-  const categoryIcon = CATEGORY_ICONS[feat.category] || 'scroll-text';
+  const requirement = REQUIREMENT_META[requirementState(feat)];
   const reference = featReferenceCache.get(feat.id) || meta.code;
   const facts = [
     feat.abilityIncrease ? `
@@ -255,10 +238,9 @@ function renderFeatEntry(feat) {
     <article class="ledger-entry ruleset-${feat.ruleset}" id="feat-${escapeHtml(feat.id)}">
       <span class="ledger-entry-ruleline" aria-hidden="true"></span>
       <aside class="ledger-entry-rail">
-        <span class="ledger-entry-icon" aria-hidden="true"><i data-lucide="${categoryIcon}"></i></span>
+        <span class="ledger-entry-icon" aria-hidden="true"><i data-lucide="${requirement.icon}"></i></span>
         <div class="ledger-entry-kind">
-          <small>Feat type</small>
-          <strong>${escapeHtml(feat.category)}</strong>
+          <strong>${requirement.label}</strong>
         </div>
         <b>${escapeHtml(reference)}</b>
       </aside>
@@ -278,7 +260,7 @@ function renderFeatEntry(feat) {
         </header>
 
         <section class="ledger-entry-prerequisite ${feat.prerequisite === 'None' ? 'none' : ''}">
-          <div><i data-lucide="key-round"></i><small>Prerequisite</small></div>
+          <div><i data-lucide="${requirement.icon}"></i><small>${requirement.label}</small></div>
           <p>${escapeHtml(prerequisiteLabel(feat))}</p>
         </section>
 
@@ -339,18 +321,18 @@ function renderCatalog(feats) {
 }
 
 function activeResultsTitle() {
-  if (currentCategory !== 'all') return currentCategory;
+  if (currentRequirement !== 'all') return REQUIREMENT_META[currentRequirement].label;
   if (currentRuleset !== 'all') return RULESET_META[currentRuleset].title;
   return 'All Feats';
 }
 
-function updateTabsAndCategories() {
+function updateTabsAndRequirements() {
   document.querySelectorAll('.ledger-tab').forEach((tab) => {
     const active = tab.dataset.ruleset === currentRuleset;
     tab.classList.toggle('active', active);
     tab.setAttribute('aria-pressed', String(active));
   });
-  document.getElementById('feat-category-strip').innerHTML = renderCategoryChips();
+  document.getElementById('feat-requirement-strip').innerHTML = renderRequirementChips();
 }
 
 function updateCatalog() {
@@ -358,7 +340,7 @@ function updateCatalog() {
   document.getElementById('feat-catalog').innerHTML = renderCatalog(feats);
   document.getElementById('feats-result-count').innerHTML = `<strong>${feats.length}</strong><span>of ${featPayload.meta.counts.total} shown</span>`;
   document.getElementById('ledger-results-title').textContent = activeResultsTitle();
-  updateTabsAndCategories();
+  updateTabsAndRequirements();
   refreshIcons();
 }
 
@@ -370,7 +352,7 @@ function renderSourceLine(feat) {
 
 function resetFilters() {
   currentRuleset = 'all';
-  currentCategory = 'all';
+  currentRequirement = 'all';
   currentLevel = 'all';
   currentSource = 'all';
   currentSearch = '';
@@ -390,15 +372,15 @@ function bindEvents() {
     if (!tab) return;
     currentRuleset = tab.dataset.ruleset;
     currentSource = 'all';
-    currentCategory = 'all';
+    currentRequirement = 'all';
     document.getElementById('feat-source-filter').value = 'all';
     updateCatalog();
   });
 
-  document.getElementById('feat-category-strip').addEventListener('click', (event) => {
-    const chip = event.target.closest('.ledger-category-chip');
+  document.getElementById('feat-requirement-strip').addEventListener('click', (event) => {
+    const chip = event.target.closest('.ledger-requirement-chip');
     if (!chip) return;
-    currentCategory = chip.dataset.category;
+    currentRequirement = chip.dataset.requirement;
     updateCatalog();
   });
 
@@ -419,11 +401,6 @@ function bindEvents() {
     currentSource = event.target.value;
     const sourceFeat = featPayload.feats.find((feat) => feat.source === currentSource);
     if (sourceFeat) currentRuleset = sourceFeat.ruleset;
-    if (currentCategory !== 'all' && !featPayload.feats.some((feat) => (
-      (currentRuleset === 'all' || feat.ruleset === currentRuleset)
-      && (currentSource === 'all' || feat.source === currentSource)
-      && feat.category === currentCategory
-    ))) currentCategory = 'all';
     updateCatalog();
   });
 

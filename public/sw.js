@@ -1,7 +1,7 @@
 // Service Worker for The Ashen Realms
 // Enables offline reading of cached content
 
-const CACHE_NAME = 'ashen-realms-v75';
+const CACHE_NAME = 'ashen-realms-v76';
 
 // Core assets to cache immediately on install
 // JS/CSS are hashed by Vite — the network-first strategy handles them dynamically

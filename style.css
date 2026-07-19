@@ -9490,7 +9490,7 @@ body {
     height: 13px;
 }
 
-.ledger-category-strip {
+.ledger-requirement-strip {
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -9501,15 +9501,16 @@ body {
     scrollbar-color: var(--gold-dark) transparent;
 }
 
-.ledger-category-chip {
+.ledger-requirement-chip {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
     gap: 0.36rem;
-    padding: 0.3rem 0.55rem;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.025);
+    min-height: 32px;
+    padding: 0.36rem 0.62rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.018);
     color: var(--text-dim);
     font-family: var(--font-ui);
     font-size: 0.59rem;
@@ -9518,23 +9519,31 @@ body {
     white-space: nowrap;
 }
 
-.ledger-category-chip:hover {
+.ledger-requirement-chip:hover {
     border-color: var(--border-normal);
     color: var(--text-normal);
 }
 
-.ledger-category-chip.active {
+.ledger-requirement-chip.active {
     border-color: var(--gold-dark);
     background: rgba(201, 162, 39, 0.1);
     color: var(--gold-pale);
 }
 
-.ledger-category-chip span {
+.ledger-requirement-chip > svg {
+    width: 13px;
+    height: 13px;
+    color: var(--text-faint);
+    stroke-width: 1.7;
+}
+
+.ledger-requirement-chip span {
     color: var(--text-faint);
     font-size: 0.52rem;
 }
 
-.ledger-category-chip.active span {
+.ledger-requirement-chip.active > svg,
+.ledger-requirement-chip.active span {
     color: var(--gold);
 }
 
@@ -9783,22 +9792,8 @@ body {
     stroke-width: 1.55;
 }
 
-.ledger-entry-kind small,
 .ledger-entry-kind strong {
     display: block;
-}
-
-.ledger-entry-kind small {
-    color: var(--text-faint);
-    font-family: var(--font-ui);
-    font-size: 0.46rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.ledger-entry-kind strong {
-    margin-top: 0.16rem;
     color: var(--entry-color);
     font-family: var(--font-display);
     font-size: 0.86rem;
