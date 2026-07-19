@@ -9490,7 +9490,7 @@ body {
     height: 13px;
 }
 
-.ledger-requirement-row {
+.ledger-type-row {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
@@ -9509,7 +9509,7 @@ body {
     white-space: nowrap;
 }
 
-.ledger-requirement-strip {
+.ledger-type-strip {
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -9520,7 +9520,7 @@ body {
     scrollbar-color: var(--gold-dark) transparent;
 }
 
-.ledger-requirement-chip {
+.ledger-type-chip {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
@@ -9538,31 +9538,31 @@ body {
     white-space: nowrap;
 }
 
-.ledger-requirement-chip:hover {
+.ledger-type-chip:hover {
     border-color: var(--border-normal);
     color: var(--text-normal);
 }
 
-.ledger-requirement-chip.active {
+.ledger-type-chip.active {
     border-color: var(--gold-dark);
     background: rgba(201, 162, 39, 0.1);
     color: var(--gold-pale);
 }
 
-.ledger-requirement-chip > svg {
+.ledger-type-chip > svg {
     width: 13px;
     height: 13px;
     color: var(--text-faint);
     stroke-width: 1.7;
 }
 
-.ledger-requirement-chip span {
+.ledger-type-chip span {
     color: var(--text-faint);
     font-size: 0.52rem;
 }
 
-.ledger-requirement-chip.active > svg,
-.ledger-requirement-chip.active span {
+.ledger-type-chip.active > svg,
+.ledger-type-chip.active span {
     color: var(--gold);
 }
 
@@ -10285,13 +10285,13 @@ body {
         grid-column: auto;
     }
 
-    .ledger-requirement-row {
+    .ledger-type-row {
         grid-template-columns: 1fr;
         gap: 0;
         padding-top: 0.58rem;
     }
 
-    .ledger-requirement-strip {
+    .ledger-type-strip {
         padding-top: 0.42rem;
     }
 }
@@ -10362,7 +10362,7 @@ body {
     }
 
     .ledger-select-wrap.source,
-    .ledger-select-wrap.category {
+    .ledger-select-wrap.order {
         grid-column: 1 / -1;
     }
 
