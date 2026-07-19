@@ -9,6 +9,47 @@ const DEFAULT_OFFICIAL = 'C:/Users/khali/Documents/5etools-v2.23.0/data/feats.js
 const DEFAULT_ASHEN = 'C:/Users/khali/Documents/DND Campaign/DND Campaign/08 - Tables and References/Feats of the Ashen Realms.md';
 
 const RULESET_2024_SOURCES = new Set(['XPHB', 'FRHoF', 'EFA', 'ABH', 'LFL']);
+const ASHEN_INCOMPATIBLE_SOURCES = new Set([
+  'DSotDQ', // Dragonlance
+  'EFA', // Eberron
+  'ERLW', // Eberron
+  'LFL', // Lorwyn
+  'MTF', // Svirfneblin-only option; deep gnomes are not established
+  'PSK', // Kaladesh
+  'PSX', // Ixalan
+  'SCC', // Strixhaven
+  'SatO', // Planescape
+]);
+const ASHEN_INCOMPATIBLE_FEATS = new Set([
+  // Forgotten Realms factions and setting-specific magic.
+  'Cult of the Dragon Initiate|FRHoF',
+  'Dragonscarred|FRHoF',
+  'Emerald Enclave Fledgling|FRHoF',
+  'Enclave Magic|FRHoF',
+  'Genie Magic|FRHoF',
+  'Harper Agent|FRHoF',
+  'Harper Teamwork|FRHoF',
+  'Lordly Resolve|FRHoF',
+  "Lords' Alliance Agent|FRHoF",
+  'Mythal Touched|FRHoF',
+  "Order's Resilience|FRHoF",
+  'Purple Dragon Commandant|FRHoF',
+  'Purple Dragon Rook|FRHoF',
+  'Spellfire Adept|FRHoF',
+  'Spellfire Spark|FRHoF',
+  'Tyro of the Gauntlet|FRHoF',
+  'Zhentarim Ruffian|FRHoF',
+  'Zhentarim Tactics|FRHoF',
+
+  // These assume the standard Feywild or Shadowfell rather than Ashen cosmology.
+  'Fey Touched|TCE',
+  'Shadow Touched|TCE',
+  'Fey Teleportation|XGE',
+  'Fey-Touched|XPHB',
+  'Shadow-Touched|XPHB',
+]);
+const EXPECTED_OFFICIAL_INPUT = 265;
+const EXPECTED_OFFICIAL_INCLUDED = 188;
 const ABILITY_NAMES = {
   str: 'Strength',
   dex: 'Dexterity',
@@ -32,6 +73,11 @@ function getArg(name, fallback) {
   if (direct) return direct.slice(name.length + 3);
   const index = process.argv.indexOf(`--${name}`);
   return index >= 0 && process.argv[index + 1] ? process.argv[index + 1] : fallback;
+}
+
+function isAshenCompatibleOfficialFeat(feat) {
+  return !ASHEN_INCOMPATIBLE_SOURCES.has(feat.source)
+    && !ASHEN_INCOMPATIBLE_FEATS.has(`${feat.name}|${feat.source}`);
 }
 
 const officialPath = path.resolve(getArg('official', process.env.FIVEETOOLS_FEATS_PATH || DEFAULT_OFFICIAL));
@@ -499,7 +545,14 @@ for (const entry of [...(JSON.parse(booksRaw).book || []), ...(JSON.parse(advent
   });
 }
 
-const officialFeats = JSON.parse(officialRaw).feat.map((feat) => normalizeOfficialFeat(feat, sourceMeta));
+const officialSourceFeats = JSON.parse(officialRaw).feat;
+if (officialSourceFeats.length !== EXPECTED_OFFICIAL_INPUT) {
+  throw new Error(`Expected ${EXPECTED_OFFICIAL_INPUT} official source feats, found ${officialSourceFeats.length}`);
+}
+
+const includedOfficialSourceFeats = officialSourceFeats.filter(isAshenCompatibleOfficialFeat);
+const excludedOfficialCount = officialSourceFeats.length - includedOfficialSourceFeats.length;
+const officialFeats = includedOfficialSourceFeats.map((feat) => normalizeOfficialFeat(feat, sourceMeta));
 const ashenFeats = parseAshenFeats(ashenRaw);
 const feats = [...ashenFeats, ...officialFeats].sort((a, b) => (
   a.name.localeCompare(b.name) || a.ruleset.localeCompare(b.ruleset) || a.source.localeCompare(b.source)
@@ -507,8 +560,10 @@ const feats = [...ashenFeats, ...officialFeats].sort((a, b) => (
 
 const duplicateIds = feats.map((feat) => feat.id).filter((id, index, values) => values.indexOf(id) !== index);
 if (duplicateIds.length) throw new Error(`Duplicate feat IDs: ${[...new Set(duplicateIds)].join(', ')}`);
-if (officialFeats.length !== 265) throw new Error(`Expected 265 official feats, found ${officialFeats.length}`);
-if (ashenFeats.length !== 162) throw new Error(`Expected 162 Ashen Realms feats and boons, found ${ashenFeats.length}`);
+if (officialFeats.length !== EXPECTED_OFFICIAL_INCLUDED) {
+  throw new Error(`Expected ${EXPECTED_OFFICIAL_INCLUDED} Ashen-compatible official feats, found ${officialFeats.length}`);
+}
+if (ashenFeats.length !== 160) throw new Error(`Expected 160 Ashen Realms feats and boons, found ${ashenFeats.length}`);
 
 const counts = {
   total: feats.length,
@@ -523,7 +578,8 @@ const payload = {
     generated: new Date().toISOString(),
     counts,
     sources: [...new Set(feats.map((feat) => feat.source))].length,
-    note: 'Official entries are normalized from the local 5etools corpus. Ashen Realms entries are the finalized campaign catalogue.',
+    excludedOfficial: excludedOfficialCount,
+    note: 'Official entries are the Ashen-compatible subset normalized from the local 5etools corpus. Setting-exclusive imports are omitted. Ashen Realms entries are the finalized campaign catalogue.',
   },
   feats,
 };
@@ -533,3 +589,4 @@ await writeFile(outputPath, `${JSON.stringify(payload)}\n`, 'utf8');
 
 console.log(`Wrote ${counts.total} feats to ${outputPath}`);
 console.log(`Ashen Realms: ${counts.ashen} | 2024: ${counts['2024']} | 2014: ${counts['2014']}`);
+console.log(`Excluded setting-incompatible official feats: ${excludedOfficialCount}`);
