@@ -5,8 +5,8 @@ import { initSmoothScroll } from './smooth-scroll.js';
 
 let featPayload = null;
 let currentRuleset = 'all';
-let currentRequirement = 'all';
-let currentCategory = 'all';
+let currentEligibility = 'all';
+let currentFeatType = 'all';
 let currentLevel = 'all';
 let currentSource = 'all';
 let currentSort = 'requirements';
@@ -37,20 +37,18 @@ const RULESET_META = {
     description: 'Official feats indexed from legacy sourcebooks.',
   },
 };
-const REQUIREMENT_META = {
-  all: { label: 'All types', shortLabel: 'All', icon: 'list-filter' },
-  none: { label: 'No requirements', shortLabel: 'None', icon: 'check-circle' },
-  level: { label: 'Level only', shortLabel: 'Level', icon: 'chevrons-up' },
-  ability: { label: 'Ability score', shortLabel: 'Ability', icon: 'gauge' },
-  lineage: { label: 'Lineage', shortLabel: 'Lineage', icon: 'users' },
-  training: { label: 'Training', shortLabel: 'Training', icon: 'swords' },
-  magic: { label: 'Spellcasting', shortLabel: 'Magic', icon: 'sparkles' },
-  feat: { label: 'Feat condition', shortLabel: 'Feat', icon: 'link' },
-  earned: { label: 'Story or campaign', shortLabel: 'Story', icon: 'flag' },
+const REQUIREMENT_BADGE = {
+  none: { label: 'No requirements', icon: 'check-circle' },
+  required: { label: 'Requirements', icon: 'lock-keyhole' },
 };
-
-const REQUIREMENT_ORDER = ['none', 'level', 'ability', 'lineage', 'training', 'magic', 'feat', 'earned'];
-const CATEGORY_ORDER = ['Epic Boon', 'Epic', 'Origin', 'General', 'Open', 'Earned', 'Lineage', 'Sideways', 'Fighting Style', 'Legacy Feat'];
+const FEAT_TYPE_META = {
+  all: { label: 'All feats', resultTitle: 'All Feats', entryLabel: 'Feat', icon: 'library' },
+  general: { label: 'General feats', resultTitle: 'General Feats', entryLabel: 'General Feat', icon: 'scroll-text' },
+  origin: { label: 'Origin feats', resultTitle: 'Origin Feats', entryLabel: 'Origin Feat', icon: 'compass' },
+  style: { label: 'Fighting styles', resultTitle: 'Fighting Styles', entryLabel: 'Fighting Style', icon: 'swords' },
+  boon: { label: 'Epic Boons', resultTitle: 'Epic Boons', entryLabel: 'Epic Boon', icon: 'crown' },
+};
+const FEAT_TYPE_ORDER = ['general', 'origin', 'style', 'boon'];
 
 const LINEAGE_PATTERN = /\b(aasimar|bugbear|changeling|dhampir|dragonborn|drow|dwarf|eladrin|elf|genasi|gnome|goblin|goliath|half-elf|half-orc|halfling|hobgoblin|human|kenku|kobold|leonin|lizardfolk|minotaur|orc|satyr|shifter|small size|tabaxi|thalwynn|tiefling|tortle|triton|vampire|warforged|wood elf|yuan-ti|race|species|lineage|sun-line)\b/i;
 const ABILITY_PATTERN = /\b(strength|dexterity|constitution|intelligence|wisdom|charisma|ability score|spellcasting ability)\b[^.;]*(?:\d{2}|\d\+)/i;
@@ -111,25 +109,8 @@ function requirementState(feat) {
   return feat.prerequisite === 'None' ? 'none' : 'required';
 }
 
-function primaryRequirementType(feat) {
-  return requirementTypes(feat).find((type) => type !== 'level') || requirementTypes(feat)[0];
-}
-
 function requirementBadge(feat) {
-  const types = requirementTypes(feat);
-  if (types[0] === 'none') return REQUIREMENT_META.none;
-
-  const primary = primaryRequirementType(feat);
-  const labels = types
-    .filter((type) => type !== 'level')
-    .map((type) => REQUIREMENT_META[type].shortLabel);
-  if (!labels.length) labels.push('Level only');
-  if (feat.level !== null && !types.includes('level')) labels.push(`Level ${feat.level}`);
-
-  return {
-    icon: REQUIREMENT_META[primary].icon,
-    label: labels.length > 2 ? 'Mixed requirements' : labels.join(' · '),
-  };
+  return REQUIREMENT_BADGE[requirementState(feat)];
 }
 
 function matchesLevel(feat) {
@@ -143,10 +124,19 @@ function matchesSearch(feat) {
   return terms.every((term) => feat.searchText.includes(term));
 }
 
-function matchesCategory(feat) {
-  if (currentCategory === 'all') return true;
-  if (currentCategory === 'non-boon') return feat.category !== 'Epic Boon';
-  return feat.category === currentCategory;
+function featType(feat) {
+  if (feat.category === 'Epic Boon') return 'boon';
+  if (feat.category === 'Fighting Style') return 'style';
+  if (feat.category === 'Origin') return 'origin';
+  return 'general';
+}
+
+function matchesFeatType(feat) {
+  return currentFeatType === 'all' || featType(feat) === currentFeatType;
+}
+
+function matchesEligibility(feat) {
+  return currentEligibility === 'all' || requirementState(feat) === currentEligibility;
 }
 
 function getSourceRecords() {
@@ -161,24 +151,6 @@ function sourceOptions() {
   return getSourceRecords().map((feat) => (
     `<option value="${escapeHtml(feat.source)}">${escapeHtml(RULESET_META[feat.ruleset].code)} · ${escapeHtml(feat.sourceName)}</option>`
   )).join('');
-}
-
-function categoryOptions() {
-  const categories = [...new Set(featPayload.feats.map((feat) => feat.category))]
-    .sort((a, b) => {
-      const aIndex = CATEGORY_ORDER.indexOf(a);
-      const bIndex = CATEGORY_ORDER.indexOf(b);
-      if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
-      if (aIndex === -1) return 1;
-      if (bIndex === -1) return -1;
-      return aIndex - bIndex;
-    });
-
-  return [
-    '<option value="all">All feat types</option>',
-    '<option value="non-boon">Exclude Epic Boons</option>',
-    ...categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`),
-  ].join('');
 }
 
 function levelOptions() {
@@ -203,29 +175,29 @@ function renderRulesetTabs() {
   `).join('');
 }
 
-function recordsForRequirementCounts() {
+function recordsForFeatTypeCounts() {
   return featPayload.feats.filter((feat) => (
     (currentRuleset === 'all' || feat.ruleset === currentRuleset)
     && (currentSource === 'all' || feat.source === currentSource)
-    && matchesCategory(feat)
+    && matchesEligibility(feat)
     && matchesLevel(feat)
     && matchesSearch(feat)
   ));
 }
 
-function renderRequirementChips() {
-  const records = recordsForRequirementCounts();
+function renderFeatTypeChips() {
+  const records = recordsForFeatTypeCounts();
   const options = [
     ['all', records.length],
-    ...REQUIREMENT_ORDER.map((type) => [
+    ...FEAT_TYPE_ORDER.map((type) => [
       type,
-      records.filter((feat) => requirementTypes(feat).includes(type)).length,
+      records.filter((feat) => featType(feat) === type).length,
     ]),
-  ].filter(([value, count]) => value === 'all' || count > 0 || currentRequirement === value);
+  ].filter(([value, count]) => value === 'all' || count > 0 || currentFeatType === value);
 
   return options.map(([value, count]) => `
-    <button type="button" class="ledger-requirement-chip ${currentRequirement === value ? 'active' : ''}" data-requirement="${value}" aria-pressed="${currentRequirement === value}">
-      <i data-lucide="${REQUIREMENT_META[value].icon}"></i>${REQUIREMENT_META[value].label} <span>${count}</span>
+    <button type="button" class="ledger-type-chip ${currentFeatType === value ? 'active' : ''}" data-feat-type="${value}" aria-pressed="${currentFeatType === value}">
+      <i data-lucide="${FEAT_TYPE_META[value].icon}"></i>${FEAT_TYPE_META[value].label} <span>${count}</span>
     </button>
   `).join('');
 }
@@ -271,18 +243,20 @@ function renderShell() {
             </select>
           </label>
           <label class="ledger-select-wrap">
+            <span>Requirements</span>
+            <select id="feat-eligibility-filter" class="ledger-select">
+              <option value="all">Any requirements</option>
+              <option value="none">No requirements</option>
+              <option value="required">Has requirements</option>
+            </select>
+          </label>
+          <label class="ledger-select-wrap order">
             <span>Order</span>
             <select id="feat-sort" class="ledger-select">
               <option value="requirements">Lowest requirements first</option>
               <option value="alphabetical">Name A–Z</option>
               <option value="level-asc">Level: low to high</option>
               <option value="level-desc">Level: high to low</option>
-            </select>
-          </label>
-          <label class="ledger-select-wrap category">
-            <span>Feat type</span>
-            <select id="feat-category-filter" class="ledger-select">
-              ${categoryOptions()}
             </select>
           </label>
           <label class="ledger-select-wrap source">
@@ -296,10 +270,10 @@ function renderShell() {
             <i data-lucide="rotate-ccw"></i><span>Reset</span>
           </button>
         </div>
-        <div class="ledger-requirement-row">
-          <span class="ledger-filter-label">Requirement type</span>
-          <div class="ledger-requirement-strip" id="feat-requirement-strip" aria-label="Filter by requirement type">
-            ${renderRequirementChips()}
+        <div class="ledger-type-row">
+          <span class="ledger-filter-label">Feat type</span>
+          <div class="ledger-type-strip" id="feat-type-strip" aria-label="Filter by feat type">
+            ${renderFeatTypeChips()}
           </div>
         </div>
       </section>
@@ -317,8 +291,8 @@ function renderShell() {
   `;
 
   document.getElementById('feat-level-filter').value = currentLevel;
+  document.getElementById('feat-eligibility-filter').value = currentEligibility;
   document.getElementById('feat-sort').value = currentSort;
-  document.getElementById('feat-category-filter').value = currentCategory;
   document.getElementById('feat-source-filter').value = currentSource;
 }
 
@@ -357,8 +331,8 @@ function compareFeats(a, b) {
 function getFilteredFeats() {
   return featPayload.feats.filter((feat) => {
     if (currentRuleset !== 'all' && feat.ruleset !== currentRuleset) return false;
-    if (currentRequirement !== 'all' && !requirementTypes(feat).includes(currentRequirement)) return false;
-    if (!matchesCategory(feat)) return false;
+    if (!matchesEligibility(feat)) return false;
+    if (!matchesFeatType(feat)) return false;
     if (currentSource !== 'all' && feat.source !== currentSource) return false;
     if (!matchesLevel(feat)) return false;
     return matchesSearch(feat);
@@ -373,6 +347,7 @@ function renderFeatEntry(feat) {
   const meta = RULESET_META[feat.ruleset];
   const requirementKey = requirementState(feat);
   const requirement = requirementBadge(feat);
+  const type = FEAT_TYPE_META[featType(feat)];
   const reference = featReferenceCache.get(feat.id) || meta.code;
   const [referencePrefix, referenceNumber = ''] = reference.split('-');
   const facts = [
@@ -397,6 +372,7 @@ function renderFeatEntry(feat) {
           </div>
           <h3>${escapeHtml(feat.name)}</h3>
           <div class="ledger-entry-tags">
+            <em>${type.entryLabel}</em>
             ${feat.level ? `<em>Level ${feat.level}+</em>` : ''}
             ${feat.abilityIncrease ? '<em>Ability increase</em>' : ''}
             ${feat.repeatable ? '<em>Repeatable</em>' : ''}
@@ -471,23 +447,22 @@ function renderCatalog(feats) {
 }
 
 function activeResultsTitle() {
-  if (currentRequirement !== 'all') return `${REQUIREMENT_META[currentRequirement].label} feats`;
-  if (currentCategory === 'Epic Boon') return 'Epic Boons';
-  if (currentCategory === 'non-boon') return 'All Non-Boon Feats';
-  if (currentCategory !== 'all') return `${currentCategory} Feats`;
+  if (currentFeatType !== 'all') return FEAT_TYPE_META[currentFeatType].resultTitle;
+  if (currentEligibility === 'none') return 'Feats Without Requirements';
+  if (currentEligibility === 'required') return 'Feats With Requirements';
   if (currentLevel === 'none') return 'Feats without a level gate';
   if (currentLevel !== 'all') return `Available by level ${currentLevel}`;
   if (currentRuleset !== 'all') return RULESET_META[currentRuleset].title;
   return 'All Feats';
 }
 
-function updateTabsAndRequirements() {
+function updateTabsAndTypes() {
   document.querySelectorAll('.ledger-tab').forEach((tab) => {
     const active = tab.dataset.ruleset === currentRuleset;
     tab.classList.toggle('active', active);
     tab.setAttribute('aria-pressed', String(active));
   });
-  document.getElementById('feat-requirement-strip').innerHTML = renderRequirementChips();
+  document.getElementById('feat-type-strip').innerHTML = renderFeatTypeChips();
 }
 
 function updateCatalog() {
@@ -495,7 +470,7 @@ function updateCatalog() {
   document.getElementById('feat-catalog').innerHTML = renderCatalog(feats);
   document.getElementById('feats-result-count').innerHTML = `<strong>${feats.length}</strong><span>of ${featPayload.meta.counts.total} shown</span>`;
   document.getElementById('ledger-results-title').textContent = activeResultsTitle();
-  updateTabsAndRequirements();
+  updateTabsAndTypes();
   refreshIcons();
 }
 
@@ -507,16 +482,16 @@ function renderSourceLine(feat) {
 
 function resetFilters() {
   currentRuleset = 'all';
-  currentRequirement = 'all';
-  currentCategory = 'all';
+  currentEligibility = 'all';
+  currentFeatType = 'all';
   currentLevel = 'all';
   currentSource = 'all';
   currentSort = 'requirements';
   currentSearch = '';
   document.getElementById('feat-search').value = '';
   document.getElementById('feat-level-filter').value = 'all';
+  document.getElementById('feat-eligibility-filter').value = 'all';
   document.getElementById('feat-sort').value = 'requirements';
-  document.getElementById('feat-category-filter').value = 'all';
   document.getElementById('feat-source-filter').value = 'all';
   updateCatalog();
 }
@@ -531,15 +506,14 @@ function bindEvents() {
     if (!tab) return;
     currentRuleset = tab.dataset.ruleset;
     currentSource = 'all';
-    currentRequirement = 'all';
     document.getElementById('feat-source-filter').value = 'all';
     updateCatalog();
   });
 
-  document.getElementById('feat-requirement-strip').addEventListener('click', (event) => {
-    const chip = event.target.closest('.ledger-requirement-chip');
+  document.getElementById('feat-type-strip').addEventListener('click', (event) => {
+    const chip = event.target.closest('.ledger-type-chip');
     if (!chip) return;
-    currentRequirement = chip.dataset.requirement;
+    currentFeatType = chip.dataset.featType;
     updateCatalog();
   });
 
@@ -556,13 +530,13 @@ function bindEvents() {
     updateCatalog();
   });
 
-  document.getElementById('feat-sort').addEventListener('change', (event) => {
-    currentSort = event.target.value;
+  document.getElementById('feat-eligibility-filter').addEventListener('change', (event) => {
+    currentEligibility = event.target.value;
     updateCatalog();
   });
 
-  document.getElementById('feat-category-filter').addEventListener('change', (event) => {
-    currentCategory = event.target.value;
+  document.getElementById('feat-sort').addEventListener('change', (event) => {
+    currentSort = event.target.value;
     updateCatalog();
   });
 
