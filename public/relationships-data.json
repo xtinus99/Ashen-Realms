@@ -3931,21 +3931,13 @@
         "type": "Healer of the Pallid Crossroads",
         "category": "npcs",
         "reputation": 10500,
-        "description": "He stood in the doorway and let Karusa decide for herself. Good.",
-        "likes": [
-          "Patients who tell the truth about what hurts",
-          "Being asked, not ordered",
-          "People who look after their own"
-        ],
-        "dislikes": [
-          "Wounds hidden until they turn",
-          "Being pressed about Mira",
-          "Wasted salves"
-        ],
+        "description": "Farkas brought Karusa to the clinic and left when Azalea asked for privacy.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 500,
-            "reason": "Brought Karusa to the clinic door and waited outside without being told twice (S48)"
+            "reason": "Brought Karusa to the clinic and left when Azalea asked for privacy (S48)"
           }
         ],
         "unlocks": []
@@ -3955,21 +3947,13 @@
         "type": "Keeper of the Ivory Inn, the Pallid Crossroads",
         "category": "npcs",
         "reputation": 12000,
-        "description": "They went east for two of ours and came back with the truth. That's worth more than the rooms.",
-        "likes": [
-          "News brought straight, even when it's bad",
-          "Guests who close the door against the dark",
-          "Anyone who helps the town keep its people known"
-        ],
-        "dislikes": [
-          "Empty reassurance",
-          "Trouble under her roof",
-          "Waste"
-        ],
+        "description": "The party searched for two missing townsfolk and returned with confirmation of their deaths.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 2000,
-            "reason": "Took the search for the missing two when nobody else could, and brought the truth back (S48)"
+            "reason": "Took the search for the missing two and brought the truth back (S48)"
           }
         ],
         "unlocks": []
@@ -3979,21 +3963,13 @@
         "type": "Bearfolk hunter of the giant forest",
         "category": "npcs",
         "reputation": 11000,
-        "description": "Loud. Loud found her when quiet couldn't.",
-        "likes": [
-          "A loud, honest fight",
-          "Meat earned",
-          "Deliveries that send word ahead"
-        ],
-        "dislikes": [
-          "Weak things wandering the deep forest",
-          "Prey that sneaks",
-          "A kill wasted"
-        ],
+        "description": "Farkas's rage-yells revealed the White Silence's position after Bjarnok's long hunt.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 1000,
-            "reason": "His rage-yells handed Bjarnok the hunt her stealth had always denied him; refused the paw first, which a hunter respects (S48)"
+            "reason": "His rage-yells revealed the White Silence's position; he initially refused the paw because Bjarnok dealt nearly all the killing damage (S48)"
           }
         ],
         "unlocks": []
@@ -4582,21 +4558,13 @@
         "type": "Healer of the Pallid Crossroads",
         "category": "npcs",
         "reputation": 11250,
-        "description": "He knocked after dark with a monster's paw and asked politely. Manners survive out here.",
-        "likes": [
-          "Patients who tell the truth about what hurts",
-          "Being asked, not ordered",
-          "People who look after their own"
-        ],
-        "dislikes": [
-          "Wounds hidden until they turn",
-          "Being pressed about Mira",
-          "Wasted salves"
-        ],
+        "description": "Veezara visited the clinic twice and trusted Azalea to preserve the White Silence's paw.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 1250,
-            "reason": "Came to the clinic honestly, twice, and let her work the paw her own way (S48)"
+            "reason": "Visited the clinic with Viktor, then returned after dark for Azalea to preserve the paw (S48)"
           }
         ],
         "unlocks": []
@@ -4606,17 +4574,9 @@
         "type": "Keeper of the Ivory Inn, the Pallid Crossroads",
         "category": "npcs",
         "reputation": 12000,
-        "description": "They went east for two of ours and came back with the truth. That's worth more than the rooms.",
-        "likes": [
-          "News brought straight, even when it's bad",
-          "Guests who close the door against the dark",
-          "Anyone who helps the town keep its people known"
-        ],
-        "dislikes": [
-          "Empty reassurance",
-          "Trouble under her roof",
-          "Waste"
-        ],
+        "description": "The party searched for two missing townsfolk and returned with confirmation of their deaths.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 2000,
@@ -4630,17 +4590,9 @@
         "type": "Bearfolk hunter of the giant forest",
         "category": "npcs",
         "reputation": 10500,
-        "description": "Carries the paw. Proof is proof.",
-        "likes": [
-          "A loud, honest fight",
-          "Meat earned",
-          "Deliveries that send word ahead"
-        ],
-        "dislikes": [
-          "Weak things wandering the deep forest",
-          "Prey that sneaks",
-          "A kill wasted"
-        ],
+        "description": "Veezara carries the paw Bjarnok gave the party as token, proof, and payment.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 500,
@@ -4892,46 +4844,25 @@
         "type": "Healer of the Pallid Crossroads",
         "category": "npcs",
         "reputation": 11500,
-        "description": "He let me take the blood. Whatever is in him, it isn't in anything Mira left me.",
-        "likes": [
-          "Patients who tell the truth about what hurts",
-          "Being asked, not ordered",
-          "People who look after their own"
-        ],
-        "dislikes": [
-          "Wounds hidden until they turn",
-          "Being pressed about Mira",
-          "Wasted salves"
-        ],
+        "description": "Azalea is studying the painless curse in Viktor's blackened veins and keeps a vial of his blood.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 1500,
-            "reason": "Showed her the blackened veins without flinching and consented to the vial; she is studying his curse (S48)"
+            "reason": "Showed her the blackened veins and consented to the vial; she is studying his curse (S48)"
           }
         ],
-        "unlocks": [
-          {
-            "threshold": 15000,
-            "reward": "Azalea shares whatever her study of the vial has found"
-          }
-        ]
+        "unlocks": []
       },
       {
         "name": "The Ivory Innkeeper",
         "type": "Keeper of the Ivory Inn, the Pallid Crossroads",
         "category": "npcs",
         "reputation": 12000,
-        "description": "They went east for two of ours and came back with the truth. That's worth more than the rooms.",
-        "likes": [
-          "News brought straight, even when it's bad",
-          "Guests who close the door against the dark",
-          "Anyone who helps the town keep its people known"
-        ],
-        "dislikes": [
-          "Empty reassurance",
-          "Trouble under her roof",
-          "Waste"
-        ],
+        "description": "The party searched for two missing townsfolk and returned with confirmation of their deaths.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 2000,
@@ -4945,17 +4876,9 @@
         "type": "Bearfolk hunter of the giant forest",
         "category": "npcs",
         "reputation": 10750,
-        "description": "Fixed the wagon. Ore moves. Fine.",
-        "likes": [
-          "A loud, honest fight",
-          "Meat earned",
-          "Deliveries that send word ahead"
-        ],
-        "dislikes": [
-          "Weak things wandering the deep forest",
-          "Prey that sneaks",
-          "A kill wasted"
-        ],
+        "description": "Viktor's Mending made the ore wagon drivable enough for Bjarnok to finish the delivery.",
+        "likes": [],
+        "dislikes": [],
         "history": [
           {
             "change": 750,
