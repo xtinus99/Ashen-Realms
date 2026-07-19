@@ -10149,6 +10149,47 @@ body {
     background: linear-gradient(90deg, var(--entry-soft), transparent 82%);
 }
 
+.ledger-entry-rules .feat-rule-section.ashen-effect-block {
+    position: relative;
+    margin: 0 0 0.72rem;
+    padding: 0.88rem 1rem 0.92rem 1.08rem;
+    border: 1px solid color-mix(in srgb, var(--entry-color) 28%, transparent);
+    border-left: 3px solid var(--entry-color);
+    border-radius: 0 8px 8px 0;
+    background:
+        linear-gradient(100deg, color-mix(in srgb, var(--entry-soft) 88%, white) 0%, rgba(255, 255, 255, 0.08) 72%, transparent 100%);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.ledger-entry-rules .ashen-effect-block:last-child {
+    margin-bottom: 0;
+}
+
+.ledger-entry-rules .ashen-effect-block h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.38rem;
+    color: var(--entry-deep);
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.ledger-entry-rules .ashen-effect-block h3::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border: 1px solid var(--entry-color);
+    transform: rotate(45deg);
+}
+
+.ledger-entry-rules .ashen-effect-block p {
+    margin: 0;
+}
+
 .ledger-entry-rules .feat-rule-list li::before {
     background: var(--entry-color);
     box-shadow: none;
@@ -10495,6 +10536,14 @@ body {
     .ledger-entry-rules.feat-rules {
         font-size: 0.86rem;
         line-height: 1.62;
+    }
+
+    .ledger-entry-rules .feat-rule-section.ashen-effect-block {
+        padding: 0.76rem 0.78rem 0.8rem 0.88rem;
+    }
+
+    .ledger-entry-rules .ashen-effect-block h3 {
+        font-size: 0.96rem;
     }
 
 }

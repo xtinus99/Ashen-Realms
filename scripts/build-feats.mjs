@@ -371,6 +371,29 @@ function renderMarkdownInline(value = '') {
   return html;
 }
 
+function renderAshenNamedEffects(value = '') {
+  const matches = [...value.matchAll(/\*\*([^*]+?)[.:]\*\*\s*/g)];
+  if (!matches.length || matches[0].index !== 0) return '';
+
+  const effects = matches.map((match, index) => {
+    const bodyStart = match.index + match[0].length;
+    const bodyEnd = matches[index + 1]?.index ?? value.length;
+    return {
+      name: match[1].trim(),
+      body: value.slice(bodyStart, bodyEnd).trim(),
+    };
+  });
+
+  if (effects.some((effect) => !effect.name || !effect.body)) return '';
+
+  return effects.map((effect) => `
+    <section class="feat-rule-section ashen-effect-block">
+      <h3>${renderMarkdownInline(effect.name)}</h3>
+      <p>${renderMarkdownInline(effect.body)}</p>
+    </section>
+  `).join('');
+}
+
 function renderAshenMarkdown(markdown) {
   const lines = markdown.split(/\r?\n/);
   let html = '';
@@ -380,7 +403,8 @@ function renderAshenMarkdown(markdown) {
 
   const flushParagraph = () => {
     if (!paragraph.length) return;
-    html += `<p>${renderMarkdownInline(paragraph.join(' '))}</p>`;
+    const value = paragraph.join(' ');
+    html += renderAshenNamedEffects(value) || `<p>${renderMarkdownInline(value)}</p>`;
     paragraph = [];
   };
   const flushList = () => {
