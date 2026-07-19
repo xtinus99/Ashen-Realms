@@ -6,6 +6,7 @@ import { initSmoothScroll } from './smooth-scroll.js';
 let featPayload = null;
 let currentRuleset = 'all';
 let currentRequirement = 'all';
+let currentCategory = 'all';
 let currentLevel = 'all';
 let currentSource = 'all';
 let currentSort = 'requirements';
@@ -49,6 +50,7 @@ const REQUIREMENT_META = {
 };
 
 const REQUIREMENT_ORDER = ['none', 'level', 'ability', 'lineage', 'training', 'magic', 'feat', 'earned'];
+const CATEGORY_ORDER = ['Epic Boon', 'Epic', 'Origin', 'General', 'Open', 'Earned', 'Lineage', 'Sideways', 'Fighting Style', 'Legacy Feat'];
 
 const LINEAGE_PATTERN = /\b(aasimar|bugbear|changeling|dhampir|dragonborn|drow|dwarf|eladrin|elf|genasi|gnome|goblin|goliath|half-elf|half-orc|halfling|hobgoblin|human|kenku|kobold|leonin|lizardfolk|minotaur|orc|satyr|shifter|small size|tabaxi|thalwynn|tiefling|tortle|triton|vampire|warforged|wood elf|yuan-ti|race|species|lineage|sun-line)\b/i;
 const ABILITY_PATTERN = /\b(strength|dexterity|constitution|intelligence|wisdom|charisma|ability score|spellcasting ability)\b[^.;]*(?:\d{2}|\d\+)/i;
@@ -141,6 +143,12 @@ function matchesSearch(feat) {
   return terms.every((term) => feat.searchText.includes(term));
 }
 
+function matchesCategory(feat) {
+  if (currentCategory === 'all') return true;
+  if (currentCategory === 'non-boon') return feat.category !== 'Epic Boon';
+  return feat.category === currentCategory;
+}
+
 function getSourceRecords() {
   return [...new Map(featPayload.feats.map((feat) => [feat.source, feat])).values()]
     .sort((a, b) => (
@@ -153,6 +161,24 @@ function sourceOptions() {
   return getSourceRecords().map((feat) => (
     `<option value="${escapeHtml(feat.source)}">${escapeHtml(RULESET_META[feat.ruleset].code)} · ${escapeHtml(feat.sourceName)}</option>`
   )).join('');
+}
+
+function categoryOptions() {
+  const categories = [...new Set(featPayload.feats.map((feat) => feat.category))]
+    .sort((a, b) => {
+      const aIndex = CATEGORY_ORDER.indexOf(a);
+      const bIndex = CATEGORY_ORDER.indexOf(b);
+      if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+      if (aIndex === -1) return 1;
+      if (bIndex === -1) return -1;
+      return aIndex - bIndex;
+    });
+
+  return [
+    '<option value="all">All feat types</option>',
+    '<option value="non-boon">Exclude Epic Boons</option>',
+    ...categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`),
+  ].join('');
 }
 
 function levelOptions() {
@@ -181,6 +207,7 @@ function recordsForRequirementCounts() {
   return featPayload.feats.filter((feat) => (
     (currentRuleset === 'all' || feat.ruleset === currentRuleset)
     && (currentSource === 'all' || feat.source === currentSource)
+    && matchesCategory(feat)
     && matchesLevel(feat)
     && matchesSearch(feat)
   ));
@@ -252,6 +279,12 @@ function renderShell() {
               <option value="level-desc">Level: high to low</option>
             </select>
           </label>
+          <label class="ledger-select-wrap category">
+            <span>Feat type</span>
+            <select id="feat-category-filter" class="ledger-select">
+              ${categoryOptions()}
+            </select>
+          </label>
           <label class="ledger-select-wrap source">
             <span>Source book</span>
             <select id="feat-source-filter" class="ledger-select">
@@ -285,6 +318,7 @@ function renderShell() {
 
   document.getElementById('feat-level-filter').value = currentLevel;
   document.getElementById('feat-sort').value = currentSort;
+  document.getElementById('feat-category-filter').value = currentCategory;
   document.getElementById('feat-source-filter').value = currentSource;
 }
 
@@ -324,6 +358,7 @@ function getFilteredFeats() {
   return featPayload.feats.filter((feat) => {
     if (currentRuleset !== 'all' && feat.ruleset !== currentRuleset) return false;
     if (currentRequirement !== 'all' && !requirementTypes(feat).includes(currentRequirement)) return false;
+    if (!matchesCategory(feat)) return false;
     if (currentSource !== 'all' && feat.source !== currentSource) return false;
     if (!matchesLevel(feat)) return false;
     return matchesSearch(feat);
@@ -437,6 +472,9 @@ function renderCatalog(feats) {
 
 function activeResultsTitle() {
   if (currentRequirement !== 'all') return `${REQUIREMENT_META[currentRequirement].label} feats`;
+  if (currentCategory === 'Epic Boon') return 'Epic Boons';
+  if (currentCategory === 'non-boon') return 'All Non-Boon Feats';
+  if (currentCategory !== 'all') return `${currentCategory} Feats`;
   if (currentLevel === 'none') return 'Feats without a level gate';
   if (currentLevel !== 'all') return `Available by level ${currentLevel}`;
   if (currentRuleset !== 'all') return RULESET_META[currentRuleset].title;
@@ -470,6 +508,7 @@ function renderSourceLine(feat) {
 function resetFilters() {
   currentRuleset = 'all';
   currentRequirement = 'all';
+  currentCategory = 'all';
   currentLevel = 'all';
   currentSource = 'all';
   currentSort = 'requirements';
@@ -477,6 +516,7 @@ function resetFilters() {
   document.getElementById('feat-search').value = '';
   document.getElementById('feat-level-filter').value = 'all';
   document.getElementById('feat-sort').value = 'requirements';
+  document.getElementById('feat-category-filter').value = 'all';
   document.getElementById('feat-source-filter').value = 'all';
   updateCatalog();
 }
@@ -518,6 +558,11 @@ function bindEvents() {
 
   document.getElementById('feat-sort').addEventListener('change', (event) => {
     currentSort = event.target.value;
+    updateCatalog();
+  });
+
+  document.getElementById('feat-category-filter').addEventListener('change', (event) => {
+    currentCategory = event.target.value;
     updateCatalog();
   });
 
