@@ -138,9 +138,9 @@ function renderShell() {
         </button>
         <div class="ledger-hero-icon" aria-hidden="true"><i data-lucide="scroll-text"></i></div>
         <div class="ledger-hero-copy">
-          <span class="ledger-kicker">Player Index · Character Options</span>
+          <span class="ledger-kicker">Character Options · ${featPayload.meta.counts.total} Entries</span>
           <h1>The Feat Ledger</h1>
-          <p>Every prerequisite and complete rule is printed directly in the catalogue. Search, filter, and read without opening anything.</p>
+          <p>Choose what you become. Know what it costs.</p>
         </div>
         <div class="ledger-totals" aria-label="Feat catalogue totals">
           <span><strong>${featPayload.meta.counts.ashen}</strong>Ashen</span>
@@ -187,7 +187,7 @@ function renderShell() {
 
       <div class="ledger-results-heading">
         <div>
-          <span>Indexed results</span>
+          <span>Current selection</span>
           <h2 id="ledger-results-title">All Feats</h2>
         </div>
         <p id="feats-result-count" role="status" aria-live="polite"></p>
@@ -223,8 +223,10 @@ function prerequisiteLabel(feat) {
 
 function renderFeatEntry(feat) {
   const meta = RULESET_META[feat.ruleset];
-  const requirement = REQUIREMENT_META[requirementState(feat)];
+  const requirementKey = requirementState(feat);
+  const requirement = REQUIREMENT_META[requirementKey];
   const reference = featReferenceCache.get(feat.id) || meta.code;
+  const [referencePrefix, referenceNumber = ''] = reference.split('-');
   const facts = [
     feat.abilityIncrease ? `
       <div><small>Ability Score Increase</small><p>${escapeHtml(feat.abilityIncrease)}</p></div>` : '',
@@ -235,21 +237,15 @@ function renderFeatEntry(feat) {
   ].filter(Boolean).join('');
 
   return `
-    <article class="ledger-entry ruleset-${feat.ruleset}" id="feat-${escapeHtml(feat.id)}">
+    <article class="ledger-entry ruleset-${feat.ruleset} requirement-${requirementKey}" id="feat-${escapeHtml(feat.id)}">
       <span class="ledger-entry-ruleline" aria-hidden="true"></span>
-      <aside class="ledger-entry-rail">
+      <header class="ledger-entry-banner">
         <span class="ledger-entry-icon" aria-hidden="true"><i data-lucide="${requirement.icon}"></i></span>
-        <div class="ledger-entry-kind">
-          <strong>${requirement.label}</strong>
-        </div>
-        <b>${escapeHtml(reference)}</b>
-      </aside>
-
-      <div class="ledger-entry-sheet">
-        <header class="ledger-entry-header">
+        <div class="ledger-entry-identity">
           <div class="ledger-entry-topline">
             <span class="ledger-entry-origin">${escapeHtml(meta.label)}</span>
-            <span class="ledger-entry-source-code">${escapeHtml(feat.source)}</span>
+            <span class="ledger-entry-requirement"><i data-lucide="${requirement.icon}"></i>${requirement.label}</span>
+            ${feat.source !== referencePrefix ? `<span class="ledger-entry-source-code">${escapeHtml(feat.source)}</span>` : ''}
           </div>
           <h3>${escapeHtml(feat.name)}</h3>
           <div class="ledger-entry-tags">
@@ -257,8 +253,14 @@ function renderFeatEntry(feat) {
             ${feat.abilityIncrease ? '<em>Ability increase</em>' : ''}
             ${feat.repeatable ? '<em>Repeatable</em>' : ''}
           </div>
-        </header>
+        </div>
+        <div class="ledger-entry-stamp" aria-label="Catalogue reference ${escapeHtml(reference)}">
+          <small>${escapeHtml(referencePrefix)}</small>
+          <strong>${escapeHtml(referenceNumber)}</strong>
+        </div>
+      </header>
 
+      <div class="ledger-entry-sheet">
         <section class="ledger-entry-prerequisite ${feat.prerequisite === 'None' ? 'none' : ''}">
           <div><i data-lucide="${requirement.icon}"></i><small>${requirement.label}</small></div>
           <p>${escapeHtml(prerequisiteLabel(feat))}</p>
@@ -266,7 +268,7 @@ function renderFeatEntry(feat) {
 
         ${facts ? `<div class="ledger-entry-facts">${facts}</div>` : ''}
 
-        <div class="ledger-entry-section-title"><span>Feat rules</span><i></i></div>
+        <div class="ledger-entry-section-title"><span>Effect</span><i></i></div>
         <section class="ledger-entry-rules feat-rules" aria-label="${escapeHtml(feat.name)} rules">
           ${feat.bodyHtml}
         </section>
