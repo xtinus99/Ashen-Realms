@@ -7,7 +7,6 @@ let featPayload = null;
 let currentRuleset = 'all';
 let currentEligibility = 'all';
 let currentFeatType = 'all';
-let currentLevel = 'all';
 let currentSource = 'all';
 let currentSort = 'requirements';
 let currentSearch = '';
@@ -113,12 +112,6 @@ function requirementBadge(feat) {
   return REQUIREMENT_BADGE[requirementState(feat)];
 }
 
-function matchesLevel(feat) {
-  if (currentLevel === 'all') return true;
-  if (currentLevel === 'none') return feat.level === null;
-  return feat.level === null || feat.level <= Number(currentLevel);
-}
-
 function matchesSearch(feat) {
   const terms = currentSearch.toLowerCase().trim().split(/\s+/).filter(Boolean);
   return terms.every((term) => feat.searchText.includes(term));
@@ -153,11 +146,6 @@ function sourceOptions() {
   )).join('');
 }
 
-function levelOptions() {
-  const levels = [...new Set(featPayload.feats.map((feat) => feat.level).filter(Number.isFinite))].sort((a, b) => a - b);
-  return levels.map((level) => `<option value="${level}">Level ${level} or lower</option>`).join('');
-}
-
 function renderRulesetTabs() {
   const counts = featPayload.meta.counts;
   const tabs = [
@@ -180,7 +168,6 @@ function recordsForFeatTypeCounts() {
     (currentRuleset === 'all' || feat.ruleset === currentRuleset)
     && (currentSource === 'all' || feat.source === currentSource)
     && matchesEligibility(feat)
-    && matchesLevel(feat)
     && matchesSearch(feat)
   ));
 }
@@ -235,14 +222,6 @@ function renderShell() {
             <kbd>/</kbd>
           </div>
           <label class="ledger-select-wrap">
-            <span>Available by level</span>
-            <select id="feat-level-filter" class="ledger-select">
-              <option value="all">Any level</option>
-              <option value="none">No level gate</option>
-              ${levelOptions()}
-            </select>
-          </label>
-          <label class="ledger-select-wrap">
             <span>Requirements</span>
             <select id="feat-eligibility-filter" class="ledger-select">
               <option value="all">Any requirements</option>
@@ -290,7 +269,6 @@ function renderShell() {
     </div>
   `;
 
-  document.getElementById('feat-level-filter').value = currentLevel;
   document.getElementById('feat-eligibility-filter').value = currentEligibility;
   document.getElementById('feat-sort').value = currentSort;
   document.getElementById('feat-source-filter').value = currentSource;
@@ -334,7 +312,6 @@ function getFilteredFeats() {
     if (!matchesEligibility(feat)) return false;
     if (!matchesFeatType(feat)) return false;
     if (currentSource !== 'all' && feat.source !== currentSource) return false;
-    if (!matchesLevel(feat)) return false;
     return matchesSearch(feat);
   }).sort(compareFeats);
 }
@@ -450,8 +427,6 @@ function activeResultsTitle() {
   if (currentFeatType !== 'all') return FEAT_TYPE_META[currentFeatType].resultTitle;
   if (currentEligibility === 'none') return 'Feats Without Requirements';
   if (currentEligibility === 'required') return 'Feats With Requirements';
-  if (currentLevel === 'none') return 'Feats without a level gate';
-  if (currentLevel !== 'all') return `Available by level ${currentLevel}`;
   if (currentRuleset !== 'all') return RULESET_META[currentRuleset].title;
   return 'All Feats';
 }
@@ -484,12 +459,10 @@ function resetFilters() {
   currentRuleset = 'all';
   currentEligibility = 'all';
   currentFeatType = 'all';
-  currentLevel = 'all';
   currentSource = 'all';
   currentSort = 'requirements';
   currentSearch = '';
   document.getElementById('feat-search').value = '';
-  document.getElementById('feat-level-filter').value = 'all';
   document.getElementById('feat-eligibility-filter').value = 'all';
   document.getElementById('feat-sort').value = 'requirements';
   document.getElementById('feat-source-filter').value = 'all';
@@ -523,11 +496,6 @@ function bindEvents() {
     currentSearch = search.value;
     clearTimeout(searchTimer);
     searchTimer = setTimeout(updateCatalog, 100);
-  });
-
-  document.getElementById('feat-level-filter').addEventListener('change', (event) => {
-    currentLevel = event.target.value;
-    updateCatalog();
   });
 
   document.getElementById('feat-eligibility-filter').addEventListener('change', (event) => {
