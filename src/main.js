@@ -15,7 +15,7 @@ import 'tippy.js/animations/shift-away.css';
 import state from './modules/state.js';
 import { loadCampaignNow } from './modules/data-store.js';
 import { refreshIcons } from './modules/icons.js';
-import { initAudio, setupAudioControls } from './modules/audio.js';
+import { initAudio, setupAudioControls, setPageAudioTrack } from './modules/audio.js';
 import { setupLightbox, attachImageZoom } from './modules/images.js';
 import { initParticles } from './modules/particles.js';
 import { initSmoothScroll } from './modules/smooth-scroll.js';
@@ -103,16 +103,19 @@ function getFeatsModule() {
 }
 
 async function showRelationships() {
+  setPageAudioTrack();
   const module = await getBondsModule();
   return module.showRelationships();
 }
 
 async function showSpells() {
+  setPageAudioTrack();
   const module = await getSpellsModule();
   return module.showSpells();
 }
 
 async function showFeats() {
+  setPageAudioTrack();
   const module = await getFeatsModule();
   return module.showFeats();
 }
@@ -137,6 +140,8 @@ function setupSpecialLinks() {
 
 // ===== WELCOME SCREEN =====
 function showWelcome() {
+  setPageAudioTrack();
+
   // In the Archive realm, "home" is the Archive landing, not the living welcome
   if (getRealm() === 'archive') {
     showArchiveLanding();

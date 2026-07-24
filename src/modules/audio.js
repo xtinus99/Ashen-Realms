@@ -17,6 +17,12 @@ const deadTracks = [
   { file: 'Track 2.mp3', name: "Sovereign's Lament" },
 ];
 
+// Entry-specific themes replace the ambient playlist while that entry is open.
+// They use the same Audio element, so page music and ambient music can never overlap.
+const pageTrackOverrides = new Map([
+  ['Party/veezara', { file: 'music/Veezara - Blood Theme.mp3', name: 'Veezara — Blood Theme' }],
+]);
+
 let activeTracks = livingTracks;
 let audio = null;
 let currentTrackIndex = 0;
@@ -26,6 +32,80 @@ let savedVolume = 0.3;
 // Realm bookkeeping so returning to the living world resumes where it left off
 let audioRealm = 'living';
 let savedLivingIndex = 0;
+let pageTrackKey = null;
+let savedBasePlayback = null;
+
+function tracksForRealm(realm) {
+  return realm === 'archive' ? deadTracks : livingTracks;
+}
+
+function switchAudioSource(file, resumeTime = 0) {
+  if (!audio) return;
+
+  audio.pause();
+  audio.src = file;
+
+  if (resumeTime > 0) {
+    const encodedFile = encodeURI(file);
+    const restoreTime = () => {
+      if (!audio.src.endsWith(encodedFile) && !audio.src.endsWith(file)) return;
+      const maximum = Number.isFinite(audio.duration) ? audio.duration : resumeTime;
+      audio.currentTime = Math.min(resumeTime, maximum);
+    };
+
+    if (audio.readyState >= 1) restoreTime();
+    else audio.addEventListener('loadedmetadata', restoreTime, { once: true });
+  }
+}
+
+function clearPageTrack({ resume = true } = {}) {
+  if (!pageTrackKey) return;
+
+  const baseTracks = tracksForRealm(audioRealm);
+  const sameRealm = savedBasePlayback?.realm === audioRealm;
+  const fallbackIndex = audioRealm === 'living' ? savedLivingIndex : 0;
+  const restoredIndex = sameRealm ? savedBasePlayback.index : fallbackIndex;
+  const resumeTime = sameRealm ? savedBasePlayback.time : 0;
+
+  pageTrackKey = null;
+  savedBasePlayback = null;
+  activeTracks = baseTracks;
+  currentTrackIndex = Math.min(restoredIndex, baseTracks.length - 1);
+
+  if (audio) {
+    switchAudioSource(activeTracks[currentTrackIndex].file, resumeTime);
+    updateTrackName();
+    if (resume && !isMuted) audio.play().catch(() => {});
+  }
+}
+
+export function setPageAudioTrack(categoryName = null, itemId = null) {
+  const nextKey = categoryName && itemId ? `${categoryName}/${itemId}` : null;
+  const nextTrack = pageTrackOverrides.get(nextKey);
+
+  if (!nextTrack) {
+    clearPageTrack();
+    return;
+  }
+  if (pageTrackKey === nextKey) return;
+
+  if (pageTrackKey) clearPageTrack({ resume: false });
+
+  savedBasePlayback = {
+    realm: audioRealm,
+    index: currentTrackIndex,
+    time: audio?.currentTime || 0,
+  };
+  pageTrackKey = nextKey;
+  activeTracks = [nextTrack];
+  currentTrackIndex = 0;
+
+  if (audio) {
+    switchAudioSource(nextTrack.file);
+    updateTrackName();
+    if (!isMuted) audio.play().catch(() => {});
+  }
+}
 
 export function initAudio() {
   const savedMuted = localStorage.getItem('audioMuted');
@@ -87,18 +167,21 @@ export function setAudioRealm(realm) {
   if (realm === audioRealm) return;
   if (!audio) { audioRealm = realm; return; }
 
-  if (audioRealm === 'living') savedLivingIndex = currentTrackIndex;
+  const previousBaseIndex = pageTrackKey && savedBasePlayback?.realm === audioRealm
+    ? savedBasePlayback.index
+    : currentTrackIndex;
+  if (audioRealm === 'living') savedLivingIndex = previousBaseIndex;
+
   audioRealm = realm;
+  pageTrackKey = null;
+  savedBasePlayback = null;
 
-  if (realm === 'archive') {
-    activeTracks = deadTracks;
-    currentTrackIndex = 0;
-  } else {
-    activeTracks = livingTracks;
-    currentTrackIndex = Math.min(savedLivingIndex, livingTracks.length - 1);
-  }
+  activeTracks = tracksForRealm(realm);
+  currentTrackIndex = realm === 'archive'
+    ? 0
+    : Math.min(savedLivingIndex, livingTracks.length - 1);
 
-  if (audio.src) audio.src = activeTracks[currentTrackIndex].file;
+  if (audio.src) switchAudioSource(activeTracks[currentTrackIndex].file);
   updateTrackName();
   if (!isMuted) audio.play().catch(() => {});
 }

@@ -3,6 +3,7 @@ import { refreshIcons } from './icons.js';
 import { updateHash } from './hash-routing.js';
 import { getThumbnailPath } from './images.js';
 import { initSmoothScroll } from './smooth-scroll.js';
+import { setPageAudioTrack } from './audio.js';
 
 // Handler injection to avoid circular imports (showItem lives in article.js)
 let handlers = {};
@@ -392,6 +393,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
 
     state.currentItem = null;
     state.currentCategory = categoryName;
+    setPageAudioTrack();
 
     // Re-enable Lenis smooth scroll (may have been destroyed for spell compendium)
     initSmoothScroll();

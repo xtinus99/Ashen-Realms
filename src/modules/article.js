@@ -8,6 +8,7 @@ import { autoLinkWikiReferences, initWikiLinkTooltips } from './wiki-links.js';
 import { initSmoothScroll, scrollBehavior } from './smooth-scroll.js';
 import { showLoadingSkeleton, showNotification } from './ui.js';
 import { updateBookmarkButton } from './bookmarks.js';
+import { setPageAudioTrack } from './audio.js';
 
 // ===== RELATIONSHIP MAP =====
 export function showRelationshipMap() {
@@ -324,6 +325,7 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
     }
     state.currentItem = item;
     state.currentCategory = categoryName;
+    setPageAudioTrack(categoryName, item.id);
 
     // Re-enable Lenis smooth scroll (may have been destroyed for spell compendium)
     initSmoothScroll();
