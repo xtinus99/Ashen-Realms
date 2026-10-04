@@ -11,13 +11,23 @@ export function buildWikiIndex() {
     // Categories where first names should also be indexed
     const firstNameCategories = ['Party', 'NPCs', 'Sovereigns'];
 
+    // Leading words that are honorifics or ordinary words, never a first name.
+    // Without this, "Old Yannis" made every "old" a link, "Warden Hesse" every "warden".
+    const notAFirstName = new Set([
+        'Old', 'Lord', 'Lady', 'Warden', 'Captain', 'Sister', 'Brother', 'Inquisitor', 'Steward',
+        'Master', 'Mistress', 'Father', 'Mother', 'Sir', 'Dame', 'Clerk', 'Assessor', 'Doctor',
+        'Professor', 'King', 'Queen', 'Prince', 'Princess', 'General', 'Commander', 'High', 'Grand',
+        'Saint', 'Poor', 'Young', 'Little', 'Big', 'Mad', 'Blind', 'Elder', 'Keeper', 'Sergeant',
+        'Lieutenant', 'Marshal', 'Abbot', 'Prior', 'Bishop', 'Uncle', 'Aunt'
+    ]);
+
     // Helper: extract a clean first-name alias from a title.
     // Strips trailing punctuation (e.g. "Galheran, the Unmoved" → "Galheran").
     const firstNameFromTitle = (title) => {
         const parts = title.split(' ');
         if (parts.length < 2 || parts[0] === 'The') return null;
         const cleaned = parts[0].replace(/[^A-Za-z'\-]+$/, '');
-        if (cleaned.length <= 2) return null;
+        if (cleaned.length <= 2 || notAFirstName.has(cleaned)) return null;
         return cleaned;
     };
 
@@ -140,10 +150,16 @@ export function autoLinkWikiReferences(articleBody, currentItemTitle) {
             const escapedTitle = entry.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             // Specific disambiguators: "The Hollow" must not match inside Sovereign titles
             // ("the Hollow Crown" = Karthayne, "the Hollow Empress" = Vor'Kael)
+            // "North" (the grey priest) must not swallow the direction: "North Road", "North Gate",
+            // "North Crag", "North of Last Tally", or a heading that is just "North"
             const followGuard = entry.title.toLowerCase() === 'the hollow'
                 ? '(?!\\s+(?:Crown|Empress))'
-                : '';
-            const regex = new RegExp(`(?<!')\\b(${escapedTitle})(?:'s)?\\b${followGuard}`, 'gi');
+                : entry.title === 'North'
+                    ? '(?![\\s-]+[A-Z])(?!\\s+(?:of|to|from|and|or|by|along|across|into|towards?)\\b)(?!\\s*$)'
+                    : '';
+            // A one-word name only links when capitalised, so "north-west" and "old" stay plain words
+            const flags = /\s/.test(entry.title) ? 'gi' : 'g';
+            const regex = new RegExp(`(?<!')\\b(${escapedTitle})(?:'s)?\\b${followGuard}`, flags);
 
             let match;
             while ((match = regex.exec(text)) !== null) {

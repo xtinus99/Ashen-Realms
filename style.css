@@ -255,6 +255,18 @@ button.nav-subcategory-header {
     object-fit: cover;
 }
 
+/* A framed portrait is capped by its frame, so a tall picture is cropped to fit
+   instead of spilling out of the frame over the text below. */
+.toc-image-wrapper .npc-portrait {
+    overflow: hidden;
+}
+
+.toc-image-wrapper.is-compact .npc-portrait img {
+    max-height: 336px;
+    object-fit: cover;
+    object-position: center top;
+}
+
 /* Homepage: make current play state the primary route into the compendium. */
 .campaign-now {
     width: 100%;
@@ -668,6 +680,12 @@ button.nav-subcategory-header {
         max-width: min(220px, 100%);
         max-height: 330px;
         object-fit: cover;
+    }
+
+    .toc-image-wrapper .npc-portrait img {
+        max-height: 326px;
+        object-fit: cover;
+        object-position: center top;
     }
 
     .toc-image-wrapper .article-toc,
@@ -3954,10 +3972,20 @@ body {
     margin: 0 0 0.25rem 0;
 }
 
-.stat-block em {
+/* Only the italic type line under the name is set apart; trait names stay inline */
+.stat-block > em,
+.stat-block h3 + p > em:only-child,
+.stat-block .stat-block-header + p > em:only-child {
     color: var(--text-dim);
     display: block;
     margin-bottom: 1rem;
+}
+
+.stat-block .stat-block-header {
+    color: var(--blood-glow);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
 }
 
 .stat-block p {
@@ -5259,6 +5287,38 @@ body {
     border: none;
     box-shadow: none;
     border-radius: 6px;
+}
+
+/* Landscape pictures (marked .is-landscape by images.js) run the full column width;
+   portraits keep floating at their usual size. */
+.article-body img.content-image.is-landscape,
+.article-body img.session-image.is-landscape,
+.article-body .npc-portrait.is-landscape {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem 0;
+}
+
+.article-body .npc-portrait.is-landscape img {
+    width: 100%;
+}
+
+/* Beside the Contents box a landscape picture takes the free width, like a mural,
+   instead of shrinking to the portrait cap. */
+.article-body .toc-image-wrapper img.is-landscape,
+.article-body .toc-image-wrapper .npc-portrait.is-landscape {
+    max-width: none;
+    max-height: none;
+    width: auto;
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+}
+
+.article-body .toc-image-wrapper .npc-portrait.is-landscape img {
+    max-height: none;
 }
 
 @media (max-width: 768px) {

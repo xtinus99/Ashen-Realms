@@ -20,12 +20,12 @@
       "id": "ossathar",
       "name": "Ossathar",
       "coords": [
-        779,
-        808
+        780,
+        755
       ],
       "type": "sovereign",
       "sovereign": "Vortegas the Bone-Warden",
-      "description": "A fortress-realm of petrified bone and calcified law.",
+      "description": "The Ossuary Kingdom; its capital Marrowgate rises through three fused vertebrae.",
       "link": {
         "category": "Sovereigns",
         "id": "vortegas-the-bone-warden"
@@ -402,7 +402,129 @@
         "category": "Locations",
         "id": "the-resolve"
       }
+    },
+    {
+      "id": "ironwatch-post",
+      "name": "Ironwatch Post",
+      "coords": [
+        810,
+        720
+      ],
+      "type": "landmark",
+      "description": "An Ossathari border checkpoint of fitted petrified bone, visited in Session 49.",
+      "link": {
+        "category": "Locations",
+        "id": "ironwatch-post"
+      }
+    },
+    {
+      "id": "femur-road",
+      "name": "The Femur Road",
+      "coords": [
+        765,
+        845
+      ],
+      "type": "landmark",
+      "description": "A four-hundred-mile highway carved along and through a colossal ossified ridge.",
+      "link": {
+        "category": "Locations",
+        "id": "the-femur-road"
+      }
+    },
+    {
+      "id": "the-legion-tomb",
+      "name": "The Legion Tomb",
+      "coords": [
+        792,
+        780
+      ],
+      "type": "landmark",
+      "description": "A recently exposed military tomb, cleared and emptied by the party in Session 52.",
+      "link": {
+        "category": "Locations",
+        "id": "the-legion-tomb"
+      }
+    },
+    {
+      "id": "marrowgate",
+      "name": "Marrowgate",
+      "coords": [
+        785,
+        805
+      ],
+      "type": "city",
+      "description": "Ossathar's capital, rising through three fused vertebrae. The company's base, and home of the Bonecage.",
+      "link": {
+        "category": "Locations",
+        "id": "marrowgate"
+      }
+    },
+    {
+      "id": "last-tally",
+      "name": "Last Tally",
+      "coords": [
+        825,
+        780
+      ],
+      "type": "landmark",
+      "description": "The ring town at the end of the north road, where every name in and out is written down. Its gates open on the Pilgrim Trace and the sealed road."
+    },
+    {
+      "id": "calvaria",
+      "name": "Calvaria",
+      "coords": [
+        855,
+        795
+      ],
+      "type": "city",
+      "description": "The pilgrim city inside a great skull, behind Warden Hesse's toll.",
+      "link": {
+        "category": "Locations",
+        "id": "calvaria"
+      }
+    },
+    {
+      "id": "the-northern-containment",
+      "name": "The Northern Containment",
+      "coords": [
+        860,
+        750
+      ],
+      "type": "landmark",
+      "description": "A sealed dome under military guard at the end of the sealed road. The company went in, looked, and came back out.",
+      "link": {
+        "category": "Locations",
+        "id": "the-northern-containment"
+      }
+    },
+    {
+      "id": "the-north-crag",
+      "name": "The North Crag",
+      "coords": [
+        840,
+        728
+      ],
+      "type": "landmark",
+      "description": "A sea-cave in the coastal crags where the company and Drey's crew killed a dragon in Session 57.",
+      "link": {
+        "category": "Locations",
+        "id": "the-north-crag"
+      }
+    },
+    {
+      "id": "ribhaven",
+      "name": "Ribhaven",
+      "coords": [
+        805,
+        690
+      ],
+      "type": "city",
+      "description": "Ossathar's sea port, under two colossal ribs that arch over the harbour like cage-bars.",
+      "link": {
+        "category": "Locations",
+        "id": "ribhaven"
+      }
     }
   ],
-  "partyLocation": "pallid-crossroads"
+  "partyLocation": "crownfall"
 }

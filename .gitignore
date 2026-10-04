@@ -19,3 +19,9 @@ fix_*.py
 update_*.py
 convert_*.py
 humanize_*.py
+
+# Maps site images to vault files; the vault filenames carry GM-side names. Local build record only.
+content/sessions/image-sources.json
+
+# Editorial notes on the recaps mention GM-side facts. Local only.
+content/sessions/README.md

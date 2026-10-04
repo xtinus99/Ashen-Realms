@@ -116,7 +116,29 @@ export function optimizeContentImages(container) {
     if (img.complete) {
       img.style.opacity = '1';
     }
+
+    markOrientation(img);
   });
+}
+
+/**
+ * Tag wide pictures .is-landscape (and their .npc-portrait frame) so the CSS can give
+ * them room; otherwise a landscape scene or creature shrinks to the 230-280px portrait cap.
+ * Uses the width/height attributes when the build wrote them, then the real size on load.
+ */
+function markOrientation(img) {
+  const apply = (w, h) => {
+    if (!w || !h) return;
+    const landscape = w > h * 1.1;
+    img.classList.toggle('is-landscape', landscape);
+    img.closest('.npc-portrait')?.classList.toggle('is-landscape', landscape);
+  };
+  apply(Number(img.getAttribute('width')), Number(img.getAttribute('height')));
+  if (img.complete && img.naturalWidth) {
+    apply(img.naturalWidth, img.naturalHeight);
+  } else {
+    img.addEventListener('load', () => apply(img.naturalWidth, img.naturalHeight), { once: true });
+  }
 }
 
 // ===== IMAGE ZOOM (Medium-Zoom) =====
