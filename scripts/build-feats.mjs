@@ -48,7 +48,7 @@ const ASHEN_INCOMPATIBLE_FEATS = new Set([
   'Fey-Touched|XPHB',
   'Shadow-Touched|XPHB',
 
-  // Ravenloft Dark Gifts: the prerequisite is a Ravenloft campaign. Held until the DM decides.
+  // Ravenloft Dark Gifts: the prerequisite is a Ravenloft campaign. Skipped by the DM (2026-10-04).
   'Aberrant Anatomy|RHW',
   'Echoing Soul|RHW',
   'Gathered Whispers|RHW',
