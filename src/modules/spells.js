@@ -14,6 +14,14 @@ let selectedSpellCard = null; // Track the DOM element for fast deselection
 
 const SPELL_LEVEL_ORDER = ['Cantrips', '1st Level', '2nd Level', '3rd Level', '4th Level', '5th Level', '6th Level', '7th Level', '8th Level', '9th Level'];
 
+// Warlocks can't cast 6th to 9th level spells with Pact Magic; they take one of each as a
+// Mystic Arcanum, unlocked at these Warlock levels.
+const MYSTIC_ARCANUM = { '6th Level': 11, '7th Level': 13, '8th Level': 15, '9th Level': 17 };
+
+function mysticArcanumLevel(spell) {
+  return spell?.classes?.includes('Warlock') ? MYSTIC_ARCANUM[spell.level] || null : null;
+}
+
 const SCHOOL_ICONS = {
   'Abjuration': 'shield',
   'Conjuration': 'sparkles',
@@ -217,7 +225,7 @@ function renderSpellsView() {
           <select id="filter-level" class="spell-filter-select" aria-label="Filter spells by level">
             <option value="all" ${currentSpellLevel === 'all' ? 'selected' : ''}>All Levels</option>
             ${SPELL_LEVEL_ORDER.map(l => `
-              <option value="${l}" ${currentSpellLevel === l ? 'selected' : ''}>${l}</option>
+              <option value="${l}" ${currentSpellLevel === l ? 'selected' : ''}>${l}${currentSpellClass === 'Warlock' && MYSTIC_ARCANUM[l] ? ' (Mystic Arcanum)' : ''}</option>
             `).join('')}
           </select>
 
@@ -251,7 +259,7 @@ function renderSpellsView() {
               return `
                 <div class="spell-level-section ${isOpen ? 'open' : ''}" data-level="${level}">
                   <button class="spell-level-header" type="button" aria-expanded="${isOpen}">
-                    <span class="level-name">${level}</span>
+                    <span class="level-name">${level}${currentSpellClass === 'Warlock' && MYSTIC_ARCANUM[level] ? `<span class="level-arcanum">Mystic Arcanum · Warlock ${MYSTIC_ARCANUM[level]}</span>` : ''}</span>
                     <span class="level-count">${levelSpells.length}</span>
                     <svg class="level-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                   </button>
@@ -498,6 +506,7 @@ function renderSpellDetail(spell) {
 
   const schoolIcon = SCHOOL_ICONS[spell.school] || 'sparkles';
   const isAshen = spell.source === 'ashen' || spell.source === 'ashen-realms';
+  const arcanum = mysticArcanumLevel(spell);
 
   // Format description with paragraphs and markdown support
   const formattedDescription = formatSpellDescription(spell.description);
@@ -523,6 +532,7 @@ function renderSpellDetail(spell) {
             ${spell.ritual ? '<span class="spell-tag-badge ritual">Ritual</span>' : ''}
             ${spell.concentration ? '<span class="spell-tag-badge concentration">Concentration</span>' : ''}
             ${isAshen ? '<span class="spell-tag-badge ashen">Ashen Realms</span>' : ''}
+            ${arcanum ? '<span class="spell-tag-badge arcanum">Mystic Arcanum</span>' : ''}
           </div>
         </div>
       </div>
@@ -575,6 +585,13 @@ function renderSpellDetail(spell) {
         <div class="spell-cost">
           <h4>${SPELL_DETAIL_ICONS.skull} Cost</h4>
           <p>${spell.cost}</p>
+        </div>
+      ` : ''}
+
+      ${arcanum ? `
+        <div class="spell-mystic-arcanum">
+          <h4>${SPELL_DETAIL_ICONS.sparkles} Mystic Arcanum</h4>
+          <p>Warlocks don't cast spells of this level with Pact Magic. From Warlock level ${arcanum}, a Warlock can take this as their ${spell.level.replace(' Level', '').toLowerCase()}-level Mystic Arcanum and cast it once without a spell slot, regaining the use after a long rest.</p>
         </div>
       ` : ''}
 

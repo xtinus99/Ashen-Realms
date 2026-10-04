@@ -7596,6 +7596,53 @@ body {
     color: var(--blood-bright);
 }
 
+/* Mystic Arcanum: Warlock spells of 6th to 9th level */
+.spell-tag-badge.arcanum {
+    background: rgba(120, 70, 190, 0.2);
+    color: #b38cff;
+    border: 1px solid rgba(120, 70, 190, 0.45);
+}
+
+.spell-mystic-arcanum {
+    padding: var(--spacing-md);
+    background: rgba(120, 70, 190, 0.08);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(120, 70, 190, 0.35);
+}
+
+.spell-mystic-arcanum h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    color: #b38cff;
+    margin: 0 0 var(--spacing-sm) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.spell-mystic-arcanum h4 svg {
+    width: 14px;
+    height: 14px;
+}
+
+.spell-mystic-arcanum p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-normal);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.spell-level-header .level-arcanum {
+    margin-left: 0.6rem;
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    color: #b38cff;
+    letter-spacing: 0.3px;
+}
+
 /* Class Tags */
 .class-tags {
     display: flex;

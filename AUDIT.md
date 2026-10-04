@@ -64,7 +64,7 @@ Obsidian Vault (markdown)
 
 ### What Works
 - `site_utils.py` has robust DM content filtering (79+ regex patterns for stripping GM Notes, stat blocks, combat tactics, secrets, etc.)
-- `parse-spells.js` cleanly converts vault spell markdown to structured JSON
+- `parse-spells.cjs` cleanly converts vault spell markdown to structured JSON
 - The pipeline preserves frontmatter metadata for the site's tag system
 
 ### Problems
@@ -270,7 +270,7 @@ Parallel:    8, 9, 10, 14      (Can be done at any point)
 | `map-embed.html` | 247 | ~8KB | Leaflet map iframe |
 | `sw.js` | 170 | ~5KB | Service worker |
 | `serve.js` | 43 | ~1KB | Dev server |
-| `parse-spells.js` | ~200 | ~7KB | Spell parser |
+| `parse-spells.cjs` | ~200 | ~7KB | Spell parser |
 
 **Build scripts (../):**: 23 Python files, ~2,500 lines total
 

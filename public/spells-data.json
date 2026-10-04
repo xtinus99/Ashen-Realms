@@ -8,6 +8,7 @@
           "Booming Blade",
           "Create Bonfire",
           "Dancing Lights",
+          "Elementalism",
           "Fire Bolt",
           "Frostbite",
           "Green-Flame Blade",
@@ -31,6 +32,7 @@
           "Warding Glance"
         ],
         "1st Level": [
+          "Absorb Elements",
           "Alarm",
           "Cure Wounds",
           "Detect Magic",
@@ -46,6 +48,7 @@
           "Purify Food and Drink",
           "Sanctuary",
           "Snare",
+          "Tasha's Caustic Brew",
           "Ancestral Skill",
           "Barrier Ward",
           "Decay Tongue",
@@ -55,10 +58,13 @@
         ],
         "2nd Level": [
           "Aid",
+          "Air Bubble",
           "Alter Self",
+          "Arcane Vigor",
           "Blur",
           "Continual Flame",
           "Darkvision",
+          "Dueling Ground",
           "Enhance Ability",
           "Enlarge/Reduce",
           "Heat Metal",
@@ -73,6 +79,7 @@
           "See Invisibility",
           "Skywrite",
           "Spider Climb",
+          "Uncertain Footing",
           "Web",
           "Scrying Trap",
           "Flesh Knit",
@@ -94,6 +101,7 @@
           "Glyph of Warding",
           "Haste",
           "Intellect Fortress",
+          "Linked Glyphs",
           "Protection from Energy",
           "Revivify",
           "Tiny Servant",
@@ -113,6 +121,7 @@
         ],
         "4th Level": [
           "Arcane Eye",
+          "Distorted Distance",
           "Elemental Bane",
           "Fabricate",
           "Freedom of Movement",
@@ -122,6 +131,7 @@
           "Otiluke's Resilient Sphere",
           "Stone Shape",
           "Stoneskin",
+          "Summon Construct",
           "Barrier Dome",
           "Divine Ricochet",
           "Borrowed Time",
@@ -139,6 +149,7 @@
           "Bigby's Hand",
           "Creation",
           "Greater Restoration",
+          "Spirit Lantern",
           "Wall of Stone",
           "Decoy Beacon",
           "Entropic Acceleration",
@@ -198,6 +209,7 @@
           "Message",
           "Minor Illusion",
           "Prestidigitation",
+          "Starry Wisp",
           "Thunderclap",
           "True Strike",
           "Vicious Mockery",
@@ -217,6 +229,7 @@
           "Detect Magic",
           "Disguise Self",
           "Dissonant Whispers",
+          "Distort Value",
           "Earth Tremor",
           "Faerie Fire",
           "Feather Fall",
@@ -244,7 +257,8 @@
           "The Maker's Echo",
           "Void Flicker",
           "Void Hide",
-          "Waking Dream"
+          "Waking Dream",
+          "Wardaway"
         ],
         "2nd Level": [
           "Animal Messenger",
@@ -253,8 +267,11 @@
           "Cloud of Daggers",
           "Crown of Madness",
           "Detect Thoughts",
+          "Disruptive Tune",
+          "Dueling Ground",
           "Enhance Ability",
           "Enthrall",
+          "Gift of Gab",
           "Heat Metal",
           "Hold Person",
           "Invisibility",
@@ -270,7 +287,9 @@
           "Shatter",
           "Silence",
           "Skywrite",
+          "Spray of Cards",
           "Suggestion",
+          "Uncertain Footing",
           "Warding Wind",
           "Zone of Truth",
           "Ancestral Tongue",
@@ -284,17 +303,22 @@
           "Thought Theft"
         ],
         "3rd Level": [
+          "Antagonize",
           "Bestow Curse",
+          "Cacophonic Shield",
           "Catnap",
           "Clairvoyance",
           "Dispel Magic",
           "Enemies Abound",
+          "Fast Friends",
           "Fear",
           "Feign Death",
           "Glyph of Warding",
           "Hypnotic Pattern",
+          "Inflict Doubt",
           "Intellect Fortress",
           "Leomund's Tiny Hut",
+          "Linked Glyphs",
           "Major Image",
           "Mass Healing Word",
           "Motivational Speech",
@@ -318,10 +342,14 @@
           "Veil of the Forgotten"
         ],
         "4th Level": [
+          "Backlash",
           "Charm Monster",
           "Compulsion",
           "Confusion",
           "Dimension Door",
+          "Distorted Distance",
+          "Doomtide",
+          "Fount of Moonlight",
           "Freedom of Movement",
           "Greater Invisibility",
           "Hallucinatory Terrain",
@@ -332,21 +360,26 @@
           "Consume Memory",
           "Ledger Entry",
           "Memory Palace Intrusion",
+          "Raulothim's Psychic Lance",
           "Reflection Prison",
           "Resonant Communication",
           "Silence Before Thunder",
-          "Void Cloak"
+          "Void Cloak",
+          "Zone of Amicability"
         ],
         "5th Level": [
+          "Alustriel's Mooncloak",
           "Animate Objects",
           "Awaken",
           "Dominate Person",
           "Dream",
+          "Geas",
           "Greater Restoration",
           "Hold Monster",
           "Legend Lore",
           "Mass Cure Wounds",
           "Mislead",
+          "Modify Memory",
           "Raise Dead",
           "Scrying",
           "Seeming",
@@ -362,9 +395,11 @@
           "Obsessive Fixation",
           "Passion's Prisoner",
           "Resonant Scrying",
-          "Shadow Labyrinth"
+          "Shadow Labyrinth",
+          "Yolande's Regal Presence"
         ],
         "6th Level": [
+          "Dirge",
           "Eyebite",
           "Find the Path",
           "Guards and Wards",
@@ -379,23 +414,28 @@
         "7th Level": [
           "Etherealness",
           "Forcecage",
+          "Fractured Awareness",
           "Mirage Arcane",
           "Mordenkainen's Magnificent Mansion",
           "Mordenkainen's Sword",
+          "Power Word Fortify",
           "Prismatic Spray",
           "Project Image",
           "Regenerate",
           "Resurrection",
+          "Reweave Fate",
           "Symbol",
           "Teleport",
           "Forbidden Knowledge",
           "Realm of Echoes",
           "The Hollow's Embrace",
+          "Transfix",
           "True Reflection"
         ],
         "8th Level": [
           "Antipathy/Sympathy",
           "Dominate Monster",
+          "Entrancing Mirrors",
           "Feeblemind",
           "Glibness",
           "Mind Blank",
@@ -416,7 +456,8 @@
           "True Polymorph",
           "Final Harmony",
           "The Unforgivable Truth",
-          "Ultimate Reflection"
+          "Ultimate Reflection",
+          "Vision of Elapsing Eons"
         ]
       }
     },
@@ -473,7 +514,8 @@
           "Resonant Message",
           "Speak with Flesh",
           "Stolen Breath",
-          "The Maker's Echo"
+          "The Maker's Echo",
+          "Wardaway"
         ],
         "2nd Level": [
           "Aid",
@@ -481,6 +523,8 @@
           "Blindness/Deafness",
           "Calm Emotions",
           "Continual Flame",
+          "Deryan's Helpful Homunculi",
+          "Dueling Ground",
           "Enhance Ability",
           "Find Traps",
           "Gentle Repose",
@@ -518,8 +562,12 @@
           "Create Food and Water",
           "Daylight",
           "Dispel Magic",
+          "Fast Friends",
           "Feign Death",
           "Glyph of Warding",
+          "Incite Greed",
+          "Laeral's Silver Lance",
+          "Linked Glyphs",
           "Magic Circle",
           "Mass Healing Word",
           "Meld into Stone",
@@ -556,6 +604,7 @@
           "Control Water",
           "Death Ward",
           "Divination (Ritual)",
+          "Doomtide",
           "Freedom of Movement",
           "Guardian of Faith",
           "Locate Creature",
@@ -576,9 +625,15 @@
         ],
         "5th Level": [
           "Commune (Ritual)",
+          "Contagion",
+          "Dawn",
           "Dispel Evil and Good",
           "Flame Strike",
+          "Geas",
+          "Grave Ground",
           "Greater Restoration",
+          "Hallow",
+          "Holy Weapon",
           "Insect Plague",
           "Legend Lore",
           "Mass Cure Wounds",
@@ -596,11 +651,14 @@
           "Remnant Resurrection",
           "Resonant Cascade",
           "Resonant Scrying",
+          "Spirit Lantern",
+          "Summon Celestial",
           "Void Anchor"
         ],
         "6th Level": [
           "Blade Barrier",
           "Create Undead",
+          "Dirge",
           "Find the Path",
           "Forbiddance (Ritual)",
           "Harm",
@@ -626,8 +684,10 @@
           "Etherealness",
           "Fire Storm",
           "Plane Shift",
+          "Power Word Fortify",
           "Regenerate",
           "Resurrection",
+          "Reweave Fate",
           "Symbol",
           "Temple of the Gods",
           "Absolute Stillness",
@@ -678,6 +738,7 @@
           "Control Flames",
           "Create Bonfire",
           "Druidcraft",
+          "Elementalism",
           "Frostbite",
           "Guidance",
           "Gust",
@@ -691,16 +752,18 @@
           "Resistance",
           "Shape Water",
           "Shillelagh",
+          "Starry Wisp",
           "Thorn Whip",
           "Thunderclap",
           "Flesh Sense",
           "Ichor Lamp",
           "Mend Flesh",
           "Source-Based Restrictions",
-          "Cantrips",
+          "Bone Read",
           "Sporetrace"
         ],
         "1st Level": [
+          "Absorb Elements",
           "Animal Friendship",
           "Beast Bond",
           "Charm Person",
@@ -726,10 +789,13 @@
           "Decay Tongue"
         ],
         "2nd Level": [
+          "Air Bubble",
           "Animal Messenger",
           "Barkskin",
+          "Battle Familiar",
           "Beast Sense",
           "Darkvision",
+          "Dueling Ground",
           "Dust Devil",
           "Earthbind",
           "Enhance Ability",
@@ -737,6 +803,7 @@
           "Flame Blade",
           "Flaming Sphere",
           "Gust of Wind",
+          "Healing Spirit",
           "Heat Metal",
           "Hold Person",
           "Lesser Restoration",
@@ -757,7 +824,8 @@
           "Null Step",
           "Sculpt Flesh",
           "Veinpath",
-          "Void Pocket"
+          "Void Pocket",
+          "Wither and Bloom"
         ],
         "3rd Level": [
           "Aura of Vitality",
@@ -776,6 +844,7 @@
           "Sleet Storm",
           "Speak with Plants",
           "Summon Fey",
+          "Syluné's Viper",
           "Tidal Wave",
           "Wall of Water",
           "Water Breathing",
@@ -800,7 +869,9 @@
           "Divination (Ritual)",
           "Dominate Beast",
           "Elemental Bane",
+          "Festering Blast",
           "Fire Shield",
+          "Fount of Moonlight",
           "Freedom of Movement",
           "Giant Insect",
           "Grasping Vine",
@@ -811,6 +882,7 @@
           "Polymorph",
           "Stone Shape",
           "Stoneskin",
+          "Summon Elemental",
           "Wall of Fire",
           "Watery Sphere",
           "Ancestral Army",
@@ -827,17 +899,24 @@
           "Void Door"
         ],
         "5th Level": [
+          "Alustriel's Mooncloak",
           "Antilife Shell",
           "Awaken",
           "Commune with Nature (Ritual)",
           "Cone of Cold",
           "Conjure Elemental",
+          "Contagion",
+          "Control Winds",
+          "Geas",
           "Greater Restoration",
           "Insect Plague",
+          "Maelstrom",
           "Mass Cure Wounds",
           "Planar Binding",
           "Reincarnate",
           "Scrying",
+          "Songal's Elemental Suffusion",
+          "Summon Plant",
           "Transmute Rock",
           "Tree Stride",
           "Wall of Stone",
@@ -856,6 +935,7 @@
           "Bones of the Earth",
           "Conjure Fey",
           "Druid Grove",
+          "Elminster's Effulgent Spheres",
           "Find the Path",
           "Heal",
           "Heroes' Feast",
@@ -865,6 +945,7 @@
           "Investiture of Wind",
           "Move Earth",
           "Primordial Ward",
+          "Summon Dinosaur",
           "Sunbeam",
           "Transport via Plants",
           "Wall of Thorns",
@@ -878,6 +959,7 @@
           "Void Cache"
         ],
         "7th Level": [
+          "Draconic Transformation",
           "Fire Storm",
           "Mirage Arcane",
           "Plane Shift",
@@ -899,6 +981,7 @@
           "Earthquake",
           "Feeblemind",
           "Incendiary Cloud",
+          "Lightning Ring",
           "Sunburst",
           "Tsunami",
           "Ancestral Vengeance",
@@ -948,6 +1031,7 @@
           "Searing Smite",
           "Shield of Faith",
           "Thunderous Smite",
+          "Wardaway",
           "Wrathful Smite",
           "Barrier Ward",
           "Harmonic Shield",
@@ -957,6 +1041,7 @@
         "2nd Level": [
           "Aid",
           "Branding Smite",
+          "Dueling Ground",
           "Find Steed",
           "Lesser Restoration",
           "Locate Object",
@@ -1001,8 +1086,12 @@
         "5th Level": [
           "Banishing Smite",
           "Circle of Power",
+          "Destructive Wave",
           "Dispel Evil and Good",
+          "Geas",
+          "Holy Weapon",
           "Raise Dead",
+          "Summon Celestial",
           "Decoy Beacon",
           "Remnant Restoration",
           "Void Anchor"
@@ -1036,10 +1125,11 @@
           "Ichor Lamp",
           "Mend Flesh",
           "Source-Based Restrictions",
-          "Cantrips",
+          "Bone Read",
           "Sporetrace"
         ],
         "1st Level": [
+          "Absorb Elements",
           "Alarm",
           "Animal Friendship",
           "Beast Bond",
@@ -1058,12 +1148,15 @@
           "Zephyr Strike"
         ],
         "2nd Level": [
+          "Air Bubble",
           "Animal Messenger",
           "Barkskin",
           "Beast Sense",
           "Cordon of Arrows",
           "Darkvision",
+          "Dueling Ground",
           "Find Traps",
+          "Healing Spirit",
           "Lesser Restoration",
           "Locate Animals or Plants",
           "Locate Object",
@@ -1079,6 +1172,7 @@
           "Daylight",
           "Elemental Weapon",
           "Flame Arrows",
+          "Lightning Arrow",
           "Meld into Stone",
           "Nondetection",
           "Plant Growth",
@@ -1098,12 +1192,15 @@
           "Grasping Vine",
           "Guardian of Nature",
           "Locate Creature",
-          "Stoneskin"
+          "Stoneskin",
+          "Summon Elemental"
         ],
         "5th Level": [
+          "Alustriel's Mooncloak",
           "Commune with Nature (Ritual)",
           "Conjure Volley",
           "Steel Wind Strike",
+          "Summon Plant",
           "Swift Quiver",
           "Tree Stride",
           "Wrath of Nature"
@@ -1121,6 +1218,7 @@
           "Control Flames",
           "Create Bonfire",
           "Dancing Lights",
+          "Elementalism",
           "Fire Bolt",
           "Friends",
           "Frostbite",
@@ -1140,6 +1238,7 @@
           "Ray of Frost",
           "Shape Water",
           "Shocking Grasp",
+          "Sorcerous Burst",
           "Sword Burst",
           "Thunderclap",
           "True Strike",
@@ -1149,6 +1248,7 @@
           "Void Whisper"
         ],
         "1st Level": [
+          "Absorb Elements",
           "Burning Hands",
           "Catapult",
           "Chaos Bolt",
@@ -1158,6 +1258,7 @@
           "Comprehend Languages",
           "Detect Magic",
           "Disguise Self",
+          "Distort Value",
           "Earth Tremor",
           "Expeditious Retreat",
           "False Life",
@@ -1189,15 +1290,21 @@
           "Waking Dream"
         ],
         "2nd Level": [
+          "Aganazzar's Scorcher",
+          "Air Bubble",
           "Alter Self",
+          "Arcane Vigor",
           "Blindness/Deafness",
           "Blur",
           "Cloud of Daggers",
           "Crown of Madness",
           "Darkness",
           "Darkvision",
+          "Death Armor",
           "Detect Thoughts",
+          "Disruptive Tune",
           "Dragon's Breath",
+          "Dueling Ground",
           "Dust Devil",
           "Earthbind",
           "Enhance Ability",
@@ -1215,12 +1322,14 @@
           "Nathair's Mischief",
           "Phantasmal Force",
           "Pyrotechnics",
+          "Rime's Binding Ice",
           "Scorching Ray",
           "See Invisibility",
           "Shadow Blade",
           "Shatter",
           "Snilloc's Snowball Swarm",
           "Spider Climb",
+          "Spray of Cards",
           "Suggestion",
           "Tasha's Mind Whip",
           "Warding Wind",
@@ -1239,10 +1348,13 @@
           "Sinew Lash",
           "Thought Theft",
           "Veinpath",
-          "Void Pocket"
+          "Void Pocket",
+          "Wither and Bloom"
         ],
         "3rd Level": [
+          "Antagonize",
           "Blink",
+          "Cacophonic Shield",
           "Catnap",
           "Clairvoyance",
           "Counterspell",
@@ -1257,7 +1369,10 @@
           "Gaseous Form",
           "Haste",
           "Hypnotic Pattern",
+          "Incite Greed",
+          "Inflict Doubt",
           "Intellect Fortress",
+          "Laeral's Silver Lance",
           "Lightning Bolt",
           "Major Image",
           "Melf's Minute Meteors",
@@ -1292,17 +1407,21 @@
           "Void Step"
         ],
         "4th Level": [
+          "Backlash",
           "Banishment",
           "Blight",
           "Charm Monster",
           "Confusion",
           "Dimension Door",
           "Dominate Beast",
+          "Festering Blast",
           "Fire Shield",
           "Greater Invisibility",
           "Ice Storm",
           "Polymorph",
+          "Raulothim's Psychic Lance",
           "Sickening Radiance",
+          "Spirit of Death",
           "Stoneskin",
           "Storm Sphere",
           "Vitriolic Sphere",
@@ -1334,13 +1453,17 @@
           "Bigby's Hand",
           "Cloudkill",
           "Cone of Cold",
+          "Control Winds",
           "Creation",
           "Dominate Person",
+          "Enervation",
           "Far Step",
           "Hold Monster",
+          "Immolation",
           "Insect Plague",
           "Seeming",
           "Skill Empowerment",
+          "Songal's Elemental Suffusion",
           "Synaptic Static",
           "Telekinesis",
           "Teleportation Circle",
@@ -1363,14 +1486,17 @@
           "Shadow Labyrinth",
           "Unmake",
           "Void Passage",
-          "Void Walk"
+          "Void Walk",
+          "Waves of Exhaustion"
         ],
         "6th Level": [
           "Arcane Gate",
           "Chain Lightning",
           "Circle of Death",
           "Disintegrate",
+          "Elminster's Effulgent Spheres",
           "Eyebite",
+          "Fizban's Platinum Shield",
           "Globe of Invulnerability",
           "Investiture of Flame",
           "Investiture of Ice",
@@ -1382,6 +1508,7 @@
           "Otiluke's Freezing Sphere",
           "Scatter",
           "Sunbeam",
+          "Tasha's Otherworldly Guise",
           "True Seeing",
           "Crown of Bone",
           "Dreamer's Prison",
@@ -1396,15 +1523,19 @@
           "Void Cache"
         ],
         "7th Level": [
+          "Aura of Evasion",
           "Crown of Stars",
           "Delayed Blast Fireball",
+          "Draconic Transformation",
           "Etherealness",
           "Finger of Death",
           "Fire Storm",
+          "Fractured Awareness",
           "Plane Shift",
           "Power Word Pain",
           "Prismatic Spray",
           "Reverse Gravity",
+          "Simbul's Synostodweomer",
           "Teleport",
           "Whirlwind",
           "Absolute Stillness",
@@ -1427,7 +1558,10 @@
           "Demiplane",
           "Dominate Monster",
           "Earthquake",
+          "Entrancing Mirrors",
           "Incendiary Cloud",
+          "Iron Body",
+          "Lightning Ring",
           "Power Word Stun",
           "Sunburst",
           "Ancestral Vengeance",
@@ -1444,12 +1578,16 @@
           "Weaponized Secret"
         ],
         "9th Level": [
+          "Blade of Disaster",
+          "Detonate",
           "Gate",
           "Mass Polymorph",
           "Meteor Swarm",
           "Power Word Kill",
           "Psychic Scream",
           "Time Stop",
+          "Vision of Elapsing Eons",
+          "Wail of the Banshee",
           "Wish",
           "Ascension of Passion",
           "Consuming Apocalypse",
@@ -1503,6 +1641,7 @@
           "Cause Fear",
           "Charm Person",
           "Comprehend Languages",
+          "Distort Value",
           "Expeditious Retreat",
           "Hex",
           "Illusory Script",
@@ -1530,11 +1669,14 @@
           "Waking Dream"
         ],
         "2nd Level": [
+          "Battle Familiar",
           "Cloud of Daggers",
           "Crown of Madness",
           "Darkness",
+          "Dueling Ground",
           "Earthbind",
           "Enthrall",
+          "Flock of Familiars",
           "Hold Person",
           "Invisibility",
           "Mind Spike",
@@ -1544,6 +1686,7 @@
           "Shadow Blade",
           "Shatter",
           "Spider Climb",
+          "Spray of Cards",
           "Suggestion",
           "Ancestral Tongue",
           "Ancestral Witness",
@@ -1559,10 +1702,12 @@
           "Remnant Sight",
           "Suffocating Truth",
           "Thought Theft",
+          "Uncertain Footing",
           "Veinpath",
           "Void Pocket"
         ],
         "3rd Level": [
+          "Antagonize",
           "Counterspell",
           "Dispel Magic",
           "Enemies Abound",
@@ -1571,6 +1716,8 @@
           "Gaseous Form",
           "Hunger of Hadar",
           "Hypnotic Pattern",
+          "Incite Greed",
+          "Inflict Doubt",
           "Intellect Fortress",
           "Magic Circle",
           "Major Image",
@@ -1600,12 +1747,18 @@
           "Void Step"
         ],
         "4th Level": [
+          "Backlash",
           "Banishment",
           "Blight",
           "Charm Monster",
           "Dimension Door",
+          "Distorted Distance",
+          "Doomtide",
           "Elemental Bane",
+          "Festering Blast",
+          "Galder's Speedy Courier",
           "Hallucinatory Terrain",
+          "Raulothim's Psychic Lance",
           "Shadow of Moil",
           "Sickening Radiance",
           "Ancestral Army",
@@ -1620,16 +1773,27 @@
           "Reflection Prison",
           "Resonant Communication",
           "Silence Before Thunder",
+          "Spirit of Death",
+          "Summon Aberration",
+          "Summon Greater Demon",
           "Void Cloak",
-          "Void Door"
+          "Void Door",
+          "Zone of Amicability"
         ],
         "5th Level": [
           "Contact Other Plane (Ritual)",
+          "Danse Macabre",
           "Dream",
+          "Enervation",
           "Far Step",
+          "Grave Ground",
           "Hold Monster",
+          "Infernal Calling",
+          "Jallarzi's Storm of Radiance",
           "Mislead",
+          "Negative Energy Flood",
           "Scrying",
+          "Spirit Lantern",
           "Synaptic Static",
           "Teleportation Circle",
           "Wall of Light",
@@ -1650,7 +1814,8 @@
           "Resonant Scrying",
           "Shadow Labyrinth",
           "Void Passage",
-          "Void Walk"
+          "Void Walk",
+          "Waves of Exhaustion"
         ],
         "6th Level": [
           "Arcane Gate",
@@ -1667,6 +1832,9 @@
           "Mental Prison",
           "Scatter",
           "Soul Cage",
+          "Summon Fiend",
+          "Tasha's Bubbling Cauldron",
+          "Tasha's Otherworldly Guise",
           "True Seeing",
           "Ancestral Judgment",
           "Cardiac Arrest",
@@ -1678,10 +1846,12 @@
           "Void Cache"
         ],
         "7th Level": [
+          "Aura of Evasion",
           "Crown of Stars",
           "Etherealness",
           "Finger of Death",
           "Forcecage",
+          "Fractured Awareness",
           "Plane Shift",
           "Power Word Pain",
           "Ancestral Legion",
@@ -1692,14 +1862,19 @@
           "Forbidden Knowledge",
           "Maker's Curse",
           "Realm of Echoes",
+          "Reweave Fate",
           "The Hollow's Embrace",
+          "Transfix",
           "True Reflection"
         ],
         "8th Level": [
           "Demiplane",
           "Dominate Monster",
+          "Entrancing Mirrors",
           "Feeblemind",
           "Glibness",
+          "Iron Body",
+          "Lightning Ring",
           "Maddening Darkness",
           "Power Word Stun",
           "Ancestral Vengeance",
@@ -1717,11 +1892,15 @@
         ],
         "9th Level": [
           "Astral Projection",
+          "Blade of Disaster",
+          "Detonate",
           "Foresight",
           "Imprisonment",
           "Power Word Kill",
           "Psychic Scream",
           "True Polymorph",
+          "Vision of Elapsing Eons",
+          "Wail of the Banshee",
           "Weird",
           "Ancestral Apotheosis",
           "Breath of Annihilation",
@@ -1747,6 +1926,7 @@
           "Control Flames",
           "Create Bonfire",
           "Dancing Lights",
+          "Elementalism",
           "Fire Bolt",
           "Friends",
           "Frostbite",
@@ -1764,6 +1944,7 @@
           "Poison Spray",
           "Prestidigitation",
           "Ray of Frost",
+          "Sapping Sting",
           "Shape Water",
           "Shocking Grasp",
           "Sword Burst",
@@ -1778,13 +1959,14 @@
           "Mend Flesh",
           "Remnant Spark",
           "Source-Based Restrictions",
-          "Cantrips",
+          "Bone Read",
           "Sporetrace",
           "Void Static",
           "Void Whisper",
           "Warding Glance"
         ],
         "1st Level": [
+          "Absorb Elements",
           "Alarm",
           "Burning Hands",
           "Catapult",
@@ -1795,20 +1977,25 @@
           "Comprehend Languages",
           "Detect Magic",
           "Disguise Self",
+          "Distort Value",
           "Earth Tremor",
           "Expeditious Retreat",
           "False Life",
           "Feather Fall",
           "Find Familiar",
           "Fog Cloud",
+          "Frost Fingers",
+          "Gift of Alacrity",
           "Grease",
           "Ice Knife",
           "Identify",
           "Illusory Script",
+          "Jim's Magic Missile",
           "Jump",
           "Longstrider",
           "Mage Armor",
           "Magic Missile",
+          "Magnify Gravity",
           "Protection from Evil and Good",
           "Ray of Sickness",
           "Shield",
@@ -1819,6 +2006,7 @@
           "Tenser's Floating Disk",
           "Thunderwave",
           "Unseen Servant",
+          "Wardaway",
           "Witch Bolt",
           "Ancestral Guidance",
           "Ancestral Skill",
@@ -1851,8 +2039,12 @@
           "Waking Dream"
         ],
         "2nd Level": [
+          "Aganazzar's Scorcher",
+          "Air Bubble",
           "Alter Self",
           "Arcane Lock",
+          "Arcane Vigor",
+          "Battle Familiar",
           "Blindness/Deafness",
           "Blur",
           "Cloud of Daggers",
@@ -1860,16 +2052,26 @@
           "Crown of Madness",
           "Darkness",
           "Darkvision",
+          "Death Armor",
+          "Deryan's Helpful Homunculi",
           "Detect Thoughts",
+          "Disruptive Tune",
           "Dragon's Breath",
+          "Dueling Ground",
           "Dust Devil",
           "Earthbind",
+          "Elminster's Elusion",
           "Enlarge/Reduce",
           "Flaming Sphere",
+          "Flock of Familiars",
+          "Fortune's Favor",
           "Gentle Repose",
+          "Gift of Gab",
           "Gust of Wind",
           "Hold Person",
+          "Immovable Object",
           "Invisibility",
+          "Jim's Glowing Coin",
           "Knock",
           "Levitate",
           "Locate Object",
@@ -1885,6 +2087,7 @@
           "Phantasmal Force",
           "Pyrotechnics",
           "Ray of Enfeeblement",
+          "Rime's Binding Ice",
           "Rope Trick",
           "Scorching Ray",
           "See Invisibility",
@@ -1893,8 +2096,10 @@
           "Skywrite",
           "Snilloc's Snowball Swarm",
           "Spider Climb",
+          "Spray of Cards",
           "Suggestion",
           "Tasha's Mind Whip",
+          "Uncertain Footing",
           "Warding Wind",
           "Web",
           "Ancestral Tongue",
@@ -1923,30 +2128,41 @@
           "Suffocating Truth",
           "Thought Theft",
           "Veinpath",
-          "Void Pocket"
+          "Void Pocket",
+          "Wither and Bloom",
+          "Wristpocket"
         ],
         "3rd Level": [
           "Animate Dead",
+          "Antagonize",
           "Bestow Curse",
           "Blink",
+          "Cacophonic Shield",
           "Catnap",
           "Clairvoyance",
+          "Conjure Constructs",
           "Counterspell",
           "Dispel Magic",
           "Enemies Abound",
           "Erupting Earth",
+          "Fast Friends",
           "Fear",
           "Feign Death",
           "Fireball",
           "Flame Arrows",
           "Fly",
+          "Galder's Tower",
           "Gaseous Form",
           "Glyph of Warding",
           "Haste",
           "Hypnotic Pattern",
+          "Incite Greed",
+          "Inflict Doubt",
           "Intellect Fortress",
+          "Laeral's Silver Lance",
           "Leomund's Tiny Hut",
           "Lightning Bolt",
+          "Linked Glyphs",
           "Magic Circle",
           "Major Image",
           "Melf's Minute Meteors",
@@ -1965,6 +2181,7 @@
           "Summon Lesser Demons",
           "Summon Shadowspawn",
           "Summon Undead",
+          "Syluné's Viper",
           "Thunder Step",
           "Tidal Wave",
           "Tiny Servant",
@@ -2006,6 +2223,7 @@
         ],
         "4th Level": [
           "Arcane Eye",
+          "Backlash",
           "Banishment",
           "Blight",
           "Charm Monster",
@@ -2013,11 +2231,15 @@
           "Conjure Minor Elementals",
           "Control Water",
           "Dimension Door",
+          "Distorted Distance",
           "Divination (Ritual)",
           "Elemental Bane",
           "Evard's Black Tentacles",
           "Fabricate",
+          "Festering Blast",
           "Fire Shield",
+          "Galder's Speedy Courier",
+          "Gravity Sinkhole",
           "Greater Invisibility",
           "Hallucinatory Terrain",
           "Ice Storm",
@@ -2028,10 +2250,16 @@
           "Otiluke's Resilient Sphere",
           "Phantasmal Killer",
           "Polymorph",
+          "Raulothim's Psychic Lance",
           "Sickening Radiance",
+          "Spirit of Death",
           "Stone Shape",
           "Stoneskin",
           "Storm Sphere",
+          "Summon Aberration",
+          "Summon Construct",
+          "Summon Elemental",
+          "Summon Greater Demon",
           "Vitriolic Sphere",
           "Wall of Fire",
           "Watery Sphere",
@@ -2066,29 +2294,46 @@
           "Void Door"
         ],
         "5th Level": [
+          "Alustriel's Mooncloak",
           "Animate Objects",
           "Bigby's Hand",
           "Cloudkill",
           "Cone of Cold",
           "Conjure Elemental",
           "Contact Other Plane (Ritual)",
+          "Control Winds",
           "Creation",
+          "Danse Macabre",
+          "Dawn",
           "Dominate Person",
           "Dream",
+          "Enervation",
           "Far Step",
+          "Geas",
+          "Grave Ground",
           "Hold Monster",
+          "Immolation",
+          "Infernal Calling",
+          "Jallarzi's Storm of Radiance",
           "Legend Lore",
           "Mislead",
+          "Modify Memory",
+          "Mordenkainen's Lucubration",
+          "Negative Energy Flood",
           "Passwall",
           "Planar Binding",
           "Rary's Telepathic Bond (Ritual)",
           "Scrying",
           "Seeming",
           "Skill Empowerment",
+          "Songal's Elemental Suffusion",
+          "Spirit Lantern",
           "Steel Wind Strike",
+          "Summon Dragon",
           "Synaptic Static",
           "Telekinesis",
           "Teleportation Circle",
+          "Temporal Shunt",
           "Transmute Rock",
           "Wall of Force",
           "Wall of Light",
@@ -2119,7 +2364,9 @@
           "Unmake",
           "Void Anchor",
           "Void Passage",
-          "Void Walk"
+          "Void Walk",
+          "Waves of Exhaustion",
+          "Yolande's Regal Presence"
         ],
         "6th Level": [
           "Arcane Gate",
@@ -2130,9 +2377,12 @@
           "Create Undead",
           "Disintegrate",
           "Drawmij's Instant Summons (Ritual)",
+          "Elminster's Effulgent Spheres",
           "Eyebite",
+          "Fizban's Platinum Shield",
           "Flesh to Stone",
           "Globe of Invulnerability",
+          "Gravity Fissure",
           "Guards and Wards",
           "Investiture of Flame",
           "Investiture of Ice",
@@ -2147,7 +2397,10 @@
           "Programmed Illusion",
           "Scatter",
           "Soul Cage",
+          "Summon Fiend",
           "Sunbeam",
+          "Tasha's Bubbling Cauldron",
+          "Tasha's Otherworldly Guise",
           "Tenser's Transformation",
           "True Seeing",
           "Wall of Ice",
@@ -2172,11 +2425,15 @@
           "Void Cache"
         ],
         "7th Level": [
+          "Aura of Evasion",
+          "Create Magen",
           "Crown of Stars",
           "Delayed Blast Fireball",
+          "Draconic Transformation",
           "Etherealness",
           "Finger of Death",
           "Forcecage",
+          "Fractured Awareness",
           "Mirage Arcane",
           "Mordenkainen's Magnificent Mansion",
           "Mordenkainen's Sword",
@@ -2185,10 +2442,14 @@
           "Prismatic Spray",
           "Project Image",
           "Reverse Gravity",
+          "Reweave Fate",
           "Sequester",
+          "Simbul's Synostodweomer",
           "Simulacrum",
           "Symbol",
           "Teleport",
+          "Tether Essence",
+          "Transfix",
           "Whirlwind",
           "Absolute Stillness",
           "Ancestral Legion",
@@ -2217,16 +2478,22 @@
           "Antipathy/Sympathy",
           "Clone",
           "Control Weather",
+          "Dark Star",
           "Demiplane",
           "Dominate Monster",
+          "Entrancing Mirrors",
           "Feeblemind",
           "Illusory Dragon",
           "Incendiary Cloud",
+          "Iron Body",
+          "Lightning Ring",
           "Maddening Darkness",
           "Maze",
           "Mighty Fortress",
           "Mind Blank",
+          "Moment of Prescience",
           "Power Word Stun",
+          "Reality Break",
           "Sunburst",
           "Telepathy",
           "Ancestral Vengeance",
@@ -2250,8 +2517,11 @@
         ],
         "9th Level": [
           "Astral Projection",
+          "Blade of Disaster",
+          "Detonate",
           "Foresight",
           "Gate",
+          "Hindsight",
           "Imprisonment",
           "Invulnerability",
           "Mass Polymorph",
@@ -2259,9 +2529,13 @@
           "Power Word Kill",
           "Prismatic Wall",
           "Psychic Scream",
+          "Ravenous Void",
           "Shapechange",
+          "Time Ravage",
           "Time Stop",
           "True Polymorph",
+          "Vision of Elapsing Eons",
+          "Wail of the Banshee",
           "Weird",
           "Wish",
           "Ancestral Apotheosis",
@@ -2351,6 +2625,29 @@
       ]
     },
     {
+      "name": "Absorb Elements",
+      "class": "Artificer",
+      "level": "1st Level",
+      "school": "Abjuration",
+      "castingTime": "1 reaction, which you take when you take acid, cold, fire, lightning, or thunder damage",
+      "range": "Self",
+      "components": "S",
+      "duration": "1 round",
+      "description": "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.",
+      "higherLevels": "When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Druid",
+        "Ranger",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Acid Splash",
       "class": "Artificer",
       "level": "Cantrips",
@@ -2367,6 +2664,26 @@
       "source": "standard",
       "classes": [
         "Artificer",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Aganazzar's Scorcher",
+      "class": "Sorcerer",
+      "level": "2nd Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a red dragon's scale)",
+      "duration": "Instantaneous",
+      "description": "A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 3d8 fire damage on a failed save, or half as much damage on a successful one.",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
         "Sorcerer",
         "Wizard"
       ]
@@ -2390,6 +2707,29 @@
         "Artificer",
         "Cleric",
         "Paladin"
+      ]
+    },
+    {
+      "name": "Air Bubble",
+      "class": "Artificer",
+      "level": "2nd Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "S",
+      "duration": "24 hours",
+      "description": "You create a spectral globe around the head of a willing creature you can see within range. The globe is filled with fresh air that lasts until the spell ends. If the creature has more than one head, the globe of air appears around only one of its heads (which is all the creature needs to avoid suffocation, assuming that all its heads share the same respiratory system).",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, you can create two additional globes of fresh air for each slot level above 2nd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Druid",
+        "Ranger",
+        "Sorcerer",
+        "Wizard"
       ]
     },
     {
@@ -2431,6 +2771,28 @@
       "classes": [
         "Artificer",
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Alustriel's Mooncloak",
+      "class": "Bard",
+      "level": "5th Level",
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "Self (20-foot emanation)",
+      "components": "V, S, M (a moonstone worth 50+ GP)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "For the duration, moonlight fills a 20-foot Emanation originating from you with Dim Light. While in that area, you and your allies have Half Cover and Resistance to Cold, Lightning, and Radiant damage.\n\nWhile the spell lasts, you can use one of the following options, ending the spell immediately:\n\n- Liberation. When you fail a saving throw to avoid or end the Frightened, Grappled, or Restrained condition, you can take a Reaction to succeed on the save instead.\n\n- Respite. As a Magic action, you or an ally within the area regains Hit Points equal to 4d10 plus your spellcasting ability modifier.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Druid",
+        "Ranger",
         "Wizard"
       ]
     },
@@ -2822,6 +3184,28 @@
       ]
     },
     {
+      "name": "Antagonize",
+      "class": "Bard",
+      "level": "3rd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a playing card depicting a rogue)",
+      "duration": "Instantaneous",
+      "description": "You whisper magical words that antagonize one creature of your choice within range. The target must make a Wisdom saving throw. On a failed save, the target takes 4d4 psychic damage and must immediately use its reaction to make a melee attack against another creature of your choice that you can see. If the target can't make this attack (for example, because there is no one within its reach or because its reaction is unavailable), the target instead has disadvantage on the next attack roll it makes before the start of your next turn. On a successful save, the target takes half as much damage only.",
+      "higherLevels": "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Antilife Shell",
       "class": "Druid",
       "level": "5th Level",
@@ -2938,6 +3322,27 @@
       "concentration": false,
       "source": "standard",
       "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Arcane Vigor",
+      "class": "Artificer",
+      "level": "2nd Level",
+      "school": "Abjuration",
+      "castingTime": "1 bonus action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You tap into your life force to heal yourself. Roll one or two of your unexpended Hit Point Dice, and regain a number of Hit Points equal to the roll's total plus your spellcasting ability modifier. Those dice are then expended.",
+      "higherLevels": "The number of unexpended Hit Dice you can roll increases by one for each spell slot level above 2.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Sorcerer",
         "Wizard"
       ]
     },
@@ -3105,6 +3510,27 @@
       ]
     },
     {
+      "name": "Aura of Evasion",
+      "class": "Sorcerer",
+      "level": "7th Level",
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "Self (30-foot emanation)",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "An aura of alacrity radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Advantage on Dexterity saving throws. When an affected creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it takes no damage if it succeeds on the save and only half damage if it fails. A creature with the Incapacitated condition doesn't gain any benefit from being in the aura.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Aura of Life",
       "class": "Cleric",
       "level": "4th Level",
@@ -3202,6 +3628,28 @@
       "source": "ashen",
       "classes": [
         "Cleric",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Backlash",
+      "class": "Bard",
+      "level": "4th Level",
+      "school": "Abjuration",
+      "castingTime": "1 reaction, which you take in response to taking damage",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "Instantaneous",
+      "description": "You ward yourself against destructive energy, reducing the damage taken by 4d6 plus your spellcasting ability modifier.\n\nIf the triggering damage was from a creature within range, you can force the creature to make a Constitution saving throw. The creature takes 4d6 Force damage on a failed save or half as much damage on a successful one.",
+      "higherLevels": "The damage reduction and Force damage from this spell both increase by 1d6 for every spell slot level above 4.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
         "Warlock",
         "Wizard"
       ]
@@ -3355,6 +3803,27 @@
       ]
     },
     {
+      "name": "Battle Familiar",
+      "class": "Druid",
+      "level": "2nd Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "10 feet",
+      "components": "V, S, M (a diamond worth 25+ GP)",
+      "duration": "1 hour",
+      "description": "You conjure a familiar imbued with magical might. The familiar appears in an unoccupied space within range; resembles an animal of your choice but is a Celestial, Fey, or Fiend (your choice); and uses the Battle Familiar stat block. When you cast this spell, choose the Brute, Flyer, or Stalker form. The choice determines certain details in the stat block.\n\nCombat. The familiar is an ally to you and your allies. It rolls its own Initiative and acts on its own turn.\n\nDisappearance of the Familiar. The battle familiar disappears when the spell ends, if it drops to 0 Hit Points, or if you die. When it disappears, it leaves behind in its space anything it was wearing or carrying. If you cast this spell again, you decide whether you summon the familiar that disappeared or a different one.\n\nOne Familiar at a Time. You can't have more than one familiar at a time. If you cast this spell while you already have a familiar from this spell, that familiar is replaced by the new one.\n\nIf you have a familiar from the Find Familiar spell when you cast this spell, you empower your existing familiar rather than conjuring a new one. For the duration, your familiar can attack in addition to taking other actions as normal, and your familiar's game statistics are replaced by the Battle Familiar stat block, but it retains its creature type, alignment, Hit Points, Hit Point Dice, and any features granted by the Find Familiar spell. Your familiar gains a number of Temporary Hit Points equal to the Hit Points of the battle familiar. Battle Familiar ends early if the familiar has no more Temporary Hit Points left, and these Temporary Hit Points vanish if any remain when Battle Familiar ends. Your familiar reverts to its previous form when Battle Familiar ends.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Beacon of Hope",
       "class": "Cleric",
       "level": "3rd Level",
@@ -3472,6 +3941,27 @@
       "source": "standard",
       "classes": [
         "Cleric"
+      ]
+    },
+    {
+      "name": "Blade of Disaster",
+      "class": "Sorcerer",
+      "level": "9th Level",
+      "school": "Conjuration",
+      "castingTime": "1 bonus action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You create a 3-foot-long blade-shaped planar rift that lasts for the duration. The rift appears within range in a space of your choice, and you can immediately make up to two melee spell attacks, each one against a creature or object within 5 feet of the rift. On a hit, the target takes 10d6 Force damage. This attack scores a Critical Hit if the number on the d20 is 18 or higher.\n\nAs a Bonus Action on your later turns, you can move the rift up to 60 feet and repeat the two attacks against a creature or an object within 5 feet of it. You can direct the attacks at the same target or at different ones.\n\nThe blade can harmlessly pass through any barrier, including ones created by spells like Wall of Force.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
       ]
     },
     {
@@ -3774,6 +4264,27 @@
       ]
     },
     {
+      "name": "Bone Read",
+      "class": "Druid",
+      "level": "Cantrips",
+      "school": "Flesh",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "S, M (a fragment of bone)",
+      "duration": "Instantaneous",
+      "description": "You touch a bone or skeletal remain and learn one fact about the creature it came from: their species, approximate age at death, cause of death, or how long ago they died.\n\nIf the bone belonged to a creature that died violently, you experience a flash of their final emotion - not a memory, but a feeling. This can be overwhelming if the death was particularly traumatic (DC 10 Wisdom save or be shaken, disadvantage on your next attack roll).",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Druid",
+        "Ranger",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Bone Sculpture",
       "class": "Artificer",
       "level": "3rd Level",
@@ -3962,6 +4473,27 @@
       ]
     },
     {
+      "name": "Cacophonic Shield",
+      "class": "Bard",
+      "level": "3rd Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (10-foot emanation)",
+      "components": "V, S",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "Thunderous reverberations fill a 10-foot Emanation originating from you for the duration. Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature makes a Constitution saving throw. On a failed save, the creature takes 3d6 Thunder damage and has the Deafened condition until the start of your next turn. On a successful save, the creature takes half as much damage only. A creature makes this save only once per turn. When you cast this spell, you can designate creatures to be unaffected by it.\n\nIn addition, you have Resistance to Thunder damage, and ranged attack rolls against you are made with Disadvantage.",
+      "higherLevels": "The damage increases by 1d6 for each spell slot level above 3.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Call Lightning",
       "class": "Druid",
       "level": "3rd Level",
@@ -4020,27 +4552,6 @@
       "classes": [
         "Bard",
         "Cleric"
-      ]
-    },
-    {
-      "name": "Cantrips",
-      "class": "Druid",
-      "level": "Cantrips",
-      "school": "Flesh",
-      "castingTime": "1 action",
-      "range": "Touch",
-      "components": "S, M (a fragment of bone)",
-      "duration": "Instantaneous",
-      "description": "You touch a bone or skeletal remain and learn one fact about the creature it came from: their species, approximate age at death, cause of death, or how long ago they died.\n\nIf the bone belonged to a creature that died violently, you experience a flash of their final emotion - not a memory, but a feeling. This can be overwhelming if the death was particularly traumatic (DC 10 Wisdom save or be shaken, disadvantage on your next attack roll).",
-      "higherLevels": "",
-      "ashenRealms": "",
-      "ritual": false,
-      "concentration": false,
-      "source": "standard",
-      "classes": [
-        "Druid",
-        "Ranger",
-        "Wizard"
       ]
     },
     {
@@ -4680,6 +5191,25 @@
       ]
     },
     {
+      "name": "Conjure Constructs",
+      "class": "Wizard",
+      "level": "3rd Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a brass cog)",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "You conjure a group of intangible, orderly spirits that appear as a Medium group of modrons or other Constructs in an unoccupied space you can see within range. The spirits last for the duration. When you cast this spell and as a Magic action on subsequent turns, you can command the spirits to target one creature or object you can see within 5 feet of the spirits and create one of the following effects:\n\n- Clockwork Force. The target makes a Dexterity saving throw, taking 3d6 Force damage on a failed save or half as much damage on a successful one.\n\n- Orderly Ward. The target gains Temporary Hit Points equal to 1d6 plus your spellcasting ability modifier.\n\nWhen you move on your turn, you can also move the spirits up to 30 feet to an unoccupied space you can see.",
+      "higherLevels": "The damage and Temporary Hit Points both increase by 1d6 for each spell slot level above 3.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Conjure Elemental",
       "class": "Druid",
       "level": "5th Level",
@@ -4864,6 +5394,26 @@
       ]
     },
     {
+      "name": "Contagion",
+      "class": "Cleric",
+      "level": "5th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S",
+      "duration": "7 days",
+      "description": "Your touch inflicts a magical contagion. The target must succeed on a Constitution saving throw or take 11d8 Necrotic damage and have the Poisoned condition. Also, choose one ability when you cast the spell. While Poisoned, the target has Disadvantage on saving throws made with the chosen ability.\n\nThe target must repeat the saving throw at the end of each of its turns until it gets three successes or failures. If the target succeeds on three of these saves, the spell ends on the target. If the target fails three of the saves, the spell lasts for 7 days on it.\n\nWhenever the Poisoned target receives an effect that would end the Poisoned condition, the target must succeed on a Constitution saving throw, or the Poisoned condition doesn't end on it.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Druid"
+      ]
+    },
+    {
       "name": "Contingency",
       "class": "Wizard",
       "level": "6th Level",
@@ -4963,6 +5513,27 @@
       "classes": [
         "Cleric",
         "Druid",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Control Winds",
+      "class": "Druid",
+      "level": "5th Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "300 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You take control of the air in a 100-foot cube that you can see within range. Choose one of the following effects when you cast the spell. The effect lasts for the spell's duration, unless you use your action on a later turn to switch to a different effect. You can also use your action to temporarily halt the effect or to restart one you've halted.\n\nGusts. A wind picks up within the cube, continually blowing in a horizontal direction you designate. You choose the intensity of the wind: calm, moderate, or strong. If the wind is moderate or strong, ranged weapon attacks that pass through it or that are made against targets within the cube have disadvantage on their attack rolls. If the wind is strong, any creature moving against the wind must spend 1 extra foot of movement for each foot moved.\n\nDowndraft. You cause a sustained blast of strong wind to blow downward from the top of the cube. Ranged weapon attacks that pass through the cube or that are made against targets within it have disadvantage on their attack rolls. A creature must make a Strength saving throw if it flies into the cube for the first time on a turn or starts its turn there flying. On a failed save, the creature is knocked prone.\n\nUpdraft. You cause a sustained updraft within the cube, rising upward from the cube's bottom side. Creatures that end a fall within the cube take only half damage from the fall. When a creature in the cube makes a vertical jump, the creature can jump up to 10 feet higher than normal.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Sorcerer",
         "Wizard"
       ]
     },
@@ -5084,6 +5655,25 @@
       "description": "While speaking an intricate incantation, you cut yourself with a jewel-encrusted dagger, taking 2d4 piercing damage that can't be reduced in any way. You then drip your blood on the spell's other components and touch them, transforming them into a special construct called a homunculus.\n\nIt is your faithful companion, and it dies if you die. Whenever you finish a long rest, you can spend up to half your Hit Dice if the homunculus is on the same plane of existence as you. When you do so, roll each die and add your Constitution modifier to it. Your hit point maximum is reduced by the total, and the homunculus's hit point maximum and current hit points are both increased by it.\n\nYou can have only one homunculus at a time. If you cast this spell while your homunculus lives, the spell fails.",
       "higherLevels": "",
       "ashenRealms": "Ash from the Bastion of Fireblood and clay mixed with Sanctified Blood enhance the bond.",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Create Magen",
+      "class": "Wizard",
+      "level": "7th Level",
+      "school": "Transmutation",
+      "castingTime": "1 hour",
+      "range": "Touch",
+      "components": "V, S, M (a vial of quicksilver worth 500 gp and a life-sized human doll, both of which the spell consumes, and an intricate crystal rod worth at least 1,500 gp that is not consumed)",
+      "duration": "Instantaneous",
+      "description": "While casting the spell, you place a vial of quicksilver in the chest of a life-sized human doll stuffed with ash or dust. You then stitch up the doll and drip your blood on it. At the end of the casting, you tap the doll with a crystal rod, transforming it into a magen clothed in whatever the doll was wearing. The type of magen is chosen by you during the casting of the spell. See appendix C for different kinds of magen and their statistics.\n\nWhen the magen appears, your hit point maximum decreases by an amount equal to the magen's challenge rating (minimum reduction of 1). Only a wish spell can undo this reduction to your hit point maximum.\n\nAny magen you create with this spell obeys your commands without question.",
+      "higherLevels": "",
+      "ashenRealms": "",
       "ritual": false,
       "concentration": false,
       "source": "standard",
@@ -5284,6 +5874,45 @@
       ]
     },
     {
+      "name": "Danse Macabre",
+      "class": "Warlock",
+      "level": "5th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "description": "Threads of dark power leap from your fingers to pierce up to five Small or Medium corpses you can see within range. Each corpse immediately stands up and becomes undead. You decide whether it is a zombie or a skeleton (the statistics for zombies and skeletons are in the Monster Manual), and it gains a bonus to its attack and damage rolls equal to your spellcasting ability modifier.\n\nYou can use a bonus action to mentally command the creatures you make with this spell, issuing the same command to all of them. To receive the command, a creature must be within 60 feet of you. You decide what action the creatures will take and where they will move during their next turn, or you can issue a general command, such as to guard a chamber or passageway against your foes. If you issue no commands, the creatures do nothing except defend themselves against hostile creatures. Once given an order, the creatures continue to follow it until their task is complete.\n\nThe creatures are under your control until the spell ends, after which they become inanimate once more.",
+      "higherLevels": "When you cast this spell using a spell slot of 6th level or higher, you animate up to two additional corpses for each slot level above 5th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Dark Star",
+      "class": "Wizard",
+      "level": "8th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "150 feet",
+      "components": "V, S, M (a shard of onyx and a drop of the caster's blood, both of which the spell consumes)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "This spell creates a sphere centered on a point you choose within range. The sphere can have a radius of up to 40 feet. The area within this sphere is filled with magical darkness and crushing gravitational force.\n\nFor the duration, the spell's area is difficult terrain. A creature with darkvision can't see through the magical darkness, and nonmagical light can't illuminate it. No sound can be created within or pass through the area. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there.\n\nAny creature that enters the spell's area for the first time on a turn or starts its turn there must make a Constitution saving throw. The creature takes 8d10 force damage on a failed save, or half as much damage on a successful one. A creature reduced to 0 hit points by this damage is disintegrated. A disintegrated creature and everything it is wearing and carrying, except magic items, are reduced to a pile of fine gray dust.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Darkness",
       "class": "Sorcerer",
       "level": "2nd Level",
@@ -5328,6 +5957,26 @@
       ]
     },
     {
+      "name": "Dawn",
+      "class": "Cleric",
+      "level": "5th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a sunburst pendant worth at least 100 gp)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "The light of dawn shines down on a location you specify within range. Until the spell ends, a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.\n\nWhen the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw whenever it ends its turn in the cylinder.\n\nIf you're within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action on your turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Daylight",
       "class": "Cleric",
       "level": "3rd Level",
@@ -5348,6 +5997,26 @@
         "Paladin",
         "Ranger",
         "Sorcerer"
+      ]
+    },
+    {
+      "name": "Death Armor",
+      "class": "Sorcerer",
+      "level": "2nd Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S, M (an onyx worth 50+ GP, which the spell consumes)",
+      "duration": "1 hour",
+      "description": "For the duration, an inky aura surrounds one creature you touch. The target has Advantage on Death Saving Throws, and once per turn, when a creature within 5 feet of the target hits it with a melee attack roll, the attacker takes 2d4 Necrotic damage.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Wizard"
       ]
     },
     {
@@ -5478,6 +6147,45 @@
       ]
     },
     {
+      "name": "Deryan's Helpful Homunculi",
+      "class": "Cleric",
+      "level": "2nd Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S, M (powdered gemstones worth 100+ GP, which the spell consumes, and one set of Artisan's Tools with which you have proficiency)",
+      "duration": "8 hours",
+      "description": "You summon a group of helpful spirits, which lasts for the duration. The spirits appear as homunculi or as another Construct of your choice but are intangible and invulnerable, and they are considered to have proficiency in the Arcana skill and with the set of Artisan's Tools used in the spell's casting.\n\nIf you are crafting an item, the spirits function as a single assistant for your crafting, halving the crafting time.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": true,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Destructive Wave",
+      "class": "Paladin",
+      "level": "5th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (30-foot emanation)",
+      "components": "V",
+      "duration": "Instantaneous",
+      "description": "Destructive energy ripples outward from you in a 30-foot Emanation. Each creature you choose in the Emanation makes a Constitution saving throw. On a failed save, a target takes 5d6 Thunder damage and 5d6 Radiant or Necrotic damage (your choice) and has the Prone condition. On a successful save, a target takes half as much damage only.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Paladin"
+      ]
+    },
+    {
       "name": "Detect Evil and Good",
       "class": "Cleric",
       "level": "1st Level",
@@ -5567,6 +6275,27 @@
       ]
     },
     {
+      "name": "Detonate",
+      "class": "Sorcerer",
+      "level": "9th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "500 feet",
+      "components": "V, S, M (a piece of tinder)",
+      "duration": "Instantaneous",
+      "description": "You create a magical, explosive seed inside a creature you can see within range. The target makes a Constitution saving throw, taking 10d10 Fire damage on a failed save or half as much damage on a successful one.\n\nAn explosion then originates from the target. Each creature in a 60-foot Emanation originating from the target (not including the target) makes a Dexterity saving throw, with Disadvantage if this spell reduced the target to 0 Hit Points. A creature takes 10d10 Fire damage on a failed save or half as much damage on a successful one.\n\nA nonmagical object that isn't being worn or carried also takes the damage if it's in the Emanation, and the object starts burning if it's flammable.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Devour Meaning",
       "class": "Bard",
       "level": "3rd Level",
@@ -5608,6 +6337,26 @@
         "Sorcerer",
         "Warlock",
         "Wizard"
+      ]
+    },
+    {
+      "name": "Dirge",
+      "class": "Bard",
+      "level": "6th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "Self (60-foot emanation)",
+      "components": "V",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Deathly power fills a 60-foot Emanation originating from you for the duration.\n\nWhen you cast this spell, you can designate creatures to be unaffected by it. Any other creature can't regain Hit Points while in the Emanation. Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature makes a Constitution saving throw. On a failed save, the creature takes 3d10 Necrotic damage and has the Prone condition. On a successful save, the creature takes half as much damage and its Speed is halved. A creature makes this save only once per turn.\n\nCasting as a Circle Spell. Casting this as a Circle spell requires a minimum of two secondary casters. If the spell is cast as a Circle spell, its duration becomes Concentration, up to 10 minutes.\n\nA creature that fails its save against the spell's effect also gains 1 Exhaustion level. While the creature has Exhaustion levels, finishing a Long Rest neither restores lost Hit Points nor reduces the creature's Exhaustion level.\n\nWhen the spell is cast, each secondary caster must expend a level 4+ spell slot; otherwise, the spell fails.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Cleric"
       ]
     },
     {
@@ -5699,6 +6448,27 @@
       ]
     },
     {
+      "name": "Disruptive Tune",
+      "class": "Bard",
+      "level": "2nd Level",
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A distracting melody momentarily fills a 20-foot-radius Sphere centered on a point you choose within range. Each creature in the Sphere makes a Constitution saving throw. On a failed save, a target loses Concentration, and it has Disadvantage on Constitution saving throws to maintain Concentration for the spell's duration.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Dissonant Frequency",
       "class": "Cleric",
       "level": "2nd Level",
@@ -5736,6 +6506,50 @@
       "source": "standard",
       "classes": [
         "Bard"
+      ]
+    },
+    {
+      "name": "Distort Value",
+      "class": "Bard",
+      "level": "1st Level",
+      "school": "Illusion",
+      "castingTime": "1 minute",
+      "range": "Touch",
+      "components": "V",
+      "duration": "8 hours",
+      "description": "Do you need to squeeze a few more gold pieces out of a merchant as you try to sell that weird octopus statue you liberated from the chaos temple? Do you need to downplay the worth of some magical assets when the tax collector stops by? Distort value has you covered.\n\nYou cast this spell on an object no more than 1 foot on a side, doubling the object's perceived value by adding illusory flourishes or polish to it, or reducing its perceived value by half with the help of illusory scratches, dents, and other unsightly features. Anyone examining the object can ascertain its true value with a successful Intelligence (Investigation) check against your spell save DC.",
+      "higherLevels": "When you cast this spell using a spell slot of 2nd level or higher, the maximum size of the object increases by 1 foot for each slot level above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Distorted Distance",
+      "class": "Artificer",
+      "level": "4th Level",
+      "school": "Illusion",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "You create an illusory spatial dilation that fills a 60-foot-radius Sphere centered on a point within range. For each creature you can see in the Sphere, you can choose one of the following effects for it:\n\n- Dizzying Elongation. The creature makes an Intelligence saving throw. On a failed save, the creature takes 2d10 Psychic damage, and the Sphere is Difficult Terrain for it until the end of its turn.\n\n- Shortened Space. The creature's Speed increases by 20 feet until the end of its next turn. Until the spell ends, whenever a creature enters the Sphere or ends its turn there, you can choose for it to receive one of these effects. A creature can be affected by this spell only once per turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Bard",
+        "Warlock",
+        "Wizard"
       ]
     },
     {
@@ -5921,6 +6735,48 @@
         "Artificer",
         "Cleric",
         "Paladin",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Doomtide",
+      "class": "Bard",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (soot and a dried eel)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You create a 20-foot-radius Sphere of inky fog within range. The fog is magical Darkness and lasts for the duration or until a strong wind (such as the one created by the Gust of Wind spell) disperses it, ending the spell.\n\nEach creature in the Sphere when it appears makes a Wisdom saving throw. On a failed save, a creature takes 5d6 Psychic damage and subtracts 1d6 from its saving throws until the end of its next turn. On a successful save, a creature takes half as much damage only. A creature also makes this save when the Sphere moves into its space, when it enters the Sphere, or when it ends its turn inside the Sphere. A creature makes this save only once per turn.\n\nThe Sphere moves 10 feet away from you at the start of each of your turns.\n\nCasting as a Circle Spell. Casting this as a Circle spell requires a minimum of five secondary casters. In addition to the spell's usual components, you must provide a special component (a string of three black pearls from Pandemonium), which the spell consumes. The spell's range increases to 1 mile, and its duration increases to until dispelled (no Concentration required). The spell ends early if any caster who participated in this casting contributes to another casting of Doomtide as a Circle spell.\n\nWhen the spell is cast, each secondary caster must expend a level 3+ spell slot; otherwise, the spell fails.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Cleric",
+        "Warlock"
+      ]
+    },
+    {
+      "name": "Draconic Transformation",
+      "class": "Druid",
+      "level": "7th Level",
+      "school": "Transmutation",
+      "castingTime": "1 bonus action",
+      "range": "Self",
+      "components": "V, S, M (a statuette of a dragon, worth at least 500 gp)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "With a roar, you draw on the magic of dragons to transform yourself, taking on draconic features. You gain the following benefits until the spell ends:\n\n- Blindsight. You have blindsight with a range of 30 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature, unless the creature successfully hides from you.\n\n- Breath Weapon. When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area must make a Dexterity saving throw, taking 6d8 force damage on a failed save, or half as much damage on a successful one.\n\n- Wings. Incorporeal wings sprout from your back, giving you a flying speed of 60 feet.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Sorcerer",
         "Wizard"
       ]
     },
@@ -6176,6 +7032,33 @@
       ]
     },
     {
+      "name": "Dueling Ground",
+      "class": "Artificer",
+      "level": "2nd Level",
+      "school": "Abjuration",
+      "castingTime": "10 minutes",
+      "range": "Touch",
+      "components": "V, S, M (a silk flag worth 100+ GP)",
+      "duration": "1 hour",
+      "description": "You create a magical dueling ground bounded by a glowing, rune-scribed circle in a 15-foot-radius Sphere centered on a point on the ground you touch.\n\nAs part of creating the dueling ground, you designate two willing creatures within the Sphere as the targets. The spell ends early if a creature other than one of the targets enters the Sphere.\n\nIf a target drops to 0 Hit Points while in the dueling ground, the target is Stable and teleports to the nearest unoccupied space outside the dueling ground. If a target is subjected to an effect that would kill it instantly without dealing damage while in the dueling ground, the target doesn't die and instead has 0 Hit Points and the Unconscious condition, is Stable, and teleports to the nearest unoccupied space outside the dueling ground.\n\nWhen only one target remains in the dueling ground, runes matching those on the ground around the Sphere briefly flash around the remaining target's head like a crown.",
+      "higherLevels": "You can target one additional willing creature for each spell slot level above 2.",
+      "ashenRealms": "",
+      "ritual": true,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Bard",
+        "Cleric",
+        "Druid",
+        "Paladin",
+        "Ranger",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Dust Devil",
       "class": "Druid",
       "level": "2nd Level",
@@ -6388,6 +7271,68 @@
       ]
     },
     {
+      "name": "Elementalism",
+      "class": "Artificer",
+      "level": "Cantrips",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You exert control over the elements, creating one of the following effects within range.\n\nBeckon Air. You create a breeze strong enough to ripple cloth, stir dust, rustle leaves, and close open doors and shutters, all in a 5-foot Cube. Doors and shutters being held open by someone or something aren't affected.\n\nBeckon Earth. You create a thin shroud of dust or sand that covers surfaces in a 5-foot-square area, or you cause a single word to appear in your handwriting in a patch of dirt or sand.\n\nBeckon Fire. You create a thin cloud of harmless embers and colored, scented smoke in a 5-foot Cube. You choose the color and scent, and the embers can light candles, torches, or lamps in that area. The smoke's scent lingers for 1 minute.\n\nBeckon Water. You create a spray of cool mist that lightly dampens creatures and objects in a 5-foot Cube. Alternatively, you create 1 cup of clean water either in an open container or on a surface, and the water evaporates in 1 minute.\n\nSculpt Element. You cause dirt, sand, fire, smoke, mist, or water that can fit in a 1-foot Cube to assume a crude shape (such as that of a creature) for 1 hour.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Druid",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Elminster's Effulgent Spheres",
+      "class": "Druid",
+      "level": "6th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S, M (an opal worth 1,000 GP+)",
+      "duration": "1 hour",
+      "description": "Six chromatic spheres orbit you for the duration.\n\nWhile the spheres are present, you can expend spheres to create the following effects:\n\n- Absorb Energy. When you take Acid, Cold, Fire, Lightning, or Thunder damage, you can take a Reaction to expend one sphere and give yourself Resistance to the triggering damage type until the start of your next turn.\n\n- Energy Blast. As a Bonus Action, you send one sphere hurtling toward a target within 120 feet of yourself. Make a ranged spell attack. On a hit, the target takes 3d6 Acid, Cold, Fire, Lightning, or Thunder damage (your choice). Regardless of whether you hit, the sphere is expended.\n\nThe spell ends early if you have no more spheres remaining.",
+      "higherLevels": "The number of spheres increases by 1 for every spell slot level above 6.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Elminster's Elusion",
+      "class": "Wizard",
+      "level": "2nd Level",
+      "school": "Abjuration",
+      "castingTime": "1 bonus action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "Arcane wards protect you against magic for the duration. You have Advantage on saving throws against spells and magical effects. Additionally, if you succeed on a saving throw against a spell or magical effect and would normally take half as much damage, you instead take no damage.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Enemies Abound",
       "class": "Bard",
       "level": "3rd Level",
@@ -6404,6 +7349,27 @@
       "source": "standard",
       "classes": [
         "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Enervation",
+      "class": "Sorcerer",
+      "level": "5th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A tendril of inky darkness reaches out from you to drain life from a creature you can see within range.\n\nThe target makes a Dexterity saving throw. On a failed save, the target takes 6d8 Necrotic damage. On each of your subsequent turns, you can take a Bonus Action to deal 2d8 Necrotic damage to the target automatically. The spell ends if the target is ever outside the spell's range or it has Total Cover from you.\n\nOn a successful save, the target takes half the initial damage only, and the spell ends.\n\nWhenever this spell deals damage to a target, you regain Hit Points equal to half the amount of Necrotic damage dealt.",
+      "higherLevels": "The initial damage increases by 1d8 for each spell slot level above 5.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
         "Sorcerer",
         "Warlock",
         "Wizard"
@@ -6509,6 +7475,28 @@
       "classes": [
         "Bard",
         "Warlock"
+      ]
+    },
+    {
+      "name": "Entrancing Mirrors",
+      "class": "Bard",
+      "level": "8th Level",
+      "school": "Illusion",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (a mirror shard)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You create dozens of illusory mirrors to confuse up to three creatures of your choice that you can see within range.\n\nEach target makes an Intelligence saving throw. On a failed save, a target takes 7d6 Psychic damage and has the Stunned condition. While the target is Stunned, its Speed is halved. On a successful save, a target takes half as much damage only.\n\nA Stunned target repeats the Intelligence saving throw at the end of each of its turns, ending the spell on itself on a success.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
       ]
     },
     {
@@ -6768,6 +7756,27 @@
       ]
     },
     {
+      "name": "Fast Friends",
+      "class": "Bard",
+      "level": "3rd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V",
+      "duration": "Concentration, up to 1 hour",
+      "description": "When you need to make sure something gets done, you can't rely on vague promises, sworn oaths, or binding contracts of employment. When you cast this spell, choose one humanoid within range that can see and hear you, and that can understand you. The creature must succeed on a Wisdom saving throw or become charmed by you for the duration. While the creature is charmed in this way, it undertakes to perform any services or activities you ask of it in a friendly manner, to the best of its ability.\n\nYou can set the creature new tasks when a previous task is completed, or if you decide to end its current task. If the service or activity might cause harm to the creature, or if it conflicts with the creature's normal activities and desires, the creature can make another Wisdom saving throw to try to end the effect. This save is made with advantage if you or your companions are fighting the creature. If the activity would result in certain death for the creature, the spell ends.\n\nWhen the spell ends, the creature knows it was charmed by you.",
+      "higherLevels": "When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Cleric",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Fear",
       "class": "Bard",
       "level": "3rd Level",
@@ -6852,6 +7861,28 @@
         "Bard",
         "Cleric",
         "Druid",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Festering Blast",
+      "class": "Druid",
+      "level": "4th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "Self (60-foot line)",
+      "components": "V, S",
+      "duration": "1 minute",
+      "description": "A 60-foot-long, 10-foot-wide Line of miasma blasts from you in a direction you choose. Each creature in the Line must make a Constitution saving throw. On a failed save, a target takes 4d10 Necrotic damage and has the Poisoned condition for the duration.\n\nA creature Poisoned by this spell takes 2d10 Poison damage at the start of each of its turns. At the end of each of its turns, a Poisoned target repeats the save, ending the spell on itself on a success.",
+      "higherLevels": "The initial damage increases by 1d10 for each spell slot level above 4.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Sorcerer",
+        "Warlock",
         "Wizard"
       ]
     },
@@ -7074,6 +8105,26 @@
       "ashenRealms": "",
       "ritual": false,
       "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Fizban's Platinum Shield",
+      "class": "Sorcerer",
+      "level": "6th Level",
+      "school": "Abjuration",
+      "castingTime": "1 bonus action",
+      "range": "60 feet",
+      "components": "V, S, M (a platinum-plated dragon scale, worth at least 500 gp)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:\n\n- Cover. The creature has half cover.\n\n- Damage Resistance. The creature has resistance to acid, cold, fire, lightning, and poison damage.\n\n- Evasion. If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.\n\nAs a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
       "source": "standard",
       "classes": [
         "Sorcerer",
@@ -7600,6 +8651,26 @@
       ]
     },
     {
+      "name": "Flock of Familiars",
+      "class": "Warlock",
+      "level": "2nd Level",
+      "school": "Conjuration",
+      "castingTime": "1 minute",
+      "range": "Touch",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You temporarily summon three familiars—spirits that take animal forms of your choice. Each familiar uses the same rules and options for a familiar conjured by the find familiar spell. All the familiars conjured by this spell must be the same type of creature (celestials, fey, or fiends; your choice). If you already have a familiar conjured by the find familiar spell or similar means, then one fewer familiars are conjured by this spell.\n\nFamiliars summoned by this spell can telepathically communicate with you and share their visual or auditory senses while they are within 1 mile of you.\n\nWhen you cast a spell with a range of touch, one of the familiars conjured by this spell can deliver the spell, as normal. However, you can cast a touch spell through only one familiar per turn.",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, you conjure an additional familiar for each slot level above 2nd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Fly",
       "class": "Artificer",
       "level": "3rd Level",
@@ -7750,6 +8821,67 @@
       ]
     },
     {
+      "name": "Fortune's Favor",
+      "class": "Wizard",
+      "level": "2nd Level",
+      "school": "Divination",
+      "castingTime": "1 minute",
+      "range": "60 feet",
+      "components": "V, S, M (a white pearl worth at least 100 gp, which the spell consumes)",
+      "duration": "1 hour",
+      "description": "You impart latent luck to yourself or one willing creature you can see within range. When the chosen creature makes an attack roll, an ability check, or a saving throw before the spell ends, it can dismiss this spell on itself to roll an additional d20 and choose which of the d20s to use. Alternatively, when an attack roll is made against the chosen creature, it can dismiss this spell on itself to roll a d20 and choose which of the d20s to use, the one it rolled or the one the attacker rolled.\n\nIf the original d20 roll has advantage or disadvantage, the creature rolls the additional d20 after advantage or disadvantage has been applied to the original roll.",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Fount of Moonlight",
+      "class": "Bard",
+      "level": "4th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "A cool light wreathes your body for the duration, emitting Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.\n\nUntil the spell ends, you have Resistance to Radiant damage, and your melee attacks deal an extra 2d6 Radiant damage on a hit.\n\nIn addition, immediately after you take damage from a creature you can see within 60 feet of yourself, you can take a Reaction to force the creature to make a Constitution saving throw. On a failed save, the creature has the Blinded condition until the end of your next turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Druid"
+      ]
+    },
+    {
+      "name": "Fractured Awareness",
+      "class": "Bard",
+      "level": "7th Level",
+      "school": "Divination",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You cause a creature to receive conflicting visions of multiple possible futures. Choose a creature you can see within range. The target makes an Intelligence saving throw. On a failed save, the target takes 12d10 Psychic damage and has Disadvantage on D20 Tests for the duration. On a successful save, the target takes half as much damage only, and the spell ends.\n\nAt the end of each of its turns, an affected target repeats the save, ending the spell on a success.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Freedom of Movement",
       "class": "Artificer",
       "level": "4th Level",
@@ -7859,6 +8991,25 @@
       ]
     },
     {
+      "name": "Frost Fingers",
+      "class": "Wizard",
+      "level": "1st Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (15-foot cone)",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "Freezing cold blasts from your fingertips in a 15-foot cone. Each creature in that area must make a Constitution saving throw, taking 2d8 cold damage on a failed save, or half as much damage on a successful one.\n\nThe cold freezes nonmagical liquids in the area that aren't being worn or carried.",
+      "higherLevels": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Frostbite",
       "class": "Artificer",
       "level": "Cantrips",
@@ -7900,6 +9051,45 @@
         "Artificer",
         "Druid",
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Galder's Speedy Courier",
+      "class": "Warlock",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "10 feet",
+      "components": "V, S, M (25 gold pieces, or mineral goods of equivalent value, which the spell consumes)",
+      "duration": "10 minutes",
+      "description": "You summon a Small air elemental to a spot within range. The air elemental is formless, nearly transparent, immune to all damage, and cannot interact with other creatures or objects. It carries an open, empty chest whose interior dimensions are 3 feet on each side. While the spell lasts, you can deposit as many items inside the chest as will fit. You can then name a living creature you have met and seen at least once before, or any creature for which you possess a body part, lock of hair, clipping from a nail, or similar portion of the creature's body.\n\nAs soon as the lid of the chest is closed, the elemental and the chest disappear, then reappear adjacent to the target creature. If the target creature is on another plane, or if it is proofed against magical detection or location, the contents of the chest reappear on the ground at your feet.\n\nThe target creature is made aware of the chest's contents before it chooses whether or not to open it, and knows how much of the spell's duration remains in which it can retrieve them. No other creature can open the chest and retrieve its contents. When the spell expires or when all the contents of the chest have been removed, the elemental and the chest disappear. The elemental also disappears if the target creature orders it to return the items to you. When the elemental disappears, any items not taken from the chest reappear on the ground at your feet.",
+      "higherLevels": "When you cast this spell using an 8th-level spell slot, you can send the chest to a creature on a different plane of existence from you.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Galder's Tower",
+      "class": "Wizard",
+      "level": "3rd Level",
+      "school": "Conjuration",
+      "castingTime": "10 minutes",
+      "range": "30 feet",
+      "components": "V, S, M (a fragment of stone, wood, or other building material)",
+      "duration": "24 hours",
+      "description": "You conjure a two-story tower made of stone, wood, or similar suitably sturdy materials. The tower can be round or square in shape. Each level of the tower is 10 feet tall and has an area of up to 100 square feet. Access between levels consists of a simple ladder and hatch. Each level takes one of the following forms, chosen by you when you cast the spell:\n\n- A bedroom with a bed, chairs, chest, and magical fireplace\n\n- A study with desks, books, bookshelves, parchments, ink, and ink pens\n\n- A dining space with a table, chairs, magical fireplace, containers, and cooking utensils\n\n- A lounge with couches, armchairs, side tables and footstools\n\n- A washroom with toilets, washtubs, a magical brazier, and sauna benches\n\n- An observatory with a telescope and maps of the night sky\n\n- An unfurnished, empty room\n\nThe interior of the tower is warm and dry, regardless of conditions outside. Any equipment or furnishings conjured with the tower dissipate into smoke if removed from it. At the end of the spell's duration, all creatures and objects within the tower that were not created by the spell appear safely outside on the ground, and all traces of the tower and its furnishings disappear.\n\nYou can cast this spell again while it is active to maintain the tower's existence for another 24 hours. You can create a permanent tower by casting this spell in the same location and with the same configuration every day for one year.",
+      "higherLevels": "When you cast this spell using a spell slot of 4th level or higher, the tower can have one additional story for each slot level beyond 3rd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
         "Wizard"
       ]
     },
@@ -7946,6 +9136,29 @@
       ]
     },
     {
+      "name": "Geas",
+      "class": "Bard",
+      "level": "5th Level",
+      "school": "Enchantment",
+      "castingTime": "1 minute",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "30 days",
+      "description": "You give a verbal command to a creature that you can see within range, ordering it to carry out some service or refrain from an action or a course of activity as you decide. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target automatically succeeds if it can't understand your command.\n\nWhile Charmed, the creature takes 5d10 Psychic damage if it acts in a manner directly counter to your command. It takes this damage no more than once each day.\n\nYou can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends.\n\nA Remove Curse, Greater Restoration, or Wish spell ends this spell.",
+      "higherLevels": "If you use a level 7 or 8 spell slot, the duration is 365 days. If you use a level 9 spell slot, the spell lasts until it is ended by one of the spells mentioned above.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Cleric",
+        "Druid",
+        "Paladin",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Gentle Repose",
       "class": "Cleric",
       "level": "2nd Level",
@@ -7982,6 +9195,45 @@
       "source": "standard",
       "classes": [
         "Druid"
+      ]
+    },
+    {
+      "name": "Gift of Alacrity",
+      "class": "Wizard",
+      "level": "1st Level",
+      "school": "Divination",
+      "castingTime": "1 minute",
+      "range": "Touch",
+      "components": "V, S",
+      "duration": "8 hours",
+      "description": "You touch a willing creature. For the duration, the target can add 1d8 to its initiative rolls.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Gift of Gab",
+      "class": "Bard",
+      "level": "2nd Level",
+      "school": "Enchantment",
+      "castingTime": "1 reaction, which you take when you speak to another creature",
+      "range": "Self",
+      "components": "V, S, R",
+      "duration": "Instantaneous",
+      "description": "When I met Jim Darkmagic, I wondered how he got anything done in that outfit. I have since learned that most of his talents involve standing and talking. His outfit is perfect for that.\n\nJim Darkmagic is said to have invented this spell, originally calling it I said what?! Have you ever been talking to the local monarch and accidentally mentioned how their son looks like your favorite hog from when you were growing up on the family farm? We've all been there! But rather than being beheaded for an honest slip of the tongue, you can pretend it never happened—by ensuring that no one knows it happened.\n\nWhen you cast this spell, you skillfully reshape the memories of listeners in your immediate area, so that each creature of your choice within 5 feet of you forgets everything you said within the last 6 seconds. Those creatures then remember that you actually said the words you speak as the verbal component of the spell.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Wizard"
       ]
     },
     {
@@ -8087,6 +9339,27 @@
       ]
     },
     {
+      "name": "Grave Ground",
+      "class": "Cleric",
+      "level": "5th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a handful of grave dirt)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Skeletal hands burst from an area on the ground within range. The area consists of up to four 10-foot squares, which you arrange as you like. Each square must be contiguous with at least one other square. That area is Difficult Terrain for your enemies.\n\nAny enemy in that area when the skeletal hands appear makes a Strength saving throw. On a failed save, a creature takes 6d6 Necrotic damage, and until the end of its next turn, the creature subtracts 1d6 from all its damage rolls. An enemy also makes this save if it enters the area or ends its turn there. A creature makes this save only once per turn.",
+      "higherLevels": "The damage increases by 1d6 for each spell slot level above 5.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Gravity Anchor",
       "class": "Artificer",
       "level": "2nd Level",
@@ -8105,6 +9378,44 @@
         "Artificer",
         "Druid",
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Gravity Fissure",
+      "class": "Wizard",
+      "level": "6th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (100-foot line)",
+      "components": "V, S, M (a fistful of iron filings)",
+      "duration": "Instantaneous",
+      "description": "You manifest a ravine of gravitational energy in a line originating from you that is 100 feet long and 5 feet wide. Each creature in that line must make a Constitution saving throw, taking 8d8 force damage on a failed save, or half as much damage on a successful one.\n\nEach creature within 10 feet of the line but not in it must succeed on a Constitution saving throw or take 8d8 force damage and be pulled toward the line until the creature is in its area.",
+      "higherLevels": "When you cast this spell using a spell slot of 7th level or higher, the damage increases by 1d8 for each slot level above 6th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Gravity Sinkhole",
+      "class": "Wizard",
+      "level": "4th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a black marble)",
+      "duration": "Instantaneous",
+      "description": "A 20-foot-radius sphere of crushing force forms at a point you can see within range and tugs at the creatures there. Each creature in the sphere must make a Constitution saving throw. On a failed save, the creature takes 5d10 force damage and is pulled in a straight line toward the center of the sphere, ending in an unoccupied space as close to the center as possible (even if that space is in the air). On a successful save, the creature takes half as much damage and isn't pulled.",
+      "higherLevels": "When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d10 for each slot level above 4th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
         "Wizard"
       ]
     },
@@ -8396,6 +9707,25 @@
       ]
     },
     {
+      "name": "Hallow",
+      "class": "Cleric",
+      "level": "5th Level",
+      "school": "Abjuration",
+      "castingTime": "24 hours",
+      "range": "Touch",
+      "components": "V, S, M (incense worth 1,000+ GP, which the spell consumes)",
+      "duration": "Until dispelled",
+      "description": "You touch a point and infuse an area around it with holy or unholy power. The area can have a radius up to 60 feet, and the spell fails if the radius includes an area already under the effect of Hallow. The affected area has the following effects.\n\nHallowed Ward. Choose any of these creature types: Aberration, Celestial, Elemental, Fey, Fiend, or Undead. Creatures of the chosen types can't willingly enter the area, and any creature that is possessed by or that has the Charmed or Frightened condition from such creatures isn't possessed, Charmed, or Frightened by them while in the area.\n\nExtra Effect. You bind an extra effect to the area from the list below:\n\n- Courage. Creatures of any types you choose can't gain the Frightened condition while in the area.\n\n- Darkness. Darkness fills the area. Normal light, as well as magical light created by spells of a level lower than this spell, can't illuminate the area.\n\n- Daylight. Bright light fills the area. Magical Darkness created by spells of a level lower than this spell can't extinguish the light.\n\n- Peaceful Rest. Dead bodies interred in the area can't be turned into Undead.\n\n- Extradimensional Interference. Creatures of any types you choose can't enter or exit the area using teleportation or interplanar travel.\n\n- Fear. Creatures of any types you choose have the Frightened condition while in the area.\n\n- Resistance. Creatures of any types you choose have Resistance to one damage type of your choice while in the area.\n\n- Silence. No sound can emanate from within the area, and no sound can reach into it.\n\n- Tongues. Creatures of any types you choose can communicate with any other creature in the area even if they don't share a common language.\n\n- Vulnerability. Creatures of any types you choose have Vulnerability to one damage type of your choice while in the area.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Cleric"
+      ]
+    },
+    {
       "name": "Hallucinatory Terrain",
       "class": "Bard",
       "level": "4th Level",
@@ -8543,6 +9873,26 @@
       ]
     },
     {
+      "name": "Healing Spirit",
+      "class": "Druid",
+      "level": "2nd Level",
+      "school": "Conjuration",
+      "castingTime": "1 bonus action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You call forth a nature spirit to soothe the wounded. The intangible spirit appears in a space that is a 5-foot cube you can see within range. The spirit looks like a transparent beast or fey (your choice).\n\nUntil the spell ends, whenever you or a creature you can see moves into the spirit's space for the first time on a turn or starts its turn there, you can cause the spirit to restore 1d6 hit points to that creature (no action required). The spirit can't heal constructs or undead. The spirit can heal a number of times equal to 1 + your spellcasting ability modifier (minimum of twice). After healing that number of times, the spirit disappears.\n\nAs a bonus action on your turn, you can move the spirit up to 30 feet to a space you can see.",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, the healing increases by 1d6 for each slot level above 2nd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Ranger"
+      ]
+    },
+    {
       "name": "Healing Word",
       "class": "Bard",
       "level": "1st Level",
@@ -8685,6 +10035,25 @@
       ]
     },
     {
+      "name": "Hindsight",
+      "class": "Wizard",
+      "level": "9th Level",
+      "school": "Divination",
+      "castingTime": "10 minutes",
+      "range": "500 feet",
+      "components": "V, S, M (a tiny hourglass worth 500+ GP, which the spell consumes)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You peer backward through the fabric of time. You see visions of events that occurred within range throughout the past 10 years, racing by at approximately 1 day per second. Throughout the spell's duration, you can freely slow down, pause, rewind, or fast-forward through these visions.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Hold Monster",
       "class": "Bard",
       "level": "5th Level",
@@ -8791,6 +10160,26 @@
       "source": "standard",
       "classes": [
         "Cleric"
+      ]
+    },
+    {
+      "name": "Holy Weapon",
+      "class": "Cleric",
+      "level": "5th Level",
+      "school": "Evocation",
+      "castingTime": "1 bonus action",
+      "range": "Touch",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You imbue a weapon you touch with holy power. Until the spell ends, the weapon emits bright light in a 30-foot radius and dim light for an additional 30 feet. In addition, weapon attacks made with it deal an extra 2d8 radiant damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration.\n\nAs a bonus action on your turn, you can dismiss this spell and cause the weapon to emit a burst of radiance. Each creature of your choice that you can see within 30 feet of the weapon must make a Constitution saving throw. On a failed save, a creature takes 4d8 radiant damage, and it is blinded for 1 minute. On a successful save, a creature takes half as much damage and isn't blinded. At the end of each of its turns, a blinded creature can make a Constitution saving throw, ending the effect on itself on a success.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Paladin"
       ]
     },
     {
@@ -9044,6 +10433,45 @@
       ]
     },
     {
+      "name": "Immolation",
+      "class": "Sorcerer",
+      "level": "5th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes 4d6 fire damage on a failed save, and the spell ends on a successful one. These magical flames can't be extinguished by nonmagical means.\n\nIf damage from this spell kills a target, the target is turned to ash.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Immovable Object",
+      "class": "Wizard",
+      "level": "2nd Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S, M (gold dust worth at least 25 gp, which the spell consumes)",
+      "duration": "1 hour",
+      "description": "You touch an object that weighs no more than 10 pounds and cause it to become magically fixed in place. You and the creatures you designate when you cast this spell can move the object normally. You can also set a password that, when spoken within 5 feet of the object, suppresses this spell for 1 minute.\n\nIf the object is fixed in the air, it can hold up to 4,000 pounds of weight. More weight causes the object to fall. Otherwise, a creature can use an action to make a Strength check against your spell save DC. On a success, the creature can move the object up to 10 feet.",
+      "higherLevels": "If you cast this spell using a spell slot of 4th or 5th level, the DC to move the object increases by 5, it can carry up to 8,000 pounds of weight, and the duration increases to 24 hours. If you cast this spell using a spell slot of 6th level or higher, the DC to move the object increases by 10, it can carry up to 20,000 pounds of weight, and the effect is permanent until dispelled.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Imprisonment",
       "class": "Warlock",
       "level": "9th Level",
@@ -9085,6 +10513,28 @@
       ]
     },
     {
+      "name": "Incite Greed",
+      "class": "Cleric",
+      "level": "3rd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a gem worth at least 50 gp)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "When you cast this spell, you present the gem used as the material component and choose any number of creatures within range that can see you. Each target must succeed on a Wisdom saving throw or be charmed by you until the spell ends, or until you or your companions do anything harmful to it. While charmed in this way, a creature can do nothing but use its movement to approach you in a safe manner. While an affected creature is within 5 feet of you, it cannot move, but simply stares greedily at the gem you present.\n\nAt the end of each of its turns, an affected target can make a Wisdom saving throw. If it succeeds, this effect ends for that target.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Infectious Curiosity",
       "class": "Bard",
       "level": "3rd Level",
@@ -9107,6 +10557,26 @@
       ]
     },
     {
+      "name": "Infernal Calling",
+      "class": "Warlock",
+      "level": "5th Level",
+      "school": "Conjuration",
+      "castingTime": "1 minute",
+      "range": "90 feet",
+      "components": "V, S, M (a ruby worth at least 999 gp)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "Uttering a dark incantation, you summon a devil from the Nine Hells. You choose the devil's type, which must be one of challenge rating 6 or lower, such as a barbed devil or a bearded devil. The devil appears in an unoccupied space that you can see within range. The devil disappears when it drops to 0 hit points or when the spell ends.\n\nThe devil is unfriendly toward you and your companions. Roll initiative for the devil, which has its own turns. It is under the Dungeon Master's control and acts according to its nature on each of its turns, which might result in its attacking you if it thinks it can prevail, or trying to tempt you to undertake an evil act in exchange for limited service. The DM has the creature's statistics.\n\nOn each of your turns, you can try to issue a verbal command to the devil (no action required by you). It obeys the command if the likely outcome is in accordance with its desires, especially if the result would draw you toward evil. Otherwise, you must make a Charisma (Deception, Intimidation, or Persuasion) check contested by its Wisdom (Insight) check. You make the check with advantage if you say the devil's true name. If your check fails, the devil becomes immune to your verbal commands for the duration of the spell, though it can still carry out your commands if it chooses. If your check succeeds, the devil carries out your command—such as \"attack my enemies,\" \"explore the room ahead,\" or \"bear this message to the queen\"—until it completes the activity, at which point it returns to you to report having done so.\n\nIf your concentration ends before the spell reaches its full duration, the devil doesn't disappear if it has become immune to your verbal commands. Instead, it acts in whatever manner it chooses for 3d6 minutes, and then it disappears.\n\nIf you possess an individual devil's talisman, you can summon that devil if it is of the appropriate challenge rating plus 1, and it obeys all your commands, with no Charisma checks required.",
+      "higherLevels": "When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Infestation",
       "class": "Druid",
       "level": "Cantrips",
@@ -9123,6 +10593,28 @@
       "source": "standard",
       "classes": [
         "Druid",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Inflict Doubt",
+      "class": "Bard",
+      "level": "3rd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You inflict self-doubt on a creature you can see within range. The target must succeed on a Wisdom saving throw or have Disadvantage on D20 Tests for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
         "Sorcerer",
         "Warlock",
         "Wizard"
@@ -9343,6 +10835,85 @@
       ]
     },
     {
+      "name": "Iron Body",
+      "class": "Sorcerer",
+      "level": "8th Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S, M (diamond dust worth 250+ GP, which the spell consumes)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "One willing creature you touch transforms into living metal. Until the spell ends, the target's Exhaustion level can't increase; the target has Resistance to Bludgeoning, Fire, Piercing, and Slashing damage; and it has Immunity to Poison damage and the Paralyzed, Petrified, and Poisoned conditions. If the target is Paralyzed, Petrified, or Poisoned when you cast the spell, those conditions immediately end for the target.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Jallarzi's Storm of Radiance",
+      "class": "Warlock",
+      "level": "5th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a pinch of phosphorus)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You unleash a storm of flashing light and raging thunder in a 10-foot-radius, 40-foot-high Cylinder centered on a point you can see within range. While in this area, creatures have the Blinded and Deafened conditions, and they can't cast spells with a Verbal component.\n\nWhen the storm appears, each creature in it makes a Constitution saving throw, taking 2d10 Radiant damage and 2d10 Thunder damage on a failed save or half as much damage on a successful one. A creature also makes this save when it enters the spell's area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.",
+      "higherLevels": "The Radiant and Thunder damage increase by 1d10 for each spell slot level above 5.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Jim's Glowing Coin",
+      "class": "Wizard",
+      "level": "2nd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "S, R, M (a coin)",
+      "duration": "1 minute",
+      "description": "Of the many tactics employed by master magician and renowned adventurer Jim Darkmagic, the old glowing coin trick is a time-honored classic. When you cast the spell, you hurl the coin that is the spell's material component to any spot within range. The coin lights up as if under the effect of a light spell. Each creature of your choice that you can see within 30 feet of the coin must succeed on a Wisdom saving throw or be distracted for the duration. While distracted, a creature has disadvantage on Wisdom (Perception) checks and initiative rolls.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Jim's Magic Missile",
+      "class": "Wizard",
+      "level": "1st Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, R",
+      "duration": "Instantaneous",
+      "description": "Jim's magic missile is an ancient and powerful spell, as well as being the name of my band in Wizard Academy.\n\nAny apprentice wizard can cast a boring old magic missile. Sure, it always strikes its target. Yawn. Do away with the drudgery of your grandfather's magic with this improved version of the spell, as used by Jim Darkmagic!\n\nYou create three twisting, whistling, hypoallergenic, gluten-free darts of magical force. Each dart targets a creature of your choice that you can see within range. Make a ranged spell attack for each missile. On a hit, a missile deals 2d4 force damage to its target.\n\nIf the attack roll scores a critical hit, the target of that missile takes 5d4 force damage instead of you rolling damage twice for a critical hit. If the attack roll for any missile is a 1, all missiles miss their targets and blow up in your face, dealing 1 force damage per missile to you.",
+      "higherLevels": "When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart, and the royalty component increases by 1 gp, for each slot level above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Jump",
       "class": "Artificer",
       "level": "1st Level",
@@ -9405,6 +10976,27 @@
         "Bard",
         "Cleric",
         "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Laeral's Silver Lance",
+      "class": "Cleric",
+      "level": "3rd Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (120-foot line)",
+      "components": "V, S, M (a silver pin worth 250+ GP)",
+      "duration": "Instantaneous",
+      "description": "Silver energy bursts out from you in a 120-foot-long, 5-foot-wide Line. Each creature of your choice in the Line makes a Strength saving throw. On a failed save, a creature takes 3d10 Force damage and has the Prone condition. On a successful save, a creature takes half as much damage only.",
+      "higherLevels": "The damage increases by 1d10 for every spell slot level above 3.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Sorcerer",
         "Wizard"
       ]
     },
@@ -9580,6 +11172,25 @@
       ]
     },
     {
+      "name": "Lightning Arrow",
+      "class": "Ranger",
+      "level": "3rd Level",
+      "school": "Transmutation",
+      "castingTime": "1 bonus action, which you take immediately after hitting or missing a target with a ranged attack using a weapon",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "As your attack hits or misses the target, the weapon or ammunition you're using transforms into a lightning bolt. Instead of taking any damage or other effects from the attack, the target takes 4d8 Lightning damage on a hit or half as much damage on a miss. Each creature within 10 feet of the target then makes a Dexterity saving throw, taking 2d8 Lightning damage on a failed save or half as much damage on a successful one.\n\nThe weapon or ammunition then returns to its normal form.",
+      "higherLevels": "The damage for both effects of the spell increases by 1d8 for each spell slot level above 3.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Ranger"
+      ]
+    },
+    {
       "name": "Lightning Bolt",
       "class": "Sorcerer",
       "level": "3rd Level",
@@ -9618,6 +11229,50 @@
         "Artificer",
         "Sorcerer",
         "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Lightning Ring",
+      "class": "Druid",
+      "level": "8th Level",
+      "school": "Evocation",
+      "castingTime": "1 bonus action",
+      "range": "Self (10-foot emanation)",
+      "components": "V, S, M (a bit of fur and a glass ring)",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "A ring of crackling electricity fills a 10-foot Emanation originating from you. Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, you can force that creature to make a Constitution saving throw. On a failed save, the creature takes 3d6 Lightning damage plus 3d6 Thunder damage, and it has the Deafened condition for 1 minute. On a successful save, the creature takes half as much damage only.\n\nAs a Magic action while the spell is active, you can emit a 60-foot-long, 5-foot-wide Line out from you in a direction you choose. Each creature in the Line makes a Dexterity saving throw, taking 6d6 Lightning damage on a failed save or half as much damage on a successful one.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Linked Glyphs",
+      "class": "Artificer",
+      "level": "3rd Level",
+      "school": "Abjuration",
+      "castingTime": "1 hour",
+      "range": "Touch",
+      "components": "V, S, M (incense and powdered diamond worth at least 300 gp, which the spell consumes)",
+      "duration": "Until dispelled or triggered",
+      "description": "When you cast this spell, you inscribe a detection glyph that later activates a magical effect at the site of a separate, linked glyph. You inscribe the detection glyph either on a surface (such as a table or a section of floor or wall) or within an object that can be closed (such as a book, a scroll, or a treasure chest) to conceal the glyph. The glyph can cover an area no larger than 10 feet in diameter. If the surface or object is moved more than 10 feet from where you cast this spell, the detection glyph is broken, and the spell ends without being triggered.\n\nBoth glyphs are nearly invisible, and finding either requires a successful Intelligence (Investigation) check against your spell save DC.\n\nYou decide what triggers the detection glyph when you cast this spell. For glyphs inscribed on a surface, the most typical triggers include touching or standing on the glyph, removing another object covering the glyph, approaching within a certain distance of the glyph, or manipulating the object on which the glyph is inscribed. For glyphs inscribed within an object, the most common triggers include opening that object, approaching within a certain distance of the object, or seeing or reading the glyph. Once a glyph is triggered, this spell ends.\n\nYou can further refine the trigger so the spell activates only under certain circumstances or according to physical characteristics (such as height or weight), creature kind (for example, the ward could be set to affect aberrations or drow), or alignment. You can also set conditions for creatures that don't trigger the glyph, such as those who say a certain password.\n\nWhen you inscribe the detection glyph, choose an alarm glyph or spell glyph to link to it.\n\nAlarm Glyph. You create and magically link two glyphs: a detection glyph and an effect glyph. Each of these two glyphs must stay within 100 miles of the other or the spell effect ends. When the detection glyph is triggered, the effect glyph reacts like an alarm spell, creating a mental ping in your mind if you are within 1 mile of the effect glyph. This ping awakens you if you are sleeping.\n\nSpell Glyph. You create and magically link two glyphs: a detection glyph and an effect glyph. These two glyphs must be within 100 feet of each other. You can store a prepared spell of 4th level or lower in the effect glyph by casting it as part of creating the glyphs. The spell must target a single creature or an area. The spell being stored has no immediate effect when cast in this way. When the detection glyph is triggered, the spell stored in the effect glyph is cast. If the spell has a target, it targets the creature that triggered the glyph. If the spell affects an area, the area is centered on the effect glyph. If the spell summons hostile creatures or creates harmful objects or traps, they appear as close as possible to the effect glyph. If the spell requires concentration, it lasts until the end of its full duration.",
+      "higherLevels": "When you cast this spell using a spell slot of 5th level or higher to create a spell glyph, you can store any spell of up to the same level as the slot you use.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Bard",
+        "Cleric",
         "Wizard"
       ]
     },
@@ -9731,6 +11386,25 @@
       "classes": [
         "Warlock",
         "Wizard"
+      ]
+    },
+    {
+      "name": "Maelstrom",
+      "class": "Druid",
+      "level": "5th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (paper or leaf in the shape of a funnel)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A swirling mass of 5-foot-deep water appears in a 30-foot radius centered on a point you can see within range. The point must be on the ground or in a body of water. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take 6d6 bludgeoning damage and be pulled 10 feet toward the center.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid"
       ]
     },
     {
@@ -9897,6 +11571,25 @@
       "classes": [
         "Artificer",
         "Paladin",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Magnify Gravity",
+      "class": "Wizard",
+      "level": "1st Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "1 round",
+      "description": "The gravity in a 10-foot-radius sphere centered on a point you can see within range increases for a moment. Each creature in the sphere on the turn when you cast the spell must make a Constitution saving throw. On a failed save, a creature takes 2d8 force damage, and its speed is halved until the end of its next turn. On a successful save, a creature takes half as much damage and suffers no reduction to its speed.\n\nUntil the start of your next turn, any object that isn't being worn or carried in the sphere requires a successful Strength check against your spell save DC to pick up or move.",
+      "higherLevels": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
         "Wizard"
       ]
     },
@@ -10679,6 +12372,26 @@
       ]
     },
     {
+      "name": "Modify Memory",
+      "class": "Bard",
+      "level": "5th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You attempt to reshape another creature's memories. One creature that you can see within range makes a Wisdom saving throw. If you are fighting the creature, it has Advantage on the save. On a failed save, the target has the Charmed condition for the duration. While Charmed in this way, the target also has the Incapacitated condition and is unaware of its surroundings, though it can hear you. If it takes any damage or is targeted by another spell, this spell ends, and no memories are modified.\n\nWhile this charm lasts, you can affect the target's memory of an event that it experienced within the last 24 hours and that lasted no more than 10 minutes. You can permanently eliminate all memory of the event, allow the target to recall the event with perfect clarity, change its memory of the event's details, or create a memory of some other event.\n\nYou must speak to the target to describe how its memories are affected, and it must be able to understand your language for the modified memories to take root. Its mind fills in any gaps in the details of your description. If the spell ends before you finish describing the modified memories, the creature's memory isn't altered. Otherwise, the modified memories take hold when the spell ends.\n\nA modified memory doesn't necessarily affect how a creature behaves, particularly if the memory contradicts the creature's natural inclinations, alignment, or beliefs. An illogical modified memory, such as a false memory of how much the creature enjoyed swimming in acid, is dismissed as a bad dream. The DM might deem a modified memory too nonsensical to affect a creature.\n\nA Remove Curse or Greater Restoration spell cast on the target restores the creature's true memory.",
+      "higherLevels": "You can alter the target's memories of an event that took place up to 7 days ago (level 6 spell slot), 30 days ago (level 7 spell slot), 365 days ago (level 8 spell slot), or any time in the creature's past (level 9 spell slot).",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Mold Earth",
       "class": "Druid",
       "level": "Cantrips",
@@ -10696,6 +12409,25 @@
       "classes": [
         "Druid",
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Moment of Prescience",
+      "class": "Wizard",
+      "level": "8th Level",
+      "school": "Divination",
+      "castingTime": "1 reaction, which you take when you fail a D20 Test or when a creature hits you with an attack roll",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You have a powerful sixth sense that guides you at just the right time. Turn the roll of your failed D20 Test into a 20, or turn the roll of the triggering attack roll into a 1.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
         "Wizard"
       ]
     },
@@ -10735,6 +12467,25 @@
       "source": "standard",
       "classes": [
         "Artificer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Mordenkainen's Lucubration",
+      "class": "Wizard",
+      "level": "5th Level",
+      "school": "Divination",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You recover up to two expended spell slots of level 2 or lower.",
+      "higherLevels": "The maximum level of spell slots you can recover increases to level 3 (if cast with a level 6-7 spell slot) or level 4 (if cast with a level 8+ spell slot).",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
         "Wizard"
       ]
     },
@@ -10878,6 +12629,26 @@
       "classes": [
         "Bard",
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Negative Energy Flood",
+      "class": "Warlock",
+      "level": "5th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, M (a broken bone and a square of black silk)",
+      "duration": "Instantaneous",
+      "description": "You send ribbons of negative energy at one creature you can see within range. If the target isn't Undead, it makes a Constitution saving throw, taking 3d10 + 25 Necrotic damage on a failed save or half as much damage on a successful one. A Humanoid killed by this spell rises at the start of your next turn as a Zombie that follows your verbal orders for 24 hours, after which it acts according to its nature.\n\nIf the target is Undead, it gains 3d10 Temporary Hit Points.",
+      "higherLevels": "The damage increases by 1d10 for each spell slot level above 5.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Warlock",
         "Wizard"
       ]
     },
@@ -11580,6 +13351,26 @@
       ]
     },
     {
+      "name": "Power Word Fortify",
+      "class": "Bard",
+      "level": "7th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "Instantaneous",
+      "description": "You fortify up to six creatures you can see within range. The spell bestows 120 Temporary Hit Points, which you divide among the spell's recipients.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Cleric"
+      ]
+    },
+    {
       "name": "Power Word Heal",
       "class": "Bard",
       "level": "9th Level",
@@ -12082,6 +13873,47 @@
       ]
     },
     {
+      "name": "Raulothim's Psychic Lance",
+      "class": "Bard",
+      "level": "4th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V",
+      "duration": "Instantaneous",
+      "description": "You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. Alternatively, you can utter a creature's name. If the named target is within range, it becomes the spell's target even if you can't see it. If the named target isn't within range, the lance dissipates without effect.\n\nThe target must make an Intelligence saving throw. On a failed save, the target takes 7d6 psychic damage and is incapacitated until the start of your next turn. On a successful save, the creature takes half as much damage and isn't incapacitated.",
+      "higherLevels": "When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d6 for each slot level above 4th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Ravenous Void",
+      "class": "Wizard",
+      "level": "9th Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "1000 feet",
+      "components": "V, S, M (a small, nine-pointed star made of iron)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You create a 20-foot-radius sphere of destructive gravitational force centered on a point you can see within range. For the spell's duration, the sphere and any space within 100 feet of it are difficult terrain, and nonmagical objects fully inside the sphere are destroyed if they aren't being worn or carried.\n\nWhen the sphere appears and at the start of each of your turns until the spell ends, unsecured objects within 100 feet of the sphere are pulled toward the sphere's center, ending in an unoccupied space as close to the center as possible.\n\nA creature that starts its turn within 100 feet of the sphere must succeed on a Strength saving throw or be pulled straight toward the sphere's center, ending in an unoccupied space as close to the center as possible. A creature that enters the sphere for the first time on a turn or starts its turn there takes 5d10 force damage and is restrained until it is no longer in the sphere. If the sphere is in the air, the restrained creature hovers inside the sphere. A creature can use its action to make a Strength check against your spell save DC, ending this restrained condition on itself or another creature in the sphere that it can reach. A creature reduced to 0 hit points by this spell is annihilated, along with any nonmagical items it is wearing or carrying.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Ray of Enfeeblement",
       "class": "Warlock",
       "level": "2nd Level",
@@ -12139,6 +13971,25 @@
       "source": "standard",
       "classes": [
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Reality Break",
+      "class": "Wizard",
+      "level": "8th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a crystal prism)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You shatter the barriers between realities and timelines, thrusting a creature into turmoil and madness. The target must succeed on a Wisdom saving throw, or it can't take reactions until the spell ends. The affected target must also roll a d10 at the start of each of its turns; the number rolled determines what happens to the target, as shown on the Reality Break Effects table.\n\nAt the end of each of its turns, the affected target can repeat the Wisdom saving throw, ending the spell on itself on a success.\n\nReality Break Effects\n\n| d10 | Effect |\n\n|---|---|\n\n| 1-2 | Vision of the Far Realm. The target takes 6d12 psychic damage, and it is stunned until the end of the turn. |\n\n| 3-5 | Rending Rift. The target must make a Dexterity saving throw, taking 8d12 force damage on a failed save, or half as much damage on a successful one. |\n\n| 6-8 | Wormhole. The target is teleported, along with everything it is wearing and carrying, up to 30 feet to an unoccupied space of your choice that you can see. The target also takes 10d12 force damage and is knocked prone. |\n\n| 9-10 | Chill of the Dark Void. The target takes 10d12 cold damage, and it is blinded until the end of the turn. |",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
         "Wizard"
       ]
     },
@@ -13006,6 +14857,48 @@
       ]
     },
     {
+      "name": "Reweave Fate",
+      "class": "Bard",
+      "level": "7th Level",
+      "school": "Divination",
+      "castingTime": "1 reaction, which you take when a creature you can see within 60 feet of you fails a D20 Test",
+      "range": "60 feet",
+      "components": "S",
+      "duration": "Instantaneous",
+      "description": "You untangle a single thread of fate to encourage a different result. The creature that failed the D20 Test can reroll it with Advantage, and the creature must use the new roll. If the D20 Test is successful, the creature gains 6d10 Temporary Hit Points from its strengthened fate.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Cleric",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Rime's Binding Ice",
+      "class": "Sorcerer",
+      "level": "2nd Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (30-foot cone)",
+      "components": "S, M (a vial of meltwater)",
+      "duration": "Instantaneous",
+      "description": "A burst of cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is hindered by ice formations for 1 minute, or until it or another creature within reach of it uses an action to break away the ice. A creature hindered by ice has its speed reduced to 0. On a successful save, a creature takes half as much damage and isn't hindered by ice.",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by 1d8 for each slot level above 2nd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Rope Trick",
       "class": "Artificer",
       "level": "2nd Level",
@@ -13062,6 +14955,25 @@
       "classes": [
         "Artificer",
         "Cleric"
+      ]
+    },
+    {
+      "name": "Sapping Sting",
+      "class": "Wizard",
+      "level": "Cantrips",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You sap the vitality of one creature you can see in range. The target must succeed on a Constitution saving throw or take 1d4 necrotic damage and fall prone.\n\nThis spell's damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
       ]
     },
     {
@@ -13693,6 +15605,26 @@
       ]
     },
     {
+      "name": "Simbul's Synostodweomer",
+      "class": "Sorcerer",
+      "level": "7th Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S",
+      "duration": "1 hour",
+      "description": "You imbue one creature you touch with magical healing energy for the duration. Whenever the target casts a spell using a spell slot, the target can immediately roll a number of unexpended Hit Point Dice equal to the spell slot's level and regain Hit Points equal to the roll's total plus your spellcasting ability modifier; those dice are then expended.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Simulacrum",
       "class": "Wizard",
       "level": "7th Level",
@@ -13878,6 +15810,46 @@
       "classes": [
         "Sorcerer",
         "Wizard"
+      ]
+    },
+    {
+      "name": "Songal's Elemental Suffusion",
+      "class": "Druid",
+      "level": "5th Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S, M (a pearl worth 100+ GP)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You imbue yourself with the elemental power of genies. You gain the following benefits until the spell ends:\n\n- Elemental Immunity. When you cast this spell, choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder. You have Resistance to the chosen damage type.\n\n- Elemental Pulse. When you cast this spell and at the start of each of your subsequent turns, you release a burst of elemental energy in a 15-foot Emanation originating from yourself. Each creature of your choice in that area makes a Dexterity saving throw. On a failed save, a creature takes 2d6 Acid, Cold, Fire, Lightning, or Thunder damage (your choice) and has the Prone condition. On a successful save, a creature takes half as much damage only.\n\n- Flight. You gain a Fly Speed of 30 feet and can hover.\n\nCasting as a Circle Spell. If the spell is cast as a Circle spell, its casting time increases to 1 minute, and its duration increases to Concentration, up to 10 minutes. For each secondary caster who participates in the casting, you can choose one additional creature, to a maximum of nine additional creatures. The chosen creatures also gain the benefits of the spell for its duration.\n\nWhen the spell is cast, each secondary caster must expend a level 2+ spell slot; otherwise, the spell fails.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Sorcerous Burst",
+      "class": "Sorcerer",
+      "level": "Cantrips",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You cast sorcerous energy at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 damage of a type you choose: Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder.\n\nIf you roll an 8 on a d8 for this spell, you can roll another d8, and add it to the damage. When you cast this spell, the maximum number of these d8s you can add to the spell's damage equals your spellcasting ability modifier.",
+      "higherLevels": "The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Sorcerer"
       ]
     },
     {
@@ -14131,6 +16103,49 @@
       ]
     },
     {
+      "name": "Spirit Lantern",
+      "class": "Artificer",
+      "level": "5th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S, M (a black lantern)",
+      "duration": "10 minutes",
+      "description": "You conjure a floating, ghostly black lantern that hovers above you and sheds Dim Light in a 60-foot radius. When an enemy dies within this Dim Light, a fragment of the creature's soul flies into the lantern. The lantern can hold a number of soul fragments equal to your spellcasting ability modifier, and those fragments dissipate when the spell ends.\n\nAs a Bonus Action, you can expend a soul fragment to create one of the following effects.\n\nDrain Life. The soul fragment darts at a creature of your choice that you can see within 60 feet of yourself. The target makes a Constitution saving throw, taking Necrotic damage equal to 4d8 plus your spellcasting ability modifier on a failed save or half as much damage on a successful one.\n\nRepair Undead. The soul fragment flies into an Undead creature of your choice that you can see within 60 feet of yourself. That creature regains Hit Points equal to 4d8 plus your spellcasting ability modifier.\n\nWard Ally. The soul fragment darts around a creature of your choice that you can see within 60 feet of yourself. Other creatures have Disadvantage on attack rolls against the chosen creature until the start of your next turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Cleric",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Spirit of Death",
+      "class": "Sorcerer",
+      "level": "4th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a gilded playing card worth at least 400 gp and depicting an avatar of death)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth a spirit that embodies death. The spirit manifests in an unoccupied space you can see within range and uses the reaper spirit stat block. The spirit disappears when it is reduced to 0 hit points or when the spell ends.\n\nThe spirit is an ally to you and your companions. In combat, the spirit shares your initiative count and takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue the spirit any commands, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "When you cast this spell using a spell slot of 5th level or higher, use the higher level wherever the spell's level appears in the reaper spirit stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Spirit Shroud",
       "class": "Cleric",
       "level": "3rd Level",
@@ -14193,6 +16208,28 @@
       ]
     },
     {
+      "name": "Spray of Cards",
+      "class": "Bard",
+      "level": "2nd Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "Self (15-foot cone)",
+      "components": "V, S, M (a deck of cards)",
+      "duration": "Instantaneous",
+      "description": "You spray a 15-foot cone of spectral cards. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d10 force damage and has the blinded condition until the end of its next turn. On a successful save, a creature takes half as much damage only.",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Staggering Smite",
       "class": "Paladin",
       "level": "4th Level",
@@ -14209,6 +16246,26 @@
       "source": "standard",
       "classes": [
         "Paladin"
+      ]
+    },
+    {
+      "name": "Starry Wisp",
+      "class": "Bard",
+      "level": "Cantrips",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can't benefit from the Invisible condition.",
+      "higherLevels": "The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Druid"
       ]
     },
     {
@@ -14423,6 +16480,26 @@
       ]
     },
     {
+      "name": "Summon Aberration",
+      "class": "Warlock",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (a pickled tentacle and an eyeball in a platinum-inlaid vial worth 400+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth an aberrant spirit. It manifests in an unoccupied space that you can see within range and uses the Aberrant Spirit stat block. When you cast the spell, choose Beholderkin, Mind Flayer, or Slaad. The creature resembles an Aberration of that kind, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, it shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Summon Beast",
       "class": "Druid",
       "level": "2nd Level",
@@ -14440,6 +16517,105 @@
       "classes": [
         "Druid",
         "Ranger"
+      ]
+    },
+    {
+      "name": "Summon Celestial",
+      "class": "Cleric",
+      "level": "5th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (a reliquary worth 500+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth a Celestial spirit. It manifests in an angelic form in an unoccupied space that you can see within range and uses the Celestial Spirit stat block. When you cast the spell, choose Avenger or Defender. Your choice determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Cleric",
+        "Paladin"
+      ]
+    },
+    {
+      "name": "Summon Construct",
+      "class": "Artificer",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (a lockbox worth 400+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth the spirit of a Construct. It manifests in an unoccupied space that you can see within range and uses the Construct Spirit stat block. When you cast the spell, choose a material: Clay, Metal, or Stone. The creature resembles an animate statue (you determine the appearance) made of the chosen material, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Summon Dinosaur",
+      "class": "Druid",
+      "level": "6th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (polished scale worth 600+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth the spirit of a primeval dinosaur. It manifests in an unoccupied space that you can see within range and uses the Dinosaur Spirit stat block. When you cast the spell, choose Ankylosaur, Triceratops, or Tyrannosaur. The creature resembles a dinosaur of the chosen type, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, the creature takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid"
+      ]
+    },
+    {
+      "name": "Summon Dragon",
+      "class": "Wizard",
+      "level": "5th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (an object with the image of a dragon engraved on it worth 500+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth a Dragon spirit. It manifests in an unoccupied space that you can see within range and uses the Draconic Spirit stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Summon Elemental",
+      "class": "Druid",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (air, a pebble, ash, and water inside a gold-inlaid vial worth 400+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth an Elemental spirit. It manifests in an unoccupied space that you can see within range and uses the Elemental Spirit stat block. When you cast the spell, choose an element: Air, Earth, Fire, or Water. The creature resembles a bipedal form wreathed in the chosen element, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Ranger",
+        "Wizard"
       ]
     },
     {
@@ -14465,6 +16641,46 @@
       ]
     },
     {
+      "name": "Summon Fiend",
+      "class": "Warlock",
+      "level": "6th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (a bloody vial worth 600+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth a fiendish spirit. It manifests in an unoccupied space that you can see within range and uses the Fiendish Spirit stat block. When you cast the spell, choose Demon, Devil, or Yugoloth. The creature resembles a Fiend of the chosen type, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Summon Greater Demon",
+      "class": "Warlock",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a vial of blood from a humanoid killed within the past 24 hours)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You utter foul words, summoning one demon from the chaos of the Abyss. You choose the demon's type, which must be one of challenge rating 5 or lower, such as a shadow demon or a barlgura. The demon appears in an unoccupied space you can see within range, and the demon disappears when it drops to 0 hit points or when the spell ends.\n\nRoll initiative for the demon, which has its own turns. When you summon it and on each of your turns thereafter, you can issue a verbal command to it (requiring no action on your part), telling it what it must do on its next turn. If you issue no command, it spends its turn attacking any creature within reach that has attacked it.\n\nAt the end of each of the demon's turns, it makes a Charisma saving throw. The demon has disadvantage on this saving throw if you say its true name. On a failed save, the demon continues to obey you. On a successful save, your control of the demon ends for the rest of the duration, and the demon spends its turns pursuing and attacking the nearest non-demons to the best of its ability. If you stop concentrating on the spell before it reaches its full duration, an uncontrolled demon doesn't disappear for 1d6 rounds if it still has hit points.\n\nAs part of casting the spell, you can form a circle on the ground with the blood used as a material component. The circle is large enough to encompass your space. While the spell lasts, the summoned demon can't cross the circle or harm it, and it can't target anyone within it. Using the material component in this manner consumes it when the spell ends.",
+      "higherLevels": "When you cast this spell using a spell slot of 5th level or higher, the challenge rating increases by 1 for each slot level above 4th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Summon Lesser Demons",
       "class": "Warlock",
       "level": "3rd Level",
@@ -14482,6 +16698,26 @@
       "classes": [
         "Warlock",
         "Wizard"
+      ]
+    },
+    {
+      "name": "Summon Plant",
+      "class": "Druid",
+      "level": "5th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (herbs worth 500+ GP)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You call forth the spirit of an animated plant. It manifests in an unoccupied space that you can see within range and uses the Plant Spirit stat block. When you cast the spell, choose Fungus, Tree, or Vine. The creature resembles a plant of the chosen type, which determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.\n\nThe creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.",
+      "higherLevels": "Use the spell slot's level for the spell's level in the stat block.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Ranger"
       ]
     },
     {
@@ -14653,6 +16889,26 @@
       ]
     },
     {
+      "name": "Syluné's Viper",
+      "class": "Druid",
+      "level": "3rd Level",
+      "school": "Conjuration",
+      "castingTime": "1 bonus action",
+      "range": "Self",
+      "components": "V, S, M (a snake fang)",
+      "duration": "1 hour",
+      "description": "A shimmering, spectral snake encircles your body for the duration. You gain 15 Temporary Hit Points; the spell ends early if you have no Temporary Hit Points left.\n\nWhile the spell is active, you gain the following benefits:\n\n- Climbing. You gain a Climb Speed equal to your Speed.\n\n- Venomous Bite. As a Magic action, you can make a ranged spell attack using the snake against one creature within 50 feet. On a hit, the target takes 1d6 Force damage and has the Poisoned condition until the start of your next turn. While Poisoned, the target has the Incapacitated condition.",
+      "higherLevels": "For each spell slot level above 3, the number of Temporary Hit Points you gain from this spell increases by 5, and the damage of Venomous Bite increases by 1d6.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Symbol",
       "class": "Bard",
       "level": "7th Level",
@@ -14717,6 +16973,45 @@
       ]
     },
     {
+      "name": "Tasha's Bubbling Cauldron",
+      "class": "Warlock",
+      "level": "6th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "5 feet",
+      "components": "V, S, M (a gilded ladle worth 500 + GP)",
+      "duration": "10 minutes",
+      "description": "You conjure a claw-footed cauldron filled with bubbling liquid. The cauldron appears in an unoccupied space on the ground within 5 feet of you and lasts for the duration. The cauldron can't be moved and disappears when the spell ends, along with the bubbling liquid inside it.\n\nThe liquid in the cauldron duplicates the properties of a Common or an Uncommon potion of your choice (such as a Potion of Healing). As a Bonus Action, you or an ally can reach into the cauldron and withdraw one potion of that kind. The potion is contained in a vial that disappears when the potion is consumed. The cauldron can produce a number of these potions equal to your spellcasting ability modifier (minimum 1). When the last of these potions is withdrawn from the cauldron, the cauldron disappears, and the spell ends.\n\nPotions obtained from the cauldron that aren't consumed disappear when you cast this spell again.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Tasha's Caustic Brew",
+      "class": "Artificer",
+      "level": "1st Level",
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (30-foot line)",
+      "components": "V, S, M (a bit of rotten food)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns.",
+      "higherLevels": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 2d4 for each slot level above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Artificer"
+      ]
+    },
+    {
       "name": "Tasha's Hideous Laughter",
       "class": "Bard",
       "level": "1st Level",
@@ -14753,6 +17048,27 @@
       "source": "standard",
       "classes": [
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Tasha's Otherworldly Guise",
+      "class": "Sorcerer",
+      "level": "6th Level",
+      "school": "Transmutation",
+      "castingTime": "1 bonus action",
+      "range": "Self",
+      "components": "V, S, M (an object engraved with a symbol of the Outer Planes, worth at least 500 gp)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself. You gain the following benefits until the spell ends:\n\n- You are immune to fire and poison damage (Lower Planes) or radiant and necrotic damage (Upper Planes).\n\n- You are immune to the poisoned condition (Lower Planes) or the charmed condition (Upper Planes).\n\n- Spectral wings appear on your back, giving you a flying speed of 40 feet.\n\n- You have a +2 bonus to AC.\n\n- All your weapon attacks are magical, and when you make a weapon attack, you can use your spellcasting ability modifier, instead of Strength or Dexterity, for the attack and damage rolls.\n\n- You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature, like Extra Attack, that lets you attack more than once when you take the Attack action on your turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
         "Wizard"
       ]
     },
@@ -14880,6 +17196,25 @@
       ]
     },
     {
+      "name": "Temporal Shunt",
+      "class": "Wizard",
+      "level": "5th Level",
+      "school": "Transmutation",
+      "castingTime": "1 reaction, taken when a creature you can see makes an attack roll or starts to cast a spell",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "1 round",
+      "description": "You target the triggering creature, which must succeed on a Wisdom saving throw or vanish, being thrown to another point in time and causing the attack to miss or the spell to be wasted. At the start of its next turn, the target reappears where it was or in the closest unoccupied space. The target doesn't remember you casting the spell or being affected by it.",
+      "higherLevels": "When you cast this spell using a spell slot of 6th level or higher, you can target one additional creature for each slot level above 5th. All targets must be within 30 feet of each other.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Temporal Toll",
       "class": "Artificer",
       "level": "8th Level",
@@ -14932,6 +17267,25 @@
       "description": "You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:\n\n- You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost.\n\n- You have advantage on attack rolls that you make with simple and martial weapons.\n\n- When you hit a target with a weapon attack, that target takes an extra 2d12 force damage.\n\n- You have proficiency with all armor, shields, simple weapons, and martial weapons.\n\n- You have proficiency in Strength and Constitution saving throws.\n\n- You can attack twice, instead of once, when you take the Attack action on your turn. You ignore this benefit if you already have a feature that gives you extra attacks.\n\nImmediately after the spell ends, you must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion.",
       "higherLevels": "",
       "ashenRealms": "Bloom Hound fur can substitute for bull hair.",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Tether Essence",
+      "class": "Wizard",
+      "level": "7th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a spool of platinum cord worth at least 250 gp, which the spell consumes)",
+      "duration": "Concentration, up to 1 hour",
+      "description": "Two creatures you can see within range must make a Constitution saving throw, with disadvantage if they are within 30 feet of each other. Either creature can willingly fail the save. If either save succeeds, the spell has no effect. If both saves fail, the creatures are magically linked for the duration, regardless of the distance between them. When damage is dealt to one of them, the same damage is dealt to the other one. If hit points are restored to one of them, the same number of hit points are restored to the other one. If either of the tethered creatures is reduced to 0 hit points, the spell ends on both. If the spell ends on one creature, it ends on both.",
+      "higherLevels": "",
+      "ashenRealms": "",
       "ritual": false,
       "concentration": true,
       "source": "standard",
@@ -15195,6 +17549,25 @@
       ]
     },
     {
+      "name": "Time Ravage",
+      "class": "Wizard",
+      "level": "9th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (an hourglass filled with diamond dust worth at least 5,000 gp, which the spell consumes)",
+      "duration": "Instantaneous",
+      "description": "You target a creature you can see within range, putting its physical form through the devastation of rapid aging. The target must make a Constitution saving throw, taking 10d12 necrotic damage on a failed save, or half as much damage on a successful one. If the save fails, the target also ages to the point where it has only 30 days left before it dies of old age. In this aged state, the target has disadvantage on attack rolls, ability checks, and saving throws, and its walking speed is halved. Only the wish spell or the greater restoration cast with a 9th-level spell slot can end these effects and restore the target to its previous age.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
       "name": "Time Stop",
       "class": "Sorcerer",
       "level": "9th Level",
@@ -15274,6 +17647,27 @@
         "Bard",
         "Cleric",
         "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Transfix",
+      "class": "Bard",
+      "level": "7th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "For the duration, your appearance becomes otherworldly and alluring. One creature of your choice that you can see within 60 feet of you must succeed on a Charisma saving throw or have the Charmed condition for the duration.\n\nWhile Charmed, the target has the Incapacitated condition, and if the target is more than 5 feet away from you, it moves on its turn toward you by the most direct route, trying to get within 5 feet of you. If the Charmed creature ends its turn within 5 feet of you, it takes 4d8 Psychic damage.\n\nThe target doesn't avoid Opportunity Attacks when moving toward you, but before moving into damaging terrain (such as lava or a pit), the target repeats the save, ending the spell on itself on a success.\n\nUntil the spell ends, you can take a Magic action on subsequent turns to target another creature, but you can't target a creature again if it has succeeded on a save against this casting of the spell.",
+      "higherLevels": "The damage increases by 1d8 for each spell slot level above 7.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
         "Warlock",
         "Wizard"
       ]
@@ -15530,6 +17924,28 @@
       ]
     },
     {
+      "name": "Uncertain Footing",
+      "class": "Artificer",
+      "level": "2nd Level",
+      "school": "Illusion",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a distorted lens)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You create illusory obstacles such as rocks or spikes in an attempt to confuse up to three creatures you can see within range, affecting their ability to move. Each target makes an Intelligence saving throw. On a failed save, a target's Speed is halved, and it can't take the Dash action. A hampered target repeats the save at the end of each of its turns, ending the spell on itself on a success.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Artificer",
+        "Bard",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Unmake",
       "class": "Artificer",
       "level": "5th Level",
@@ -15720,6 +18136,28 @@
       "source": "standard",
       "classes": [
         "Bard"
+      ]
+    },
+    {
+      "name": "Vision of Elapsing Eons",
+      "class": "Bard",
+      "level": "9th Level",
+      "school": "Illusion",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "1 minute",
+      "description": "You trick a creature you can see within range into believing it is watching itself and its surroundings crumble away, as if eons were passing in moments. The target must succeed on an Intelligence saving throw or take 10d12 Psychic damage and have the Paralyzed condition for the duration.\n\nWhile Paralyzed, the target repeats the save at the end of each of its turns. On a failed save, it gains 1 Exhaustion level. On a successful save, the spell ends. The spell ends early if someone within 5 feet of the target takes an action to shake it free from the illusion.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
       ]
     },
     {
@@ -16093,6 +18531,27 @@
       ]
     },
     {
+      "name": "Wail of the Banshee",
+      "class": "Sorcerer",
+      "level": "9th Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "Instantaneous",
+      "description": "You emit a terrible scream that can kill those who hear it. Choose up to ten creatures within range. Each target with 50 Hit Points or fewer dies. Targets with more than 50 Hit Points make a Constitution saving throw. On a failed save, a target takes 12d10 Psychic damage and has the Deafened condition for 1 hour. On a successful save, a target takes half as much damage only. A target is unaffected by the spell if it can't hear you.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Waking Dream",
       "class": "Bard",
       "level": "1st Level",
@@ -16276,6 +18735,28 @@
       ]
     },
     {
+      "name": "Wardaway",
+      "class": "Bard",
+      "level": "1st Level",
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a miniature clay hand)",
+      "duration": "Instantaneous",
+      "description": "You hurl a disorienting magical force toward one creature within range. The target makes a Constitution saving throw; Constructs and Undead automatically succeed on this save.\n\nOn a failed save, the target takes 2d4 Force damage, its Speed is halved until the start of your next turn, and on its next turn, it can take only an action or a Bonus Action (but not both). On a successful save, the target takes half as much damage only.",
+      "higherLevels": "The damage increases by 2d4 for every spell slot level above 1.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Cleric",
+        "Paladin",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Warding Bond",
       "class": "Cleric",
       "level": "2nd Level",
@@ -16402,6 +18883,27 @@
       "classes": [
         "Druid",
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Waves of Exhaustion",
+      "class": "Sorcerer",
+      "level": "5th Level",
+      "school": "Necromancy",
+      "castingTime": "1 bonus action",
+      "range": "Self (60-foot cone)",
+      "components": "V, S, M (a piece of dried meat)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You evoke a nimbus of flickering gray light around your body. For the duration, you can take a Magic action to emit a wave of gray light in a 60-foot Cone. Creatures in that area must succeed on a Constitution saving throw or gain 1 Exhaustion level. This spell can't increase a creature's Exhaustion level above 4.\n\nExhaustion levels gained from this spell are removed when the spell ends.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
         "Wizard"
       ]
     },
@@ -16571,6 +19073,27 @@
       ]
     },
     {
+      "name": "Wither and Bloom",
+      "class": "Druid",
+      "level": "2nd Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a withered vine twisted into a loop)",
+      "duration": "Instantaneous",
+      "description": "You invoke both death and life in a 10-foot-radius Sphere centered on a point within range. Each creature of your choice in that area makes a Constitution saving throw, taking 3d6 Necrotic damage on a failed save or half as much damage on a successful one. Nonmagical plants in that area that aren't creatures, such as trees and shrubs, wither.\n\nIn addition, one creature of your choice in that area can roll one of its unexpended Hit Point Dice and regain a number of Hit Points equal to the roll plus your spellcasting ability modifier. That die is then expended.",
+      "higherLevels": "The damage increases by 1d6 for each spell slot level above 2. The number of Hit Point Dice that can be rolled and expended increases by one for each spell slot level above 2. You add your spellcasting modifier to the number of Hit Points regained by this spell only once, regardless of the number of Hit Point Dice rolled and expended.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Druid",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Word of Radiance",
       "class": "Cleric",
       "level": "Cantrips",
@@ -16648,6 +19171,45 @@
       ]
     },
     {
+      "name": "Wristpocket",
+      "class": "Wizard",
+      "level": "2nd Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "S",
+      "duration": "Concentration, up to 1 hour",
+      "description": "You flick your wrist, causing one object in your hand to vanish. The object, which only you can be holding and can weigh no more than 5 pounds, is transported to an extradimensional space, where it remains for the duration.\n\nUntil the spell ends, you can use your action to summon the object to your free hand, and you can use your action to return the object to the extradimensional space. An object still in the pocket plane when the spell ends appears in your space, at your feet.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": true,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Yolande's Regal Presence",
+      "class": "Bard",
+      "level": "5th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "Self (10-foot emanation)",
+      "components": "V, S, M (a miniature tiara)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You surround yourself with unearthly majesty in a 10-foot Emanation. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. On a failed save, the target takes 4d6 Psychic damage and has the Prone condition, and you can push it up to 10 feet away. On a successful save, the target takes half as much damage only. A creature makes this save only once per turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Zephyr Strike",
       "class": "Ranger",
       "level": "1st Level",
@@ -16664,6 +19226,26 @@
       "source": "standard",
       "classes": [
         "Ranger"
+      ]
+    },
+    {
+      "name": "Zone of Amicability",
+      "class": "Bard",
+      "level": "4th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "Self (60-foot emanation)",
+      "components": "V, S",
+      "duration": "10 minutes",
+      "description": "A magical zone of amicability radiates from you in a 60-foot Emanation for the duration. When you make an ability check to influence a creature in that area, you can treat a d20 roll of 9 or lower as a 10.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "standard",
+      "classes": [
+        "Bard",
+        "Warlock"
       ]
     },
     {

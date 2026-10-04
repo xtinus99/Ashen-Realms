@@ -5,10 +5,10 @@ import { fileURLToPath } from 'node:url';
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(SCRIPT_DIR, '..');
 
-const DEFAULT_OFFICIAL = 'C:/Users/khali/Documents/5etools-v2.23.0/data/feats.json';
+const DEFAULT_OFFICIAL = 'C:/Users/khali/Documents/DND Campaign/5etools/data/feats.json'; // 5etools v2.36.1
 const DEFAULT_ASHEN = 'C:/Users/khali/Documents/DND Campaign/DND Campaign/08 - Tables and References/Feats of the Ashen Realms.md';
 
-const RULESET_2024_SOURCES = new Set(['XPHB', 'FRHoF', 'EFA', 'ABH', 'LFL']);
+const RULESET_2024_SOURCES = new Set(['XPHB', 'FRHoF', 'EFA', 'ABH', 'LFL', 'RHW', 'AU']);
 const ASHEN_INCOMPATIBLE_SOURCES = new Set([
   'DSotDQ', // Dragonlance
   'EFA', // Eberron
@@ -47,9 +47,20 @@ const ASHEN_INCOMPATIBLE_FEATS = new Set([
   'Fey Teleportation|XGE',
   'Fey-Touched|XPHB',
   'Shadow-Touched|XPHB',
+
+  // Ravenloft Dark Gifts: the prerequisite is a Ravenloft campaign. Held until the DM decides.
+  'Aberrant Anatomy|RHW',
+  'Echoing Soul|RHW',
+  'Gathered Whispers|RHW',
+  'Living Shadow|RHW',
+  'Mist Walker|RHW',
+  'Second Skin|RHW',
+  'Symbiotic Being|RHW',
+  'Touch of Death|RHW',
+  'Watchers|RHW',
 ]);
-const EXPECTED_OFFICIAL_INPUT = 265;
-const EXPECTED_OFFICIAL_INCLUDED = 188;
+const EXPECTED_OFFICIAL_INPUT = 305;
+const EXPECTED_OFFICIAL_INCLUDED = 219;
 const ABILITY_NAMES = {
   str: 'Strength',
   dex: 'Dexterity',
@@ -62,6 +73,7 @@ const CATEGORY_NAMES = {
   G: 'General',
   O: 'Origin',
   EB: 'Epic Boon',
+  DG: 'Dark Gift',
   D: 'Dragonmark',
   FS: 'Fighting Style',
   'FS:P': 'Fighting Style',

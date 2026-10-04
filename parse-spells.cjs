@@ -262,6 +262,16 @@ function main() {
     // Convert map to array
     result.allSpells = Array.from(spellMap.values());
 
+    // Which spells count as Ashen Realms comes from a fixed list, not the name heuristic,
+    // so official spells with Ashen flavour notes stay 'standard'.
+    const ashenListPath = path.join(__dirname, 'content', 'ashen-spell-names.json');
+    if (fs.existsSync(ashenListPath)) {
+        const ashenNames = new Set(JSON.parse(fs.readFileSync(ashenListPath, 'utf-8')));
+        for (const spell of result.allSpells) {
+            spell.source = ashenNames.has(spell.name) ? 'ashen' : 'standard';
+        }
+    }
+
     // Sort spells alphabetically
     result.allSpells.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -275,7 +285,7 @@ function main() {
     result.schools = Array.from(schoolsSet).sort();
 
     // Write output
-    const outputPath = path.join(__dirname, 'spells-data.json');
+    const outputPath = path.join(__dirname, 'public', 'spells-data.json');
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
 
     console.log(`Parsed ${result.allSpells.length} unique spells`);
