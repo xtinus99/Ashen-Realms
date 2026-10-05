@@ -606,7 +606,7 @@ if (duplicateIds.length) throw new Error(`Duplicate feat IDs: ${[...new Set(dupl
 if (officialFeats.length !== EXPECTED_OFFICIAL_INCLUDED) {
   throw new Error(`Expected ${EXPECTED_OFFICIAL_INCLUDED} Ashen-compatible official feats, found ${officialFeats.length}`);
 }
-if (ashenFeats.length !== 160) throw new Error(`Expected 160 Ashen Realms feats and boons, found ${ashenFeats.length}`);
+if (ashenFeats.length !== 168) throw new Error(`Expected 168 Ashen Realms feats and boons, found ${ashenFeats.length}`);
 
 const counts = {
   total: feats.length,

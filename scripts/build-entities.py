@@ -20,6 +20,12 @@ Reads content/entities/<Category>/<id>.md. Each file starts with a YAML header:
 
 An existing item with the same id is replaced; everything else in data.json is
 left alone. Requires PyYAML, Markdown and Pillow. Does not touch the vault or deploy.
+
+A file whose header says `overlay: living` does not replace anything. It gives an
+existing archive entry (matched by id) a living-realm version instead: the page is
+rendered into that item's `contentLiving`, its frontmatter into `frontmatterLiving`,
+and the item's era becomes `both`. The archive keeps the full original record.
+Use it for someone the fallen party knew whom the living party has since met.
 """
 from pathlib import Path
 from html import escape, unescape
@@ -89,6 +95,13 @@ def build(path):
     parser = TextOnly()
     parser.feed(content)
     raw = re.sub(r'\s+', ' ', ' '.join(parser.parts)).strip()
+    if meta.get('overlay') == 'living':
+        return meta['category'], {
+            'overlay': True,
+            'id': meta['id'],
+            'contentLiving': content,
+            'frontmatterLiving': meta.get('frontmatter') or {},
+        }
     item = {
         'id': meta['id'],
         'title': title,
@@ -112,6 +125,15 @@ for path in sorted(SOURCE.rglob('*.md')):
     category, item = build(path)
     if category not in data:
         raise KeyError(f'{path}: unknown category {category}')
+    if item.get('overlay'):
+        target = next((x for x in data[category]['items'] if x['id'] == item['id']), None)
+        if target is None:
+            raise KeyError(f'{path}: no existing {category} item with id {item["id"]} to overlay')
+        target['era'] = 'both'
+        target['contentLiving'] = item['contentLiving']
+        target['frontmatterLiving'] = item['frontmatterLiving']
+        count += 1
+        continue
     info = data[category]['info']
     region = item.get('region')
     if category in REGION_CATEGORIES and region and info.get('regions') is not None:

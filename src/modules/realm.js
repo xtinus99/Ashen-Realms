@@ -25,9 +25,10 @@ const BOTH_TITLES = new Set([
   'Velvet Thorn', 'Veshra Coil', 'Captain Hael',
   'Sorrow', 'The Docent', 'Dr. Evangeline Morrow', 'Galheran, the Unmoved',
   'Rosa Solt',
-  // Kettleback & Jawbone were Ashford NPCs (town burned 5 yrs ago, all their
-  // canon is old-party) — archive-only until/unless the DM places them as
-  // known Crownfall refugees.
+  // Kettleback, Jawbone and Edra keep their old-party record in the Archive.
+  // The living party met them in Crownfall (Sessions 40 and 43), so their
+  // items carry era 'both' and a trimmed contentLiving, written as
+  // content/entities/NPCs/*.living.md overlays.
   // --- Locations / public-world geography ---
   'The Ashen Realms', 'The Blooming Rot', 'The Clockwork Sanctum', 'Veinspire',
   'The Devoured Courts', 'Lastwell', "The Hexwright's Tower", 'Crownfall',

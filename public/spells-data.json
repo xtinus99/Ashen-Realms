@@ -142,7 +142,8 @@
           "Heartfire Infusion",
           "Reality Gambit",
           "Remnant Blessing",
-          "Remnant Weapon"
+          "Remnant Weapon",
+          "I Want to Play a Game"
         ],
         "5th Level": [
           "Animate Objects",
@@ -218,7 +219,9 @@
           "Frequency Ping",
           "Name the Forgotten",
           "Tidal Memory",
-          "Warding Glance"
+          "Warding Glance",
+          "Dream Nail",
+          "Nevermore"
         ],
         "1st Level": [
           "Animal Friendship",
@@ -258,7 +261,8 @@
           "Void Flicker",
           "Void Hide",
           "Waking Dream",
-          "Wardaway"
+          "Wardaway",
+          "Fairy Festival"
         ],
         "2nd Level": [
           "Animal Messenger",
@@ -300,7 +304,9 @@
           "Hollow Trail",
           "Memory Current",
           "Remnant Sight",
-          "Thought Theft"
+          "Thought Theft",
+          "Narcissus",
+          "The Gyrator"
         ],
         "3rd Level": [
           "Antagonize",
@@ -339,7 +345,9 @@
           "Resonant Empathy",
           "Resonant Mapping",
           "Shared Dream",
-          "Veil of the Forgotten"
+          "Veil of the Forgotten",
+          "Attract",
+          "Six O'Clock Forever"
         ],
         "4th Level": [
           "Backlash",
@@ -515,7 +523,8 @@
           "Speak with Flesh",
           "Stolen Breath",
           "The Maker's Echo",
-          "Wardaway"
+          "Wardaway",
+          "Soul Trap"
         ],
         "2nd Level": [
           "Aid",
@@ -595,7 +604,9 @@
           "Resonant Strike",
           "Scar the Soul",
           "Schrödinger's Strike",
-          "Silencing Grasp"
+          "Silencing Grasp",
+          "Grandfather's Gift",
+          "The Crow Mauler"
         ],
         "4th Level": [
           "Aura of Life",
@@ -621,7 +632,8 @@
           "Resonant Communication",
           "Resonate",
           "Silence Before Thunder",
-          "Sympathetic Vibration"
+          "Sympathetic Vibration",
+          "Contrapasso"
         ],
         "5th Level": [
           "Commune (Ritual)",
@@ -676,7 +688,8 @@
           "Harmonic Devastation",
           "Mind Fortress",
           "Remnant Sanctuary",
-          "True Hunger"
+          "True Hunger",
+          "No One Dies Here"
         ],
         "7th Level": [
           "Conjure Celestial",
@@ -760,7 +773,8 @@
           "Mend Flesh",
           "Source-Based Restrictions",
           "Bone Read",
-          "Sporetrace"
+          "Sporetrace",
+          "Bloodstone"
         ],
         "1st Level": [
           "Absorb Elements",
@@ -786,7 +800,8 @@
           "Thunderwave",
           "Ancestral Skill",
           "Bone Cage",
-          "Decay Tongue"
+          "Decay Tongue",
+          "Fairy Festival"
         ],
         "2nd Level": [
           "Air Bubble",
@@ -825,7 +840,8 @@
           "Sculpt Flesh",
           "Veinpath",
           "Void Pocket",
-          "Wither and Bloom"
+          "Wither and Bloom",
+          "Fissure Spasm"
         ],
         "3rd Level": [
           "Aura of Vitality",
@@ -857,7 +873,8 @@
           "Hollow Walk",
           "Perfecting Agony",
           "Unwrite History",
-          "Void Step"
+          "Void Step",
+          "Grandfather's Gift"
         ],
         "4th Level": [
           "Blight",
@@ -896,7 +913,8 @@
           "Heartfire Infusion",
           "Reality Gambit",
           "Remnant Weapon",
-          "Void Door"
+          "Void Door",
+          "Blood Cost"
         ],
         "5th Level": [
           "Alustriel's Mooncloak",
@@ -956,7 +974,9 @@
           "Quantum Lock",
           "Resonant Restructuring",
           "Surgical Perfection",
-          "Void Cache"
+          "Void Cache",
+          "No One Dies Here",
+          "Metamorphosis"
         ],
         "7th Level": [
           "Draconic Transformation",
@@ -988,7 +1008,8 @@
           "Dreaming Anchor",
           "Flesh Symphony",
           "Ossuary Rising",
-          "Resonant Duplication"
+          "Resonant Duplication",
+          "Tetsuo"
         ],
         "9th Level": [
           "Foresight",
@@ -1036,7 +1057,9 @@
           "Barrier Ward",
           "Harmonic Shield",
           "Potential Collapse",
-          "Remnant Shield"
+          "Remnant Shield",
+          "Power Within",
+          "Sky-Turn Smite"
         ],
         "2nd Level": [
           "Aid",
@@ -1081,7 +1104,8 @@
           "Barrier Dome",
           "Divine Ricochet",
           "Resonant Deflection",
-          "Remnant Blessing"
+          "Remnant Blessing",
+          "Contrapasso"
         ],
         "5th Level": [
           "Banishing Smite",
@@ -1094,7 +1118,8 @@
           "Summon Celestial",
           "Decoy Beacon",
           "Remnant Restoration",
-          "Void Anchor"
+          "Void Anchor",
+          "Demon Form"
         ],
         "6th Level": [
           "Barrier Fortress",
@@ -1126,7 +1151,8 @@
           "Mend Flesh",
           "Source-Based Restrictions",
           "Bone Read",
-          "Sporetrace"
+          "Sporetrace",
+          "Bloodstone"
         ],
         "1st Level": [
           "Absorb Elements",
@@ -1145,7 +1171,8 @@
           "Longstrider",
           "Snare",
           "Speak with Animals",
-          "Zephyr Strike"
+          "Zephyr Strike",
+          "Fairy Festival"
         ],
         "2nd Level": [
           "Air Bubble",
@@ -1164,7 +1191,8 @@
           "Protection from Poison",
           "Silence",
           "Spike Growth",
-          "Summon Beast"
+          "Summon Beast",
+          "Fissure Spasm"
         ],
         "3rd Level": [
           "Conjure Animals",
@@ -1183,7 +1211,8 @@
           "Water Breathing",
           "Water Walk",
           "Wind Wall",
-          "Ashardalon's Stride"
+          "Ashardalon's Stride",
+          "Seven Bullets"
         ],
         "4th Level": [
           "Conjure Woodland Beings",
@@ -1193,7 +1222,8 @@
           "Guardian of Nature",
           "Locate Creature",
           "Stoneskin",
-          "Summon Elemental"
+          "Summon Elemental",
+          "Blood Cost"
         ],
         "5th Level": [
           "Alustriel's Mooncloak",
@@ -1245,7 +1275,10 @@
           "Echo Voice",
           "Frequency Ping",
           "Void Static",
-          "Void Whisper"
+          "Void Whisper",
+          "Dream Nail",
+          "Nevermore",
+          "Bloodstone"
         ],
         "1st Level": [
           "Absorb Elements",
@@ -1287,7 +1320,8 @@
           "Resonant Message",
           "Void Flicker",
           "Void Hide",
-          "Waking Dream"
+          "Waking Dream",
+          "Power Within"
         ],
         "2nd Level": [
           "Aganazzar's Scorcher",
@@ -1349,7 +1383,9 @@
           "Thought Theft",
           "Veinpath",
           "Void Pocket",
-          "Wither and Bloom"
+          "Wither and Bloom",
+          "Narcissus",
+          "The Gyrator"
         ],
         "3rd Level": [
           "Antagonize",
@@ -1404,7 +1440,11 @@
           "Shared Dream",
           "Unwrite History",
           "Veil of the Forgotten",
-          "Void Step"
+          "Void Step",
+          "Attract",
+          "Morgul-Knife",
+          "Six O'Clock Forever",
+          "Seven Bullets"
         ],
         "4th Level": [
           "Backlash",
@@ -1446,7 +1486,9 @@
           "Resonate",
           "Sympathetic Vibration",
           "Void Cloak",
-          "Void Door"
+          "Void Door",
+          "Kon",
+          "Scanners"
         ],
         "5th Level": [
           "Animate Objects",
@@ -1487,7 +1529,8 @@
           "Unmake",
           "Void Passage",
           "Void Walk",
-          "Waves of Exhaustion"
+          "Waves of Exhaustion",
+          "Demon Form"
         ],
         "6th Level": [
           "Arcane Gate",
@@ -1520,7 +1563,8 @@
           "Resonant Restructuring",
           "Surgical Perfection",
           "Temporal Shackles",
-          "Void Cache"
+          "Void Cache",
+          "Metamorphosis"
         ],
         "7th Level": [
           "Aura of Evasion",
@@ -1575,7 +1619,8 @@
           "Schrödinger's Apocalypse",
           "Shattered Identity",
           "Voice of the Silent",
-          "Weaponized Secret"
+          "Weaponized Secret",
+          "Tetsuo"
         ],
         "9th Level": [
           "Blade of Disaster",
@@ -1633,7 +1678,9 @@
           "Name the Forgotten",
           "Tidal Memory",
           "Void Static",
-          "Void Whisper"
+          "Void Whisper",
+          "Dream Nail",
+          "Nevermore"
         ],
         "1st Level": [
           "Armor of Agathys",
@@ -1666,7 +1713,9 @@
           "The Maker's Echo",
           "Void Flicker",
           "Void Hide",
-          "Waking Dream"
+          "Waking Dream",
+          "Soul Trap",
+          "Power Within"
         ],
         "2nd Level": [
           "Battle Familiar",
@@ -1704,7 +1753,8 @@
           "Thought Theft",
           "Uncertain Footing",
           "Veinpath",
-          "Void Pocket"
+          "Void Pocket",
+          "Narcissus"
         ],
         "3rd Level": [
           "Antagonize",
@@ -1744,7 +1794,13 @@
           "Shared Dream",
           "Silencing Grasp",
           "Veil of the Forgotten",
-          "Void Step"
+          "Void Step",
+          "Grandfather's Gift",
+          "Attract",
+          "Morgul-Knife",
+          "The Crow Mauler",
+          "Six O'Clock Forever",
+          "Seven Bullets"
         ],
         "4th Level": [
           "Backlash",
@@ -1778,7 +1834,12 @@
           "Summon Greater Demon",
           "Void Cloak",
           "Void Door",
-          "Zone of Amicability"
+          "Zone of Amicability",
+          "Kon",
+          "Blood Cost",
+          "Scanners",
+          "Contrapasso",
+          "I Want to Play a Game"
         ],
         "5th Level": [
           "Contact Other Plane (Ritual)",
@@ -1815,7 +1876,8 @@
           "Shadow Labyrinth",
           "Void Passage",
           "Void Walk",
-          "Waves of Exhaustion"
+          "Waves of Exhaustion",
+          "Demon Form"
         ],
         "6th Level": [
           "Arcane Gate",
@@ -1843,7 +1905,8 @@
           "Mirror Army",
           "Temporal Shackles",
           "True Hunger",
-          "Void Cache"
+          "Void Cache",
+          "Metamorphosis"
         ],
         "7th Level": [
           "Aura of Evasion",
@@ -1963,7 +2026,10 @@
           "Sporetrace",
           "Void Static",
           "Void Whisper",
-          "Warding Glance"
+          "Warding Glance",
+          "Dream Nail",
+          "Nevermore",
+          "Bloodstone"
         ],
         "1st Level": [
           "Absorb Elements",
@@ -2036,7 +2102,8 @@
           "The Maker's Echo",
           "Void Flicker",
           "Void Hide",
-          "Waking Dream"
+          "Waking Dream",
+          "Soul Trap"
         ],
         "2nd Level": [
           "Aganazzar's Scorcher",
@@ -2130,7 +2197,9 @@
           "Veinpath",
           "Void Pocket",
           "Wither and Bloom",
-          "Wristpocket"
+          "Wristpocket",
+          "Narcissus",
+          "The Gyrator"
         ],
         "3rd Level": [
           "Animate Dead",
@@ -2219,7 +2288,13 @@
           "Silencing Grasp",
           "Unwrite History",
           "Veil of the Forgotten",
-          "Void Step"
+          "Void Step",
+          "Grandfather's Gift",
+          "Attract",
+          "Morgul-Knife",
+          "The Crow Mauler",
+          "Six O'Clock Forever",
+          "Seven Bullets"
         ],
         "4th Level": [
           "Arcane Eye",
@@ -2291,7 +2366,11 @@
           "Silence Before Thunder",
           "Sympathetic Vibration",
           "Void Cloak",
-          "Void Door"
+          "Void Door",
+          "Kon",
+          "Blood Cost",
+          "Scanners",
+          "I Want to Play a Game"
         ],
         "5th Level": [
           "Alustriel's Mooncloak",
@@ -2366,7 +2445,8 @@
           "Void Passage",
           "Void Walk",
           "Waves of Exhaustion",
-          "Yolande's Regal Presence"
+          "Yolande's Regal Presence",
+          "Demon Form"
         ],
         "6th Level": [
           "Arcane Gate",
@@ -2422,7 +2502,9 @@
           "Surgical Perfection",
           "Temporal Shackles",
           "True Hunger",
-          "Void Cache"
+          "Void Cache",
+          "No One Dies Here",
+          "Metamorphosis"
         ],
         "7th Level": [
           "Aura of Evasion",
@@ -2513,7 +2595,8 @@
           "Shattered Identity",
           "Voice of the Silent",
           "Void Erasure",
-          "Weaponized Secret"
+          "Weaponized Secret",
+          "Tetsuo"
         ],
         "9th Level": [
           "Astral Projection",
@@ -3491,6 +3574,28 @@
       ]
     },
     {
+      "name": "Attract",
+      "class": "Bard",
+      "level": "3rd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Choose a creature you can see. Each creature hostile to you within 60 feet of it, other than the target, makes a Wisdom saving throw. On a failure, it comes to hate the target: it must use its attacks against the target if it can, and it moves to reach it if it needs to. It repeats the save at the end of each of its turns.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Augury",
       "class": "Cleric",
       "level": "2nd Level",
@@ -4113,6 +4218,28 @@
       ]
     },
     {
+      "name": "Blood Cost",
+      "class": "Druid",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "description": "Choose up to three creatures under your command within range: things you summoned, conjured, animated or raised. They die, and their blood calls up something bigger: a beast or monstrosity whose CR is no higher than the sum of theirs + 1 (count each as at least 1/4), to a maximum of CR 6. It appears where one of them fell and obeys you for the duration.",
+      "higherLevels": "The maximum CR rises by 1 for each slot level above 4th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Druid",
+        "Ranger",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Blood Covenant",
       "class": "Cleric",
       "level": "7th Level",
@@ -4195,6 +4322,28 @@
         "Druid",
         "Sorcerer",
         "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Bloodstone",
+      "class": "Druid",
+      "level": "Cantrips",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "S",
+      "duration": "Instantaneous",
+      "description": "You fling a crystal of hardened blood. Make a ranged spell attack. On a hit, it deals 2d6 piercing damage and lodges in the target, whose speed is reduced by 10 feet while it stays there. You have only the one stone: you can't cast this again until you pick it up (it drops when the target dies, or after 1 minute) or finish a short rest.\n\nThis spell's damage increases by 1d6 when you reach 5th level (3d6), 11th level (4d6), and 17th level (5d6).",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Druid",
+        "Ranger",
+        "Sorcerer",
         "Wizard"
       ]
     },
@@ -5454,6 +5603,27 @@
       ]
     },
     {
+      "name": "Contrapasso",
+      "class": "Cleric",
+      "level": "4th Level",
+      "school": "Abjuration",
+      "castingTime": "1 reaction, which you take when a creature you can see damages you or an ally within range, or imposes a condition on one",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "Instantaneous",
+      "description": "The creature makes a Wisdom saving throw. On a failure, it suffers what it did: the same amount and type of damage, and any condition it imposed, for the same duration. On a success, it takes half the damage and no condition.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
+        "Paladin",
+        "Warlock"
+      ]
+    },
+    {
       "name": "Control Flames",
       "class": "Druid",
       "level": "Cantrips",
@@ -6141,6 +6311,28 @@
       "concentration": false,
       "source": "standard",
       "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Demon Form",
+      "class": "Paladin",
+      "level": "5th Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Horns push up through your skull. At the start of each of your turns, your weapon attacks, and the first spell you cast each turn, gain a cumulative +2 to their damage rolls (to a maximum of +20).",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Paladin",
         "Sorcerer",
         "Warlock",
         "Wizard"
@@ -6879,6 +7071,28 @@
       "source": "ashen",
       "classes": [
         "Druid",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Dream Nail",
+      "class": "Bard",
+      "level": "Cantrips",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "5 feet",
+      "components": "S",
+      "duration": "Instantaneous",
+      "description": "Make a melee spell attack against a creature. On a hit, it takes 1d8 psychic damage, or 1d12 if it's asleep, unconscious or incorporeal, and you hear one thought passing through its mind, a sentence at most.\n\nThe damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Bard",
         "Sorcerer",
         "Warlock",
         "Wizard"
@@ -7714,6 +7928,27 @@
       ]
     },
     {
+      "name": "Fairy Festival",
+      "class": "Bard",
+      "level": "1st Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a sugared flower)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Tiny fairies swarm a willing creature you can see. At the start of each of its turns it regains 1d6 hit points, up to a total of 20 for the spell. If it moves more than 30 feet from where it stood when you cast this, the fairies eat it instead: it takes 3d6 piercing damage and the spell ends.",
+      "higherLevels": "The total healing increases by 10 for each slot level above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Bard",
+        "Druid",
+        "Ranger"
+      ]
+    },
+    {
       "name": "False Life",
       "class": "Artificer",
       "level": "1st Level",
@@ -8109,6 +8344,26 @@
       "classes": [
         "Sorcerer",
         "Wizard"
+      ]
+    },
+    {
+      "name": "Fissure Spasm",
+      "class": "Druid",
+      "level": "2nd Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Self (30-foot line)",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You make the ground's old muscle twitch in a line 30 feet long and 5 feet wide, starting from you. Each creature on the ground in the line makes a Dexterity saving throw. On a failure, it takes 3d6 bludgeoning damage and falls prone.\n\nIf you cast this within 30 feet of a large fissure, the line is 60 feet long and the damage is 5d6.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Druid",
+        "Ranger"
       ]
     },
     {
@@ -9319,6 +9574,28 @@
       ]
     },
     {
+      "name": "Grandfather's Gift",
+      "class": "Cleric",
+      "level": "3rd Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a scab)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A creature makes a Constitution saving throw. On a failure, it takes 3d8 poison damage and the rot takes hold. At the start of each of its turns it takes 2d8 poison damage, and at the end of each of its turns every creature within 5 feet of it makes a Constitution saving throw or catches the rot for the rest of the spell (a creature can catch it only once). An infected creature repeats its save at the end of each of its turns, shaking the rot off on a success. The whole time, it feels warm and oddly content.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
+        "Druid",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Grasping Vine",
       "class": "Druid",
       "level": "4th Level",
@@ -10265,6 +10542,27 @@
       ]
     },
     {
+      "name": "I Want to Play a Game",
+      "class": "Artificer",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "1 round",
+      "description": "A rusted device clamps onto a creature you can see, which makes a Dexterity saving throw to dodge it. On a failure, it's restrained, and the device will close at the end of its next turn for 10d10 piercing damage. Before then it can buy its way out as an action: it takes 4d10 slashing damage that can't be reduced (it cuts the key out of itself, or tears free) and is released. Nobody else can help it.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Artificer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Ice Knife",
       "class": "Druid",
       "level": "1st Level",
@@ -10975,6 +11273,27 @@
       "classes": [
         "Bard",
         "Cleric",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Kon",
+      "class": "Sorcerer",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S (a fox sign made with one hand)",
+      "duration": "Instantaneous",
+      "description": "A vast jaw rises out of the ground beneath a creature you can see and closes. It makes a Dexterity saving throw, taking 7d10 piercing damage on a failure or half as much on a success. A creature this reduces to 0 hit points is swallowed and gone. The Hollow Empress takes her share: your hit point maximum is reduced by 2d6 until you finish a long rest.",
+      "higherLevels": "The damage increases by 1d10 for each slot level above 4th.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Sorcerer",
         "Warlock",
         "Wizard"
       ]
@@ -12077,6 +12396,28 @@
       ]
     },
     {
+      "name": "Metamorphosis",
+      "class": "Druid",
+      "level": "6th Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A creature's body begins to change. It makes a Constitution saving throw. On a failure, its back hardens into a shell and its speed is halved. It repeats the save at the end of each of its turns. After three failures, it becomes a giant insect for good (the DM picks: a giant beetle, centipede or cockroach), keeping its mind and memories but unable to speak. After three successes, the change undoes itself, as it does if your concentration breaks first. Greater restoration or a wish turns a finished change back.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Druid",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Meteor Swarm",
       "class": "Sorcerer",
       "level": "9th Level",
@@ -12550,6 +12891,27 @@
       ]
     },
     {
+      "name": "Morgul-Knife",
+      "class": "Sorcerer",
+      "level": "3rd Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "You draw a pale knife out of nothing and stab. Make a melee spell attack: on a hit, the target takes 3d8 cold damage, and the knife's tip breaks off in the wound. While the shard is in it, the creature has disadvantage on saving throws against being frightened, and each time it finishes a long rest it makes a Constitution saving throw. On its third failure, the shard reaches its heart and it becomes a wraith; for a creature the DM runs, that's the DM's to play, and for a player character, the DM and the player decide together what's left. Cutting the shard out takes an hour and a DC 15 Wisdom (Medicine) check; remove curse or greater restoration also ends it.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Motivational Speech",
       "class": "Bard",
       "level": "3rd Level",
@@ -12612,6 +12974,28 @@
       ]
     },
     {
+      "name": "Narcissus",
+      "class": "Bard",
+      "level": "2nd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Choose a creature within 30 feet of a reflective surface it can see (still water, a mirror, a polished shield, a blade). It makes a Wisdom saving throw. On a failure, it falls in love with its reflection: while it can see it, it's incapacitated and its speed is 0. The spell ends if it takes damage, if the surface is broken or covered, or if someone uses an action to turn its face away.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Nathair's Mischief",
       "class": "Bard",
       "level": "2nd Level",
@@ -12653,6 +13037,28 @@
       ]
     },
     {
+      "name": "Nevermore",
+      "class": "Bard",
+      "level": "Cantrips",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "1 round",
+      "description": "A raven's voice says the word inside a creature's head. It makes a Wisdom saving throw. On a failure, it takes 1d6 psychic damage, and until the end of its next turn it can't cast the spell it cast on its last turn, or use the special action it used then. Ordinary attacks are unaffected.\n\nThis spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Nightmare Bleed",
       "class": "Bard",
       "level": "5th Level",
@@ -12671,6 +13077,27 @@
         "Bard",
         "Sorcerer",
         "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "No One Dies Here",
+      "class": "Cleric",
+      "level": "6th Level",
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "Self (20-foot radius)",
+      "components": "V, S",
+      "duration": "Until the end of your next turn",
+      "description": "For the duration, no creature in the area can drop below 1 hit point, friend or foe. When the spell ends, each creature that stayed in the area the whole time regains 4d10 hit points.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
+        "Druid",
         "Wizard"
       ]
     },
@@ -13348,6 +13775,27 @@
         "Cleric",
         "Paladin",
         "Wizard"
+      ]
+    },
+    {
+      "name": "Power Within",
+      "class": "Paladin",
+      "level": "1st Level",
+      "school": "Transmutation",
+      "castingTime": "1 bonus action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "1 minute",
+      "description": "Your blood heats until it smokes. For the duration, your weapon attacks deal an extra 1d8 fire damage, and the first spell you cast each turn that deals damage deals an extra 1d8 fire damage to one of its targets. At the start of each of your turns, you take 1d6 fire damage that can't be reduced. You can end the spell at any time (no action).",
+      "higherLevels": "The extra damage increases by 1d8, and the damage you take by 1d6, for every two slot levels above 1st.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Paladin",
+        "Sorcerer",
+        "Warlock"
       ]
     },
     {
@@ -14977,6 +15425,27 @@
       ]
     },
     {
+      "name": "Scanners",
+      "class": "Sorcerer",
+      "level": "4th Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You lock minds with a creature that has an Intelligence of 4 or higher. At the start of each of your turns while the spell lasts, it makes an Intelligence saving throw. On a failure it takes 4d8 psychic damage; on a success you take 2d8. If this spell reduces either of you to 0 hit points, that one's head bursts, and it dies.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Scar the Soul",
       "class": "Cleric",
       "level": "3rd Level",
@@ -15246,6 +15715,28 @@
       "concentration": false,
       "source": "standard",
       "classes": [
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Seven Bullets",
+      "class": "Ranger",
+      "level": "3rd Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S, M (seven pieces of ammunition cast in lead at a crossroads at night)",
+      "duration": "8 hours",
+      "description": "The seven become free-bullets. When you fire one of the first six, it hits automatically, though it can't be a critical hit. When you fire the seventh, the DM chooses its target from every creature in range, friend or foe, and it hits automatically. If you haven't fired the seventh by the time the spell ends, you fire it anyway, at the worst moment the DM can find.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Ranger",
+        "Sorcerer",
+        "Warlock",
         "Wizard"
       ]
     },
@@ -15665,6 +16156,28 @@
       ]
     },
     {
+      "name": "Six O'Clock Forever",
+      "class": "Bard",
+      "level": "3rd Level",
+      "school": "Enchantment",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (a teacup)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A long table set for tea appears in a 20-foot-radius circle you can see. Each creature in the circle makes a Wisdom saving throw. On a failure, it's a guest, and for it, it's always six o'clock. It can't leave the circle; on its turn it can only move one place round the table (5 feet), and the only things it can do are drink tea, pass something along, or talk. It repeats the save at the end of each of its turns, leaving the party on a success.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Skill Empowerment",
       "class": "Bard",
       "level": "5th Level",
@@ -15683,6 +16196,25 @@
         "Bard",
         "Sorcerer",
         "Wizard"
+      ]
+    },
+    {
+      "name": "Sky-Turn Smite",
+      "class": "Paladin",
+      "level": "1st Level",
+      "school": "Evocation",
+      "castingTime": "1 bonus action",
+      "range": "Self",
+      "components": "V",
+      "duration": "Concentration, up to 1 minute",
+      "description": "The next time you hit a creature with a melee weapon attack before the spell ends, the attack deals an extra 2d8 damage. During Aethranox's thirteen hours of sun, the extra damage is radiant. During Vaelumbra's thirteen hours of moon, it's necrotic, and the creature can't regain hit points until the start of your next turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Paladin"
       ]
     },
     {
@@ -15868,6 +16400,27 @@
       "concentration": false,
       "source": "standard",
       "classes": [
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Soul Trap",
+      "class": "Cleric",
+      "level": "1st Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (an empty gem worth at least 50 gp per point of the creature's challenge rating)",
+      "duration": "1 minute",
+      "description": "A creature you can see makes a Charisma saving throw. On a failure, if it dies before the spell ends, its soul goes into the gem. While the gem is whole, the soul can't be raised, resurrected or questioned with speak with dead. Breaking the gem frees it. Or you can spend it: crushing a filled gem as a bonus action restores one expended charge to a magic item you're holding.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
         "Warlock",
         "Wizard"
       ]
@@ -17294,6 +17847,27 @@
       ]
     },
     {
+      "name": "Tetsuo",
+      "class": "Druid",
+      "level": "8th Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A creature's flesh starts to grow out of control. It makes a Constitution saving throw. On a failure, it swells: at the start of each of its turns it grows one size larger (up to Gargantuan), its speed is 0 under its own mass, and it takes 6d10 bludgeoning damage as it crushes itself. Each creature within 10 feet of it when it grows makes a Strength saving throw or is pulled into the mass, restrained and taking the same damage. The swelling creature repeats its save at the end of each of its turns; on a success the growth stops, and it shrinks back over the next minute.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Druid",
+        "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Thaumaturgy",
       "class": "Cleric",
       "level": "Cantrips",
@@ -17310,6 +17884,48 @@
       "source": "standard",
       "classes": [
         "Cleric"
+      ]
+    },
+    {
+      "name": "The Crow Mauler",
+      "class": "Cleric",
+      "level": "3rd Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a crow feather dipped in blood)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "Something with a crow's head starts hunting a creature you can see. It can't be seen and can't be harmed. At the start of each of the creature's turns, roll a d6. On a 5 or 6 the Mauler is suddenly there and strikes: the creature makes a Dexterity saving throw, taking 4d10 slashing damage on a failure or half as much on a success, and then it's gone again. On a 1 it loses interest, and the spell ends.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "The Gyrator",
+      "class": "Bard",
+      "level": "2nd Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "description": "A Large or smaller creature makes a Strength saving throw. On a failure, it's lifted a foot off the ground and spun: it's incapacitated, its speed is 0, and it takes 2d6 bludgeoning damage at the start of each of its turns. It repeats the save at the end of each of its turns. When the spell ends, it's flung 20 feet in a direction you choose and lands prone.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Bard",
+        "Sorcerer",
+        "Wizard"
       ]
     },
     {
