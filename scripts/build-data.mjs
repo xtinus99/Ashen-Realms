@@ -91,7 +91,8 @@ for (const { category, item } of uniqueItems) {
 
 function toStub(category, item) {
   const key = `${category}/${item.id}`;
-  const image = firstImage(item.contentLiving || item.content);
+  // A session recap can name its own cover; otherwise its first image is the cover.
+  const image = item.cover || firstImage(item.contentLiving || item.content);
   return {
     id: item.id,
     title: item.title,

@@ -1,4 +1,5 @@
 # Session 50 — I'll Be Back
+<!-- cover: images/The Pallbearer.webp -->
 
 ## Session Overview
 

@@ -1,4 +1,5 @@
 # Session 54 — Mothers and Strangers
+<!-- cover: images/S54 Goodknight.webp -->
 
 ## Session Overview
 

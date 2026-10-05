@@ -1,4 +1,5 @@
 # Session 57 — Dragon's Second Funeral
+<!-- cover: images/S57 Drey.webp -->
 
 ## Session Overview
 

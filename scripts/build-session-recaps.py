@@ -44,6 +44,15 @@ numbers = sorted(int(p.stem.split('-')[1]) for p in SOURCE.glob('session-*.md'))
 for number in numbers:
     path = SOURCE / f'session-{number}.md'
     md = path.read_text(encoding='utf-8')
+    # An optional "<!-- cover: images/X.webp -->" line picks the session's cover image
+    # (cards and nav thumbnails); without it, the cover is the recap's first image.
+    cover_match = re.search(r'^<!--\s*cover:\s*(.+?)\s*-->[ \t]*\n?', md, re.M)
+    cover = None
+    if cover_match:
+        cover = cover_match.group(1).strip()
+        if not (ROOT / 'public' / cover).exists():
+            raise FileNotFoundError(f'session-{number}: missing cover image {cover}')
+        md = md[:cover_match.start()] + md[cover_match.end():]
     title = re.search(r'^# Session \d+ — (.+)$', md, re.M).group(1)
     content = markdown.markdown(md, extensions=['tables'])
     content = re.sub(r'<img\b[^>]*>', image_attributes, content)
@@ -55,6 +64,10 @@ for number in numbers:
         item = {'id': f'session-{number}'}
         sessions.append(item)
     item.update(title=f'Session {number}: {title}', content=content, raw=raw)
+    if cover:
+        item['cover'] = cover
+    else:
+        item.pop('cover', None)
     item.setdefault('frontmatter', {}).update(session=str(number), type='Session Log')
 
 ids = [item['id'] for item in sessions]
