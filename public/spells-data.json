@@ -54,7 +54,8 @@
           "Decay Tongue",
           "Harmonic Shield",
           "Potential Collapse",
-          "Remnant Shield"
+          "Remnant Shield",
+          "Borrowed Sinew"
         ],
         "2nd Level": [
           "Aid",
@@ -347,7 +348,8 @@
           "Shared Dream",
           "Veil of the Forgotten",
           "Attract",
-          "Six O'Clock Forever"
+          "Six O'Clock Forever",
+          "Kindle the Rest"
         ],
         "4th Level": [
           "Backlash",
@@ -524,7 +526,9 @@
           "Stolen Breath",
           "The Maker's Echo",
           "Wardaway",
-          "Soul Trap"
+          "Soul Trap",
+          "Transfusion",
+          "Borrowed Sinew"
         ],
         "2nd Level": [
           "Aid",
@@ -606,7 +610,9 @@
           "Schrödinger's Strike",
           "Silencing Grasp",
           "Grandfather's Gift",
-          "The Crow Mauler"
+          "The Crow Mauler",
+          "Kindle the Rest",
+          "Purge"
         ],
         "4th Level": [
           "Aura of Life",
@@ -689,7 +695,8 @@
           "Mind Fortress",
           "Remnant Sanctuary",
           "True Hunger",
-          "No One Dies Here"
+          "No One Dies Here",
+          "Pull Down the Crown"
         ],
         "7th Level": [
           "Conjure Celestial",
@@ -801,7 +808,8 @@
           "Ancestral Skill",
           "Bone Cage",
           "Decay Tongue",
-          "Fairy Festival"
+          "Fairy Festival",
+          "Borrowed Sinew"
         ],
         "2nd Level": [
           "Air Bubble",
@@ -874,7 +882,9 @@
           "Perfecting Agony",
           "Unwrite History",
           "Void Step",
-          "Grandfather's Gift"
+          "Grandfather's Gift",
+          "Kindle the Rest",
+          "Purge"
         ],
         "4th Level": [
           "Blight",
@@ -1091,7 +1101,9 @@
           "Stolen Face",
           "Veil of the Nameless",
           "Frequency Lock",
-          "Remnant Aura"
+          "Remnant Aura",
+          "Kindle the Rest",
+          "Purge"
         ],
         "4th Level": [
           "Aura of Life",
@@ -1212,7 +1224,9 @@
           "Water Walk",
           "Wind Wall",
           "Ashardalon's Stride",
-          "Seven Bullets"
+          "Seven Bullets",
+          "Kindle the Rest",
+          "Purge"
         ],
         "4th Level": [
           "Conjure Woodland Beings",
@@ -1321,7 +1335,8 @@
           "Void Flicker",
           "Void Hide",
           "Waking Dream",
-          "Power Within"
+          "Power Within",
+          "Transfusion"
         ],
         "2nd Level": [
           "Aganazzar's Scorcher",
@@ -1488,7 +1503,8 @@
           "Void Cloak",
           "Void Door",
           "Kon",
-          "Scanners"
+          "Scanners",
+          "Bottled"
         ],
         "5th Level": [
           "Animate Objects",
@@ -1715,7 +1731,8 @@
           "Void Hide",
           "Waking Dream",
           "Soul Trap",
-          "Power Within"
+          "Power Within",
+          "Transfusion"
         ],
         "2nd Level": [
           "Battle Familiar",
@@ -1839,7 +1856,8 @@
           "Blood Cost",
           "Scanners",
           "Contrapasso",
-          "I Want to Play a Game"
+          "I Want to Play a Game",
+          "Bottled"
         ],
         "5th Level": [
           "Contact Other Plane (Ritual)",
@@ -1906,7 +1924,8 @@
           "Temporal Shackles",
           "True Hunger",
           "Void Cache",
-          "Metamorphosis"
+          "Metamorphosis",
+          "Pull Down the Crown"
         ],
         "7th Level": [
           "Aura of Evasion",
@@ -2103,7 +2122,9 @@
           "Void Flicker",
           "Void Hide",
           "Waking Dream",
-          "Soul Trap"
+          "Soul Trap",
+          "Transfusion",
+          "Borrowed Sinew"
         ],
         "2nd Level": [
           "Aganazzar's Scorcher",
@@ -2370,7 +2391,8 @@
           "Kon",
           "Blood Cost",
           "Scanners",
-          "I Want to Play a Game"
+          "I Want to Play a Game",
+          "Bottled"
         ],
         "5th Level": [
           "Alustriel's Mooncloak",
@@ -2504,7 +2526,8 @@
           "True Hunger",
           "Void Cache",
           "No One Dies Here",
-          "Metamorphosis"
+          "Metamorphosis",
+          "Pull Down the Crown"
         ],
         "7th Level": [
           "Aura of Evasion",
@@ -4497,6 +4520,28 @@
       ]
     },
     {
+      "name": "Borrowed Sinew",
+      "class": "Artificer",
+      "level": "1st Level",
+      "school": "Transmutation",
+      "castingTime": "1 minute",
+      "range": "Touch",
+      "components": "V, S, M (a length of surgeon's thread)",
+      "duration": "1 hour",
+      "description": "Two willing creatures you touch (you can be one of them) trade one ability score of your choice. The barbarian lends her Strength to the rogue for the climb; the scholar lends his Intelligence to the sellsword for the lock. Items and effects that set a score, like gauntlets of ogre power, stay with their wearer and override the borrowed score as normal.",
+      "higherLevels": "When you cast this spell using a spell slot of 3rd level or higher, the two creatures trade two ability scores of your choice.",
+      "ashenRealms": "",
+      "ritual": true,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Artificer",
+        "Cleric",
+        "Druid",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Borrowed Time",
       "class": "Artificer",
       "level": "4th Level",
@@ -4515,6 +4560,27 @@
         "Artificer",
         "Druid",
         "Sorcerer",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Bottled",
+      "class": "Sorcerer",
+      "level": "4th Level",
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (an empty stoppered bottle)",
+      "duration": "Concentration, up to 1 minute",
+      "description": "You unstopper the bottle and point it at a creature you can see within range. It makes a Charisma saving throw; a Large or larger creature has advantage, and a Gargantuan one can't be bottled. On a failure, it's pulled into the bottle and the stopper flies back in. Inside, it's incapacitated, and nothing outside can see, target or affect it. It comes out into the nearest unoccupied space when the spell ends or when someone opens or breaks the bottle. If you keep concentrating for the full minute, it stays inside after the spell ends, until the next dawn or until the bottle is opened or broken. You can carry the bottle, hand it to someone or drop it in a river.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": true,
+      "source": "ashen",
+      "classes": [
+        "Sorcerer",
+        "Warlock",
         "Wizard"
       ]
     },
@@ -11235,6 +11301,29 @@
       ]
     },
     {
+      "name": "Kindle the Rest",
+      "class": "Bard",
+      "level": "3rd Level",
+      "school": "Abjuration",
+      "castingTime": "1 minute",
+      "range": "Self (30-foot radius)",
+      "components": "V, S, M (kindling, and a fire to light it)",
+      "duration": "10 minutes",
+      "description": "You light a fire and tell it who sat around it before you. Up to six creatures who stay at the fire for the whole duration finish a short rest when it ends. Each can spend Hit Dice as normal, and each Hit Die spent at this fire restores its maximum. A creature can benefit from this spell once per long rest.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Bard",
+        "Cleric",
+        "Druid",
+        "Paladin",
+        "Ranger"
+      ]
+    },
+    {
       "name": "Knock",
       "class": "Bard",
       "level": "2nd Level",
@@ -14196,6 +14285,27 @@
       ]
     },
     {
+      "name": "Pull Down the Crown",
+      "class": "Cleric",
+      "level": "6th Level",
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "Name a creature you can see within range. If it has Legendary Resistance, it loses one use of it, and it can't take legendary actions until the end of its next turn. There's no saving throw.",
+      "higherLevels": "When you cast this spell using a spell slot of 8th level or higher, it loses two uses of Legendary Resistance.",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
       "name": "Pulse Wave",
       "class": "Wizard",
       "level": "3rd Level",
@@ -14212,6 +14322,28 @@
       "source": "standard",
       "classes": [
         "Wizard"
+      ]
+    },
+    {
+      "name": "Purge",
+      "class": "Cleric",
+      "level": "3rd Level",
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "description": "A creature you touch heaves up whatever is in it. Every disease and poison affecting it ends, and it expels parasites, swallowed things and anything lodged in its body: a shard, a larva, a seed, a hook. One charm or possession affecting it ends too. Then it gains one level of exhaustion, and it's incapacitated until the end of its next turn.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
+        "Druid",
+        "Paladin",
+        "Ranger"
       ]
     },
     {
@@ -18284,6 +18416,28 @@
       "source": "standard",
       "classes": [
         "Bard",
+        "Warlock",
+        "Wizard"
+      ]
+    },
+    {
+      "name": "Transfusion",
+      "class": "Cleric",
+      "level": "1st Level",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a hollow needle)",
+      "duration": "Instantaneous",
+      "description": "Blood leaves one creature and goes into another. A creature with blood that you can see within range makes a Constitution saving throw, taking 2d8 necrotic damage on a failure or half as much on a success. A different creature you can see within range regains hit points equal to the damage dealt.",
+      "higherLevels": "",
+      "ashenRealms": "",
+      "ritual": false,
+      "concentration": false,
+      "source": "ashen",
+      "classes": [
+        "Cleric",
+        "Sorcerer",
         "Warlock",
         "Wizard"
       ]
