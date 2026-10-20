@@ -494,6 +494,7 @@ function parseAshenFeats(markdown) {
   let subsection = '';
   let current = null;
   let stopped = false;
+  let inCallout = false;
 
   const finalize = () => {
     if (!current) return;
@@ -548,19 +549,32 @@ function parseAshenFeats(markdown) {
     }
     if (line.startsWith('## ')) {
       finalize();
+      inCallout = false;
       section = line.slice(3).trim();
       subsection = '';
       continue;
     }
     if (line.startsWith('### ')) {
       finalize();
+      inCallout = false;
       subsection = line.slice(4).trim();
       continue;
     }
     if (line.startsWith('#### ')) {
       finalize();
+      inCallout = false;
       current = { name: line.slice(5).trim(), section, subsection, lines: [] };
       continue;
+    }
+    // An Obsidian callout between feats is a note about them, not part of the feat above it.
+    if (/^>\s*\[!/.test(line)) {
+      finalize();
+      inCallout = true;
+      continue;
+    }
+    if (inCallout) {
+      if (line.startsWith('>')) continue;
+      inCallout = false;
     }
     if (current) current.lines.push(line);
   }
