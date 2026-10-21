@@ -45,35 +45,53 @@ export function getOptimizedImagePath(originalPath) {
   return originalPath;
 }
 
+// Name of a picture in images/, without its extension ("images/Edra.webp" -> "Edra").
+function imageStem(originalPath) {
+  if (!originalPath || !originalPath.startsWith('images/')) return null;
+  const match = originalPath.slice('images/'.length).match(/^(.+)\.(webp|png|jpe?g)$/i);
+  return match ? match[1] : null;
+}
+
 /**
- * Get thumbnail path for an image (used in category cards, search results)
+ * Card-sized copy of an entry picture (short side 480 px), made by scripts/build-thumbnails.py.
+ * Used by category cards. Give the <img> a data-full attribute so a missing thumbnail
+ * falls back to the full picture.
  */
 export function getThumbnailPath(originalPath) {
-  if (!originalPath) return originalPath;
-
-  if (!originalPath.startsWith('images/')) {
-    return originalPath;
-  }
-
-  // Check for supported extensions
-  const isPng = originalPath.endsWith('.png');
-  const isJpeg = originalPath.endsWith('.jpeg') || originalPath.endsWith('.jpg');
-
-  if (!isPng && !isJpeg) {
-    return originalPath;
-  }
-
-  if (USE_WEBP && supportsWebP) {
-    const filename = originalPath
-      .replace('images/', '')
-      .replace('.png', '')
-      .replace('.jpeg', '')
-      .replace('.jpg', '');
-    return `thumbnails/${filename}.webp`;
-  }
-
-  return originalPath;
+  const stem = imageStem(originalPath);
+  return stem && USE_WEBP && supportsWebP ? `thumbnails/${stem}.webp` : originalPath;
 }
+
+/**
+ * 160 px square centred on the face (scripts/build-thumbnails.py), for small round
+ * portraits: the sidebar, the home page party and house crests.
+ */
+export function getAvatarPath(originalPath) {
+  const stem = imageStem(originalPath);
+  return stem && USE_WEBP && supportsWebP ? `thumbnails/faces/${stem}.webp` : originalPath;
+}
+
+// Face centres ([x, y] as fractions of the picture) from scripts/build-thumbnails.py
+let faceCentresPromise = null;
+export function getFaceCentre(originalPath) {
+  const stem = imageStem(originalPath);
+  if (!stem) return Promise.resolve(null);
+  faceCentresPromise ||= fetch('thumbnails/faces.json')
+    .then((response) => (response.ok ? response.json() : {}))
+    .catch(() => ({}));
+  return faceCentresPromise.then((centres) => centres[stem] || null);
+}
+
+// Any <img data-full="..."> whose small copy is missing falls back to the full picture.
+// Error events don't bubble, so listen in the capture phase.
+document.addEventListener('error', (event) => {
+  const img = event.target;
+  if (!(img instanceof HTMLImageElement)) return;
+  const full = img.dataset.full;
+  if (full && img.getAttribute('src') !== full) {
+    img.src = full;
+  }
+}, true);
 
 /**
  * Process all images in HTML content to use optimized versions and add lazy loading.
@@ -132,6 +150,7 @@ function markOrientation(img) {
     const landscape = w > h * 1.1;
     img.classList.toggle('is-landscape', landscape);
     img.closest('.npc-portrait')?.classList.toggle('is-landscape', landscape);
+    img.closest('.article-lead')?.classList.toggle('is-landscape', landscape);
   };
   apply(Number(img.getAttribute('width')), Number(img.getAttribute('height')));
   if (img.complete && img.naturalWidth) {

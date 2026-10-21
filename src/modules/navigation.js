@@ -1,7 +1,7 @@
 import state from './state.js';
 import { refreshIcons } from './icons.js';
 import { updateHash } from './hash-routing.js';
-import { getThumbnailPath } from './images.js';
+import { getThumbnailPath, getAvatarPath } from './images.js';
 import { initSmoothScroll } from './smooth-scroll.js';
 import { setPageAudioTrack } from './audio.js';
 
@@ -15,7 +15,7 @@ export function setNavigationHandlers(h) { handlers = h; }
 function navEntryHTML(item) {
     let portrait;
     if (item.image) {
-        portrait = `<span class="nav-item-portrait"><img data-src="${getThumbnailPath(item.image)}" alt="" decoding="async"></span>`;
+        portrait = `<span class="nav-item-portrait"><img data-src="${getAvatarPath(item.image)}" data-full="${item.image}" alt="" decoding="async"></span>`;
     } else {
         const glyph = item.unknownPortrait ? '?' : (item.title || '?').charAt(0);
         portrait = `<span class="nav-item-portrait nav-item-monogram">${glyph}</span>`;
@@ -86,8 +86,8 @@ function wireToken(navItem, item) {
     });
 }
 
-// Icon for a region/section header, chosen by region name
-function hydrateNavImages(category) {
+// Load the small sidebar portraits of a category once it opens
+export function hydrateNavImages(category) {
     category?.querySelectorAll('img[data-src]').forEach((img) => {
         img.src = img.dataset.src;
         img.removeAttribute('data-src');
@@ -325,7 +325,7 @@ export function buildNavigation() {
                         sgHeader.className = 'nav-subgroup-header';
                         const sigil = sgIcons[sgName];
                         const iconHTML = sigil
-                            ? `<img class="sub-sigil" src="${sigil}" alt="" loading="lazy" decoding="async">`
+                            ? `<img class="sub-sigil" src="${getAvatarPath(sigil)}" data-full="${sigil}" alt="" loading="lazy" decoding="async">`
                             : `<i data-lucide="users" class="sub-icon"></i>`;
                         sgHeader.innerHTML = `
                             ${iconHTML}
@@ -464,9 +464,9 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
         groups.forEach((sgItems, sgName) => {
             const sigil = sgIcons[sgName];
             const iconHTML = sigil
-                ? `<img class="subgroup-sigil" src="${sigil}" alt="" loading="lazy" decoding="async" style="cursor:zoom-in" onclick="event.stopPropagation(); openCrestLightbox('${sigil.replace(/'/g, "\\'")}', '${sgName.replace(/'/g, "\\'")}')">`
+                ? `<img class="subgroup-sigil" src="${getAvatarPath(sigil)}" data-full="${sigil}" alt="" loading="lazy" decoding="async" style="cursor:zoom-in" onclick="event.stopPropagation(); openCrestLightbox('${sigil.replace(/'/g, "\\'")}', '${sgName.replace(/'/g, "\\'")}')">`
                 : `<i data-lucide="users" class="region-icon"></i>`;
-            html += `<div class="region-section subgroup-section" data-subgroup="${sgName}">
+            html += `<div class="region-section subgroup-section open" data-subgroup="${sgName}" data-count="${sgItems.length}" style="--count: ${sgItems.length}">
                 <button class="region-header subgroup-header" onclick="toggleRegion(this)">
                     ${iconHTML}
                     <span class="region-name">${sgName}</span>
@@ -492,10 +492,11 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
             itemsByRegion[region].push(item);
         });
 
-        // Build HTML with collapsible region dropdowns
-        regionOrder.forEach((region, index) => {
+        // Build HTML with collapsible region sections, all open so the faces show at once
+        // (cards use small thumbnails and load lazily)
+        regionOrder.forEach((region) => {
             if (itemsByRegion[region] && itemsByRegion[region].length > 0) {
-                const isOpen = index === 0 ? 'open' : ''; // First region open by default
+                const isOpen = 'open';
                 const itemCount = itemsByRegion[region].length;
                 itemsHtml += `<div class="region-section ${isOpen}" data-region="${region}">`;
                 itemsHtml += `<button class="region-header" onclick="toggleRegion(this)">
@@ -514,7 +515,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
         Object.keys(itemsByRegion).forEach(region => {
             if (!regionOrder.includes(region) && itemsByRegion[region].length > 0) {
                 const itemCount = itemsByRegion[region].length;
-                itemsHtml += `<div class="region-section" data-region="${region}">`;
+                itemsHtml += `<div class="region-section open" data-region="${region}">`;
                 itemsHtml += `<button class="region-header" onclick="toggleRegion(this)">
                     <i data-lucide="chevron-right" class="region-chevron"></i>
                     <i data-lucide="${regionIcon(region)}" class="region-icon"></i>

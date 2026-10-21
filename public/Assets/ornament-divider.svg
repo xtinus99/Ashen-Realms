@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="448" height="28" viewBox="0 0 448 28">
+  <title>Divider</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <path id="Rule_Left" data-name="Rule Left" d="M4 14 L193 13.35 L193 14.65 Z" fill="#c9a227"/>
+    <path id="Rule_Right" data-name="Rule Right" d="M444 14 L255 13.35 L255 14.65 Z" fill="#c9a227"/>
+    <path id="Lozenge" d="M224 4 L234 14 L224 24 L214 14 Z" fill="none" stroke="#c9a227" stroke-miterlimit="10"/>
+    <path id="Blood_Seed" data-name="Blood Seed" d="M224 9.5 L228.5 14 L224 18.5 L219.5 14 Z" fill="#8b1a32"/>
+    <path id="Dot_Left" data-name="Dot Left" d="M201.6 14 C201.6 13.227 202.227 12.6 203 12.6 C203.773 12.6 204.4 13.227 204.4 14 C204.4 14.773 203.773 15.4 203 15.4 C202.227 15.4 201.6 14.773 201.6 14 Z" fill="#c9a227"/>
+    <path id="Dot_Right" data-name="Dot Right" d="M243.6 14 C243.6 13.227 244.227 12.6 245 12.6 C245.773 12.6 246.4 13.227 246.4 14 C246.4 14.773 245.773 15.4 245 15.4 C244.227 15.4 243.6 14.773 243.6 14 Z" fill="#c9a227"/>
+  </g>
+</svg>

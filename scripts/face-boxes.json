@@ -1,0 +1,2841 @@
+{
+ "images/Acromel.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   540,
+   159,
+   202,
+   267
+  ]
+ },
+ "images/Aedwynn Fragment - Golden Tree.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Aldous Vander.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   424,
+   136,
+   178,
+   239
+  ]
+ },
+ "images/Allip.webp": {
+  "size": [
+   671,
+   1000
+  ],
+  "face": null
+ },
+ "images/Anvil.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Aral-Vyn the Bladed Saint.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   470,
+   180,
+   89,
+   114
+  ]
+ },
+ "images/Archive Keeper.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   464,
+   309,
+   225,
+   294
+  ]
+ },
+ "images/Ardian Bloodveil.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   449,
+   129,
+   127,
+   170
+  ]
+ },
+ "images/Arterial Texts.webp": {
+  "size": [
+   1024,
+   1280
+  ],
+  "face": null
+ },
+ "images/Ashford.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Ashka Voidmane.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   422,
+   202,
+   143,
+   175
+  ]
+ },
+ "images/Azalea Hemm.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": [
+   688,
+   134,
+   203,
+   256
+  ]
+ },
+ "images/Azerach the Whispered King.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   484,
+   175,
+   84,
+   116
+  ]
+ },
+ "images/Basilica Exterior.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Bishop of the Resonant Artery.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   462,
+   322,
+   212,
+   290
+  ]
+ },
+ "images/Bjarnok the Weather-Eater.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Blood Drinkers.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Bloom Hound.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Bonecage First Bell.webp": {
+  "size": [
+   887,
+   1774
+  ],
+  "face": [
+   384,
+   225,
+   128,
+   165
+  ]
+ },
+ "images/Bonefield Stalker.webp": {
+  "size": [
+   1024,
+   768
+  ],
+  "face": null
+ },
+ "images/Brancalic.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/Brinecutter.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Broken Antler Inn.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Broma.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   381,
+   206,
+   285,
+   354
+  ]
+ },
+ "images/C-5 Facility Interior.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/C-5 Preservation Custodian.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Caldwharf.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/Candleman.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   402,
+   202,
+   255,
+   351
+  ]
+ },
+ "images/Captain Hael.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   383,
+   212,
+   292,
+   407
+  ]
+ },
+ "images/Captain Mordecai Hask.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   406,
+   178,
+   230,
+   305
+  ]
+ },
+ "images/Captain Vask.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   449,
+   126,
+   177,
+   209
+  ]
+ },
+ "images/Carran Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Carrick and Yenna Doss.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   314,
+   197,
+   144,
+   183
+  ]
+ },
+ "images/Carrick's Glass.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/Catacomb Reliquary.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Cephalome.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/Chronite Sentinel.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   423,
+   67,
+   150,
+   199
+  ]
+ },
+ "images/Church of the Merciful Vein.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Church of the Virtuous Vein.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Cindermaw.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/Clockwork Sanctum Exterior.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Coagulated Guardian.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Corbel's Master Tools.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": [
+   339,
+   4,
+   71,
+   71
+  ]
+ },
+ "images/Cordwain Corbel.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   424,
+   150,
+   169,
+   214
+  ]
+ },
+ "images/Corpse Scavenger.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Corrupted Miners.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Crownfall.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Crying Crowned One.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Curtain Call.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Dalla Merrik.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   459,
+   231,
+   102,
+   130
+  ]
+ },
+ "images/Davan Holst.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   684,
+   89,
+   138,
+   175
+  ]
+ },
+ "images/Delvin.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   541,
+   83,
+   114,
+   160
+  ]
+ },
+ "images/Denna Hesk.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   329,
+   153,
+   339,
+   463
+  ]
+ },
+ "images/Devoured Courts.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/Dolich.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/Drennan Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Drow Twin - Black Hood.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   468,
+   211,
+   186,
+   238
+  ]
+ },
+ "images/Drowned Chord.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Dun.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Dusthollow.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Edra.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   387,
+   201,
+   254,
+   333
+  ]
+ },
+ "images/Eldran Vey.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   398,
+   193,
+   91,
+   105
+  ]
+ },
+ "images/Elias Alethain.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   315,
+   166,
+   277,
+   336
+  ]
+ },
+ "images/Eredain the Choirless Monarch.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Evangeline Morrow.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   393,
+   185,
+   237,
+   303
+  ]
+ },
+ "images/Farkas.webp": {
+  "size": [
+   1024,
+   1280
+  ],
+  "face": [
+   493,
+   45,
+   87,
+   115
+  ]
+ },
+ "images/Ferrin Skelde.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   363,
+   205,
+   180,
+   223
+  ]
+ },
+ "images/Flesh Remnant.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   150,
+   508,
+   74,
+   88
+  ]
+ },
+ "images/Fursen Diamond Teeth.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Galheran.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Garrett the Smith.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   413,
+   164,
+   200,
+   263
+  ]
+ },
+ "images/Gravity Beetle.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/Gravity Elemental.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Grolch.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Gustave Mourir.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   286,
+   157,
+   225,
+   316
+  ]
+ },
+ "images/Halick Pell.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   368,
+   147,
+   257,
+   360
+  ]
+ },
+ "images/Halric Vander.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   476,
+   171,
+   93,
+   125
+  ]
+ },
+ "images/Hesta Draal.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   401,
+   237,
+   235,
+   308
+  ]
+ },
+ "images/Hexwright's Tower.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Hollow Crawler.webp": {
+  "size": [
+   810,
+   1440
+  ],
+  "face": null
+ },
+ "images/Hollow-Maw, the Floe-Stalker.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/Imhuran the Regent of Hours.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   525,
+   11,
+   484,
+   484
+  ]
+ },
+ "images/Inquisitor Marek.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   500,
+   114,
+   110,
+   125
+  ]
+ },
+ "images/Ironwatch Commander.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   709,
+   55,
+   75,
+   100
+  ]
+ },
+ "images/Ironwatch Post.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/Iselle Vander.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   327,
+   152,
+   226,
+   311
+  ]
+ },
+ "images/Isgarrow.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/Ismara the Pale Duchess.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   483,
+   424,
+   71,
+   92
+  ]
+ },
+ "images/Iven Drask.webp": {
+  "size": [
+   864,
+   1820
+  ],
+  "face": null
+ },
+ "images/Jawbone.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   371,
+   146,
+   288,
+   390
+  ]
+ },
+ "images/Joran Vander.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   530,
+   122,
+   210,
+   284
+  ]
+ },
+ "images/Jorik Stave.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   401,
+   158,
+   210,
+   261
+  ]
+ },
+ "images/Kae'le'tha.webp": {
+  "size": [
+   1085,
+   1449
+  ],
+  "face": [
+   455,
+   183,
+   166,
+   215
+  ]
+ },
+ "images/Kaedris the Crimson Matron.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   476,
+   206,
+   84,
+   107
+  ]
+ },
+ "images/Kaedris's Heart-Flame.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Kael.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   381,
+   145,
+   229,
+   303
+  ]
+ },
+ "images/Kaleth Vorn.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   364,
+   163,
+   225,
+   290
+  ]
+ },
+ "images/Karusa.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   399,
+   133,
+   220,
+   306
+  ]
+ },
+ "images/Kel'vahr.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Keth Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Kettleback.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   420,
+   262,
+   215,
+   269
+  ]
+ },
+ "images/Kira Vost.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   428,
+   189,
+   166,
+   214
+  ]
+ },
+ "images/Korrath the Steady.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Korven Strake.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   418,
+   154,
+   118,
+   154
+  ]
+ },
+ "images/Lackborne.webp": {
+  "size": [
+   810,
+   1440
+  ],
+  "face": null
+ },
+ "images/Lastwell.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Lawrence.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   381,
+   223,
+   201,
+   252
+  ]
+ },
+ "images/Lesser Sacral District.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Lirael.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   498,
+   171,
+   194,
+   243
+  ]
+ },
+ "images/Lord Theron Vander.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   398,
+   207,
+   201,
+   272
+  ]
+ },
+ "images/Maldwin Crale.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   377,
+   297,
+   152,
+   192
+  ]
+ },
+ "images/Mara Vander.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   462,
+   145,
+   257,
+   335
+  ]
+ },
+ "images/Mareatha the Vein-Mother.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   466,
+   156,
+   92,
+   124
+  ]
+ },
+ "images/Marek.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   400,
+   175,
+   287,
+   393
+  ]
+ },
+ "images/Maren Thane.webp": {
+  "size": [
+   1024,
+   1535
+  ],
+  "face": [
+   421,
+   198,
+   180,
+   243
+  ]
+ },
+ "images/Marn the Glasswright.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": [
+   456,
+   76,
+   114,
+   159
+  ]
+ },
+ "images/Marrek Voss.webp": {
+  "size": [
+   1024,
+   1365
+  ],
+  "face": [
+   357,
+   236,
+   101,
+   137
+  ]
+ },
+ "images/Marrow Rest Keeper.webp": {
+  "size": [
+   1402,
+   1122
+  ],
+  "face": [
+   594,
+   71,
+   199,
+   288
+  ]
+ },
+ "images/Marrowgate - City Overview.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/Marsen Cray.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   444,
+   299,
+   183,
+   239
+  ]
+ },
+ "images/Matthias Korvain.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   375,
+   172,
+   339,
+   508
+  ]
+ },
+ "images/Mhorra the White Silence.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Mira Alethain.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   401,
+   200,
+   216,
+   281
+  ]
+ },
+ "images/Mira Hemm.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   399,
+   200,
+   214,
+   281
+  ]
+ },
+ "images/Mirelle Ashford.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   425,
+   225,
+   292,
+   338
+  ]
+ },
+ "images/Misremembered.webp": {
+  "size": [
+   810,
+   1440
+  ],
+  "face": null
+ },
+ "images/Mor.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   451,
+   383,
+   193,
+   211
+  ]
+ },
+ "images/Morrow Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Mural 2 - The Two Dragons.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Naya Selvik.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   357,
+   295,
+   163,
+   250
+  ]
+ },
+ "images/Nhalyra the Azure Queen.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   459,
+   230,
+   125,
+   160
+  ]
+ },
+ "images/Noel Cassick.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   421,
+   259,
+   182,
+   239
+  ]
+ },
+ "images/Nor'tha'lui.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   501,
+   160,
+   163,
+   234
+  ]
+ },
+ "images/Oathbreaker's End.webp": {
+  "size": [
+   1402,
+   1122
+  ],
+  "face": null
+ },
+ "images/Oathkeeper.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Old Yannis.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   442,
+   94,
+   103,
+   138
+  ]
+ },
+ "images/Oo'lha'ne.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Oo'ro'vae.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   444,
+   109,
+   102,
+   122
+  ]
+ },
+ "images/Orin.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   407,
+   171,
+   189,
+   241
+  ]
+ },
+ "images/Orro the White Omen.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Orvenne Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Precision Preservation Kit.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Quellan Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/REDACTED.webp": {
+  "size": [
+   1024,
+   1024
+  ],
+  "face": null
+ },
+ "images/Ratsby.webp": {
+  "size": [
+   1123,
+   1401
+  ],
+  "face": [
+   413,
+   271,
+   156,
+   199
+  ]
+ },
+ "images/Rennick Bryce.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   378,
+   155,
+   220,
+   308
+  ]
+ },
+ "images/Resonant Codex.webp": {
+  "size": [
+   1402,
+   1122
+  ],
+  "face": null
+ },
+ "images/Ridge-Stalker.webp": {
+  "size": [
+   1024,
+   819
+  ],
+  "face": null
+ },
+ "images/Rosa Solt.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   482,
+   270,
+   181,
+   243
+  ]
+ },
+ "images/S45 Siren.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   125,
+   1162,
+   74,
+   104
+  ]
+ },
+ "images/S48 Chalk Flats.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S48 Giant Forest.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S51 Elf at the Bar.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   399,
+   132,
+   128,
+   154
+  ]
+ },
+ "images/S53 Aurelian Portrait.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   449,
+   283,
+   145,
+   204
+  ]
+ },
+ "images/S53 Hobb.webp": {
+  "size": [
+   1536,
+   864
+  ],
+  "face": [
+   745,
+   111,
+   87,
+   117
+  ]
+ },
+ "images/S53 Manor Exterior.webp": {
+  "size": [
+   1600,
+   900
+  ],
+  "face": null
+ },
+ "images/S54 Assessors Gate.webp": {
+  "size": [
+   1600,
+   900
+  ],
+  "face": [
+   64,
+   457,
+   36,
+   47
+  ]
+ },
+ "images/S54 Choroid Harvester.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S54 Cyrenne.webp": {
+  "size": [
+   1024,
+   1535
+  ],
+  "face": [
+   404,
+   196,
+   282,
+   362
+  ]
+ },
+ "images/S54 Gate Assessor.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   472,
+   166,
+   205,
+   303
+  ]
+ },
+ "images/S54 Goodknight.webp": {
+  "size": [
+   1370,
+   1148
+  ],
+  "face": [
+   423,
+   86,
+   118,
+   143
+  ]
+ },
+ "images/S54 Humphrey.webp": {
+  "size": [
+   1370,
+   1148
+  ],
+  "face": [
+   768,
+   81,
+   133,
+   178
+  ]
+ },
+ "images/S54 Idea-Dunes.webp": {
+  "size": [
+   1536,
+   864
+  ],
+  "face": null
+ },
+ "images/S54 Living Stacks.webp": {
+  "size": [
+   1600,
+   900
+  ],
+  "face": [
+   304,
+   509,
+   117,
+   162
+  ]
+ },
+ "images/S54 Mnemon Hart.webp": {
+  "size": [
+   1023,
+   1537
+  ],
+  "face": null
+ },
+ "images/S55 Dazhul.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S55 Loveday.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   388,
+   72,
+   191,
+   243
+  ]
+ },
+ "images/S55 Road Companion.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S55 Skeletal Weaver.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S55 Skin-Sleeved.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S55 Tarnal.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S56 Calvaria.webp": {
+  "size": [
+   1600,
+   900
+  ],
+  "face": null
+ },
+ "images/S56 Gate Warden.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/S56 Ossuary Concord.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   1121,
+   176,
+   60,
+   82
+  ]
+ },
+ "images/S56 Poor Tam.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   463,
+   230,
+   68,
+   84
+  ]
+ },
+ "images/S57 Drey.webp": {
+  "size": [
+   967,
+   1450
+  ],
+  "face": [
+   427,
+   53,
+   98,
+   129
+  ]
+ },
+ "images/S57 Ossivore.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   663,
+   370,
+   123,
+   136
+  ]
+ },
+ "images/S57 Reticul.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S57 Ribhaven.webp": {
+  "size": [
+   1600,
+   900
+  ],
+  "face": null
+ },
+ "images/S58 Casino.webp": {
+  "size": [
+   1536,
+   864
+  ],
+  "face": null
+ },
+ "images/S58 Cattermole.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S58 Chained Giant.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/S58 Faro.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/S58 Sinkhole Door.webp": {
+  "size": [
+   1536,
+   864
+  ],
+  "face": null
+ },
+ "images/Sael.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   518,
+   148,
+   229,
+   324
+  ]
+ },
+ "images/Savaros.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Scrimshaw.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   430,
+   170,
+   290,
+   409
+  ]
+ },
+ "images/Sekris.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   431,
+   171,
+   231,
+   318
+  ]
+ },
+ "images/Selvik Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Senna.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   435,
+   408,
+   194,
+   248
+  ]
+ },
+ "images/Seraphine - Returned.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   358,
+   184,
+   203,
+   234
+  ]
+ },
+ "images/Seraphine Vale.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   449,
+   191,
+   171,
+   234
+  ]
+ },
+ "images/Sister Marwen.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   365,
+   189,
+   325,
+   437
+  ]
+ },
+ "images/Sister Perla.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   424,
+   239,
+   270,
+   335
+  ]
+ },
+ "images/Sister Varen.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   415,
+   247,
+   187,
+   252
+  ]
+ },
+ "images/Sixfingers.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   402,
+   193,
+   347,
+   464
+  ]
+ },
+ "images/Skin Walker.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   756,
+   326,
+   120,
+   161
+  ]
+ },
+ "images/Skyfather's Reckoning.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/Slaver's Hollow.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/Smoldering Remnant.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Sol Raven - Ascension.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   475,
+   123,
+   88,
+   101
+  ]
+ },
+ "images/Sol Raven.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   448,
+   168,
+   153,
+   184
+  ]
+ },
+ "images/Sorrow's Tear.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Sorrow.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   406,
+   159,
+   214,
+   257
+  ]
+ },
+ "images/Sporehaven.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Steward Mavris.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   515,
+   235,
+   190,
+   257
+  ]
+ },
+ "images/Strength-Worm.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/Sweetwater Marsh.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Talaris Bloomrend the Verdant King.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Tarrin Vander.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   469,
+   209,
+   187,
+   250
+  ]
+ },
+ "images/Teldryn - Renewed.webp": {
+  "size": [
+   1023,
+   1537
+  ],
+  "face": [
+   541,
+   270,
+   188,
+   266
+  ]
+ },
+ "images/Thane Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Tharren Voidclaw.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Abyssal Book.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/The Apex Horror.webp": {
+  "size": [
+   1024,
+   1535
+  ],
+  "face": null
+ },
+ "images/The Bleeding Blade.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Blooming Rot.webp": {
+  "size": [
+   800,
+   533
+  ],
+  "face": null
+ },
+ "images/The Bonecage.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Caesura.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Cardinal.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   475,
+   384,
+   126,
+   164
+  ]
+ },
+ "images/The Celebration.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   769,
+   1171,
+   75,
+   110
+  ]
+ },
+ "images/The Chamber of the Final Breath.webp": {
+  "size": [
+   533,
+   800
+  ],
+  "face": null
+ },
+ "images/The Clockwork Caravanserai.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Closed Rank.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   194,
+   274,
+   60,
+   77
+  ]
+ },
+ "images/The Common Cup.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   337,
+   310,
+   41,
+   54
+  ]
+ },
+ "images/The Containment Commander.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   438,
+   244,
+   148,
+   200
+  ]
+ },
+ "images/The Dealer.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Docent's Archive.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/The Docent.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   406,
+   161,
+   203,
+   253
+  ]
+ },
+ "images/The Dregs.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/The Echo Collector.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   189,
+   455,
+   66,
+   78
+  ]
+ },
+ "images/The Eternal Archive.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Exchange - Gem Dealer Area.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": [
+   246,
+   208,
+   33,
+   43
+  ]
+ },
+ "images/The Fallen Span.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/The Femur Road.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Fissure.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Frayed Codex.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Greenwarders.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Hollow Reflection.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   468,
+   159,
+   104,
+   144
+  ]
+ },
+ "images/The Hollow.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/The Hour Itself.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Husk King.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Husk Pen.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   795,
+   621,
+   84,
+   105
+  ]
+ },
+ "images/The Kennels.webp": {
+  "size": [
+   1536,
+   1144
+  ],
+  "face": null
+ },
+ "images/The Last Bed.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/The Lean.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Legion Tomb - Cavern Interior.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Liftworks.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Marble Fisher.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Marrow Markets.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Marrow Rest.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Motley Tent.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   442,
+   87,
+   135,
+   179
+  ]
+ },
+ "images/The Pallbearer.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Pallid Crossroads.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/The Passion-Seed.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Reach.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/The Resolve.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/The Roll.webp": {
+  "size": [
+   1535,
+   1024
+  ],
+  "face": null
+ },
+ "images/The Sallow Compound.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/The Satiated One.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Sitter.webp": {
+  "size": [
+   1404,
+   1120
+  ],
+  "face": null
+ },
+ "images/The Sylvan Journal.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/The Thorn and Nail.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": [
+   1206,
+   449,
+   37,
+   51
+  ]
+ },
+ "images/The Threshold.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Throat of Forgotten Things.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/The Underkeel.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Usurpation.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/The Velvet Thorn - Interior.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   977,
+   472,
+   43,
+   52
+  ]
+ },
+ "images/The Vigil.webp": {
+  "size": [
+   1024,
+   1280
+  ],
+  "face": null
+ },
+ "images/The Whetstone and Anvil.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Thessaly.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   456,
+   223,
+   252,
+   316
+  ]
+ },
+ "images/Thornback Behemoth.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Thornwall.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/Thuun'garoth, the Drowned Patience.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/Tidebreak.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/Torvin Drennan.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   393,
+   203,
+   194,
+   248
+  ]
+ },
+ "images/Twin Reach.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/Ultharion the Obsidian Shepherd.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   457,
+   177,
+   111,
+   153
+  ]
+ },
+ "images/Valdris Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Vander Iron-Flower Crest.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Varn Emblem.webp": {
+  "size": [
+   1254,
+   1254
+  ],
+  "face": null
+ },
+ "images/Vassek Holloweye.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   364,
+   161,
+   291,
+   389
+  ]
+ },
+ "images/Vaunclair.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   455,
+   158,
+   144,
+   187
+  ]
+ },
+ "images/Veezara.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   432,
+   219,
+   257,
+   257
+  ],
+  "manual": true
+ },
+ "images/Veil.webp": {
+  "size": [
+   1086,
+   1448
+  ],
+  "face": [
+   468,
+   111,
+   185,
+   249
+  ]
+ },
+ "images/Vein Crawlers.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Vein-Loom Robe.webp": {
+  "size": [
+   1024,
+   1280
+  ],
+  "face": null
+ },
+ "images/Veinspire.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/Vela Thorne.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   400,
+   179,
+   217,
+   293
+  ]
+ },
+ "images/Velara Ashyn.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   403,
+   289,
+   236,
+   312
+  ]
+ },
+ "images/Velvet Thorn.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   415,
+   164,
+   178,
+   240
+  ]
+ },
+ "images/Verdant Pass.webp": {
+  "size": [
+   1024,
+   683
+  ],
+  "face": null
+ },
+ "images/Veshik.webp": {
+  "size": [
+   1024,
+   1280
+  ],
+  "face": [
+   459,
+   128,
+   232,
+   322
+  ]
+ },
+ "images/Veshra Coil.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   454,
+   159,
+   157,
+   203
+  ]
+ },
+ "images/Vex.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   496,
+   209,
+   233,
+   288
+  ]
+ },
+ "images/Viktor Greave.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   353,
+   107,
+   286,
+   401
+  ]
+ },
+ "images/Vo'la'me.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   454,
+   182,
+   234,
+   269
+  ]
+ },
+ "images/Vor'Kael the Hollow Empress.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   474,
+   212,
+   79,
+   101
+  ]
+ },
+ "images/Vorath.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   308,
+   187,
+   278,
+   314
+  ]
+ },
+ "images/Vortegas the Bone-Warden.webp": {
+  "size": [
+   1023,
+   1537
+  ],
+  "face": [
+   475,
+   229,
+   83,
+   117
+  ]
+ },
+ "images/Wakeholt.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/White Marcher.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/Yira Duskmane.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/world-map.webp": {
+  "size": [
+   1024,
+   682
+  ],
+  "face": null
+ }
+}

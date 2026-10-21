@@ -3,12 +3,13 @@ import { refreshIcons } from './icons.js';
 import { updateHash } from './hash-routing.js';
 import { loadItem } from './data-store.js';
 import { realmContent } from './realm.js';
-import { optimizeContentImages, attachImageZoom } from './images.js';
+import { optimizeContentImages, attachImageZoom, getFaceCentre } from './images.js';
 import { autoLinkWikiReferences, initWikiLinkTooltips } from './wiki-links.js';
 import { initSmoothScroll, scrollBehavior } from './smooth-scroll.js';
 import { showLoadingSkeleton, showNotification } from './ui.js';
 import { updateBookmarkButton } from './bookmarks.js';
 import { setPageAudioTrack } from './audio.js';
+import { hydrateNavImages } from './navigation.js';
 
 // ===== RELATIONSHIP MAP =====
 export function showRelationshipMap() {
@@ -353,11 +354,12 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
         }
     }
 
-    // Open the category if not already open
+    // Open the category if not already open, with its small portraits loaded
     const category = document.querySelector(`.nav-category[data-category="${categoryName}"]`);
     if (category && !category.classList.contains('open')) {
         category.classList.add('open');
     }
+    hydrateNavImages(category);
 
     // Update breadcrumb
     const categoryInfo = state.data[categoryName]?.info || {};
@@ -398,6 +400,9 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
         </div>
     ` : '';
 
+    // A session's number becomes the small label above its title ("Session 58" / "Count to Three")
+    const sessionTitle = categoryName === 'Sessions' ? item.title.match(/^Session\s+(\d+):\s*(.+)$/) : null;
+
     // Render article
     const contentBody = document.getElementById('content-body');
     contentBody.innerHTML = `
@@ -406,9 +411,9 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
                 ${sigilHtml}
                 <div class="article-category">
                     <i data-lucide="${categoryInfo.icon || 'file'}"></i>
-                    ${categoryName}
+                    ${sessionTitle ? `Session ${sessionTitle[1]}` : categoryName}
                 </div>
-                <h1 class="article-title">${item.title}</h1>
+                <h1 class="article-title">${sessionTitle ? sessionTitle[2] : item.title}</h1>
                 ${metaTags.length > 0 ? `<div class="article-meta">${metaHtml}</div>` : ''}
             </header>
             <div class="article-body">
@@ -450,6 +455,9 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
             document.body.appendChild(overlay);
         });
     }
+
+    // Pictures first: a session opens on its cover, other entries show their portrait by the name
+    placeLeadImage(contentBody, categoryName, item, itemStub);
 
     // Optimize images (WebP conversion + lazy loading)
     optimizeContentImages(contentBody);
@@ -812,6 +820,84 @@ function addSessionNavigation(contentBody, currentItem) {
     refreshIcons();
 }
 
+// ===== LEAD PICTURE =====
+// Entries whose first picture moves up beside the name.
+const LEAD_CATEGORIES = ['Party', 'Hall of the Dead', 'NPCs', 'Sovereigns', 'Locations', 'Creatures', 'Felled Foes', 'Items', 'Lore', 'Inner & Outer Gods'];
+const LEAD_EXCLUDED_TITLES = ['The Silken Refuge'];
+
+// Remove a paragraph that only held a picture we moved away.
+function dropEmptyWrapper(node, stopAt) {
+    if (node && node !== stopAt && node.tagName === 'P' && !node.textContent.trim() && !node.querySelector('img, iframe, video')) {
+        node.remove();
+    }
+}
+
+function placeLeadImage(contentBody, categoryName, item, itemStub) {
+    const article = contentBody.querySelector('.article');
+    const header = article?.querySelector('.article-header');
+    const body = article?.querySelector('.article-body');
+    if (!article || !header || !body) return;
+
+    if (categoryName === 'Sessions') {
+        const firstImg = body.querySelector('img');
+        const cover = itemStub?.image || item.cover || firstImg?.getAttribute('src');
+        if (!cover) return;
+        // The recap's first picture becomes its cover, so it isn't shown twice.
+        if (firstImg && firstImg.getAttribute('src') === cover) {
+            const parent = firstImg.parentElement;
+            firstImg.remove();
+            dropEmptyWrapper(parent, body);
+        }
+        const figure = document.createElement('figure');
+        figure.className = 'article-cover';
+        const img = document.createElement('img');
+        img.src = cover;
+        img.alt = '';
+        img.decoding = 'async';
+        // A portrait cropped into a wide banner: keep the face in view. With a face box from
+        // PhotoCraft the face sits about 40% down the banner; without one, frame it high.
+        let centre = null;
+        const frame = () => {
+            if (!img.naturalWidth || !figure.isConnected) return;
+            figure.classList.toggle('is-portrait', img.naturalHeight > img.naturalWidth * 1.05);
+            if (!centre) return;
+            const bw = figure.clientWidth;
+            const bh = figure.clientHeight;
+            const scale = Math.max(bw / img.naturalWidth, bh / img.naturalHeight);
+            const sw = img.naturalWidth * scale;
+            const sh = img.naturalHeight * scale;
+            const clamp = (v) => Math.min(100, Math.max(0, v));
+            const px = sw > bw + 1 ? clamp(((centre[0] * sw - bw / 2) / (sw - bw)) * 100) : 50;
+            const py = sh > bh + 1 ? clamp(((centre[1] * sh - bh * 0.4) / (sh - bh)) * 100) : 50;
+            img.style.objectPosition = `${px.toFixed(1)}% ${py.toFixed(1)}%`;
+        };
+        getFaceCentre(cover).then((found) => { centre = found; frame(); });
+        if (img.complete && img.naturalWidth) frame();
+        else img.addEventListener('load', frame, { once: true });
+        if ('ResizeObserver' in window) new ResizeObserver(frame).observe(figure);
+        figure.appendChild(img);
+        article.insertBefore(figure, header);
+        article.classList.add('has-cover');
+        return;
+    }
+
+    if (!LEAD_CATEGORIES.includes(categoryName) || LEAD_EXCLUDED_TITLES.includes(item.title)) return;
+    const lead = [...body.querySelectorAll('.npc-portrait, img')]
+        .find((el) => !el.closest('.easter-egg-container, .easter-egg, .stat-block, table'));
+    if (!lead) return;
+    const parent = lead.parentElement;
+    const figure = document.createElement('figure');
+    figure.className = 'article-lead';
+    figure.appendChild(lead);
+    dropEmptyWrapper(parent, body);
+
+    const heading = document.createElement('div');
+    heading.className = 'article-heading';
+    while (header.firstChild) heading.appendChild(header.firstChild);
+    header.append(figure, heading);
+    header.classList.add('has-lead');
+}
+
 // ===== TABLE OF CONTENTS =====
 function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
     const articleBody = contentBody.querySelector('.article-body');
@@ -839,22 +925,8 @@ function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
         `;
     }).join('');
 
-    // Categories that should have image beside TOC
-    const imageCategories = ['Party', 'Hall of the Dead', 'NPCs', 'Locations', 'Creatures', 'Felled Foes', 'Items', 'Lore'];
-    // Specific items to exclude from image wrapping
-    const excludeItems = ['The Silken Refuge'];
-
-    const shouldWrapWithImage = imageCategories.includes(categoryName) && !excludeItems.includes(itemTitle);
-    let firstImage = null;
-
-    if (shouldWrapWithImage) {
-        // Find the first image (npc-portrait, content-image, or any img)
-        firstImage = articleBody.querySelector('.npc-portrait, img.content-image, img');
-        if (firstImage) {
-            firstImage.remove();
-        }
-    }
-
+    // Contents sits in a rail beside the text on wide screens and above it on narrow ones.
+    // (The lead picture is placed in the header by placeLeadImage.)
     const isCompact = headings.length <= 4;
     const tocHtml = `
         <details class="article-toc ${isCompact ? 'compact-toc' : ''}" open>
@@ -868,21 +940,16 @@ function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
             </nav>
         </details>
     `;
-
-    // If we have an image and should wrap, create a flex container
-    if (firstImage && shouldWrapWithImage) {
-        const wrapper = document.createElement('div');
-        wrapper.className = `toc-image-wrapper ${isCompact ? 'is-compact' : ''}`;
-        wrapper.innerHTML = tocHtml;
-        wrapper.appendChild(firstImage);
-        articleBody.insertBefore(wrapper, articleBody.firstChild);
-    } else {
-        // Insert TOC at the beginning of article body
-        articleBody.insertAdjacentHTML('afterbegin', tocHtml);
-    }
+    const article = contentBody.querySelector('.article');
+    const rail = document.createElement('aside');
+    rail.className = 'article-rail';
+    rail.innerHTML = tocHtml;
+    (article || articleBody).insertBefore(rail, articleBody);
+    article?.classList.add('has-rail');
+    trackCurrentSection(rail, headings);
 
     // Setup smooth scroll for TOC links
-    articleBody.querySelectorAll('.toc-item').forEach(link => {
+    rail.querySelectorAll('.toc-item').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.dataset.target;
@@ -893,11 +960,36 @@ function generateTableOfContents(contentBody, categoryName, itemTitle = '') {
         });
     });
 
-    if (isCompact && window.matchMedia('(max-width: 768px)').matches) {
-        articleBody.querySelector('.compact-toc')?.removeAttribute('open');
+    // Below the rail breakpoint Contents sits above the text, so it starts folded.
+    if (window.matchMedia('(max-width: 1279px)').matches) {
+        rail.querySelector('.article-toc')?.removeAttribute('open');
     }
 
     refreshIcons();
+}
+
+// Mark the Contents entry for the section being read.
+function trackCurrentSection(rail, headings) {
+    const links = new Map([...rail.querySelectorAll('.toc-item')].map((link) => [link.dataset.target, link]));
+    let frame = 0;
+    const update = () => {
+        frame = 0;
+        if (!rail.isConnected) {
+            window.removeEventListener('scroll', onScroll);
+            return;
+        }
+        let current = headings[0];
+        for (const heading of headings) {
+            if (heading.getBoundingClientRect().top <= 140) current = heading;
+            else break;
+        }
+        links.forEach((link, id) => link.classList.toggle('is-current', id === current?.id));
+    };
+    const onScroll = () => {
+        if (!frame) frame = requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
 }
 
 // Navigate to an item by title (used by wiki-links and relationship map)

@@ -317,7 +317,7 @@ function renderBondCard(rel, index) {
     <button type="button" class="bond-card ${isSelected ? 'selected' : ''} ${isEnemy ? 'enemy' : ''} tier-${tier.class}"
          data-name="${rel.name}" data-index="${index}" aria-pressed="${isSelected}">
       <div class="card-portrait">
-        ${imageName ? `<img src="thumbnails/${imageName}.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">` : ''}
+        ${imageName ? `<img src="thumbnails/faces/${imageName}.webp" data-full="thumbnails/${imageName}.webp" alt="" loading="lazy" decoding="async" onerror="if (this.dataset.fellBack) { this.style.display='none'; } else { this.dataset.fellBack='1'; }">` : ''}
         <span class="card-initial">${rel.name.charAt(0)}</span>
         ${isEnemy ? '<div class="enemy-overlay"><i data-lucide="skull"></i></div>' : ''}
         ${tier.class === 'soulbound' || tier.class === 'devoted' ? '<div class="card-glow"></div>' : ''}

@@ -98,8 +98,9 @@ export function buildWikiIndex() {
 export function autoLinkWikiReferences(articleBody, currentItemTitle) {
     if (!wikiIndex.length) return;
 
-    // Elements whose text content should not be processed
-    const excludeSelectors = 'a, h1, .wiki-link, .article-title, code, pre, .toc-item';
+    // Elements whose text content should not be processed. Headings and stat block titles
+    // stay plain: a link inside a title turns half of it gold ("The First Dun").
+    const excludeSelectors = 'a, h1, h2, h3, h4, h5, h6, .stat-block-header, .wiki-link, .article-title, code, pre, .toc-item';
 
     // Create a regex pattern that matches any known title
     // We'll process each entry individually to maintain proper linking

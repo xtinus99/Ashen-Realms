@@ -16,7 +16,7 @@ import state from './modules/state.js';
 import { loadCampaignNow } from './modules/data-store.js';
 import { refreshIcons } from './modules/icons.js';
 import { initAudio, setupAudioControls, setPageAudioTrack } from './modules/audio.js';
-import { setupLightbox, attachImageZoom } from './modules/images.js';
+import { setupLightbox, attachImageZoom, getAvatarPath } from './modules/images.js';
 import { initParticles } from './modules/particles.js';
 import { initSmoothScroll } from './modules/smooth-scroll.js';
 import { updateHash, setHashHandlers, restoreFromHash } from './modules/hash-routing.js';
@@ -199,12 +199,14 @@ function showWelcome() {
     .map(
       ([name, count]) => `
     <button class="stat-card" type="button" data-category="${name}" onclick="openCategory('${name}')">
-      <div class="stat-number">${count}</div>
-      <div class="stat-label">${name}</div>
+      <i data-lucide="${state.data[name]?.info?.icon || 'folder'}" class="stat-icon"></i>
+      <span class="stat-label">${name}</span>
+      <span class="stat-number">${count}</span>
     </button>
   `
     )
     .join('');
+  const statRows = Math.ceil(Object.keys(stats).length / 2);
 
   const campaign = state.campaignNow || {};
   const latest = campaign.latestSession;
@@ -216,12 +218,21 @@ function showWelcome() {
   } catch {
     localStorage.removeItem('recentArticles');
   }
-  const partyHtml = (campaign.party || []).map((member) => `
+  // Party: face-centred portraits with class and level from each card's frontmatter
+  const partyHtml = (campaign.party || []).map((member) => {
+    const fm = state.data[member.category]?.items.find((item) => item.id === member.id)?.frontmatter || {};
+    const role = [String(fm.class || '').replace(/\s*\(.*\)\s*/, '').trim(), fm.level].filter(Boolean).join(' ');
+    return `
     <button class="now-party-member" type="button" onclick="navigateToItemById('${member.category}', '${member.id}')">
-      ${member.image ? `<img src="${member.image}" alt="" loading="lazy" decoding="async">` : ''}
-      <span>${member.title}</span>
+      ${member.image ? `<img src="${getAvatarPath(member.image)}" data-full="${member.image}" alt="" loading="lazy" decoding="async">` : ''}
+      <span class="now-party-name">${member.title}</span>
+      ${role ? `<small class="now-party-role">${role}</small>` : ''}
     </button>
-  `).join('');
+  `;
+  }).join('');
+  // The latest session shows its cover, the way its recap opens
+  const latestStub = latest ? state.data[latest.category]?.items.find((item) => item.id === latest.id) : null;
+  const latestMatch = latest ? latest.title.match(/^Session\s+(\d+):\s*(.+)$/) : null;
   const recentHtml = recent.length ? recent.map((entry) => `
     <button class="now-recent-link" type="button" onclick="navigateToItemById('${entry.category}', '${entry.id}')">
       <span>${entry.title}</span><small>${entry.category}</small>
@@ -245,8 +256,9 @@ function showWelcome() {
           <h2 id="campaign-now-title">Campaign Now</h2>
         </div>
         <div class="campaign-now-grid">
-          ${latest ? `<button class="now-primary-card" type="button" onclick="navigateToItemById('${latest.category}', '${latest.id}')">
-            <i data-lucide="scroll-text"></i><span><small>Latest session</small><strong>${latest.title}</strong></span><i data-lucide="arrow-right"></i>
+          ${latest ? `<button class="now-primary-card now-latest${latestStub?.image ? ' has-cover' : ''}" type="button" onclick="navigateToItemById('${latest.category}', '${latest.id}')">
+            ${latestStub?.image ? `<img class="now-latest-cover" src="${latestStub.image}" alt="" decoding="async">` : ''}
+            <i data-lucide="scroll-text"></i><span><small>Latest session</small>${latestMatch ? `<em class="now-latest-number">Session ${latestMatch[1]}</em><strong>${latestMatch[2]}</strong>` : `<strong>${latest.title}</strong>`}<span class="now-latest-cta">Read the recap</span></span><i data-lucide="arrow-right"></i>
           </button>` : ''}
           ${location ? `<button class="now-primary-card" type="button" ${location.category && location.id ? `onclick="navigateToItemById('${location.category}', '${location.id}')"` : 'disabled'}>
             <i data-lucide="map-pin"></i><span><small>Party location</small><strong>${location.name}</strong></span><i data-lucide="arrow-right"></i>
@@ -256,7 +268,7 @@ function showWelcome() {
         </div>
       </section>
       <div class="welcome-section-label">Browse the compendium</div>
-      <div class="welcome-stats">
+      <div class="welcome-stats" style="--stat-rows: ${statRows}">
         ${statsHtml}
       </div>
       <button class="archive-gate" type="button" onclick="enterArchiveRealm()">
