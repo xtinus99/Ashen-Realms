@@ -85,22 +85,23 @@ self.addEventListener('fetch', (event) => {
             return;
         }
 
-        // JSON uses stale-while-revalidate: instant repeat visits with a background refresh.
+        // JSON (the compendium index, entries, spells, feats) is network-first, so a deploy
+        // shows on the very next load. `no-cache` makes the browser ask the server (a cheap
+        // 304 when nothing changed) instead of reusing its own 10-minute copy. The cache is
+        // only the fallback for reading offline.
         if (url.pathname.endsWith('.json')) {
             event.respondWith(
-                caches.match(cacheUrl).then((cachedResponse) => {
-                    const networkUpdate = fetch(event.request)
-                        .then((networkResponse) => {
-                            if (networkResponse?.status === 200) {
-                                caches.open(CACHE_NAME).then((cache) => cache.put(cacheUrl, networkResponse.clone()));
-                            }
-                            return networkResponse;
-                        })
-                        .catch(() => null);
-                    return cachedResponse || networkUpdate.then((response) => (
-                        response || new Response('Offline', { status: 503 })
-                    ));
-                })
+                fetch(new Request(event.request, { cache: 'no-cache' }))
+                    .then((networkResponse) => {
+                        if (networkResponse?.status === 200) {
+                            const copy = networkResponse.clone();
+                            caches.open(CACHE_NAME).then((cache) => cache.put(cacheUrl, copy));
+                        }
+                        return networkResponse;
+                    })
+                    .catch(() => caches.match(cacheUrl).then((cachedResponse) => (
+                        cachedResponse || new Response('Offline', { status: 503 })
+                    )))
             );
             return;
         }
