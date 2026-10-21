@@ -9673,6 +9673,372 @@ body {
     color: var(--gold);
 }
 
+/* ===== Feat finder: which feats can this character take? ===== */
+.ledger-finder {
+    margin: 1rem 0 0;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid var(--border-normal);
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, rgba(201, 162, 39, 0.05), rgba(8, 8, 14, 0.65));
+}
+
+.ledger-finder.is-active {
+    border-color: var(--border-gold);
+}
+
+.ledger-finder-head {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.55fr) minmax(0, 2fr);
+    gap: 0.9rem;
+    align-items: center;
+}
+
+.ledger-finder-intro p {
+    margin: 0.28rem 0 0;
+    color: var(--text-dim);
+    font-family: var(--font-ui);
+    font-size: 0.66rem;
+    line-height: 1.45;
+}
+
+.ledger-finder-picks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.45rem;
+}
+
+.ledger-finder-pick,
+.ledger-finder-clear {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    border-radius: 999px;
+    font-family: var(--font-ui);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.ledger-finder-pick {
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem 0.3rem 0.32rem;
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-normal);
+    text-align: left;
+}
+
+.ledger-finder-pick:hover {
+    border-color: var(--border-strong);
+}
+
+.ledger-finder-pick.active {
+    border-color: var(--gold-dark);
+    background: rgba(201, 162, 39, 0.13);
+}
+
+.ledger-finder-pick img,
+.ledger-finder-pick > svg {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border-normal);
+    border-radius: 50%;
+}
+
+.ledger-finder-pick img {
+    object-fit: cover;
+    object-position: center 18%;
+}
+
+.ledger-finder-pick > svg {
+    padding: 7px;
+    background: var(--void);
+    color: var(--gold);
+}
+
+.ledger-finder-pick span {
+    display: grid;
+    line-height: 1.2;
+}
+
+.ledger-finder-pick strong {
+    color: var(--text-bright);
+    font-size: 0.72rem;
+    font-weight: 650;
+}
+
+.ledger-finder-pick small {
+    color: var(--text-faint);
+    font-size: 0.56rem;
+}
+
+.ledger-finder-pick.active strong {
+    color: var(--gold-pale);
+}
+
+.ledger-finder-clear {
+    gap: 0.3rem;
+    padding: 0 0.8rem;
+    border: 1px dashed var(--border-normal);
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 0.62rem;
+}
+
+.ledger-finder-clear:hover {
+    border-color: var(--gold-dark);
+    color: var(--gold-pale);
+}
+
+.ledger-finder-clear svg {
+    width: 13px;
+    height: 13px;
+}
+
+.ledger-finder-body {
+    margin-top: 0.8rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.ledger-finder-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.55rem;
+    align-items: end;
+}
+
+.ledger-finder-sheet {
+    grid-column: span 2;
+    display: grid;
+    gap: 0.24rem;
+    min-width: 0;
+}
+
+.ledger-finder-sheet small {
+    color: var(--text-faint);
+    font-family: var(--font-ui);
+    font-size: 0.51rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ledger-finder-sheet p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2rem 0.55rem;
+    min-height: 34px;
+    margin: 0;
+    color: var(--text-normal);
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+}
+
+.ledger-finder-sheet strong {
+    color: var(--gold-pale);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+.ledger-finder-text {
+    padding-right: 0.62rem;
+    cursor: text;
+}
+
+.ledger-finder-more {
+    margin-top: 0.7rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.ledger-finder-more summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem 0.5rem;
+    padding: 0.55rem 0.7rem;
+    color: var(--text-normal);
+    font-family: var(--font-ui);
+    font-size: 0.66rem;
+    font-weight: 650;
+    list-style: none;
+    cursor: pointer;
+}
+
+.ledger-finder-more summary::-webkit-details-marker {
+    display: none;
+}
+
+.ledger-finder-more summary svg {
+    width: 14px;
+    height: 14px;
+    color: var(--gold);
+}
+
+.ledger-finder-more summary small {
+    color: var(--text-faint);
+    font-size: 0.58rem;
+    font-weight: 500;
+}
+
+.ledger-finder-more[open] summary {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.ledger-finder-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 0.7rem;
+}
+
+.ledger-finder-abilities {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.4rem;
+}
+
+.ledger-finder-abilities label {
+    display: grid;
+    gap: 0.22rem;
+    text-align: center;
+}
+
+.ledger-finder-abilities span {
+    color: var(--text-faint);
+    font-family: var(--font-ui);
+    font-size: 0.51rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ledger-finder-abilities input {
+    width: 100%;
+    min-width: 0;
+    height: 34px;
+    border: 1px solid var(--border-normal);
+    border-radius: var(--radius-sm);
+    background: var(--void);
+    color: var(--text-bright);
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.ledger-finder-abilities input:focus {
+    border-color: var(--gold);
+    outline: 0;
+}
+
+.ledger-finder-training {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+}
+
+.ledger-finder-skills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.32rem;
+    padding: 0 0.7rem 0.7rem;
+}
+
+.ledger-finder-skills .ledger-filter-label {
+    margin-right: 0.3rem;
+}
+
+.ledger-finder-skills .ledger-type-chip {
+    min-height: 28px;
+}
+
+.ledger-finder-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.95rem;
+    margin: 0.75rem 0 0;
+    color: var(--text-dim);
+    font-family: var(--font-ui);
+    font-size: 0.64rem;
+}
+
+.ledger-finder-summary:empty {
+    display: none;
+}
+
+.ledger-finder-summary strong {
+    color: var(--text-bright);
+    font-size: 0.72rem;
+}
+
+.ledger-finder-summary b {
+    margin-right: 0.15rem;
+    color: var(--gold-pale);
+    font-size: 0.84rem;
+}
+
+/* A quiet line under a feat's requirements, only when the chosen character is missing something. */
+.ledger-entry-prerequisite p.ledger-entry-fit-note {
+    grid-column: 1 / -1;
+    align-self: stretch;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-top: 1px dashed rgba(70, 52, 38, 0.22);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.ledger-entry-prerequisite p.ledger-entry-fit-note strong {
+    margin-right: 0.25rem;
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .ledger-finder-head,
+    .ledger-finder-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ledger-finder-picks {
+        justify-content: flex-start;
+    }
+
+    .ledger-finder-sheet {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 560px) {
+    .ledger-finder {
+        padding: 0.75rem;
+    }
+
+    .ledger-finder-pick {
+        flex: 1 1 calc(50% - 0.45rem);
+    }
+
+    .ledger-finder-abilities {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ledger-finder-training {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 .ledger-results-heading {
     display: flex;
     align-items: end;

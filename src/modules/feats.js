@@ -2,6 +2,9 @@
 import state from './state.js';
 import { refreshIcons } from './icons.js';
 import { initSmoothScroll } from './smooth-scroll.js';
+import {
+  ABILITY_KEYS, ABILITY_NAMES, CLASSES, SKILLS, assessFeat, buildProfile, classKey, parsePrerequisite, titleCase,
+} from './feat-requirements.js';
 
 let featPayload = null;
 let currentRuleset = 'all';
@@ -63,6 +66,318 @@ function escapeHtml(value = '') {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
+}
+
+// ===== FEAT FINDER: which feats can this character take? =====
+// The choice lives in this browser only. Party presets read race, class and level from the party pages.
+const FINDER_KEY = 'ashen-feat-finder-v1';
+const FIT_OPTIONS = [
+  ['check', 'Can take or check'],
+  ['now', 'Can take now'],
+  ['later', 'Higher level'],
+  ['all', 'Every feat'],
+];
+const SPECIES_SUGGESTIONS = [
+  'Aasimar', 'Bugbear', 'Changeling', 'Dhampir', 'Dragonborn', 'Drow', 'Dwarf', 'Eladrin', 'Elf', 'Fire Genasi',
+  'Genasi', 'Gnome', 'Goblin', 'Goliath', 'Half-Elf', 'Half-Giant', 'Half-Orc', 'Halfling', 'High Elf', 'Hobgoblin',
+  'Human', 'Kenku', 'Kobold', 'Leonin', 'Lizardfolk', 'Minotaur', 'Mountain Dwarf', 'Orc', 'Satyr', 'Sea Elf',
+  'Shadar-kai', 'Shifter', 'Tabaxi', 'Thalwynn', 'Tiefling', 'Tortle', 'Triton', 'Vampire', 'Warforged',
+  'Wood Elf', 'Yuan-Ti',
+];
+
+function defaultFinder() {
+  return {
+    active: null,
+    fit: 'check',
+    open: false,
+    custom: { level: 4, className: '', subclass: '', species: '' },
+    details: {},
+  };
+}
+
+function loadFinder() {
+  const base = defaultFinder();
+  try {
+    const saved = JSON.parse(localStorage.getItem(FINDER_KEY) || 'null');
+    if (saved && typeof saved === 'object') {
+      return { ...base, ...saved, custom: { ...base.custom, ...(saved.custom || {}) }, details: saved.details || {} };
+    }
+  } catch (error) {
+    // Storage blocked or unreadable: start fresh.
+  }
+  return base;
+}
+
+function saveFinder() {
+  try {
+    localStorage.setItem(FINDER_KEY, JSON.stringify(finder));
+  } catch (error) {
+    // Storage blocked: the choice simply lasts for this visit.
+  }
+}
+
+let finder = loadFinder();
+let finderProfile = null;
+const verdicts = new Map();
+
+function partyPresets() {
+  const items = (state.allData || state.data)?.Party?.items || [];
+  return items
+    .filter((item) => item.frontmatter?.class && item.frontmatter?.level)
+    .map((item) => {
+      const classText = String(item.frontmatter.class);
+      return {
+        id: item.id,
+        title: item.title,
+        image: item.image || '',
+        level: Number(item.frontmatter.level) || 1,
+        classText,
+        className: classKey(classText),
+        subclass: (classText.match(/\(([^)]+)\)/) || [])[1] || '',
+        species: String(item.frontmatter.race || ''),
+      };
+    });
+}
+
+function detailsFor(id) {
+  if (!finder.details[id]) finder.details[id] = {};
+  return finder.details[id];
+}
+
+function activeCharacter() {
+  if (!finder.active) return null;
+  const details = finder.details[finder.active] || {};
+  const extras = {
+    abilities: details.abilities || {},
+    skills: details.skills || [],
+    casts: details.casts,
+    martial: details.martial,
+    heavy: details.heavy,
+  };
+  if (finder.active === 'custom') {
+    const custom = finder.custom;
+    const label = CLASSES[custom.className]?.label || 'No class';
+    return { id: 'custom', name: 'This character', classText: label, ...custom, ...extras };
+  }
+  const preset = partyPresets().find((p) => p.id === finder.active);
+  if (!preset) return null;
+  return {
+    id: preset.id,
+    name: preset.title,
+    level: preset.level,
+    className: preset.className,
+    subclass: preset.subclass,
+    classText: preset.classText,
+    species: preset.species,
+    ...extras,
+  };
+}
+
+function refreshVerdicts() {
+  verdicts.clear();
+  const character = activeCharacter();
+  finderProfile = character ? buildProfile(character) : null;
+}
+
+function featClauses(feat) {
+  if (!feat.clauses) feat.clauses = parsePrerequisite(feat.prerequisite);
+  return feat.clauses;
+}
+
+function verdictFor(feat) {
+  if (!finderProfile) return null;
+  if (!verdicts.has(feat.id)) verdicts.set(feat.id, assessFeat(featClauses(feat), finderProfile));
+  return verdicts.get(feat.id);
+}
+
+function matchesFit(feat) {
+  const verdict = verdictFor(feat);
+  if (!verdict || finder.fit === 'all') return true;
+  if (finder.fit === 'now') return verdict.status === 'qualify';
+  if (finder.fit === 'later') return verdict.status === 'later';
+  return ['qualify', 'check', 'dm'].includes(verdict.status);
+}
+
+function characterName(character) {
+  return character.id === 'custom' ? 'This character' : character.name;
+}
+
+function renderFinderPicks() {
+  const picks = partyPresets().map((preset) => `
+    <button type="button" class="ledger-finder-pick ${finder.active === preset.id ? 'active' : ''}" data-pick="${escapeHtml(preset.id)}" aria-pressed="${finder.active === preset.id}">
+      ${preset.image ? `<img src="${escapeHtml(preset.image)}" alt="" loading="lazy">` : '<i data-lucide="user"></i>'}
+      <span><strong>${escapeHtml(preset.title)}</strong><small>${escapeHtml(CLASSES[preset.className]?.label || preset.classText)} ${preset.level}</small></span>
+    </button>
+  `).join('');
+
+  return `
+    ${picks}
+    <button type="button" class="ledger-finder-pick ${finder.active === 'custom' ? 'active' : ''}" data-pick="custom" aria-pressed="${finder.active === 'custom'}">
+      <i data-lucide="user-plus"></i>
+      <span><strong>Someone else</strong><small>Any level, class, species</small></span>
+    </button>
+    ${finder.active ? `
+      <button type="button" class="ledger-finder-clear" data-pick="none">
+        <i data-lucide="x"></i><span>Stop</span>
+      </button>` : ''}
+  `;
+}
+
+function renderFinderSheet(character) {
+  if (character.id !== 'custom') {
+    return `
+      <div class="ledger-finder-sheet">
+        <small>From the party page</small>
+        <p><strong>${escapeHtml(character.name)}</strong> <span>${escapeHtml(character.species)} · ${escapeHtml(character.classText)} · Level ${character.level}</span></p>
+      </div>
+    `;
+  }
+
+  const levelOptions = Array.from({ length: 20 }, (_, index) => index + 1)
+    .map((level) => `<option value="${level}" ${Number(character.level) === level ? 'selected' : ''}>${level}</option>`)
+    .join('');
+  const classOptions = Object.entries(CLASSES)
+    .map(([key, cls]) => `<option value="${key}" ${character.className === key ? 'selected' : ''}>${cls.label}</option>`)
+    .join('');
+
+  return `
+    <label class="ledger-select-wrap ledger-finder-level">
+      <span>Level</span>
+      <select class="ledger-select" data-custom="level">${levelOptions}</select>
+    </label>
+    <label class="ledger-select-wrap">
+      <span>Class</span>
+      <select class="ledger-select" data-custom="className"><option value="">Choose…</option>${classOptions}</select>
+    </label>
+    <label class="ledger-select-wrap">
+      <span>Subclass</span>
+      <input class="ledger-select ledger-finder-text" data-custom="subclass" value="${escapeHtml(character.subclass || '')}" placeholder="Optional" autocomplete="off">
+    </label>
+    <label class="ledger-select-wrap">
+      <span>Species</span>
+      <input class="ledger-select ledger-finder-text" data-custom="species" list="feat-species-list" value="${escapeHtml(character.species || '')}" placeholder="e.g. Half-Elf" autocomplete="off">
+      <datalist id="feat-species-list">${SPECIES_SUGGESTIONS.map((name) => `<option value="${name}"></option>`).join('')}</datalist>
+    </label>
+  `;
+}
+
+function renderTrainingSelect(key, label, value) {
+  const current = typeof value === 'boolean' ? String(value) : 'auto';
+  return `
+    <label class="ledger-select-wrap">
+      <span>${label}</span>
+      <select class="ledger-select" data-train="${key}">
+        <option value="auto" ${current === 'auto' ? 'selected' : ''}>From class</option>
+        <option value="true" ${current === 'true' ? 'selected' : ''}>Yes</option>
+        <option value="false" ${current === 'false' ? 'selected' : ''}>No</option>
+      </select>
+    </label>
+  `;
+}
+
+function renderFinderBody(character) {
+  const abilityInputs = ABILITY_KEYS.map((ability) => `
+    <label>
+      <span>${ABILITY_NAMES[ability].slice(0, 3)}</span>
+      <input type="number" min="1" max="30" inputmode="numeric" data-ability="${ability}" value="${character.abilities[ability] ?? ''}" aria-label="${ABILITY_NAMES[ability]} score">
+    </label>
+  `).join('');
+  const skillChips = SKILLS.map((skill) => {
+    const on = character.skills.includes(skill);
+    return `<button type="button" class="ledger-type-chip ${on ? 'active' : ''}" data-skill="${skill}" aria-pressed="${on}">${titleCase(skill)}</button>`;
+  }).join('');
+
+  return `
+    <div class="ledger-finder-body">
+      <div class="ledger-finder-fields">
+        ${renderFinderSheet(character)}
+        <label class="ledger-select-wrap ledger-finder-show">
+          <span>Show</span>
+          <select class="ledger-select" id="feat-fit-filter">
+            ${FIT_OPTIONS.map(([value, label]) => `<option value="${value}" ${finder.fit === value ? 'selected' : ''}>${label}</option>`).join('')}
+          </select>
+        </label>
+      </div>
+      <details class="ledger-finder-more" ${finder.open ? 'open' : ''}>
+        <summary>
+          <i data-lucide="sliders-horizontal"></i>
+          <span>Ability scores, skills and training</span>
+          <small>Optional. Settles the feats marked Check. Saved in this browser only.</small>
+        </summary>
+        <div class="ledger-finder-grid">
+          <div class="ledger-finder-abilities">${abilityInputs}</div>
+          <div class="ledger-finder-training">
+            ${renderTrainingSelect('casts', 'Spellcasting', character.casts)}
+            ${renderTrainingSelect('martial', 'Martial weapons', character.martial)}
+            ${renderTrainingSelect('heavy', 'Heavy armor', character.heavy)}
+          </div>
+        </div>
+        <div class="ledger-finder-skills" role="group" aria-label="Skill proficiencies">
+          <span class="ledger-filter-label">Skills</span>
+          ${skillChips}
+        </div>
+      </details>
+      <p class="ledger-finder-summary" id="feat-finder-summary" role="status" aria-live="polite"></p>
+    </div>
+  `;
+}
+
+function renderFinder() {
+  const character = activeCharacter();
+  return `
+    <div class="ledger-finder-head">
+      <div class="ledger-finder-intro">
+        <span class="ledger-filter-label">Find feats for</span>
+        <p>Pick a character and every feat shows whether they can take it.</p>
+      </div>
+      <div class="ledger-finder-picks" role="group" aria-label="Choose a character">
+        ${renderFinderPicks()}
+      </div>
+    </div>
+    ${character ? renderFinderBody(character) : ''}
+  `;
+}
+
+function updateFinderSummary() {
+  const summary = document.getElementById('feat-finder-summary');
+  if (!summary) return;
+  const character = activeCharacter();
+  if (!character || !finderProfile) {
+    summary.innerHTML = '';
+    return;
+  }
+  const records = featPayload.feats.filter((feat) => (
+    (currentRuleset === 'all' || feat.ruleset === currentRuleset)
+    && (currentSource === 'all' || feat.source === currentSource)
+    && matchesEligibility(feat)
+    && matchesFeatType(feat)
+    && matchesSearch(feat)
+  ));
+  const tally = { qualify: 0, check: 0, dm: 0, later: 0, no: 0 };
+  records.forEach((feat) => { tally[verdictFor(feat).status] += 1; });
+  summary.innerHTML = `
+    <strong>${escapeHtml(characterName(character))}</strong>
+    <span><b>${tally.qualify}</b> can take now</span>
+    <span><b>${tally.check}</b> to check</span>
+    <span><b>${tally.dm}</b> DM's call</span>
+    <span><b>${tally.later}</b> at a higher level</span>
+    <span><b>${tally.no}</b> not available</span>
+  `;
+}
+
+function fitNote(verdict, character) {
+  if (!verdict || verdict.status === 'qualify') return '';
+  const parts = [];
+  if (verdict.status === 'later') parts.push(`Opens at level ${verdict.atLevel}.`);
+  else if (verdict.missing.length) parts.push(`Missing: ${verdict.missing.join('; ')}.`);
+  if (verdict.dm.length) parts.push(`The DM rules on: ${verdict.dm.join('; ')}.`);
+  if (verdict.toCheck.length) parts.push(`To check: ${verdict.toCheck.join('; ')}.`);
+  return `
+    <p class="ledger-entry-fit-note">
+      <strong>${escapeHtml(characterName(character))}:</strong>
+      <span>${escapeHtml(parts.join(' '))}</span>
+    </p>
+  `;
 }
 
 async function loadFeatData() {
@@ -168,6 +483,7 @@ function recordsForFeatTypeCounts() {
     (currentRuleset === 'all' || feat.ruleset === currentRuleset)
     && (currentSource === 'all' || feat.source === currentSource)
     && matchesEligibility(feat)
+    && matchesFit(feat)
     && matchesSearch(feat)
   ));
 }
@@ -212,6 +528,10 @@ function renderShell() {
       <nav class="ledger-tabs" id="feat-ruleset-tabs" aria-label="Choose a feat catalogue">
         ${renderRulesetTabs()}
       </nav>
+
+      <section class="ledger-finder ${finder.active ? 'is-active' : ''}" id="feat-finder" aria-label="Find feats for a character">
+        ${renderFinder()}
+      </section>
 
       <section class="ledger-filter-dock" aria-label="Search and filter feats">
         <div class="ledger-filter-row">
@@ -311,6 +631,7 @@ function getFilteredFeats() {
     if (currentRuleset !== 'all' && feat.ruleset !== currentRuleset) return false;
     if (!matchesEligibility(feat)) return false;
     if (!matchesFeatType(feat)) return false;
+    if (!matchesFit(feat)) return false;
     if (currentSource !== 'all' && feat.source !== currentSource) return false;
     return matchesSearch(feat);
   }).sort(compareFeats);
@@ -327,6 +648,8 @@ function renderFeatEntry(feat) {
   const type = FEAT_TYPE_META[featType(feat)];
   const reference = featReferenceCache.get(feat.id) || meta.code;
   const [referencePrefix, referenceNumber = ''] = reference.split('-');
+  const verdict = verdictFor(feat);
+  const character = verdict ? activeCharacter() : null;
   const facts = [
     feat.abilityIncrease ? `
       <div><small>Ability Score Increase</small><p>${escapeHtml(feat.abilityIncrease)}</p></div>` : '',
@@ -365,6 +688,7 @@ function renderFeatEntry(feat) {
         <section class="ledger-entry-prerequisite ${feat.prerequisite === 'None' ? 'none' : ''}">
           <div><i data-lucide="${requirement.icon}"></i><small>${feat.prerequisite === 'None' ? 'No requirements' : 'Requirements'}</small></div>
           <p>${escapeHtml(prerequisiteLabel(feat))}</p>
+          ${fitNote(verdict, character)}
         </section>
 
         ${facts ? `<div class="ledger-entry-facts">${facts}</div>` : ''}
@@ -424,6 +748,13 @@ function renderCatalog(feats) {
 }
 
 function activeResultsTitle() {
+  const character = finderProfile ? activeCharacter() : null;
+  if (character && finder.fit !== 'all') {
+    const name = character.id === 'custom' ? 'This Character' : character.name;
+    if (finder.fit === 'now') return `Feats ${name} Can Take`;
+    if (finder.fit === 'later') return `Feats ${name} Can Take Later`;
+    return `Feats for ${name}`;
+  }
   if (currentFeatType !== 'all') return FEAT_TYPE_META[currentFeatType].resultTitle;
   if (currentEligibility === 'none') return 'Feats Without Requirements';
   if (currentEligibility === 'required') return 'Feats With Requirements';
@@ -446,7 +777,95 @@ function updateCatalog() {
   document.getElementById('feats-result-count').innerHTML = `<strong>${feats.length}</strong><span>of ${featPayload.meta.counts.total} shown</span>`;
   document.getElementById('ledger-results-title').textContent = activeResultsTitle();
   updateTabsAndTypes();
+  updateFinderSummary();
   refreshIcons();
+}
+
+function rerenderFinder() {
+  const host = document.getElementById('feat-finder');
+  if (!host) return;
+  host.classList.toggle('is-active', Boolean(finder.active));
+  host.innerHTML = renderFinder();
+  refreshIcons();
+}
+
+function finderChanged({ panel = false } = {}) {
+  saveFinder();
+  refreshVerdicts();
+  if (panel) rerenderFinder();
+  updateCatalog();
+}
+
+function bindFinderEvents() {
+  const host = document.getElementById('feat-finder');
+  let typingTimer;
+
+  host.addEventListener('click', (event) => {
+    const pick = event.target.closest('[data-pick]');
+    if (pick) {
+      const id = pick.dataset.pick;
+      finder.active = id === 'none' || finder.active === id ? null : id;
+      finderChanged({ panel: true });
+      return;
+    }
+
+    const skillChip = event.target.closest('[data-skill]');
+    if (skillChip && finder.active) {
+      const details = detailsFor(finder.active);
+      const skills = new Set(details.skills || []);
+      const skill = skillChip.dataset.skill;
+      if (skills.has(skill)) skills.delete(skill);
+      else skills.add(skill);
+      details.skills = [...skills];
+      skillChip.classList.toggle('active', skills.has(skill));
+      skillChip.setAttribute('aria-pressed', String(skills.has(skill)));
+      finderChanged();
+    }
+  });
+
+  host.addEventListener('change', (event) => {
+    const target = event.target;
+    if (target.id === 'feat-fit-filter') {
+      finder.fit = target.value;
+      finderChanged();
+      return;
+    }
+    if (target.dataset.custom) {
+      finder.custom[target.dataset.custom] = target.dataset.custom === 'level' ? Number(target.value) : target.value;
+      finderChanged();
+      return;
+    }
+    if (target.dataset.train && finder.active) {
+      const details = detailsFor(finder.active);
+      if (target.value === 'auto') delete details[target.dataset.train];
+      else details[target.dataset.train] = target.value === 'true';
+      finderChanged();
+    }
+  });
+
+  host.addEventListener('input', (event) => {
+    const target = event.target;
+    if (target.dataset.ability && finder.active) {
+      const details = detailsFor(finder.active);
+      details.abilities = { ...(details.abilities || {}) };
+      const value = Number(target.value);
+      if (target.value === '' || !Number.isFinite(value)) delete details.abilities[target.dataset.ability];
+      else details.abilities[target.dataset.ability] = value;
+    } else if (target.dataset.custom === 'species' || target.dataset.custom === 'subclass') {
+      finder.custom[target.dataset.custom] = target.value;
+    } else {
+      return;
+    }
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => finderChanged(), 250);
+  });
+
+  host.addEventListener('toggle', (event) => {
+    if (event.target.matches?.('details.ledger-finder-more')) {
+      finder.open = event.target.open;
+      saveFinder();
+    }
+  }, true);
 }
 
 function renderSourceLine(feat) {
@@ -517,6 +936,8 @@ function bindEvents() {
 
   document.getElementById('feat-clear-btn').addEventListener('click', resetFilters);
 
+  bindFinderEvents();
+
   document.getElementById('feat-catalog').addEventListener('click', (event) => {
     const reset = event.target.closest('[data-reset-feats]');
     if (reset) {
@@ -556,6 +977,7 @@ async function showFeats() {
 
   try {
     await loadFeatData();
+    refreshVerdicts();
     renderShell();
     bindEvents();
     updateCatalog();
