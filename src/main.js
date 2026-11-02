@@ -33,6 +33,7 @@ import {
   filterDataForRealm,
   getRealm,
   hasEveContent,
+  EVE_NAME,
 } from './modules/realm.js';
 import { showItem, navigateToItem, showRelationshipMap } from './modules/article.js';
 import { setupSearch, setSearchHandlers } from './modules/search.js';
@@ -290,8 +291,8 @@ function showWelcome() {
       ${hasEveContent() ? `<button class="eve-gate" type="button" onclick="enterEveRealm()">
         <div class="gate-icon"><i data-lucide="sunrise"></i></div>
         <div class="gate-text">
-          <div class="gate-title">Behind the Seam</div>
-          <div class="gate-sub">The world on the eve of the Usurpation. Cross over &rarr;</div>
+          <div class="gate-title">${EVE_NAME}</div>
+          <div class="gate-sub">Through the seam. Cross over &rarr;</div>
         </div>
       </button>` : ''}
     </div>

@@ -1,17 +1,19 @@
 import state from './state.js';
 
-// Realms other than the present carry their name in the hash: #archive/..., #eve/...
-const REALM_PREFIXES = ['archive', 'eve'];
+// Realms other than the present carry a word in the hash: #archive/..., and
+// #before/... for the eve (players know it as "Before the Usurpation").
+const EVE_WORD = 'before';
+const REALM_HASH = { archive: 'archive', eve: EVE_WORD };
 
 export function updateHash(category = null, itemId = null) {
-  const realm = REALM_PREFIXES.includes(state.currentRealm) ? state.currentRealm : '';
-  const prefix = realm ? `${realm}/` : '';
+  const word = REALM_HASH[state.currentRealm] || '';
+  const prefix = word ? `${word}/` : '';
   if (category && itemId) {
     window.location.hash = `${prefix}${encodeURIComponent(category)}/${encodeURIComponent(itemId)}`;
   } else if (category) {
     window.location.hash = `${prefix}${encodeURIComponent(category)}`;
-  } else if (realm) {
-    window.location.hash = realm;
+  } else if (word) {
+    window.location.hash = word;
   } else {
     history.replaceState(null, '', window.location.pathname);
   }
@@ -37,8 +39,8 @@ export async function restoreFromHash() {
     if (handlers.showArchiveLanding) handlers.showArchiveLanding();
     return true;
   }
-  // Handle the eve (Behind the Seam)
-  if (hash === 'eve') {
+  // Handle the eve (Before the Usurpation)
+  if (hash === EVE_WORD) {
     if (state.currentRealm !== 'eve' && handlers.enterEveSilent) handlers.enterEveSilent();
     if (handlers.showEveLanding) handlers.showEveLanding();
     return true;
@@ -46,9 +48,9 @@ export async function restoreFromHash() {
   if (hash.startsWith('archive/')) {
     if (state.currentRealm !== 'archive' && handlers.enterArchiveSilent) handlers.enterArchiveSilent();
     hash = hash.slice('archive/'.length);
-  } else if (hash.startsWith('eve/')) {
+  } else if (hash.startsWith(`${EVE_WORD}/`)) {
     if (state.currentRealm !== 'eve' && handlers.enterEveSilent) handlers.enterEveSilent();
-    hash = hash.slice('eve/'.length);
+    hash = hash.slice(EVE_WORD.length + 1);
   } else if (state.currentRealm && state.currentRealm !== 'living' && handlers.enterLivingSilent) {
     // A plain hash belongs to the present (Back from a realm landed on "Lost in the Ash" before)
     handlers.enterLivingSilent();

@@ -2,7 +2,7 @@ import state from './state.js';
 import { refreshIcons } from './icons.js';
 import { updateHash } from './hash-routing.js';
 import { loadItem } from './data-store.js';
-import { realmContent, realmsOf, realmHomeLabel } from './realm.js';
+import { realmContent, realmsOf, realmHomeLabel, EVE_NAME } from './realm.js';
 import { optimizeContentImages, attachImageZoom, getFaceCentre } from './images.js';
 import { autoLinkWikiReferences, initWikiLinkTooltips } from './wiki-links.js';
 import { initSmoothScroll, scrollBehavior } from './smooth-scroll.js';
@@ -319,7 +319,7 @@ function initRelationshipGraph(nodes, edges) {
 // city that stands there now: `counterparts: [{realm, category, id, label?}]`.
 // The link shows on both pages; the far side is found by looking for entries
 // that name this one. Each button crosses realms and opens the other entry.
-const REALM_WORDS = { eve: 'On the eve', living: 'In the present', archive: 'In the Archive' };
+const REALM_WORDS = { eve: EVE_NAME, living: 'In the present', archive: 'In the Archive' };
 
 function findEntry(category, id) {
     const data = state.allData?.[category];

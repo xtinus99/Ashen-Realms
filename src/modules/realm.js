@@ -14,6 +14,12 @@ import { prefersReducedMotion, scrollBehavior } from './smooth-scroll.js';
 let currentRealm = 'living';
 let handlers = {}; // { buildNavigation, showWelcome, navigateToItemById }
 
+// What players call the eve. The DM calls it "the eve", but on the site it is
+// always "Before the Usurpation": "eve" makes it sound as if the Usurpation
+// is happening tomorrow (DM, 2026-11-02). Its URLs read #before/...
+export const EVE_NAME = 'Before the Usurpation';
+export const EVE_HASH = 'before';
+
 export function setRealmHandlers(h) { handlers = h; }
 export function getRealm() { return currentRealm; }
 
@@ -117,7 +123,7 @@ export function realmContent(item, realm) {
 // What "home" is called in the breadcrumb for the current realm (short: it shares
 // the top bar with the page title on narrow screens).
 export function realmHomeLabel() {
-  return currentRealm === 'eve' ? 'The Eve' : 'Compendium';
+  return currentRealm === 'eve' ? EVE_NAME : 'Compendium';
 }
 
 // ===== DATA FILTERING =====
@@ -193,7 +199,7 @@ function updatePortalLinks() {
       eve.classList.remove('returning');
       eve.innerHTML = `
         <i data-lucide="sunrise"></i>
-        <span>Behind the Seam<span class="portal-sub">The world on the eve of the Usurpation</span></span>`;
+        <span>${EVE_NAME}<span class="portal-sub">Through the seam</span></span>`;
     }
   }
   refreshIcons();
@@ -202,7 +208,7 @@ function updatePortalLinks() {
 // ===== THE CROSSING (cinematic transition) =====
 function crossingText(toRealm) {
   if (toRealm === 'archive') return ['THE ARCHIVE OF THE DEAD', 'What the fallen gathered, before the maw.'];
-  if (toRealm === 'eve') return ['BEHIND THE SEAM', 'The world on the eve of the Usurpation.'];
+  if (toRealm === 'eve') return [EVE_NAME.toUpperCase(), 'Through the seam.'];
   if (currentRealm === 'eve') return ['BACK THROUGH THE SEAM', ''];
   return ['RETURN TO THE LIVING', ''];
 }
@@ -292,7 +298,7 @@ export function enterEve() {
   if (currentRealm === 'eve') return;
   crossTo('eve', () => {
     showEveLanding();
-    window.location.hash = 'eve';
+    window.location.hash = EVE_HASH;
   });
 }
 
@@ -379,14 +385,14 @@ export function showArchiveLanding() {
 export function showEveLanding() {
   state.currentItem = null;
   state.currentCategory = null;
-  document.title = 'Behind the Seam — The Ashen Realms';
+  document.title = `${EVE_NAME} — The Ashen Realms`;
 
   document.getElementById('content-body').classList.remove('full-width');
 
   document.getElementById('breadcrumb').innerHTML = `
     <button type="button" class="breadcrumb-home" onclick="exitArchiveRealm()">Compendium</button>
     <span class="breadcrumb-sep">/</span>
-    <span class="breadcrumb-current">Behind the Seam</span>
+    <span class="breadcrumb-current">${EVE_NAME}</span>
   `;
 
   document.querySelectorAll('.nav-item.active').forEach((el) => el.classList.remove('active'));
@@ -426,17 +432,17 @@ export function showEveLanding() {
   document.getElementById('content-body').innerHTML = `
     <div class="welcome-container eve-landing">
       ${hero ? `<img class="eve-hero" src="${hero}" alt="" decoding="async">` : ''}
-      <div class="eve-kicker">Behind the Seam</div>
-      <h1 class="welcome-title eve-title">The Eve of the Usurpation</h1>
+      <div class="eve-kicker">Through the seam</div>
+      <h1 class="welcome-title eve-title">${EVE_NAME}</h1>
       <p class="welcome-subtitle eve-subtitle">
-        The world as it stood on the eve of the Usurpation. The company crossed over in Session 62.
+        The world the company crossed into in Session 62.
       </p>
       ${places.length ? `
       <section class="eve-road" aria-labelledby="eve-road-title">
         <h2 id="eve-road-title">The road so far</h2>
         <ol>${road}</ol>
       </section>` : ''}
-      <div class="welcome-section-label">Browse the eve</div>
+      <div class="welcome-section-label">Browse the compendium</div>
       <div class="welcome-stats" style="--stat-rows: ${Math.ceil(Object.keys(state.data).length / 2)}">${statsHtml}</div>
       <button class="eve-return-btn" type="button" onclick="exitArchiveRealm()">
         <i data-lucide="arrow-left"></i> Return to the present

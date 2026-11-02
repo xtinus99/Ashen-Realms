@@ -1082,7 +1082,7 @@ html.realm-archive .sidebar .nav-categories::before { content: "The Archive"; }
 }
 
 /* =====================================================
-   BEHIND THE SEAM (the eve of the Usurpation)
+   BEFORE THE USURPATION (the DM's "eve"; players never see that word)
    The world before the ash: the same dark page, lit warm
    from above, with gold turned to sunlight and blood to leaf.
    ===================================================== */
@@ -1144,11 +1144,11 @@ html.realm-eve .top-bar {
     background: linear-gradient(180deg, rgba(24, 29, 18, 0.97) 0%, rgba(16, 20, 12, 0.98) 100%);
 }
 html.realm-eve .sidebar .nav-categories::before {
-    content: "Behind the Seam";
+    content: "Before the Usurpation";
     color: rgba(238, 212, 127, 0.85);
 }
 
-/* "The Eve" is two words; keep the breadcrumb's home link on one line */
+/* "Before the Usurpation" is several words; keep the breadcrumb's home link on one line */
 .breadcrumb-home { white-space: nowrap; flex: none; }
 
 /* The sidebar door (hidden until the eve has pages) */

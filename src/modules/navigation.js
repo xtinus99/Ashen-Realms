@@ -259,7 +259,9 @@ export function buildNavigation() {
         }
 
         // Check if category has regions for grouping
-        if (categoryData.info && categoryData.info.hasRegions && categoryData.info.regions) {
+        // A realm whose pages carry no region (the eve's places) lists them flat
+        if (categoryData.info && categoryData.info.hasRegions && categoryData.info.regions
+            && categoryData.items.some(item => item.region)) {
             const regionOrder = categoryData.info.regions;
             const itemsByRegion = {};
 
