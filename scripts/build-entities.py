@@ -22,8 +22,13 @@ Reads content/entities/<Category>/<id>.md. Each file starts with a YAML header:
     ---
     Markdown body.
 
-On the eve (era: eve), Locations also use frontmatter `sessions` ("62, 63") and
-`now` (the present-day name, shown as "Where <now> will be") on the eve's front page.
+On the eve (era: eve; players see it as "Before the Usurpation"), Locations feed the
+front page's road through frontmatter: `sessions` ("62, 63"), `now` (the present-day
+name, shown as "Where <now> will be") or `where` (a free line instead), and `leg` (how
+the company got there from the stop before). Eve place pages describe only the place:
+no people, no events (DM, 2026-11-02). The people listed under a stop are the eve NPCs
+whose `region` is the stop's title. Set `data.Locations.info.roadNow` in data.json for
+the road's closing "Now" line.
 
 An existing item with the same id is replaced; everything else in data.json is
 left alone. Requires PyYAML, Markdown and Pillow. Does not touch the vault or deploy.

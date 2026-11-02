@@ -401,14 +401,40 @@ export function showEveLanding() {
   const places = [...(state.data.Locations?.items || [])].sort((a, b) =>
     (a.order ?? 999) - (b.order ?? 999) || a.title.localeCompare(b.title));
 
+  // Each stop can carry `frontmatter.leg` (how the company got there from the
+  // stop before). A session heading opens wherever the first session changes,
+  // linked to that recap when it is in this realm. The people met at a stop are
+  // the realm's NPCs whose region is the stop's title. `Locations.info.roadNow`
+  // (optional) closes the road with where the company is now.
+  const firstNumber = (s) => { const m = String(s ?? '').match(/\d+/); return m ? Number(m[0]) : null; };
+  const people = state.data.NPCs?.items || [];
+  const recaps = state.data.Sessions?.items || [];
+  let lastSession = null;
+
   const hero = places.find((p) => p.image)?.image;
   const road = places.map((p) => {
     const fm = p.frontmatter || {};
     const sessions = fm.sessions != null ? String(fm.sessions) : '';
     const sessionLabel = sessions ? `${/[,\-–]| to /.test(sessions) ? 'Sessions' : 'Session'} ${sessions}` : '';
-    const now = fm.now ? `Where ${fm.now} will be` : '';
-    return `
-      <li>
+    // `where` is a free line under the name; `now` (a present-day name) reads "Where X will be"
+    const now = fm.where || (fm.now ? `Where ${fm.now} will be` : '');
+    const parts = [];
+
+    const n = firstNumber(sessions);
+    if (n != null && n !== lastSession) {
+      lastSession = n;
+      const recap = recaps.find((s) => firstNumber(s.title) === n);
+      parts.push(`
+      <li class="eve-road-session">${recap
+        ? `<button type="button" onclick="navigateToItemById('Sessions', '${recap.id}')">Session ${n}</button>`
+        : `<span>Session ${n}</span>`}</li>`);
+    }
+    if (fm.leg) parts.push(`
+      <li class="eve-road-leg"><span>${fm.leg}</span></li>`);
+
+    const met = people.filter((np) => np.region === p.title);
+    parts.push(`
+      <li class="eve-road-place">
         <button class="eve-road-stop" type="button" onclick="navigateToItemById('Locations', '${p.id}')">
           ${p.image ? `<img src="${getThumbnailPath(p.image)}" alt="" loading="lazy" decoding="async">` : '<span class="eve-road-blank"></span>'}
           <span class="eve-road-text">
@@ -417,8 +443,14 @@ export function showEveLanding() {
             ${sessionLabel ? `<em>${sessionLabel}</em>` : ''}
           </span>
         </button>
-      </li>`;
+        ${met.length ? `<div class="eve-road-people"><span>Met</span>${met.map((np) =>
+          `<button type="button" onclick="navigateToItemById('NPCs', '${np.id}')">${np.title}</button>`).join('')}</div>` : ''}
+      </li>`);
+    return parts.join('');
   }).join('');
+  const roadNow = state.data.Locations?.info?.roadNow;
+  const roadEnd = roadNow ? `
+      <li class="eve-road-now"><i data-lucide="map-pin"></i><span><small>Now</small>${roadNow}</span></li>` : '';
 
   const statsHtml = Object.entries(state.data)
     .map(([name, cat]) => `
@@ -440,7 +472,7 @@ export function showEveLanding() {
       ${places.length ? `
       <section class="eve-road" aria-labelledby="eve-road-title">
         <h2 id="eve-road-title">The road so far</h2>
-        <ol>${road}</ol>
+        <ol>${road}${roadEnd}</ol>
       </section>` : ''}
       <div class="welcome-section-label">Browse the compendium</div>
       <div class="welcome-stats" style="--stat-rows: ${Math.ceil(Object.keys(state.data).length / 2)}">${statsHtml}</div>

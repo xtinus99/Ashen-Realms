@@ -1246,7 +1246,90 @@ html.realm-eve .sidebar .nav-categories::before {
 }
 .eve-road ol { list-style: none; margin: 0; padding: 0; counter-reset: eve-stop; }
 .eve-landing .eve-road + .welcome-section-label { margin-top: 2.8rem; }
-.eve-road li { counter-increment: eve-stop; border-bottom: 1px solid var(--hair-quiet); }
+.eve-road li.eve-road-place { counter-increment: eve-stop; border-bottom: 1px solid var(--hair-quiet); }
+
+/* The session a stretch of road was walked in */
+.eve-road-session { margin-top: 1.3rem; padding: 0 0.25rem 0.15rem; }
+.eve-road-session:first-child { margin-top: 0.6rem; }
+.eve-road-session span,
+.eve-road-session button {
+    padding: 0;
+    background: none;
+    border: 0;
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #dcc275;
+}
+.eve-road-session button { cursor: pointer; border-bottom: 1px dotted rgba(220, 194, 117, 0.6); }
+.eve-road-session button:hover { color: var(--gold-soft); }
+
+/* How the company got from the stop before to this one */
+.eve-road-leg {
+    position: relative;
+    padding: 0.45rem 0.25rem 0.45rem 2.75rem;
+}
+.eve-road-leg::before {
+    content: "";
+    position: absolute;
+    left: 1.25rem;
+    top: 0.15rem;
+    bottom: 0.15rem;
+    border-left: 1px dashed rgba(220, 183, 82, 0.45);
+}
+.eve-road-leg span {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* Who the company met there */
+.eve-road-people {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.7rem;
+    margin-top: -0.3rem;
+    padding: 0 0.25rem 0.8rem calc(0.25rem + 1.5rem + 1rem + 96px + 1rem);
+}
+.eve-road-people span {
+    font-family: var(--font-ui);
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.eve-road-people button {
+    padding: 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px dotted rgba(238, 212, 127, 0.5);
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    color: var(--gold-soft);
+    cursor: pointer;
+}
+.eve-road-people button:hover { color: var(--gold-bright); }
+
+/* Where the company is now, at the end of the road */
+.eve-road-now {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0.25rem 0.2rem 0.85rem;
+}
+.eve-road-now svg { width: 18px; height: 18px; flex: none; color: #e2c46c; }
+.eve-road-now small {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #dcc275;
+}
+.eve-road-now span { font-family: var(--font-body); font-size: 1.05rem; color: var(--title); }
 .eve-road-stop {
     width: 100%;
     display: flex;
@@ -1353,4 +1436,5 @@ html.realm-eve .sidebar .nav-categories::before {
     .eve-road-stop img,
     .eve-road-blank { width: 72px; height: 48px; }
     .eve-road-text strong { font-size: 1.1rem; }
+    .eve-road-people { padding-left: calc(0.25rem + 1.5rem + 0.75rem + 72px + 0.75rem); }
 }
