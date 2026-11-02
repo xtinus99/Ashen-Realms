@@ -21,13 +21,18 @@ export function buildWikiIndex() {
         'Lieutenant', 'Marshal', 'Abbot', 'Prior', 'Bishop', 'Uncle', 'Aunt'
     ]);
 
+    // Names that also belong to someone with no page of their own. "Carrick" is Carrick Doss
+    // the cartographer, but also Captain Halun Carrick of the Tidebreak wreck, Brinecutter and
+    // Carrick's Glass, so a bare "Carrick" must not link to the Dosses.
+    const sharedName = new Set(['Carrick']);
+
     // Helper: extract a clean first-name alias from a title.
     // Strips trailing punctuation (e.g. "Galheran, the Unmoved" → "Galheran").
     const firstNameFromTitle = (title) => {
         const parts = title.split(' ');
         if (parts.length < 2 || parts[0] === 'The') return null;
         const cleaned = parts[0].replace(/[^A-Za-z'\-]+$/, '');
-        if (cleaned.length <= 2 || notAFirstName.has(cleaned)) return null;
+        if (cleaned.length <= 2 || notAFirstName.has(cleaned) || sharedName.has(cleaned)) return null;
         return cleaned;
     };
 
@@ -52,6 +57,18 @@ export function buildWikiIndex() {
                 id: item.id,
                 category: categoryName
             });
+
+            // Titles with "&" are often written with "and" in the text
+            // ("Carrick and Yenna Doss" in the Session 26 recap).
+            if (item.title.includes(' & ')) {
+                wikiIndex.push({
+                    title: item.title.replace(/ & /g, ' and '),
+                    id: item.id,
+                    category: categoryName,
+                    isAlias: true,
+                    fullTitle: item.title
+                });
+            }
 
             // For Party and NPCs, also index first name as alias (only if unique)
             if (firstNameCategories.includes(categoryName)) {
