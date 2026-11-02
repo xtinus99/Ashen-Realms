@@ -15,8 +15,15 @@ Reads content/entities/<Category>/<id>.md. Each file starts with a YAML header:
     image_alt: ...            # optional alt text for portrait/image
     unknown_portrait: true    # optional; no image, the card shows a "?"
     summary: "**Role:** ... | **Status:** ..."   # optional one-line header
+    realms: [living, eve]     # optional; overrides era (a session played on the eve)
+    order: 3                  # optional; an eve place's place on the road (front page)
+    counterparts:             # optional; the same place or person in another realm
+      - {realm: living, category: Locations, id: veinspire, label: Veinspire}
     ---
     Markdown body.
+
+On the eve (era: eve), Locations also use frontmatter `sessions` ("62, 63") and
+`now` (the present-day name, shown as "Where <now> will be") on the eve's front page.
 
 An existing item with the same id is replaced; everything else in data.json is
 left alone. Requires PyYAML, Markdown and Pillow. Does not touch the vault or deploy.
@@ -114,6 +121,9 @@ def build(path):
         item['region'] = meta['region']
     if meta.get('unknown_portrait'):
         item['unknownPortrait'] = True
+    for key in ('realms', 'order', 'counterparts'):
+        if meta.get(key) is not None:
+            item[key] = meta[key]
     return meta['category'], item
 
 

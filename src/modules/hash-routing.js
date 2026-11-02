@@ -1,13 +1,17 @@
 import state from './state.js';
 
+// Realms other than the present carry their name in the hash: #archive/..., #eve/...
+const REALM_PREFIXES = ['archive', 'eve'];
+
 export function updateHash(category = null, itemId = null) {
-  const prefix = state.currentRealm === 'archive' ? 'archive/' : '';
+  const realm = REALM_PREFIXES.includes(state.currentRealm) ? state.currentRealm : '';
+  const prefix = realm ? `${realm}/` : '';
   if (category && itemId) {
     window.location.hash = `${prefix}${encodeURIComponent(category)}/${encodeURIComponent(itemId)}`;
   } else if (category) {
     window.location.hash = `${prefix}${encodeURIComponent(category)}`;
-  } else if (prefix) {
-    window.location.hash = 'archive';
+  } else if (realm) {
+    window.location.hash = realm;
   } else {
     history.replaceState(null, '', window.location.pathname);
   }
@@ -29,13 +33,25 @@ export async function restoreFromHash() {
 
   // Handle the Archive of the Dead realm
   if (hash === 'archive') {
-    if (handlers.enterArchiveSilent) handlers.enterArchiveSilent();
+    if (state.currentRealm !== 'archive' && handlers.enterArchiveSilent) handlers.enterArchiveSilent();
     if (handlers.showArchiveLanding) handlers.showArchiveLanding();
     return true;
   }
+  // Handle the eve (Behind the Seam)
+  if (hash === 'eve') {
+    if (state.currentRealm !== 'eve' && handlers.enterEveSilent) handlers.enterEveSilent();
+    if (handlers.showEveLanding) handlers.showEveLanding();
+    return true;
+  }
   if (hash.startsWith('archive/')) {
-    if (handlers.enterArchiveSilent) handlers.enterArchiveSilent();
+    if (state.currentRealm !== 'archive' && handlers.enterArchiveSilent) handlers.enterArchiveSilent();
     hash = hash.slice('archive/'.length);
+  } else if (hash.startsWith('eve/')) {
+    if (state.currentRealm !== 'eve' && handlers.enterEveSilent) handlers.enterEveSilent();
+    hash = hash.slice('eve/'.length);
+  } else if (state.currentRealm && state.currentRealm !== 'living' && handlers.enterLivingSilent) {
+    // A plain hash belongs to the present (Back from a realm landed on "Lost in the Ash" before)
+    handlers.enterLivingSilent();
   }
 
   // Handle bonds page

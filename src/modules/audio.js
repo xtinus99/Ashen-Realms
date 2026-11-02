@@ -17,6 +17,13 @@ const deadTracks = [
   { file: 'Track 2.mp3', name: "Sovereign's Lament" },
 ];
 
+// The eve's playlist (Behind the Seam).
+// PLACEHOLDER: reuses an existing track until the eve gets its own; swap the
+// file/name below once one is in /public.
+const eveTracks = [
+  { file: 'Track 5.mp3', name: 'Echoes of the Maker' },
+];
+
 // Entry-specific themes replace the ambient playlist while that entry is open.
 // They use the same Audio element, so page music and ambient music can never overlap.
 const pageTrackOverrides = new Map([
@@ -36,7 +43,9 @@ let pageTrackKey = null;
 let savedBasePlayback = null;
 
 function tracksForRealm(realm) {
-  return realm === 'archive' ? deadTracks : livingTracks;
+  if (realm === 'archive') return deadTracks;
+  if (realm === 'eve') return eveTracks;
+  return livingTracks;
 }
 
 function switchAudioSource(file, resumeTime = 0) {
@@ -177,9 +186,9 @@ export function setAudioRealm(realm) {
   savedBasePlayback = null;
 
   activeTracks = tracksForRealm(realm);
-  currentTrackIndex = realm === 'archive'
-    ? 0
-    : Math.min(savedLivingIndex, livingTracks.length - 1);
+  currentTrackIndex = realm === 'living'
+    ? Math.min(savedLivingIndex, livingTracks.length - 1)
+    : 0;
 
   if (audio.src) switchAudioSource(activeTracks[currentTrackIndex].file);
   updateTrackName();

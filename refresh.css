@@ -1080,3 +1080,277 @@ html.realm-archive .sidebar .nav-categories::before { content: "The Archive"; }
     .now-party { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.25rem; }
     .category-title { font-size: 2rem; }
 }
+
+/* =====================================================
+   BEHIND THE SEAM (the eve of the Usurpation)
+   The world before the ash: the same dark page, lit warm
+   from above, with gold turned to sunlight and blood to leaf.
+   ===================================================== */
+html.realm-eve {
+    --void: #0e110b;
+    --abyss: #12160e;
+    --shadow: #171c12;
+    --ash: #1d2316;
+    --stone: #262d1e;
+    --smoke: #353d2a;
+    --blood: #5d8a3c;
+    --blood-bright: #78a64c;
+    --blood-glow: #93c060;
+    --blood-deep: #3d5c26;
+    --blood-dark: #24361a;
+    --gold: #dcb752;
+    --gold-bright: #f0d06a;
+    --gold-pale: #f6e3a0;
+    --gold-deep: #9b7d26;
+    --gold-dark: #6a5a24;
+    --text-bright: #f8f2e2;
+    --text-normal: #d6cfba;
+    --text-dim: #a59f87;
+    --hair: rgba(220, 183, 82, 0.24);
+    --hair-quiet: rgba(255, 246, 214, 0.08);
+    --title: #f8efd6;
+    --heading: #f0e3bf;
+    --body-text: #d8d1bd;
+    --muted: #a39d85;
+    --gold-soft: #eed47f;
+    --gold-muted: #ccab55;
+    --border-gold: rgba(220, 183, 82, 0.45);
+    --border-blood: rgba(93, 138, 60, 0.5);
+    --glow-gold: rgba(240, 208, 106, 0.4);
+}
+html.realm-eve body { background: var(--void); }
+
+/* Morning light from above, green in the low corners, brighter rays */
+html.realm-eve .bg-gradient {
+    background:
+        radial-gradient(ellipse 110% 55% at 55% -12%, rgba(255, 220, 140, 0.2) 0%, transparent 62%),
+        radial-gradient(ellipse 55% 50% at 0% 100%, rgba(110, 150, 70, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 45% at 100% 100%, rgba(150, 170, 80, 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(220, 180, 90, 0.05) 0%, transparent 60%);
+}
+html.realm-eve .bg-vignette { opacity: 0.35; }
+html.realm-eve .god-rays {
+    background:
+        conic-gradient(from 250deg at 50% 0%,
+            transparent 0deg, rgba(255, 236, 170, 0.07) 5deg, transparent 15deg,
+            transparent 25deg, rgba(255, 236, 170, 0.05) 30deg, transparent 40deg,
+            transparent 55deg, rgba(240, 210, 120, 0.06) 60deg, transparent 70deg,
+            transparent 85deg, rgba(255, 236, 170, 0.05) 90deg, transparent 100deg,
+            transparent 115deg, rgba(240, 210, 120, 0.07) 120deg, transparent 130deg,
+            transparent 360deg);
+}
+html.realm-eve .sidebar,
+html.realm-eve .top-bar {
+    background: linear-gradient(180deg, rgba(24, 29, 18, 0.97) 0%, rgba(16, 20, 12, 0.98) 100%);
+}
+html.realm-eve .sidebar .nav-categories::before {
+    content: "Behind the Seam";
+    color: rgba(238, 212, 127, 0.85);
+}
+
+/* "The Eve" is two words; keep the breadcrumb's home link on one line */
+.breadcrumb-home { white-space: nowrap; flex: none; }
+
+/* The sidebar door (hidden until the eve has pages) */
+.nav-special-link[hidden] { display: none !important; }
+.eve-portal-link { color: #e7cf86; }
+.eve-portal-link svg { color: #e2c46c; }
+.eve-portal-link .portal-sub {
+    display: block;
+    margin-top: 0;
+    font-family: var(--font-ui);
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    color: #8f8660;
+}
+.eve-portal-link:hover { background: rgba(226, 196, 108, 0.07); color: #f3dc94; }
+.eve-portal-link.returning { color: var(--body-text); }
+
+/* The crossing, when it goes to the eve */
+.realm-transition.to-eve {
+    background: radial-gradient(ellipse at 50% 38%, #4d421d 0%, #1b1a0d 52%, #070705 100%);
+}
+.realm-transition.to-eve .realm-transition-title {
+    color: #f4e3a6;
+    text-shadow: 0 0 32px rgba(255, 214, 130, 0.38);
+}
+.realm-transition.to-eve .realm-transition-sub { color: #cdbf8d; }
+
+/* The welcome page's second gate, under the Archive's */
+.eve-gate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+    margin: 0.2rem auto 0;
+    padding: 0.75rem 1rem;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+.eve-gate .gate-icon { display: flex; color: #e2c46c; }
+.eve-gate .gate-icon svg { width: 20px; height: 20px; }
+.eve-gate .gate-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2rem 0.8rem;
+    text-align: left;
+}
+.eve-gate .gate-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: #ecd9a0;
+}
+.eve-gate .gate-sub {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+.eve-gate:hover .gate-title { color: var(--gold-soft); }
+
+/* The eve's front page: the road in the order the company walked it */
+.eve-landing .eve-hero {
+    width: 100%;
+    max-width: 760px;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+    margin: 0 auto 1.8rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+}
+.eve-landing .eve-kicker {
+    margin-bottom: 0.4rem;
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #dcc275;
+}
+.eve-road {
+    width: 100%;
+    max-width: 680px;
+    margin: 2.4rem auto 0.5rem;
+    text-align: left;
+}
+.eve-road h2 {
+    margin: 0 0 0.4rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--hair);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.45rem;
+    color: var(--heading);
+}
+.eve-road ol { list-style: none; margin: 0; padding: 0; counter-reset: eve-stop; }
+.eve-landing .eve-road + .welcome-section-label { margin-top: 2.8rem; }
+.eve-road li { counter-increment: eve-stop; border-bottom: 1px solid var(--hair-quiet); }
+.eve-road-stop {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0.25rem;
+    background: none;
+    border: 0;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+.eve-road-stop::before {
+    content: counter(eve-stop);
+    flex: none;
+    width: 1.5rem;
+    text-align: right;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--gold-muted);
+}
+.eve-road-stop img,
+.eve-road-blank {
+    flex: none;
+    width: 96px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: rgba(255, 246, 214, 0.05);
+}
+.eve-road-text { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+.eve-road-text strong {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--title);
+}
+.eve-road-text small {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.98rem;
+    color: var(--gold-soft);
+}
+.eve-road-text em {
+    font-style: normal;
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.eve-road-stop:hover strong,
+.eve-road-stop:focus-visible strong { color: var(--gold-soft); }
+.eve-return-btn {
+    margin-top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    background: transparent;
+    border: 1px solid rgba(226, 196, 108, 0.35);
+    border-radius: var(--radius-md);
+    color: #e7d7a6;
+    font-family: var(--font-ui);
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+.eve-return-btn:hover { border-color: rgba(240, 214, 130, 0.7); color: #f6e6b4; }
+.eve-return-btn svg { width: 16px; height: 16px; }
+
+/* Then and now: an entry's counterpart in another realm */
+.then-now { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.1rem; }
+.then-now-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0.95rem 0.45rem 0.75rem;
+    border: 1px solid var(--hair);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--body-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.25;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+.then-now-link small {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.then-now-link svg { width: 16px; height: 16px; flex: none; color: var(--gold-muted); }
+.then-now-link.realm-eve svg { color: #e2c46c; }
+.then-now-link:hover { border-color: var(--gold-muted); color: var(--gold-soft); }
+
+@media (max-width: 600px) {
+    .eve-road-stop { gap: 0.75rem; }
+    .eve-road-stop img,
+    .eve-road-blank { width: 72px; height: 48px; }
+    .eve-road-text strong { font-size: 1.1rem; }
+}

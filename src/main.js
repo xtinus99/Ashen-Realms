@@ -26,9 +26,13 @@ import {
   setRealmHandlers,
   setupArchiveEntries,
   showArchiveLanding,
+  showEveLanding,
   enterArchiveSilent,
+  enterEveSilent,
+  enterLivingSilent,
   filterDataForRealm,
   getRealm,
+  hasEveContent,
 } from './modules/realm.js';
 import { showItem, navigateToItem, showRelationshipMap } from './modules/article.js';
 import { setupSearch, setSearchHandlers } from './modules/search.js';
@@ -142,9 +146,14 @@ function setupSpecialLinks() {
 function showWelcome() {
   setPageAudioTrack();
 
-  // In the Archive realm, "home" is the Archive landing, not the living welcome
+  // In the Archive realm, "home" is the Archive landing, not the living welcome;
+  // on the eve it is the eve's own front page
   if (getRealm() === 'archive') {
     showArchiveLanding();
+    return;
+  }
+  if (getRealm() === 'eve') {
+    showEveLanding();
     return;
   }
   state.currentItem = null;
@@ -278,6 +287,13 @@ function showWelcome() {
           <div class="gate-sub">What the fallen gathered, before the maw. Cross over &rarr;</div>
         </div>
       </button>
+      ${hasEveContent() ? `<button class="eve-gate" type="button" onclick="enterEveRealm()">
+        <div class="gate-icon"><i data-lucide="sunrise"></i></div>
+        <div class="gate-text">
+          <div class="gate-title">Behind the Seam</div>
+          <div class="gate-sub">The world on the eve of the Usurpation. Cross over &rarr;</div>
+        </div>
+      </button>` : ''}
     </div>
   `;
 
@@ -301,6 +317,9 @@ setHashHandlers({
   restoreScrollPosition,
   enterArchiveSilent,
   showArchiveLanding,
+  enterEveSilent,
+  showEveLanding,
+  enterLivingSilent,
 });
 
 setNavigationHandlers({
@@ -350,7 +369,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   buildWikiIndex(); // index every entity across both realms before filtering
   state.data = filterDataForRealm(state.allData, 'living');
   state.currentRealm = 'living';
-  setRealmHandlers({ buildNavigation, showWelcome });
+  setRealmHandlers({ buildNavigation, showWelcome, navigateToItemById });
   buildNavigation();
   setupArchiveEntries();
   setupSearch();

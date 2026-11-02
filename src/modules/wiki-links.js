@@ -115,6 +115,17 @@ export function buildWikiIndex() {
 export function autoLinkWikiReferences(articleBody, currentItemTitle) {
     if (!wikiIndex.length) return;
 
+    // Only link entries the current realm can open. The index spans every realm,
+    // so without this an eve page linked into the present (and its clicks fell
+    // through to a loose title match, or nowhere).
+    const visible = new Set();
+    for (const [categoryName, categoryData] of Object.entries(state.data)) {
+        for (const item of categoryData.items || []) visible.add(`${categoryName}/${item.id}`);
+        for (const items of Object.values(categoryData.subcategories || {})) {
+            for (const item of items) visible.add(`${categoryName}/${item.id}`);
+        }
+    }
+
     // Elements whose text content should not be processed. Headings and stat block titles
     // stay plain: a link inside a title turns half of it gold ("The First Dun").
     const excludeSelectors = 'a, h1, h2, h3, h4, h5, h6, .stat-block-header, .wiki-link, .article-title, code, pre, .toc-item';
@@ -158,6 +169,7 @@ export function autoLinkWikiReferences(articleBody, currentItemTitle) {
 
         // Check each wiki entry
         for (const entry of wikiIndex) {
+            if (!visible.has(`${entry.category}/${entry.id}`)) continue;
             // Skip self-references (check both title and fullTitle for aliases)
             if (entry.title === currentItemTitle) continue;
             if (entry.fullTitle && entry.fullTitle === currentItemTitle) continue;

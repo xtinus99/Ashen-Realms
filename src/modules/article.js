@@ -2,7 +2,7 @@ import state from './state.js';
 import { refreshIcons } from './icons.js';
 import { updateHash } from './hash-routing.js';
 import { loadItem } from './data-store.js';
-import { realmContent } from './realm.js';
+import { realmContent, realmsOf, realmHomeLabel } from './realm.js';
 import { optimizeContentImages, attachImageZoom, getFaceCentre } from './images.js';
 import { autoLinkWikiReferences, initWikiLinkTooltips } from './wiki-links.js';
 import { initSmoothScroll, scrollBehavior } from './smooth-scroll.js';
@@ -314,6 +314,57 @@ function initRelationshipGraph(nodes, edges) {
 }
 
 // ===== ARTICLE DISPLAY =====
+// ===== THEN AND NOW =====
+// An entry can name its counterpart in another realm, e.g. an eve place and the
+// city that stands there now: `counterparts: [{realm, category, id, label?}]`.
+// The link shows on both pages; the far side is found by looking for entries
+// that name this one. Each button crosses realms and opens the other entry.
+const REALM_WORDS = { eve: 'On the eve', living: 'In the present', archive: 'In the Archive' };
+
+function findEntry(category, id) {
+    const data = state.allData?.[category];
+    if (!data) return null;
+    let found = (data.items || []).find((it) => it.id === id);
+    if (!found) {
+        for (const items of Object.values(data.subcategories || {})) {
+            found = items.find((it) => it.id === id);
+            if (found) break;
+        }
+    }
+    return found || null;
+}
+
+function thenNowHtml(categoryName, item) {
+    const here = state.currentRealm || 'living';
+    // The Archive is the fallen party's record; they never saw the eve
+    if (here === 'archive') return '';
+    const links = [];
+    const seen = new Set();
+    const add = (realm, category, id, label) => {
+        const key = `${realm}/${category}/${id}`;
+        const target = findEntry(category, id);
+        if (seen.has(key) || realm === here || !target || !realmsOf(category, target).includes(realm)) return;
+        seen.add(key);
+        links.push({ realm, category, id, label: label || target.title });
+    };
+    for (const c of item.counterparts || []) add(c.realm, c.category, c.id, c.label);
+    for (const [category, data] of Object.entries(state.allData || {})) {
+        for (const other of data.items || []) {
+            for (const c of other.counterparts || []) {
+                if (c.category !== categoryName || c.id !== item.id) continue;
+                const realm = realmsOf(category, other).find((r) => r !== here && r !== 'archive');
+                if (realm) add(realm, category, other.id);
+            }
+        }
+    }
+    if (!links.length) return '';
+    return `<div class="then-now">${links.map((l) => `
+        <button type="button" class="then-now-link realm-${l.realm}" onclick="crossToItem('${l.realm}', '${l.category}', '${l.id}')">
+            <i data-lucide="${l.realm === 'eve' ? 'sunrise' : 'arrow-right'}"></i>
+            <span><small>${REALM_WORDS[l.realm] || l.realm}</small>${l.label}</span>
+        </button>`).join('')}</div>`;
+}
+
 export async function showItem(categoryName, itemStub, navElement = null, skipHash = false, skipScrollToTop = false) {
     if (!itemStub?.content) showLoadingSkeleton();
     let item;
@@ -364,7 +415,7 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
     // Update breadcrumb
     const categoryInfo = state.data[categoryName]?.info || {};
     document.getElementById('breadcrumb').innerHTML = `
-        <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
+        <button type="button" class="breadcrumb-home" onclick="showWelcome()">${realmHomeLabel()}</button>
         <span class="breadcrumb-sep">/</span>
         <button type="button" class="breadcrumb-category" onclick="openCategory('${categoryName}')">${categoryName}</button>
         <span class="breadcrumb-sep">/</span>
@@ -415,6 +466,7 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
                 </div>
                 <h1 class="article-title">${sessionTitle ? sessionTitle[2] : item.title}</h1>
                 ${metaTags.length > 0 ? `<div class="article-meta">${metaHtml}</div>` : ''}
+                ${thenNowHtml(categoryName, item)}
             </header>
             <div class="article-body">
                 ${item.content}

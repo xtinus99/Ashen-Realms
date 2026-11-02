@@ -70,6 +70,7 @@ import {
   Skull,
   SlidersHorizontal,
   Sparkles,
+  Sunrise,
   Sword,
   Swords,
   Target,
@@ -97,7 +98,7 @@ const icons = {
   HelpCircle, Home, Hourglass, KeyRound, Landmark, Leaf, Library, Link, Link2, List, ListFilter, Lock,
   LockKeyhole, Map, MapPin, Menu, Moon, Music, Package, Quote, Repeat, Repeat2, RotateCcw, Scroll,
   ScrollText, Search, SearchCheck, Shield, Shuffle, SkipBack, SkipForward, Skull, SlidersHorizontal,
-  Sparkles, Sword, Swords, Target, ThumbsDown, ThumbsUp, Timer, TrendingUp, User, UserPlus, Users,
+  Sparkles, Sunrise, Sword, Swords, Target, ThumbsDown, ThumbsUp, Timer, TrendingUp, User, UserPlus, Users,
   Volume1, Volume2, VolumeX, Wrench, X, Zap,
 };
 

@@ -4,6 +4,7 @@ import { updateHash } from './hash-routing.js';
 import { getThumbnailPath, getAvatarPath } from './images.js';
 import { initSmoothScroll } from './smooth-scroll.js';
 import { setPageAudioTrack } from './audio.js';
+import { realmHomeLabel, realmsOf } from './realm.js';
 
 // Handler injection to avoid circular imports (showItem lives in article.js)
 let handlers = {};
@@ -419,7 +420,7 @@ export function openCategory(categoryName, skipHash = false, skipScrollToTop = f
 
     // Update breadcrumb
     document.getElementById('breadcrumb').innerHTML = `
-        <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>
+        <button type="button" class="breadcrumb-home" onclick="showWelcome()">${realmHomeLabel()}</button>
         <span class="breadcrumb-sep">/</span>
         <span class="breadcrumb-current">${categoryName}</span>
     `;
@@ -649,10 +650,8 @@ export function generateSessionTimeline(sessions) {
 // Navigate to a specific item by category and ID
 export function navigateToItemById(categoryName, itemId) {
     const categoryData = state.data[categoryName];
-    if (!categoryData) return;
-
-    let item = categoryData.items.find(i => i.id === itemId);
-    if (!item && categoryData.subcategories) {
+    let item = categoryData?.items.find(i => i.id === itemId);
+    if (!item && categoryData?.subcategories) {
         for (const items of Object.values(categoryData.subcategories)) {
             item = items.find((candidate) => candidate.id === itemId);
             if (item) break;
@@ -661,7 +660,12 @@ export function navigateToItemById(categoryName, itemId) {
     if (item) {
         const navItem = document.querySelector(`.nav-item[data-id="${itemId}"]`);
         handlers.showItem(categoryName, item, navItem);
+        return;
     }
+    // Not in this realm (a bookmark or a recent entry from another one): cross over to it
+    const elsewhere = state.allData?.[categoryName]?.items.find(i => i.id === itemId);
+    const realm = elsewhere && realmsOf(categoryName, elsewhere).find(r => r !== state.currentRealm);
+    if (realm && window.crossToItem) window.crossToItem(realm, categoryName, itemId);
 }
 
 // Assign to window for onclick handlers in innerHTML
