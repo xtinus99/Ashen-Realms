@@ -17,9 +17,9 @@ At the Liftworks, Viktor had sensed a hidden escort riding with Maldwin Crale's 
 
 The company travelled with the carriage the rest of the way, on separate fires, splitting the watches. On Veezara's watch one of the twins parted the canvas and let him see her watching him. He interested her, and she made no move on it. Farkas and Viktor caught nothing of the pair.
 
-<img src="images/Drow Twin - Blood-Red Leather.webp" alt="The other drow twin, in blood-red leather" class="content-image">
-
 ## Thornwall
+
+<img src="images/Drow Twin - Blood-Red Leather.webp" alt="The other drow twin, in blood-red leather" class="content-image">
 
 At the Thorngate, Crale's carriage was waved through on the Sallow name and the twins peeled off toward the Lean. That night they were drinking somewhere in the Lean, off duty. Viktor's sense placed them, and nobody went looking.
 

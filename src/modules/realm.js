@@ -349,7 +349,10 @@ export function showArchiveLanding() {
     )
     .join('');
 
+  // Only the old party's dead. Viktor died with the living party, so his page
+  // stays in the present and his name stays off this roll.
   const fallen = (state.allData['Hall of the Dead']?.items || [])
+    .filter((i) => realmsOf('Hall of the Dead', i).includes('archive'))
     .map((i) => i.title)
     .filter((t) => t && t !== 'REDACTED');
   const rollcall = fallen.length

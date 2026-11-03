@@ -786,6 +786,9 @@ html.realm-archive .sidebar .nav-categories::before { content: "The Archive"; }
     font-weight: 400;
     color: var(--heading);
 }
+/* A new section never starts beside the last section's floated picture */
+.article-body h2,
+.article-body h3 { clear: both; }
 .article-body h4,
 .article-body h5,
 .article-body h6 {
@@ -1151,6 +1154,33 @@ html.realm-eve .sidebar .nav-categories::before {
 /* "Before the Usurpation" is several words; keep the breadcrumb's home link on one line */
 .breadcrumb-home { white-space: nowrap; flex: none; }
 
+/* Every crumb stays on one line. When the bar is tight the realm name gives way first,
+   then the page title, each cut with an ellipsis instead of wrapping onto new lines. */
+.breadcrumb { min-width: 0; overflow: hidden; }
+.breadcrumb-home,
+.breadcrumb-category,
+.breadcrumb-current {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.breadcrumb-home { flex: 0 1000 auto; min-width: 1.1em; }
+.breadcrumb-category { flex: none; }
+.breadcrumb-current { flex: 0 1 auto; }
+.breadcrumb-sep { flex: none; }
+
+/* In a narrow top bar the page title wins over the track name, which shrinks away first */
+.breadcrumb { flex: 1 1 auto; }
+.audio-controls { flex-shrink: 20; }
+.audio-controls .track-name {
+    min-width: 0;
+    flex: 0 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* The sidebar door (hidden until the eve has pages) */
 .nav-special-link[hidden] { display: none !important; }
 .eve-portal-link { color: #e7cf86; }
@@ -1437,4 +1467,97 @@ html.realm-eve .sidebar .nav-categories::before {
     .eve-road-blank { width: 72px; height: 48px; }
     .eve-road-text strong { font-size: 1.1rem; }
     .eve-road-people { padding-left: calc(0.25rem + 1.5rem + 0.75rem + 72px + 0.75rem); }
+}
+
+/* Bonds page: overflow-x: hidden turned the page into its own scroll box below
+   1100px, so the sticky title bar sat 60px down, over the character tabs.
+   clip trims the sideways spill without making a scroll box. */
+.bonds-container { overflow-x: clip; }
+
+/* The Party / Hall of the Dead labels used --ash, which this theme sets to
+   near-black, so they vanished on the dark bar. */
+.char-group-label { color: #a89f96; }
+
+/* The timeline entries are buttons (for keyboard use). Buttons sit inline and carry grey
+   browser chrome, which put two sessions on one row with their number circles stacked
+   on the centre line. Make each entry its own row again, without the button look. */
+button.timeline-item {
+    display: block;
+    background: none;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    appearance: none;
+}
+
+/* Bonds: the search row sat flush against the filter chips */
+.bonds-search-row { margin-top: 1.5rem; }
+
+/* ===== Bonds & Standing: steps instead of points (2026-11-03) ===== */
+.step-pips { display: inline-flex; gap: 3px; flex: 1; align-items: center; }
+.step-pip {
+    width: 14px; height: 4px; border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+}
+.step-pip:nth-child(3) { margin-right: 4px; } /* a small gap between the falls and Known */
+.step-pip.on { background: currentColor; opacity: 0.85; }
+.step-pip.current { opacity: 1; box-shadow: 0 0 6px currentColor; }
+
+.step-ladder {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 4px;
+    margin-top: 6px;
+}
+.step-node {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    padding: 8px 2px; border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    opacity: 0.45;
+}
+.step-node.rise { }
+.step-node.current { opacity: 1; background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 1px currentColor; }
+.step-dot { width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+.step-name {
+    font-family: var(--font-ui); font-size: 0.62rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1.2;
+}
+.step-node:nth-child(3) { margin-right: 6px; }
+
+.hero-where {
+    display: flex; align-items: center; gap: 6px; margin-top: 6px;
+    font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255, 255, 255, 0.5);
+}
+.hero-where svg { width: 13px; height: 13px; opacity: 0.6; }
+.card-romance { width: 12px; height: 12px; color: #d86a8a; vertical-align: -1px; }
+
+.bond-wants, .bond-ask, .bond-falls { margin-bottom: var(--spacing-lg); }
+.bond-wants p, .bond-ask p {
+    margin: 0; font-size: 0.95rem; line-height: 1.55; color: rgba(255, 255, 255, 0.78);
+}
+.bond-ask {
+    padding: 12px 14px; border-radius: 6px;
+    background: rgba(212, 175, 55, 0.06); border: 1px solid rgba(212, 175, 55, 0.25);
+}
+.bond-ask .section-header { border-bottom-color: rgba(212, 175, 55, 0.18); }
+.fall-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 4px;
+    background: rgba(160, 30, 30, 0.08); border-left: 2px solid currentColor;
+}
+.fall-row .unlock-reward { color: rgba(255, 255, 255, 0.8); }
+.unlock-row.locked .unlock-reward { color: rgba(255, 255, 255, 0.45); }
+.history-session {
+    font-family: var(--font-ui); font-weight: 600; font-size: 0.72rem;
+    color: var(--gold-deep); min-width: 64px; flex-shrink: 0;
+}
+.history-reason { color: rgba(255, 255, 255, 0.65); }
+
+/* The bonds, spells and feats detail panels open as fixed overlays below 1100px. The content
+   area's layout containment turned "fixed" into "relative to the content area", so the
+   overlay started after the sidebar but stayed a full window wide and ran off the right edge. */
+.content-body:has(.bonds-container),
+.content-body:has(.spells-container),
+.content-body:has(.feats-container) {
+    contain: none;
 }

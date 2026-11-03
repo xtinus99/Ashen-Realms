@@ -27,8 +27,8 @@ The lobby is black-and-white marble and gold, with a grand stair up to shut door
 - **The Card Room (green):** poker and blackjack under an onlookers' gallery, dealt with steel cards.
 - **The dining room (orange):** where Veezara found the starving devil.
 
-<img src="images/S58 Card Room.webp" alt="The Card Room: green baize tables under low lamps, with a watchers' gallery above" class="content-image">
-
 ## Outside
+
+<img src="images/S58 Card Room.webp" alt="The Card Room: green baize tables under low lamps, with a watchers' gallery above" class="content-image">
 
 Cattermole sits on the balustrade by the steps. The only way out of Greed the company found was his: a job, and a count of three.

@@ -32,7 +32,10 @@ function firstImage(html = '') {
 function sessionEvents(item) {
   const raw = item.raw || '';
   const events = [];
-  const death = raw.match(/(\w+(?:\s+\w+)?)\s+(?:died|was killed|fell)\b/i);
+  // A named death only: a capitalised name (apostrophes and hyphens allowed) right before
+  // "died" or "was killed". "fell" and lowercase subjects made tags like "the kingdoms fell".
+  // Skips possessives ("Kenwyn's died"), counts ("Two died") and places ("the pond where Viktor died").
+  const death = raw.match(/(?<!\bwhere\s)\b(?!(?:Two|Three|Four|One|Both|All|They|He|She|It|When|Then)\b)([A-Z][a-z][\w-]*(?:\s+[A-Z][a-z][\w-]*)?)\s+(?:died|was killed)\b/);
   if (death) events.push({ type: 'death', text: death[0] });
   if (/\bacquired\b|\bdiscovered\b|\bfound\b|\brevealed\b/i.test(raw)) {
     events.push({ type: 'discovery', text: 'Major discovery' });
@@ -41,7 +44,8 @@ function sessionEvents(item) {
     'Mareatha', 'Azerach', 'Talaris', "Vor'Kael", 'Imhuran', 'Kaedris',
     'Karthayne', 'Ismara', 'Vortegas', 'Eredain', 'Ultharion', 'Nhalyra', 'Aral-Vyn'
   ];
-  const sovereign = sovereigns.find((name) => raw.includes(name));
+  // Not for sessions Before the Usurpation: a name there is the person they met, not the Sovereign.
+  const sovereign = (item.realms || []).includes('eve') ? null : sovereigns.find((name) => raw.includes(name));
   if (sovereign) events.push({ type: 'sovereign', text: sovereign });
   return events.slice(0, 2);
 }

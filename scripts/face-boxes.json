@@ -1757,6 +1757,1052 @@
   ],
   "face": null
  },
+ "images/S59 Grey Pot Innkeeper.webp": {
+  "size": [
+   864,
+   1821
+  ],
+  "face": [
+   368,
+   255,
+   110,
+   147
+  ]
+ },
+ "images/S59 Grey Pot.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": [
+   1099,
+   205,
+   108,
+   150
+  ]
+ },
+ "images/S59 Gulm.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S59 Quay Clerk.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   460,
+   115,
+   113,
+   155
+  ]
+ },
+ "images/S59 Shadow Quay.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S59 The Keeper.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   348,
+   94,
+   165,
+   209
+  ]
+ },
+ "images/S59 The Man Behind the White Door.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   489,
+   137,
+   101,
+   140
+  ]
+ },
+ "images/S59 The Still Pond.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S60 Bertram Cole.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   480,
+   90,
+   74,
+   101
+  ]
+ },
+ "images/S60 Dark Lake.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S60 Elf-Faced Man.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   564,
+   207,
+   170,
+   227
+  ]
+ },
+ "images/S60 Fungal Fort.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S60 Giant on the Rise.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S60 Marrow and Mead.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S60 Mead Keeper.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": [
+   624,
+   80,
+   217,
+   270
+  ]
+ },
+ "images/S60 Mirepost.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S60 Old Champion.webp": {
+  "size": [
+   1312,
+   1199
+  ],
+  "face": [
+   378,
+   92,
+   65,
+   83
+  ]
+ },
+ "images/S60 Pallor.webp": {
+  "size": [
+   1774,
+   887
+  ],
+  "face": null
+ },
+ "images/S60 Spore Gate.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S60 The Bailiff.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": null
+ },
+ "images/S60 The Lampwright.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   506,
+   140,
+   143,
+   155
+  ]
+ },
+ "images/S60 The Palm.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": null
+ },
+ "images/S60 The Twice-Lit.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   538,
+   98,
+   62,
+   83
+  ]
+ },
+ "images/S60 Tortoise.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S61 Abner.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S61 Bloomhollow.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S61 Chair of Roots.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   497,
+   128,
+   114,
+   136
+  ]
+ },
+ "images/S61 The Old Yard.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S61 The Pitfall.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S61 The Red Wood.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S61 The Ring.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S62 Aldwyn and Briallen.webp": {
+  "size": [
+   1374,
+   1145
+  ],
+  "face": [
+   709,
+   147,
+   116,
+   150
+  ]
+ },
+ "images/S62 Aldwyn.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   490,
+   145,
+   147,
+   187
+  ]
+ },
+ "images/S62 Alys.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   374,
+   156,
+   185,
+   251
+  ]
+ },
+ "images/S62 Amphiale.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S62 Briallen.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   483,
+   178,
+   152,
+   197
+  ]
+ },
+ "images/S62 Edric.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   441,
+   212,
+   178,
+   235
+  ]
+ },
+ "images/S62 Epidaure.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S62 Godwin.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   443,
+   100,
+   153,
+   176
+  ]
+ },
+ "images/S62 Ithake.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S62 Joscelin.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   413,
+   90,
+   182,
+   241
+  ]
+ },
+ "images/S62 Malcius.webp": {
+  "size": [
+   1148,
+   1370
+  ],
+  "face": [
+   488,
+   49,
+   228,
+   289
+  ]
+ },
+ "images/S62 Maren Thane.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   408,
+   94,
+   181,
+   232
+  ]
+ },
+ "images/S62 Pergame.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S62 Rohese.webp": {
+  "size": [
+   1374,
+   1145
+  ],
+  "face": [
+   597,
+   127,
+   155,
+   207
+  ]
+ },
+ "images/S62 Talaris.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   616,
+   92,
+   167,
+   195
+  ]
+ },
+ "images/S62 Tharra.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   613,
+   26,
+   110,
+   135
+  ]
+ },
+ "images/S62 The Bloomhollow.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S62 The Council of Eight.webp": {
+  "size": [
+   1774,
+   887
+  ],
+  "face": [
+   1385,
+   301,
+   55,
+   67
+  ]
+ },
+ "images/S62 The Eldest of the Council.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   451,
+   78,
+   142,
+   180
+  ]
+ },
+ "images/S62 The Great Forest.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S62 The Greenwarder Physician.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   337,
+   123,
+   178,
+   235
+  ]
+ },
+ "images/S62 The Pitfall.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S62 The Square.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S62 The Woman on the Dark Horse.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   343,
+   112,
+   163,
+   218
+  ]
+ },
+ "images/S62 The Young Guard.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   378,
+   179,
+   186,
+   239
+  ]
+ },
+ "images/S62 Wilfrid.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   333,
+   159,
+   137,
+   179
+  ]
+ },
+ "images/S63 Acheront.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S63 Anvil.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S63 Bulette.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S63 Fabrissa.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   531,
+   126,
+   197,
+   235
+  ]
+ },
+ "images/S63 Gaucelm.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   419,
+   91,
+   129,
+   147
+  ]
+ },
+ "images/S63 Guilhem.webp": {
+  "size": [
+   1122,
+   1402
+  ],
+  "face": [
+   420,
+   51,
+   179,
+   236
+  ]
+ },
+ "images/S63 Kaedris.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   354,
+   84,
+   150,
+   193
+  ]
+ },
+ "images/S63 Lemnor.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S63 Mind-Me.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S63 Peire.webp": {
+  "size": [
+   1312,
+   1199
+  ],
+  "face": [
+   483,
+   35,
+   208,
+   245
+  ]
+ },
+ "images/S63 Sicart.webp": {
+  "size": [
+   1312,
+   1199
+  ],
+  "face": [
+   588,
+   57,
+   228,
+   277
+  ]
+ },
+ "images/S63 The Bath-Keeper.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   390,
+   150,
+   177,
+   207
+  ]
+ },
+ "images/S63 The Bone-Setter.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   475,
+   134,
+   154,
+   161
+  ]
+ },
+ "images/S63 The Bookmaker.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   587,
+   125,
+   125,
+   154
+  ]
+ },
+ "images/S63 The Coral Coast.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S63 The Deep Forge.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   1312,
+   607,
+   219,
+   246
+  ]
+ },
+ "images/S63 The Duelling Field.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S63 The Girl from the Harbour.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   407,
+   151,
+   234,
+   295
+  ]
+ },
+ "images/S63 The Old Fisherman.webp": {
+  "size": [
+   1312,
+   1199
+  ],
+  "face": null
+ },
+ "images/S63 The Red-Bearded Giant.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   611,
+   37,
+   113,
+   138
+  ]
+ },
+ "images/S63 Tostig.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   504,
+   45,
+   108,
+   137
+  ]
+ },
+ "images/S63 Ursula.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   389,
+   87,
+   197,
+   252
+  ]
+ },
+ "images/S64 A Blank.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
+ },
+ "images/S64 Aelfthryth.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   462,
+   36,
+   114,
+   137
+  ]
+ },
+ "images/S64 Ambrose.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   384,
+   104,
+   174,
+   227
+  ]
+ },
+ "images/S64 Demelza.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": [
+   640,
+   112,
+   106,
+   145
+  ]
+ },
+ "images/S64 Kenwyn.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   387,
+   107,
+   223,
+   282
+  ]
+ },
+ "images/S64 Mordecai.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   421,
+   134,
+   200,
+   238
+  ]
+ },
+ "images/S64 Queen Elspeth.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   365,
+   66,
+   172,
+   222
+  ]
+ },
+ "images/S64 Simeon.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   382,
+   155,
+   300,
+   379
+  ]
+ },
+ "images/S64 Tabitha.webp": {
+  "size": [
+   1374,
+   1145
+  ],
+  "face": [
+   691,
+   154,
+   243,
+   300
+  ]
+ },
+ "images/S64 The Dragon of the Reef.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S64 The First Knife.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S64 The Giant with the Long Knife.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   538,
+   28,
+   89,
+   111
+  ]
+ },
+ "images/S64 The Granary Lowland.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S64 The Grey Hand.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S64 The Hoarder.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": null
+ },
+ "images/S64 The Roc.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S64 The Steading.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S65 Ceolric.webp": {
+  "size": [
+   1145,
+   1374
+  ],
+  "face": [
+   455,
+   38,
+   98,
+   125
+  ]
+ },
+ "images/S65 Phlegre.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S65 The Barred Town.webp": {
+  "size": [
+   1672,
+   941
+  ],
+  "face": null
+ },
+ "images/S65 The Eel.webp": {
+  "size": [
+   1199,
+   1312
+  ],
+  "face": null
+ },
+ "images/S65 The Forge-Father.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   482,
+   76,
+   88,
+   129
+  ]
+ },
+ "images/S65 The Gate-Warden.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   497,
+   51,
+   114,
+   132
+  ]
+ },
+ "images/S65 The Keeper of the Lots.webp": {
+  "size": [
+   1448,
+   1086
+  ],
+  "face": [
+   683,
+   32,
+   170,
+   240
+  ]
+ },
+ "images/S65 The Old Giant on the Stone.webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": [
+   400,
+   106,
+   122,
+   141
+  ]
+ },
+ "images/S65 The Roach in the Cellar.webp": {
+  "size": [
+   1199,
+   1312
+  ],
+  "face": null
+ },
+ "images/S65 The Singing Coast.webp": {
+  "size": [
+   1536,
+   1024
+  ],
+  "face": null
+ },
+ "images/S65 The Tower in the Sea.webp": {
+  "size": [
+   1199,
+   1312
+  ],
+  "face": null
+ },
+ "images/S65 The Weeper.webp": {
+  "size": [
+   1060,
+   1484
+  ],
+  "face": null
+ },
  "images/Sael.webp": {
   "size": [
    1086,
@@ -2160,6 +3206,13 @@
    148,
    200
   ]
+ },
+ "images/The Dealer (Green Door).webp": {
+  "size": [
+   1024,
+   1536
+  ],
+  "face": null
  },
  "images/The Dealer.webp": {
   "size": [

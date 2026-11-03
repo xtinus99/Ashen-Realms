@@ -45,9 +45,9 @@ Karusa went down alone and came back unnoticed. At the bottom was one coffin, em
 
 The company arrived after six, when the evening reception had already started. His Lordship would not receive new guests halfway through an introduction, Hobb explained, so their reception would be the next evening. At six Hobb escorted them into the ballroom and announced them. Musicians play behind a screen, their bows half a beat behind the music box. About twenty minutes in, Aurelian Velladine came down with his wife and children and greeted his new guests. He let the company stay the night.
 
-<img src="images/S53 Reception.webp" alt="The evening reception at Velladine Manor" class="content-image">
-
 ## When the music stopped
+
+<img src="images/S53 Reception.webp" alt="The evening reception at Velladine Manor" class="content-image">
 
 When the company woke in Session 54 the music box was off, and the house had changed. The rooms were cold and musty. The comfortable beds had become sagging frames and the folded finery brittle grey scraps. Dust lay over the furniture, and where the polish had been there was split plaster and bare stone.
 

@@ -19,8 +19,8 @@ image_alt: The Closed Rank
 - **The Reed-Cutters:** Sszarik, Issik and Varru, a Knuckle team the party met on an ordinary card in Session 55. Farkas killed Issik and Karusa killed Varru. Veezara talked Sszarik into surrendering; then Sszarik looked at his two dead broodmates and killed himself. The next morning a lodge runner came to the Marrow Rest to collect their kit for sale. Between them they had saved four months toward a pilgrimage home.
 - **The Ossuary Concord:** Mera Avrelis, Gautier Brisemont and Vesh, the Ribward's own headline team, 52–7 going in. Each wore an ivory seal at the sternum that let them feel where the others were and take some of the harm meant for one another. They lost the party's Rib promotion match in Session 56. **Mera and Vesh died on the sand; Gautier surrendered** and is the only one left. The Concord closed at 52–8. The company took Mera's Lattice Rod and Vesh's Hooked Gauntlet.
 
-<img src="images/S56 Ossuary Concord.webp" alt="Mera Avrelis, Gautier Brisemont and Vesh of the Ossuary Concord" class="content-image">
-
 ## Card law
+
+<img src="images/S56 Ossuary Concord.webp" alt="Mera Avrelis, Gautier Brisemont and Vesh of the Ossuary Concord" class="content-image">
 
 These were ordinary or promotion matches, not Death Cards. Someone can still die in a lawful bout, but a surrender ends the fight whenever the posted terms allow it.
