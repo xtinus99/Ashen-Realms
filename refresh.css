@@ -1561,3 +1561,19 @@ button.timeline-item {
 .content-body:has(.feats-container) {
     contain: none;
 }
+
+/* The zoom copy is sized to the thumbnail's box, which is often a cropped portrait frame.
+   The copy loses the frame's object-fit, so a wide picture was squeezed into a tall box.
+   Show the whole picture at its true shape inside that box instead. */
+.medium-zoom-image--opened {
+    object-fit: contain !important;
+    object-position: center !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Sovereign pages kept two columns on phones (their sigil rule outranked the narrow-screen one),
+   squeezing the name into a 60px column beside the portrait. Stack them like every other page. */
+@media (max-width: 768px) {
+    .article.has-sigil .article-header.has-lead { grid-template-columns: minmax(0, 1fr); }
+}

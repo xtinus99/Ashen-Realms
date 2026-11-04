@@ -3,7 +3,7 @@
 
 ## Session Overview
 
-- **Party Level:** 12 (Anvil 9, Karusa 13)
+- **Party Level:** 12 (Anvil 10, Karusa 13)
 - **Location:** Acheront, the Long Canal and Demelza's house → the hallway in the wall → the Queen's Hall → the warm strait and the reef → the crossroads where Crownfall will be → Lemnor → the road west → the steading on the giants' high plains
 - **Party Members:** Farkas, Veezara, Anvil, plus Karusa
 - **PC Deaths:** None

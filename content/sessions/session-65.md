@@ -3,7 +3,7 @@
 
 ## Session Overview
 
-- **Party Level:** 12 (Anvil 9, Karusa 14)
+- **Party Level:** 14 (Anvil 11, Karusa 14)
 - **Location:** the giants' steading → down a grey stair into a barred town → west to Phlegre, the Long-Watch forge and the training hall → the Small Hall → a tower in a sea → south to the last rise above the singing coast
 - **Party Members:** Farkas, Veezara, Anvil, plus Karusa
 - **PC Deaths:** None
