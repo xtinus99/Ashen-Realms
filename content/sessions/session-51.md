@@ -1,10 +1,10 @@
-# Session 51 — Legs for Sale
+# Session 51: Legs for Sale
 
 ## Session Overview
 
 - **Party Level:** Farkas, Veezara and Viktor 7; Karusa 8 at opening. All four 9 at close.
 - **Location:** The Marrow Rest → the Marrow Markets → the Bonecage → the Eternal Archive → the Markets
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** A stranger at the inn with his own opinion about the sun, three more arena wins, and two trophies made into something to sell.
 - **Date:** ~late Gorravane, 2,836 AS

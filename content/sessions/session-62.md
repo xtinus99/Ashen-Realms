@@ -1,4 +1,4 @@
-# Session 62 — Heads Will Roll
+# Session 62: Heads Will Roll
 <!-- cover: images/S62 The Square.webp -->
 
 ## Session Overview

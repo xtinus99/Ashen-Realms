@@ -6,7 +6,7 @@
 
 /* --- The drain: full greyscale on the whole document --- */
 /* Filter lives on <html> (the initial containing block) so position:fixed
-   elements keep working — putting it on .app would break the sidebar. */
+   elements keep working. Putting it on .app would break the sidebar. */
 html {
   transition: filter 0.85s ease;
 }
@@ -72,7 +72,7 @@ html.realm-archive {
   margin-top: 0.1rem;
 }
 
-/* In the Archive realm the living-world tools have no meaning — hide them.
+/* In the Archive realm the living-world tools have no meaning: hide them.
    Only the portal link (now "Return to the Living") remains. */
 html.realm-archive #bonds-link,
 html.realm-archive #spells-link {

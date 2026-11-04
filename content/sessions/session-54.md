@@ -1,11 +1,11 @@
-# Session 54 — Mothers and Strangers
+# Session 54: Mothers and Strangers
 <!-- cover: images/S54 Goodknight.webp -->
 
 ## Session Overview
 
 - **Party Level:** 10
 - **Location:** Velladine Manor → the northern Unclaimed → the Outer Folds → Cerebrax and its outskirts
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** The manor's music stops. Two private conversations end in refusals, and the company splits up at Cerebrax's gate.
 - **Date:** ~late Gorravane, 2,836 AS
@@ -27,7 +27,7 @@ Behind the musicians' screen the tune went on, with the players' bows half a bea
 
 Once they'd heard everything they wanted from Aurelian, the company went up to rest. Farkas shared Viktor's room; Veezara and Karusa took the one next door. The waltz followed them upstairs and didn't get any quieter.
 
-### The Bundle — Veezara's Room
+### The Bundle: Veezara's Room
 
 During the rest, Karusa's breath caught. A hard shudder went through her shoulders and arms. Her eyes were closed, and she held a cloth bundle tight against her breastbone. The wrapping slipped far enough to show a small, decayed finger.
 
@@ -93,7 +93,7 @@ At the gate, Viktor tried talking to one of the guards telepathically. The guard
 
 When their turn came, the company paid in gold and was let in. Viktor and Veezara went into the city. Farkas wanted to explore outside instead, and Karusa followed him without his knowing.
 
-### The Man at the Edge — Farkas Outside
+### The Man at the Edge: Farkas Outside
 
 Near the approach, three dog-sized creatures were grinding their way through crystal grit. Their spiral shells had translucent facets, and as they turned, a face or a hand closing a door showed for a moment in the crystal. Farkas went past and left them to it.
 
@@ -113,7 +113,7 @@ Walking on, Farkas saw an eighteen-foot figure of milk-white crystal hovering ac
 
 <img src="images/S54 Crystal Figure.webp" alt="The hovering figure of milk-white crystal Farkas saw on the plain" class="content-image">
 
-### The Woman at the Table — Viktor and Veezara Inside
+### The Woman at the Table: Viktor and Veezara Inside
 
 Viktor got into the Living Stacks by showing the marks of his patron, the Thousand-Celled, and Veezara got in by donating three of his scales. Their entry was good for 26 hours. Going back in after that would take another allowed entry, because the marks and the scales only work once. Under green light, cataloguers worked at crystal tables below high shelves. A stooped woman in black handed a folio back to an attendant, corrected something, and went back to her work.
 

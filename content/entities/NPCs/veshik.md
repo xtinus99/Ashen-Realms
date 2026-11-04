@@ -13,7 +13,7 @@ summary: "**Role:** Runs Veshik's Curiosities on Salvager's Square | **Location:
 
 Ratsby watched Veshik's Curiosities on Salvager's Square for three afternoons before he made the grab in Session 40: a silver ring with a pale stone, off the third shelf. Veshik noticed the empty tray a second too early and hit the alarm-bell behind his counter.
 
-> “Stop him! The ring! He took the ring — somebody stop him!”<br>— Veshik
+> “Stop him! The ring! He took the ring: somebody stop him!”<br>— Veshik
 
 Captain Jawbone brought Ratsby in.
 

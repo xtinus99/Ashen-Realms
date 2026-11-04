@@ -1,10 +1,10 @@
-# Session 58 — Count to Three
+# Session 58: Count to Three
 
 ## Session Overview
 
 - **Party Level:** 12
 - **Location:** Marrowgate → the road north-west toward Cerebrax → Greed (the casino, the grey, the vault in the sinkhole) → somewhere east of Vor'Khalem → Crownfall
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** Swallowed off the Cerebrax road and spat out within sight of a casino in another world, the company robs a vault for a grinning cat, gets dropped home far from the road it was taken from, and picks a next road that gives Karusa a bad night.
 - **Date:** ~late Gorravane, 2,836 AS
@@ -106,7 +106,7 @@ At the far end, a corridor ran between floor-to-ceiling shelves of jarred eyes. 
 
 At the end were three round iron doors in a row, each with a brass face in the middle that wanted to play a game.
 
-The first played higher or lower. They called lower on the seven of hearts and got a king, and the door kept a tooth, painlessly, in a little drawer. Then they called lower three times running (king to ten, ten to seven, seven to five) and it rolled open.
+The first played higher or lower. They called lower on the seven of hearts and got a king, and the door kept a tooth, painlessly, in a little drawer. Then they called lower three times running (king to ten, ten to seven, seven to five), and it rolled open.
 
 The second played the shell game. Veezara missed the first time and the door kept a year of his life. He found the pea on the next go.
 

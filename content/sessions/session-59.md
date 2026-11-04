@@ -1,4 +1,4 @@
-# Session 59 — Gulm Eat First
+# Session 59: Gulm Eat First
 <!-- cover: images/S59 The Still Pond.webp -->
 
 ## Session Overview

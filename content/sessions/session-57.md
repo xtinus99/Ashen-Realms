@@ -1,11 +1,11 @@
-# Session 57 — Dragon's Second Funeral
+# Session 57: Dragon's Second Funeral
 <!-- cover: images/S57 Drey.webp -->
 
 ## Session Overview
 
 - **Party Level:** 11, reaching 12 during the session
 - **Location:** the Ash Yard → west along the north coast → the cave on the north crag → Ribhaven → the Rib Road → Marrowgate and the Bonecage
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** Veezara, briefly; he was brought straight back
 - **Theme:** A carter's sighting leads to a dragon that keeps getting up, a share of its hoard, and a long way home.
 - **Date:** ~late Gorravane, 2,836 AS

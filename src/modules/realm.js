@@ -1,8 +1,8 @@
 // =====================================================
-// REALMS — three compendiums from one dataset:
-//   living  — the present world (full colour)
-//   archive — The Archive of the Dead: what the fallen party gathered (greyscale)
-//   eve     — Behind the Seam: the world on the eve of the Usurpation (sunlit)
+// REALMS: three compendiums from one dataset:
+//   living: the present world (full colour)
+//   archive: the Archive of the Dead, what the fallen party gathered (greyscale)
+//   eve: Before the Usurpation, the world on the eve of the Usurpation (sunlit)
 // =====================================================
 import state from './state.js';
 import { refreshIcons } from './icons.js';
@@ -27,7 +27,7 @@ export function setRealmHandlers(h) { handlers = h; }
 export function getRealm() { return currentRealm; }
 
 // ===== CLASSIFICATION =====
-// Entries that belong to BOTH realms (shared world — public knowledge or
+// Entries that belong to BOTH realms (shared world: public knowledge or
 // still-active in the new party's Crownfall). Everything else in the
 // "encounter" categories defaults to the Archive. New-party content
 // (Party category + Sessions >= 40) is living-only.
@@ -50,7 +50,7 @@ const BOTH_TITLES = new Set([
   'Aethranox and Vaelumbra',
 ]);
 
-// New-party / living-only entries — NPCs the dead party never gathered.
+// New-party / living-only entries: NPCs the dead party never gathered.
 const LIVING_TITLES = new Set([
   'Old Yannis',
 ]);
@@ -339,7 +339,7 @@ export function crossToItem(realm, category, id) {
   });
 }
 
-// Silent enters (no animation) — used when restoring a realm from the URL hash.
+// Silent enters (no animation): used when restoring a realm from the URL hash.
 export function enterArchiveSilent() { applyRealm('archive'); }
 export function enterEveSilent() { applyRealm('eve'); }
 export function enterLivingSilent() { applyRealm('living'); }
@@ -388,7 +388,7 @@ export function showArchiveLanding() {
       <div class="archive-sigil-large"><i data-lucide="skull"></i></div>
       <h1 class="welcome-title archive-title">The Archive of the Dead</h1>
       <p class="welcome-subtitle archive-subtitle">
-        What the fallen gathered, before the maw — the record of those who did not return.
+        What the fallen gathered before the maw: the record of those who did not return.
       </p>
       ${rollcall}
       <div class="welcome-stats">${statsHtml}</div>
@@ -409,7 +409,7 @@ export function showArchiveLanding() {
 export function showEveLanding() {
   state.currentItem = null;
   state.currentCategory = null;
-  document.title = `${EVE_NAME} — The Ashen Realms`;
+  document.title = `${EVE_NAME} | The Ashen Realms`;
 
   document.getElementById('content-body').classList.remove('full-width');
 

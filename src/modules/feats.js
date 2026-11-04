@@ -966,7 +966,7 @@ async function showFeats() {
   content.classList.add('full-width');
   content.innerHTML = '<div class="feats-loading"><span></span><p>Opening the feat ledger…</p></div>';
   window.location.hash = 'feats';
-  document.title = 'The Feat Ledger — The Ashen Realms';
+  document.title = 'The Feat Ledger | The Ashen Realms';
   document.querySelector('meta[name="description"]')?.setAttribute('content', 'Compare every official 2014, official 2024, and Ashen Realms feat in one searchable player index.');
   document.getElementById('breadcrumb').innerHTML = `
     <button type="button" class="breadcrumb-home" onclick="showWelcome()">Compendium</button>

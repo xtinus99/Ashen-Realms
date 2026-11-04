@@ -1,4 +1,4 @@
-# Session 60 — One Thing Each
+# Session 60, One Thing Each
 <!-- cover: images/S60 Tortoise.webp -->
 
 ## Session Overview

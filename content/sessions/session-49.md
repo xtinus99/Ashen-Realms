@@ -1,10 +1,10 @@
-# Session 49 — Splinters on the Sand
+# Session 49: Splinters on the Sand
 
 ## Session Overview
 
 - **Party Level:** 7
 - **Location:** The Pallid Crossroads → the Pallid Waste → Ironwatch Post → the Femur Road → Marrowgate
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** Out of the Waste and into Ossathar, a city that writes down everyone who arrives. Within a day the four of them were on its arena slate as well.
 - **Date:** ~late Gorravane, 2,836 AS

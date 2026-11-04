@@ -12,7 +12,7 @@ const livingTracks = [
 
 // Archive-of-the-Dead playlist (muted realm).
 // PLACEHOLDER: reuses an existing track until a dedicated dead-realm track is
-// dropped into /public — to swap, change the file/name below (e.g. 'Dead.mp3').
+// dropped into /public: to swap, change the file/name below (e.g. 'Dead.mp3').
 const deadTracks = [
   { file: 'Track 2.mp3', name: "Sovereign's Lament" },
 ];
@@ -25,7 +25,7 @@ const eveTracks = [
 // Entry-specific themes replace the ambient playlist while that entry is open.
 // They use the same Audio element, so page music and ambient music can never overlap.
 const pageTrackOverrides = new Map([
-  ['Party/veezara', { file: 'music/Veezara - Blood Theme.mp3', name: 'Veezara — Blood Theme' }],
+  ['Party/veezara', { file: 'music/Veezara - Blood Theme.mp3', name: 'Veezara: Blood Theme' }],
 ]);
 
 let activeTracks = livingTracks;

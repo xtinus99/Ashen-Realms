@@ -3,7 +3,7 @@ import state from './state.js';
 import { openSearchModal, closeSearchModal } from './search.js';
 import { toggleBookmark, showBookmarksList } from './bookmarks.js';
 
-// Handler for showItem — set via setKeyboardHandlers from main entry
+// Handler for showItem: set via setKeyboardHandlers from main entry
 let handlers = {
   showItem: null,
 };

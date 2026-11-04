@@ -12,7 +12,7 @@ export function setNavigationHandlers(h) { handlers = h; }
 
 // Build the inner markup for a nav entry: small portrait (or monogram) + label.
 // Uses a regex (not DOM parse) so we never kick off full-size image loads for
-// every item at startup — only the small thumbnails actually render.
+// every item at startup: only the small thumbnails actually render.
 function navEntryHTML(item) {
     let portrait;
     if (item.image) {
@@ -77,7 +77,7 @@ window.openCrestLightbox = openCrestLightbox;
 // (the rest of the nav-item still navigates to the entry). Mirrors the crest behaviour.
 function wireToken(navItem, item) {
     const m = item.image ? [null, item.image] : null;
-    if (!m) return; // monogram — nothing to enlarge
+    if (!m) return; // monogram: nothing to enlarge
     const token = navItem.querySelector('.nav-item-portrait');
     if (!token) return;
     token.style.cursor = 'zoom-in';

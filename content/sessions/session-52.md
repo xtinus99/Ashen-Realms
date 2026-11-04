@@ -1,10 +1,10 @@
-# Session 52 — Cell by Cell
+# Session 52: Cell by Cell
 
 ## Session Overview
 
 - **Party Level:** 9 at opening; all four 10 at close
 - **Location:** The Marrow Markets → the Bonecage → the Marrow Rest → the Cerebrax road → a tomb in the mountain
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** A surrender on the arena sand, then something much worse inside a mountain. Viktor called for help, got it, and paid for it permanently.
 - **Date:** ~late Gorravane, 2,836 AS

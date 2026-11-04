@@ -219,7 +219,7 @@
         859
       ],
       "type": "city",
-      "description": "Once an independent junction town in the Unclaimed — burned to the ground by Kaedris; its survivors fled to Crownfall's refugee quarter."
+      "description": "Once an independent junction town in the Unclaimed, burned to the ground by Kaedris; its survivors fled to Crownfall's refugee quarter."
     },
     {
       "id": "thornwall",
@@ -260,7 +260,7 @@
         783
       ],
       "type": "landmark",
-      "description": "A cave system in the coastal cliffs of the Unclaimed, named for the deep hollow boom the waves drive through it. The last forge and resting place of a Bastion smith who defected from Kaedris — his smoldering remnant haunted the depths.",
+      "description": "A cave system in the coastal cliffs of the Unclaimed, named for the deep hollow boom the waves drive through it. The last forge and resting place of a Bastion smith who defected from Kaedris: his smoldering remnant haunted the depths.",
       "link": {
         "category": "Locations",
         "id": "the-hollow"
@@ -294,7 +294,7 @@
         563
       ],
       "type": "landmark",
-      "description": "Bone bridge spanning a deep chasm — the only practical crossing between the central Unclaimed and the Left Hand.",
+      "description": "Bone bridge spanning a deep chasm: the only practical crossing between the central Unclaimed and the Left Hand.",
       "link": {
         "category": "Locations",
         "id": "the-reach"
@@ -308,7 +308,7 @@
         591
       ],
       "type": "landmark",
-      "description": "Fallen spire of dimensional catastrophe — a grounded derelict on the western Unclaimed plain. The tower nobody returns from.",
+      "description": "Fallen spire of dimensional catastrophe: a grounded derelict on the western Unclaimed plain. The tower nobody returns from.",
       "link": {
         "category": "Locations",
         "id": "the-hexwrights-tower"
@@ -356,7 +356,7 @@
     },
     {
       "id": "left-hand-southern-coast",
-      "name": "Left Hand — Southern Coast",
+      "name": "Left Hand: Southern Coast",
       "coords": [
         444,
         532
@@ -372,7 +372,7 @@
         503
       ],
       "type": "landmark",
-      "description": "Pre-Usurpation Aedwynn-built temple in the deep Left Hand jungle. Still active — a figment of the Maker rests beneath the nave.",
+      "description": "Pre-Usurpation Aedwynn-built temple in the deep Left Hand jungle. Still active: a figment of the Maker rests beneath the nave.",
       "link": {
         "category": "Locations",
         "id": "the-basilica-of-the-unincarnate"
@@ -387,7 +387,7 @@
         1121
       ],
       "type": "landmark",
-      "description": "Hidden remnant-hold of the giants in the deep eastern Unclaimed — what is left of the old giant kingdoms, off every census, where no Sovereign reaches. Farkas's homeland."
+      "description": "Hidden remnant-hold of the giants in the deep eastern Unclaimed: what is left of the old giant kingdoms, off every census, where no Sovereign reaches. Farkas's homeland."
     },
     {
       "id": "the-drowned-caravel",

@@ -11,7 +11,7 @@ summary: "**Where:** east of Spore Gate in the Blooming Rot, the last fort befor
 ---
 ## The fort
 
-A wall of living thorn, head-high and woven tight, with a gap for a gate. Behind it a huge hollow fruit-body serves as the keep, with smokeless glow-light in its doorways and hammocks slung high under its ribbed ceiling. Fungus towers rise out of the forest around it like chimneys.
+A wall of living thorn, head-high and woven tight, with a gap for a gate. Behind it a huge hollow fruit-body is the keep, with smokeless glow-light in its doorways and hammocks slung high under its ribbed ceiling. Fungus towers rise out of the forest around it like chimneys.
 
 ## Its garrison
 

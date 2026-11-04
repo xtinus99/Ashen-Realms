@@ -1,6 +1,6 @@
 // =====================================================
 // THE ASHEN REALMS - Interactive Compendium
-// Entry Point — Vite ES Module Build
+// Entry Point: Vite ES Module Build
 // =====================================================
 
 // Latin-only WOFF2 font faces.
@@ -161,7 +161,7 @@ function showWelcome() {
   }
   state.currentItem = null;
   state.currentCategory = null;
-  document.title = 'The Ashen Realms — Player Compendium';
+  document.title = 'The Ashen Realms | Player Compendium';
   document.querySelector('meta[name="description"]')?.setAttribute('content', 'A chronicle of thirteen thrones built on the corpse of a murdered god, and those who dare to walk between them.');
 
   initSmoothScroll();

@@ -1,10 +1,10 @@
-# Session 56 — Laughter in the Skull
+# Session 56: Laughter in the Skull
 
 ## Session Overview
 
 - **Party Level:** 11
 - **Location:** Marrowgate → Last Tally → Calvaria → Last Tally → the Northern Containment
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** The company make Rib, find a city of pilgrims waiting to be chosen, and get one look inside the northern dome.
 - **Date:** ~late Gorravane, 2,836 AS

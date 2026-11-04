@@ -1,10 +1,10 @@
-# Session 53 — The Manor on the Periphery
+# Session 53: The Manor on the Periphery
 
 ## Session Overview
 
 - **Party Level:** 10
 - **Location:** Outside the tomb in the mountain → the Cerebraxward road → Velladine Manor
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** Lit windows off an empty road, and a household still keeping a date from another age.
 - **Date:** ~late Gorravane, 2,836 AS

@@ -1,11 +1,11 @@
-# Session 50 — I'll Be Back
+# Session 50: I'll Be Back
 <!-- cover: images/The Pallbearer.webp -->
 
 ## Session Overview
 
 - **Party Level:** 7; Karusa reaches Rogue 8
 - **Location:** The Marrow Rest → the Bonecage → the Eternal Archive → the Marrow Markets → the Marrow Rest
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa)
 - **PC Deaths:** None
 - **Theme:** Three wins and a promotion to Knuckle. The Pallbearer came back for another try at Vortegas, and a guard suggested they look north.
 - **Date:** ~late Gorravane, 2,836 AS

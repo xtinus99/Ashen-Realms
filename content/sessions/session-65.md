@@ -1,4 +1,4 @@
-# Session 65 — The Apple of His Eye
+# Session 65: The Apple of His Eye
 <!-- cover: images/S65 The Weeper.webp -->
 
 ## Session Overview
@@ -65,7 +65,7 @@ The company short rested at the steading, then went on west across the high plai
 
 <img src="images/S65 The Gate-Warden.webp" alt="A huge giant gate-warden with a staff standing in a great stone gateway" class="content-image">
 
-At the gate the warden, Ecgbert Gate-Stone, stopped them: "Whose word brings you to Phlegre?" He let them through under the king's law that small folk are guests ("Small ones are guests here. That is the king's law.") and told them they'd sleep at the Small Hall, "the only door you can reach."
+At the gate the warden, Ecgbert Gate-Stone, stopped them: "Whose word brings you to Phlegre?" He let them through under the king's law that small folk are guests ("Small ones are guests here. That is the king's law."), and told them they'd sleep at the Small Hall, "the only door you can reach."
 
 ### The Long-Watch forge
 

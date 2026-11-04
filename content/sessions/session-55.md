@@ -1,10 +1,10 @@
-# Session 55 — Designation, O.R.V.E.K
+# Session 55: Designation, O.R.V.E.K
 
 ## Session Overview
 
 - **Party Level:** 10, reaching 11 by session close
 - **Location:** Cerebrax → Marrowgate → Last Tally → a weaver cave → Marrowgate
-- **Party Members:** Farkas, Veezara, Viktor — plus Karusa; O.R.V.E.K accompanies the northern journey
+- **Party Members:** Farkas, Veezara, Viktor (plus Karusa); O.R.V.E.K accompanies the northern journey
 - **PC Deaths:** None
 - **Theme:** A traveller's medicine errand takes the company into the skull-country, and then three more cards drag them back to the sand.
 - **Date:** ~late Gorravane, 2,836 AS

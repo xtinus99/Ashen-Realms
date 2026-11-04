@@ -1,5 +1,5 @@
 /* =====================================================
-   THE CODEX — ornate sidebar navigation
+   THE CODEX: ornate sidebar navigation
    Loaded after style.css; .sidebar-scoped so it wins.
    The unfurl (max-height) animation lives in style.css
    and is intentionally left intact.
@@ -241,7 +241,7 @@
   background: rgba(232, 192, 64, 0.6);
 }
 
-/* ---------- Portrait entries — faces in the tree ---------- */
+/* ---------- Portrait entries: faces in the tree ---------- */
 .sidebar .nav-item.has-portrait {
   display: flex;
   align-items: center;

@@ -563,7 +563,7 @@ export async function showItem(categoryName, itemStub, navElement = null, skipHa
         window.scrollTo({ top: 0, behavior: scrollBehavior() });
     }
 
-    document.title = `${item.title} — The Ashen Realms`;
+    document.title = `${item.title} | The Ashen Realms`;
     const description = (item.raw || '').replace(/\s+/g, ' ').trim().slice(0, 155);
     document.querySelector('meta[name="description"]')?.setAttribute('content', description || 'The Ashen Realms Player Compendium');
     const recent = JSON.parse(localStorage.getItem('recentArticles') || '[]')
@@ -587,7 +587,7 @@ export async function initWorldMap(contentBody) {
         worldMapInstance = null;
     }
 
-    // Create iframe container — isolates the map from all website CSS/JS
+    // Create iframe container: isolates the map from all website CSS/JS
     const mapContainer = document.createElement('div');
     mapContainer.id = 'world-map-container';
     mapContainer.setAttribute('data-lenis-prevent', '');
@@ -1066,10 +1066,10 @@ export function navigateToItem(targetName) {
         showItem(categoryName, item, navItem);
     };
 
-    // Pass 1 — exact id or exact (normalized) title. This stops short names like
+    // Pass 1: exact id or exact (normalized) title. This stops short names like
     // "Mor" from being swallowed by a longer substring match ("...Morrow").
     let hit = all.find(([, item]) => item.id === targetName || norm(item.title) === normalizedTarget);
-    // Pass 2 — loose substring fallback (original behaviour) for partial mentions.
+    // Pass 2: loose substring fallback (original behaviour) for partial mentions.
     if (!hit) {
         hit = all.find(([, item]) => {
             const ni = norm(item.title);
@@ -1080,7 +1080,7 @@ export function navigateToItem(targetName) {
     if (hit) { go(hit); return; }
 
     // Not found - show subtle notification
-    showNotification(`"${targetName}" is not in the compendium — it may be hidden knowledge.`);
+    showNotification(`"${targetName}" is not in the compendium. It may be hidden knowledge.`);
 }
 
 // Assign to window for onclick handlers in innerHTML

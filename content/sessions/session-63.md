@@ -1,4 +1,4 @@
-# Session 63 — Struck in Bronze
+# Session 63: Struck in Bronze
 <!-- cover: images/S63 The Deep Forge.webp -->
 
 ## Session Overview

@@ -1,4 +1,4 @@
-# Session 61 — Blood in the Pond
+# Session 61: Blood in the Pond
 <!-- cover: images/S61 The Red Wood.webp -->
 
 ## Session Overview

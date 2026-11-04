@@ -1,4 +1,4 @@
-# Session 64 — Grey Anatomy
+# Session 64: Grey Anatomy
 <!-- cover: images/S64 The Hoarder.webp -->
 
 ## Session Overview
