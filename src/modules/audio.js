@@ -17,11 +17,9 @@ const deadTracks = [
   { file: 'Track 2.mp3', name: "Sovereign's Lament" },
 ];
 
-// The eve's playlist (Behind the Seam).
-// PLACEHOLDER: reuses an existing track until the eve gets its own; swap the
-// file/name below once one is in /public.
+// The playlist Before the Usurpation (the DM's pick, 2026-11-04).
 const eveTracks = [
-  { file: 'Track 5.mp3', name: 'Echoes of the Maker' },
+  { file: 'music/Abandoned Palace Garden.mp3', name: 'Abandoned Palace Garden' },
 ];
 
 // Entry-specific themes replace the ambient playlist while that entry is open.
