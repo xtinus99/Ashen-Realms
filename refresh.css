@@ -1577,3 +1577,366 @@ button.timeline-item {
 @media (max-width: 768px) {
     .article.has-sigil .article-header.has-lead { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ===== The portal door to Before the Usurpation (2026-11-04) =====
+   Everything here animates transform or opacity only, and the busy parts run only on hover. */
+.portal-ring {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+.eve-gate .portal-ring { width: 30px; height: 30px; }
+.portal-ring::before {               /* the ring: a turning band of gold light */
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #fff3cf, #e2c46c 22%, rgba(226, 196, 108, 0.08) 48%, #f3d98c 70%, #fff3cf);
+    -webkit-mask: radial-gradient(circle, transparent 54%, #000 58%, #000 71%, transparent 75%);
+            mask: radial-gradient(circle, transparent 54%, #000 58%, #000 71%, transparent 75%);
+    animation: portal-turn 7s linear infinite;
+}
+.portal-ring::after {                /* the halo that wakes on hover */
+    content: "";
+    position: absolute;
+    inset: -70%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 214, 120, 0.32), rgba(255, 214, 120, 0) 62%);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+.portal-ring-core {
+    position: absolute;
+    inset: 24%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fffbe9 0%, rgba(255, 226, 140, 0.6) 40%, rgba(226, 196, 108, 0) 72%);
+    opacity: 0.6;
+    transform: scale(0.85);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.portal-mote {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 3px;
+    height: 3px;
+    margin: -1.5px;
+    border-radius: 50%;
+    background: #fff1c2;
+    box-shadow: 0 0 4px #ffd977;
+    opacity: 0;
+}
+:is(.eve-portal-link, .eve-gate):is(:hover, :focus-visible) .portal-ring::before { animation-duration: 1.4s; }
+:is(.eve-portal-link, .eve-gate):is(:hover, :focus-visible) .portal-ring::after { opacity: 1; transform: scale(1); }
+:is(.eve-portal-link, .eve-gate):is(:hover, :focus-visible) .portal-ring-core { opacity: 1; transform: scale(1.18); }
+:is(.eve-portal-link, .eve-gate):is(:hover, :focus-visible) .portal-mote {
+    animation: portal-mote 1.6s ease-out infinite;
+    animation-delay: calc(var(--i) * 0.32s);
+}
+@keyframes portal-turn { to { transform: rotate(360deg); } }
+@keyframes portal-mote {
+    0%   { opacity: 0; transform: rotate(calc(var(--i) * 72deg)) translateX(4px) scale(0.6); }
+    25%  { opacity: 1; }
+    100% { opacity: 0; transform: rotate(calc(var(--i) * 72deg + 50deg)) translateX(20px) scale(0.2); }
+}
+
+/* A band of light sweeps across the door while it's hovered */
+.eve-portal-link,
+.eve-gate { position: relative; overflow: hidden; }
+.eve-portal-link::after,
+.eve-gate::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 236, 170, 0.12) 46%, rgba(255, 250, 225, 0.24) 50%, rgba(255, 236, 170, 0.12) 54%, transparent 65%);
+    transform: translateX(-110%);
+}
+:is(.eve-portal-link, .eve-gate):is(:hover, :focus-visible)::after { animation: portal-sweep 2.4s ease-in-out infinite; }
+@keyframes portal-sweep {
+    0%        { transform: translateX(-110%); }
+    55%, 100% { transform: translateX(110%); }
+}
+.eve-portal-link:hover,
+.eve-gate:hover { box-shadow: inset 0 0 0 1px rgba(226, 196, 108, 0.16); }
+
+@media (prefers-reduced-motion: reduce) {
+    .portal-ring::before,
+    .portal-mote,
+    .eve-portal-link::after,
+    .eve-gate::after { animation: none !important; }
+}
+
+/* The crossing into Before the Usurpation: a seam of light opens down the middle of the screen */
+.portal-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    overflow: hidden;
+    pointer-events: all;
+}
+.seam-dim {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(8, 6, 2, 0.35) 0%, rgba(4, 3, 1, 0.82) 70%, rgba(2, 2, 1, 0.92) 100%);
+}
+.seam-glow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150vmax;
+    height: 150vmax;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    background: radial-gradient(circle, rgba(255, 238, 190, 0.5) 0%, rgba(255, 220, 140, 0.18) 22%, rgba(255, 205, 120, 0.05) 40%, rgba(255, 200, 110, 0) 56%);
+    will-change: transform, opacity;
+}
+.seam-column {
+    position: absolute;
+    left: 50%;
+    top: -10%;
+    width: 70vw;
+    height: 120%;
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0.02);
+    background: linear-gradient(to right,
+        rgba(255, 228, 160, 0) 0%,
+        rgba(255, 236, 185, 0.22) 22%,
+        rgba(255, 244, 214, 0.65) 40%,
+        rgba(255, 252, 240, 0.95) 50%,
+        rgba(255, 244, 214, 0.65) 60%,
+        rgba(255, 236, 185, 0.22) 78%,
+        rgba(255, 228, 160, 0) 100%);
+    -webkit-mask: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+            mask: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    will-change: transform, opacity;
+}
+.seam-line {
+    position: absolute;
+    left: 50%;
+    top: 4%;
+    bottom: 4%;
+    width: 2px;
+    margin-left: -1px;
+    transform: scaleY(0);
+    background: linear-gradient(to bottom, rgba(255, 250, 232, 0) 0%, #fffbea 20%, #ffffff 50%, #fffbea 80%, rgba(255, 250, 232, 0) 100%);
+    box-shadow: 0 0 10px 2px rgba(255, 236, 170, 0.85), 0 0 36px 8px rgba(255, 214, 120, 0.45);
+    will-change: transform, opacity;
+}
+.seam-motes {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+.portal-flash {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background: radial-gradient(ellipse at 50% 45%, #fffdf6 0%, #fbf0d2 40%, #ecd49a 80%, #d9bc72 100%);
+}
+.portal-words {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 0 1rem;
+    text-align: center;
+    opacity: 0;
+}
+.portal-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4.2vw, 3rem);
+    letter-spacing: 0.26em;
+    color: #5a4614;
+    text-shadow: 0 0 28px rgba(255, 255, 255, 0.85);
+    opacity: 0;
+}
+.portal-subtitle {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    letter-spacing: 0.12em;
+    color: #7a6430;
+    opacity: 0;
+}
+
+/* The tear is drawn by one full-screen canvas */
+.portal-gl canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.portal-gl .portal-title { color: #fff7e2; text-shadow: 0 2px 30px rgba(36, 22, 4, 0.6), 0 0 3px rgba(36, 22, 4, 0.35); }
+.portal-gl .portal-subtitle { color: #fbecc8; text-shadow: 0 1px 18px rgba(36, 22, 4, 0.65); }
+/* Titles over the burn and the smoke */
+.portal-gl.words-ember .realm-transition-title { color: #e9cf96; text-shadow: 0 0 26px rgba(255, 120, 30, 0.35); }
+.portal-gl.words-ember .realm-transition-sub { color: #a88d62; }
+.portal-gl.words-living .realm-transition-title { color: #ead6a4; text-shadow: 0 0 26px rgba(255, 190, 90, 0.28); }
+
+/* Crossings carry no words (DM, 2026-11-04) */
+.portal-transition .portal-words,
+.realm-transition .realm-transition-inner { display: none !important; }
+
+/* The Maw of Meaning: while the crossing's sprites stand in for the page's words */
+html.maw-hide-text .app,
+html.maw-hide-text .app * {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: none !important;
+}
+html.maw-hide-text .app ::placeholder { color: transparent !important; }
+/* gradient-gold titles are painted by their background, so they hide this way */
+html.maw-hide-text [data-maw-hidden] { opacity: 0 !important; }
+/* no colour fades while the sprites hand the words back (they made the text blink) */
+html.maw-still .app,
+html.maw-still .app * { transition: none !important; }
+
+/* ===== The Archive's door: a small Maw of Meaning instead of the skull =====
+   Uneven folds of the throat sink toward a dark middle inside a ring of crooked fangs.
+   Hovered, it opens and the door's letters lean in toward it. Inside the Archive it is shut. */
+.archive-portal-link,
+.archive-gate,
+.archive-gate:hover { filter: none; }
+.maw-icon {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex: none;
+    border-radius: 50%;
+    background: radial-gradient(circle, #000 0%, #0b0405 32%, #24100f 64%, #3b1b19 100%);
+    transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.55s ease;
+}
+.archive-gate .maw-icon { width: 30px; height: 30px; }
+.maw-throat {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, #000 0%, #0a0304 26%, #220e0d 56%, #3c1b19 80%, #4a2420 100%);
+    box-shadow: inset 0 1px 1px rgba(205, 150, 136, 0.30), inset 0 0 0 1px rgba(30, 10, 10, 0.9);
+}
+.maw-icon svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.maw-folds { transition: opacity 0.45s ease; }
+.maw-folds.quick { opacity: 0; }
+.maw-fold {
+    fill: none;
+    stroke: rgba(150, 86, 76, 0.85);
+    stroke-width: 2.2;
+    transform-origin: 20px 20px;
+    opacity: 0;
+    animation: maw-sink 3.6s linear infinite;
+    animation-delay: calc(var(--i) * -0.9s);
+}
+.maw-fold:nth-child(2n) { stroke: rgba(118, 62, 56, 0.85); }
+.maw-folds.quick .maw-fold {
+    animation-duration: 1.3s;
+    animation-delay: calc(var(--i) * -0.325s);
+    animation-play-state: paused;
+}
+@keyframes maw-sink {            /* each fold shrinks and turns as if further down the throat */
+    0%   { transform: scale(1) rotate(0deg);      opacity: 0; }
+    12%  { opacity: 1; }
+    33%  { transform: scale(0.46) rotate(40deg); }
+    66%  { transform: scale(0.21) rotate(80deg);  opacity: 0.55; }
+    100% { transform: scale(0.07) rotate(120deg); opacity: 0; }
+}
+.maw-lip { transform-origin: 20px 20px; animation: portal-turn 6s linear infinite reverse; animation-play-state: paused; }
+.maw-gum { fill: none; stroke: #2b100e; stroke-width: 2.4; }
+.maw-fangs {
+    transform-origin: 20px 20px;
+    stroke: rgba(36, 14, 12, 0.7);
+    stroke-width: 0.5;
+    animation: portal-turn 60s linear infinite;
+}
+
+/* hovered: the maw opens, the throat runs faster, and the letters lean in */
+:is(.archive-portal-link:not(.returning), .archive-gate):is(:hover, :focus-visible) .maw-icon {
+    transform: scale(1.28);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.75), 0 0 16px 4px rgba(110, 30, 26, 0.2);
+}
+:is(.archive-portal-link:not(.returning), .archive-gate):is(:hover, :focus-visible) .maw-folds.slow { opacity: 0; }
+:is(.archive-portal-link:not(.returning), .archive-gate):is(:hover, :focus-visible) .maw-folds.quick { opacity: 1; }
+:is(.archive-portal-link:not(.returning), .archive-gate):is(:hover, :focus-visible) .maw-folds.quick .maw-fold,
+:is(.archive-portal-link:not(.returning), .archive-gate):is(:hover, :focus-visible) .maw-lip { animation-play-state: running; }
+
+.maw-word { white-space: nowrap; }
+.maw-ch {
+    display: inline-block;
+    transform-origin: 50% 85%;
+    transition: transform 0.6s cubic-bezier(0.3, 0.7, 0.2, 1), opacity 0.6s ease;
+    transition-delay: calc(var(--k) * 16ms);
+}
+:is(.archive-portal-link:not(.returning), .archive-gate):is(:hover, :focus-visible) .maw-ch {
+    transform: translateX(calc(var(--pull) * -5px)) skewX(calc(var(--pull) * 20deg));
+    opacity: calc(1 - var(--pull) * 0.35);
+    animation: maw-tug 1.5s ease-in-out infinite alternate;
+    animation-delay: calc(var(--k) * 60ms);
+}
+@keyframes maw-tug {             /* a slow tug while the maw is open */
+    from { translate: 0 0; }
+    to   { translate: calc(var(--pull) * -1.6px) 0; }
+}
+
+/* inside the Archive the door is a disc of ash coming apart: the way out (see ash.js) */
+.ash-icon {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+.ash-icon svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ash-piece {
+    stroke: rgba(20, 19, 18, 0.7);
+    stroke-width: 0.4;
+    transition: transform 0.7s cubic-bezier(0.3, 0.7, 0.2, 1), opacity 0.7s ease;
+}
+.ash-mote {
+    fill: #8d8881;
+    opacity: 0;
+    animation: ash-drift 3.4s linear infinite;
+    animation-delay: calc(var(--i) * -0.85s);
+}
+@keyframes ash-drift {
+    0%   { transform: translate(0, 0); opacity: 0; }
+    15%  { opacity: 0.85; }
+    100% { transform: translate(15px, 5px); opacity: 0; }
+}
+.archive-portal-link.returning:is(:hover, :focus-visible) .ash-piece.loose {
+    transform: translate(calc(var(--d) * 3.2px), calc(var(--d) * 1.6px)) rotate(calc(var(--d) * 9deg));
+    opacity: 0.6;
+}
+.archive-portal-link.returning:is(:hover, :focus-visible) .ash-mote { animation-duration: 1.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .maw-icon, .maw-fold, .maw-lip, .maw-fangs, .maw-ch, .ash-mote { animation: none !important; }
+    .maw-folds.slow .maw-fold { opacity: 0.8; transform: scale(calc(1 - var(--i) * 0.22)); }
+    .maw-ch { transform: none !important; }
+}
+
+/* Through the seam: the far side's picture settles into the eve page's own first picture */
+.portal-settle-shade { position: absolute; inset: 0; }
+.portal-settle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.portal-settle img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.16);
+}

@@ -15,6 +15,8 @@ import 'tippy.js/animations/shift-away.css';
 import state from './modules/state.js';
 import { loadCampaignNow } from './modules/data-store.js';
 import { refreshIcons } from './modules/icons.js';
+import { portalRingHtml } from './modules/portal.js';
+import { mawIconHtml, mawLettersHtml } from './modules/maw.js';
 import { initAudio, setupAudioControls, setPageAudioTrack } from './modules/audio.js';
 import { setupLightbox, attachImageZoom, getAvatarPath } from './modules/images.js';
 import { initParticles } from './modules/particles.js';
@@ -281,15 +283,15 @@ function showWelcome() {
       <div class="welcome-stats" style="--stat-rows: ${statRows}">
         ${statsHtml}
       </div>
-      <button class="archive-gate" type="button" onclick="enterArchiveRealm()">
-        <div class="gate-icon"><i data-lucide="skull"></i></div>
+      <button class="archive-gate" type="button" onclick="enterArchiveRealm()" aria-label="The Archive of the Dead: cross over">
+        <div class="gate-icon">${mawIconHtml()}</div>
         <div class="gate-text">
-          <div class="gate-title">The Archive of the Dead</div>
+          <div class="gate-title">${mawLettersHtml('The Archive of the Dead')}</div>
           <div class="gate-sub">What the fallen gathered, before the maw. Cross over &rarr;</div>
         </div>
       </button>
-      ${hasEveContent() ? `<button class="eve-gate" type="button" onclick="enterEveRealm()">
-        <div class="gate-icon"><i data-lucide="sunrise"></i></div>
+      ${hasEveContent() ? `<button class="eve-gate" type="button" onclick="enterEveRealm(this)">
+        <div class="gate-icon">${portalRingHtml()}</div>
         <div class="gate-text">
           <div class="gate-title">${EVE_NAME}</div>
           <div class="gate-sub">Through the seam. Cross over &rarr;</div>

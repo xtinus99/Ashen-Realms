@@ -10,6 +10,9 @@ import { setAudioRealm } from './audio.js';
 import { setParticleRealm } from './particles.js';
 import { getThumbnailPath } from './images.js';
 import { prefersReducedMotion, scrollBehavior } from './smooth-scroll.js';
+import { playPortal, playBurn, portalRingHtml, preloadPortal } from './portal.js';
+import { playMaw, mawIconHtml, mawLettersHtml, warmMaw } from './maw.js';
+import { playAsh, ashIconHtml, warmAsh } from './ash.js';
 
 let currentRealm = 'living';
 let handlers = {}; // { buildNavigation, showWelcome, navigateToItemById }
@@ -167,6 +170,10 @@ export function applyRealm(realm, { rebuildNav = true } = {}) {
   setParticleRealm(realm);
   if (rebuildNav && handlers.buildNavigation) handlers.buildNavigation();
   updatePortalLinks();
+  // get the way out of here ready while nothing else is happening
+  const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 1200));
+  if (realm === 'archive') idle(() => warmAsh());
+  else if (realm === 'living') idle(() => warmMaw());
 }
 
 // The two sidebar doors. In the present both show (the eve's only once it has
@@ -177,14 +184,16 @@ function updatePortalLinks() {
     archive.hidden = currentRealm === 'eve';
     if (currentRealm === 'archive') {
       archive.classList.add('returning');
+      archive.setAttribute('aria-label', 'Return to the Living: leave the archive');
       archive.innerHTML = `
-        <i data-lucide="arrow-left"></i>
+        ${ashIconHtml()}
         <span>Return to the Living<span class="portal-sub">Leave the archive</span></span>`;
     } else {
       archive.classList.remove('returning');
+      archive.setAttribute('aria-label', 'The Archive of the Dead: what the fallen gathered');
       archive.innerHTML = `
-        <i data-lucide="skull"></i>
-        <span>The Archive of the Dead<span class="portal-sub">What the fallen gathered</span></span>`;
+        ${mawIconHtml()}
+        <span>${mawLettersHtml('The Archive of the Dead')}<span class="portal-sub">What the fallen gathered</span></span>`;
     }
   }
   const eve = document.getElementById('eve-link');
@@ -198,7 +207,7 @@ function updatePortalLinks() {
     } else {
       eve.classList.remove('returning');
       eve.innerHTML = `
-        <i data-lucide="sunrise"></i>
+        ${portalRingHtml()}
         <span>${EVE_NAME}<span class="portal-sub">Through the seam</span></span>`;
     }
   }
@@ -276,13 +285,25 @@ function playCrossing(toRealm, onMidpoint) {
 }
 
 // Cross into a realm with the transition, then run `then` on the far side.
-function crossTo(toRealm, then) {
+function crossTo(toRealm, then, originEl) {
   if (currentRealm === toRealm) { if (then) then(); return; }
-  playCrossing(toRealm, () => {
+  const arrive = () => {
     applyRealm(toRealm);
     if (then) then();
     document.getElementById('sidebar').classList.remove('open');
-  });
+  };
+  // Each crossing has its own: a seam of light into the past, the past burning away on the
+  // way back, the Maw of Meaning into the dead, and the Archive crumbling to ash on the way out. The plain fade is for reduced motion and old devices.
+  if (!prefersReducedMotion()) {
+    if (toRealm === 'eve') {
+      playPortal(originEl, { title: '', sub: '' }, arrive);
+      return;
+    }
+    if (toRealm === 'archive' && playMaw(0, arrive)) return;
+    if (toRealm === 'living' && currentRealm === 'archive' && playAsh(arrive)) return;
+    if (toRealm === 'living' && currentRealm === 'eve' && playBurn(arrive)) return;
+  }
+  playCrossing(toRealm, arrive);
 }
 
 // ===== ENTER / EXIT =====
@@ -294,12 +315,12 @@ export function enterArchive() {
   });
 }
 
-export function enterEve() {
+export function enterEve(originEl) {
   if (currentRealm === 'eve') return;
   crossTo('eve', () => {
     showEveLanding();
     window.location.hash = EVE_HASH;
-  });
+  }, originEl);
 }
 
 // Back to the present, from either realm.
@@ -504,7 +525,7 @@ export function setupArchiveEntries() {
     eve.addEventListener('click', (e) => {
       e.preventDefault();
       if (currentRealm === 'eve') exitArchive();
-      else enterEve();
+      else enterEve(eve);
     });
   }
   const ret = document.getElementById('realm-return');
@@ -514,6 +535,15 @@ export function setupArchiveEntries() {
       exitArchive();
     });
   }
+  // Fetch the far side's picture as soon as someone reaches for the door
+  // (pointerover for a mouse, pointerdown for a finger on a phone)
+  const reach = (e) => {
+    if (e.target.closest?.('.eve-portal-link:not(.returning), .eve-gate')) preloadPortal();
+    if (e.target.closest?.('#archive-link:not(.returning), .archive-gate')) warmMaw();
+    if (e.target.closest?.('#archive-link.returning, .archive-return-btn')) warmAsh();
+  };
+  document.addEventListener('pointerover', reach, { passive: true });
+  document.addEventListener('pointerdown', reach, { passive: true });
   updatePortalLinks();
 }
 
